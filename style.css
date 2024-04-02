@@ -608,7 +608,7 @@ body{
 	margin-top:150px;
 }
 .slider .single-slider h1 {
-	color: #2C2D3F;
+	color: #c6ab34;
 	font-size: 38px;
 	font-weight: 700;
 	margin: 0;
@@ -638,7 +638,7 @@ body{
 	margin:0;
 }
 .slider .single-slider .btn.primary{
-	background:#2C2D3F;
+	background:#ceab11;
 	color:#fff;
 }
 .slider .single-slider .btn.primary:before{
