@@ -4175,6 +4175,19 @@ body{
 	display:inline-block;
 	margin-left:4px;
 }
+
+
+.partners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partners img {
+    width: 100px; /* Cambia este valor según el tamaño deseado */
+    height: auto;
+    margin: 5px; /* Espacio entre las imágenes */
+}
 /*=========================
 	End Footer CSS
 ===========================*/
