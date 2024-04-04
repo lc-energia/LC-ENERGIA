@@ -6,10 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono = $_POST["phone"];
     $indirizzo = $_POST["indirizzo"];
     $immagine_aerea = $_POST["immagine_aerea_edificio"];
-    $consumo_energia = $_POST["consumo_energia"];
+    $consumo_energia = $_POST["consumo_kWh_annuo_spesa_mensile_energia_opzionale"];
 
     // Configurar los detalles del correo electrónico
-    $destinatario = "info@lc-energia.it"; // Cambia esto al correo electrónico al que deseas enviar el formulario
+    $destinatario = "correo@example.com"; // Cambia esto al correo electrónico al que deseas enviar el formulario
     $asunto = "Nuevo mensaje de formulario";
 
     // Construir el cuerpo del mensaje
@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Error: Método no permitido.";
 }
 ?>
+
 
 
 
