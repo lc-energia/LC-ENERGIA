@@ -4188,6 +4188,18 @@ body{
     height: auto;
     margin: 5px; /* Espacio entre las imágenes */
 }
+
+/* Media query para dispositivos con ancho de pantalla menor a 768px (tamaño de tabletas y teléfonos) */
+@media screen and (max-width: 768px) {
+    .partners {
+        flex-wrap: wrap; /* Permite que las imágenes se envuelvan en una nueva línea */
+    }
+
+    .partners img {
+        max-width: calc(50% - 10px); /* Tamaño máximo del 50% del contenedor, con margen */
+        margin: 5px; /* Espacio entre las imágenes */
+    }
+}
 /*=========================
 	End Footer CSS
 ===========================*/
