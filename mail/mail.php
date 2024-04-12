@@ -1,35 +1,39 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recoger los datos del formulario
-    $nombre = $_POST["name"];
-    $email = $_POST["email"];
-    $telefono = $_POST["phone"];
-    $indirizzo = $_POST["indirizzo"];
-    $immagine_aerea = $_POST["immagine_aerea_edificio"];
-    $consumo_energia = $_POST["consumo_kWh_annuo_spesa_mensile_energia_opzionale"];
+// Recoge los datos del formulario
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$indirizzo = $_POST['indirizzo'];
+$immagine_aerea_edificio = $_POST['immagine_aerea_edificio'];
+$consumo_kWh_annuo_spesa_mensile_energia_opzionale = $_POST['consumo_kWh_annuo_spesa_mensile_energia_opzionale'];
 
-    // Configurar los detalles del correo electrónico
-    $destinatario = "info@lc-energia.it"; // Cambia esto al correo electrónico al que deseas enviar el formulario
-    $asunto = "Nuevo mensaje de formulario";
+// Construye el mensaje de correo electrónico
+$email_message = "
+Name: ".$name."\n
+Email: ".$email."\n
+Phone: ".$phone."\n
+Indirizzo: ".$indirizzo."\n
+Immagine Aerea Edificio (Opzionale): ".$immagine_aerea_edificio."\n
+Consumo kWh/annuo/ Spesa Mensile Energia (Opzionale): ".$consumo_kWh_annuo_spesa_mensile_energia_opzionale."\n
+";
 
-    // Construir el cuerpo del mensaje
-    $mensaje = "Nombre: $nombre\n";
-    $mensaje .= "Email: $email\n";
-    $mensaje .= "Teléfono: $telefono\n";
-    $mensaje .= "Indirizzo: $indirizzo\n";
-    $mensaje .= "Immagine aerea edificio (opzionale): $immagine_aerea\n";
-    $mensaje .= "Consumo kWh/annuo/ spesa mensile energia (opzionale): $consumo_energia\n";
+// Sanitiza la dirección de correo electrónico
+$cleaned_email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-    // Enviar el correo electrónico
-    if (mail($destinatario, $asunto, $mensaje)) {
-        echo "El formulario ha sido enviado correctamente.";
+// Verifica si la dirección de correo electrónico es válida
+if (filter_var($cleaned_email, FILTER_VALIDATE_EMAIL)) {
+    // Envía el correo electrónico
+    if (mail("info@lc-energia.it", "New Message", $email_message)) {
+        header("location: ../mail-success.html");
+        exit();
     } else {
-        echo "Hubo un error al enviar el formulario.";
+        echo "Error al enviar el correo electrónico.";
     }
 } else {
-    echo "Error: Método no permitido.";
+    echo "Dirección de correo electrónico no válida.";
 }
 ?>
+
 
 
 
