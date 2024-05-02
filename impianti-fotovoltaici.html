@@ -290,7 +290,7 @@
 
 					
 							
-					<!-- <section class="contact-us section">
+					<!--/ <section class="contact-us section">
 					<div class="inner">
 					<div class="row"> 
 						
@@ -299,7 +299,7 @@
 								<h2>RICHIEDI  UN PREVENTIVO</h2>
 							
 
-								<form class="form" method="post" action="mail/mail.php">
+								<form class="form" action="mail.php" method="POST">
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
@@ -346,8 +346,58 @@
 					</div>
 				</div> 
 							
-			</section>	-->		
-						
+			</section> -->
+
+			<section class="contact-us section">
+				<div class="inner">
+					<div class="row"> 
+						<div class="col-lg-12">
+							<div class="contact-us-form">
+								<h2>RICHIEDI UN PREVENTIVO</h2>
+								<p>Per richiedere un preventivo, ti invitiamo a contattarci direttamente via email all'indirizzo <a href="mailto:info@lc-energia.it">info@lc-energia.it</a>. Puoi utilizzare questa struttura per inviarci i tuoi dettagli:</p>
+								<div id="copy-container" style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; position: relative;">
+									<ul id="copy-details">
+										<li>Nome:</li>
+										<li>Email:</li>
+										<li>Telefono:</li>
+										<li>Indirizzo:</li>
+										<li>Immagine aerea edificio (opzionale):</li>
+										<li>Consumo kWh/annuo o spesa mensile energia (opzionale):</li>
+									</ul>
+									<button id="copy-button" style="position: absolute; top: 10px; right: 10px;" onclick="copyDetails()">Copia Dettagli</button>
+								</div>
+								<div id="copy-success" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+									Dettagli copiati con successo!
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> 
+			</section>
+			
+			<script>
+				function copyDetails() {
+					var details = document.getElementById("copy-details");
+					var range = document.createRange();
+					range.selectNode(details);
+					window.getSelection().removeAllRanges();
+					window.getSelection().addRange(range);
+					document.execCommand("copy");
+					window.getSelection().removeAllRanges();
+					showCopySuccess();
+				}
+			
+				function showCopySuccess() {
+					var copySuccess = document.getElementById("copy-success");
+					copySuccess.style.display = "block";
+					setTimeout(function() {
+						copySuccess.style.display = "none";
+					}, 2000); // Oculta el mensaje después de 2 segundos (2000 milisegundos)
+				}
+			</script>
+			
+			
+			
 							
 					
 					
