@@ -215,38 +215,7 @@
     }
 }
 
-/* Modo oscuro automático y ajustes WCAG */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-    }
-    
-    .text-primary {
-        color: #4dabf7 !important;
-    }
-    
-    .btn-primary {
-        background-color: #1971c2;
-        border-color: #1971c2;
-    }
-    
-    /* Ajustes de contraste */
-    :root {
-        --primary: #F49918;
-        --light: #F6F7F8;
-        --dark: #1A2A36;
-    }
-    
-    .header-carousel .owl-dots .owl-dot {
-        background: #333333;
-        box-shadow: 0 0 30px rgba(51, 51, 51, 0.9);
-    }
-    
-    .page-header {
-        background: linear-gradient(rgba(14, 145, 201, 0.6), rgba(202, 215, 22, 0.7)), url(../img/slider1.png) center center no-repeat;
-    }
-}
+
 
 
 /*** Header ***/
