@@ -56,6 +56,7 @@
         dots: true,
         items: 1,
         dotsData: true,
+        autoplayHoverPause: true // Added this line
     });
 
 
@@ -78,7 +79,8 @@
             768:{
                 items:2
             }
-        }
+        },
+        autoplayHoverPause: true // Added this line
     });
 
 
