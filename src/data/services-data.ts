@@ -192,12 +192,28 @@ export const servicesData: { [key: string]: ServiceData } = {
       {
         title: 'Servizi Offerti',
         content: 'Offriamo una gamma completa di servizi per la prevenzione incendi, tra cui:',
-        list: [
-          'Ottenimento delle autorizzazioni dei Comandi VVF, anche eventualmente con istanza di deroga.',
-          'Progettazione architettonica di prevenzione incendi.',
-          'Progettazione impiantistica antincendio.',
-          'Certificazione di manufatti, impianti e strutture edilizie.',
-        ],
+        features: [
+          {
+            title: 'Autorizzazioni VVF',
+            description: 'Ottenimento delle autorizzazioni dei Comandi VVF, anche eventualmente con istanza di deroga.',
+            icon: 'fa-file-signature',
+          },
+          {
+            title: 'Progettazione Architettonica',
+            description: 'Progettazione architettonica di prevenzione incendi.',
+            icon: 'fa-building',
+          },
+          {
+            title: 'Progettazione Impiantistica',
+            description: 'Progettazione impiantistica antincendio.',
+            icon: 'fa-fire-extinguisher',
+          },
+          {
+            title: 'Certificazione Manufatti',
+            description: 'Certificazione di manufatti, impianti e strutture edilizie.',
+            icon: 'fa-certificate',
+          },
+        ]
       },
      
     ],

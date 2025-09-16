@@ -31,7 +31,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           if (section.modes || section.features) {
             const items = section.modes || section.features;
             let featureCardColumnClass = 'col-lg-4 col-md-6';
-            if (slug === 'progettazione-acustica') {
+            if (slug === 'progettazione-acustica' || slug === 'progettazione-antincendio') {
               featureCardColumnClass = 'col-lg-6 col-md-6';
             }
             return (
