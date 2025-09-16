@@ -2,6 +2,9 @@ import { Open_Sans, Roboto } from 'next/font/google';
 import { metadata } from './metadata';
 import AppInitializer from '@/components/AppInitializer';
 import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import Script from 'next/script';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -42,8 +45,15 @@ export default function RootLayout({
         <link href="/css/style.css" rel="stylesheet" />
       </head>
       <body>
-        <AppInitializer>{children}</AppInitializer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></script>
+        <Navbar />
+        {children}
+        <Footer />
+        <Script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

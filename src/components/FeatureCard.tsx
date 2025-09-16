@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { FC } from 'react';
 
@@ -11,7 +11,7 @@ interface Feature {
 
 interface FeatureCardProps {
   feature: Feature;
-  variants: any;
+  variants: Variants;
   i: number;
   columnClass: string;
 }
