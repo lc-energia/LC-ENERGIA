@@ -18,8 +18,8 @@ const About = () => {
             className="w-full lg:w-1/2 flex items-center py-12 px-4 sm:px-6 lg:px-8"
           >
             <div>
-              <h6 className="text-primary font-bold text-lg">Azienda</h6>
-              <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-6 text-dark">Il valore dell’esperienza per l’efficienza ed il risparmio energetico</h1>
+              <h6 className="text-primary">Eccellenza nella Riqualificazione Energetica e Progettazione Tecnologica</h6>
+              <h1 className="mb-4">Perché scegliere LC Energia?</h1>
               <p className="text-gray-600 leading-relaxed">
                 LC ENERGIA è una società ingegneristica composta da tecnici qualificati con esperienza trentennale nel campo della consulenza, progettazione e realizzazione impiantistica civile e industriale. <br /> <br />
                                 Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all’avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.  <br /> <br />

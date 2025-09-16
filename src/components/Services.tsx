@@ -60,15 +60,15 @@ const Services = () => {
     {
       filter: "first",
       icon: "fa-tools",
-      title: "Diagnosi Energetica",
-      description: "LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell’efficienza energetica.",
+      title: "Diagnosi Energetica e Riqualificazione Centrali Termiche",
+      description: "Attraverso la nostra esperienza e con i software di calcolo possiamo identificare le principali criticità del sistema edificio/impianto al fine di valutare e proporre soluzioni sostenibili per la riqualificazione energetica sotto il profilo tecnico/economico.",
       link: "/riqualificazione-di-centrali-termiche-esistenti"
     },
     {
       filter: "second",
       icon: "fa-lightbulb",
       title: "Stazioni di Ricarica",
-      description: "Caricare l'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.",
+      description: "Attraverso la nostra esperienza e con i software di calcolo possiamo identificare le principali criticità del sistema edificio/impianto al fine di valutare e proporre soluzioni sostenibili per la riqualificazione energetica sotto il profilo tecnico/economico.",
       link: "/stazioni-di-ricarica"
     }
   ];

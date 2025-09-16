@@ -21,7 +21,7 @@ const AziendaPage = () => {
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h6 className="text-primary font-bold text-lg">Azienda</h6>
-            <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 text-dark">Il valore dell&apos;esperienza per l&apos;efficienza ed il risparmio energetico</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 text-dark">Il valore dell’esperienza per l’efficienza ed il risparmio energetico</h1>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -58,7 +58,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <h6 className="text-primary font-bold text-lg">Produzione di energia pulita per salvare l&apos;ambiente</h6>
+            <h6 className="text-primary font-bold text-lg">Produzione di energia pulita per salvare l’ambiente</h6>
             <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 text-dark">I motivi per scegliere LC Energia</h1>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -109,6 +109,16 @@ const AziendaPage = () => {
       {/* Team Section */}
       <section className="py-16 sm:py-20 bg-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="testimonial-item text-center">
+              <div className="testimonial-text text-center rounded p-4">
+                  <p>Iscritti ai rispettivi Albi Professionali Provinciali <br />
+                      Certificatori Energetici di cui al D.G.R. 8/5018 – 20.07.2007 <br />
+                      Accreditati Energy Building Manager, Regione Lombardia ai sensi del D.G.R. VIII/8355 del 5 Novembre 2008 <br />
+                      Iscritti nell’elenco dei progettisti antincendio del Ministero dell’Interno di cui al D.Lgs n.139/2006 (ex Legge 818/84) <br />
+                      Verificatori in materia di sicurezza degli impianti ai sensi del DM 22/1/08 n. 37 <br />
+                      Consulenti tecnici del Tribunale di Monza</p>
+              </div>
+          </div>
           <motion.div
             variants={fadeIn('up', 0.2)}
             initial="hidden"

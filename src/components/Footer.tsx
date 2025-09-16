@@ -23,6 +23,7 @@ const Footer = () => {
               <Image src="/img/logo.png" alt="LC Energia Logo" width={150} height={50} />
             </Link>
             <p className="mb-4">P.iva 04115680136</p>
+            <h5 class="text-white mb-4">Linkedin</h5>
             <div className="flex space-x-2">
               <a 
                 className="w-10 h-10 border border-light rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-colors" 
@@ -67,7 +68,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="border-t border-gray-700 py-6">
           <div className="text-center text-sm">
-            &copy; {new Date().getFullYear()} <a className="hover:text-primary transition-colors" href="#">LC Energia</a>. Tutti i diritti riservati.
+            &copy; <a href="#">LC Energia</a>, 2024. 
           </div>
         </div>
       </div>

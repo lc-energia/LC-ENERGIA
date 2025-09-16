@@ -18,9 +18,9 @@ export interface ServiceData {
 
 export const servicesData: { [key: string]: ServiceData } = {
   'progettare-il-risparmio-energetico': {
-    title: 'Progettare il risparmio energetico',
-    breadcrumb: 'Progettare il risparmio energetico',
-    introduction: 'LC Energia propone costantemente soluzioni tecniche innovative per ottenere il massimo risparmio energetico dai sistemi progettati.',
+    title: 'Progettare il Risparmio Energetico',
+    breadcrumb: 'Progettare il Risparmio Energetico',
+    introduction: 'L’obiettivo del risparmio energetico è perseguibile solo attraverso competenze specifiche.',
     sections: [
       {
         title: 'Competenze Specifiche',
@@ -36,7 +36,7 @@ export const servicesData: { [key: string]: ServiceData } = {
         content: 'Numerosi strumenti tecnici e finanziari sono oggi a disposizione del fruitore interessato ai temi della sostenibilità, con la possibilità di effettuare investimenti per l’efficienza energetica sfruttando gli incentivi governativi.',
       },
       {
-        title: 'Supporto e Consulenza',
+        title: '',
         content: 'LC Energia offre supporto e consulenza per orientarsi nel panorama degli incentivi e realizzare progetti di efficienza energetica in modo ottimale.',
       },
     ],
@@ -44,11 +44,11 @@ export const servicesData: { [key: string]: ServiceData } = {
   'impianti-fotovoltaici': {
     title: 'Impianti Fotovoltaici',
     breadcrumb: 'Impianti Fotovoltaici',
-    introduction: 'Progettiamo e installiamo impianti fotovoltaici \'chiavi in mano\'',
+    introduction: 'IL NOSTRO INTERVENTO<br>Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" partendo da una valutazione preliminare che considera i seguenti elementi di base:',
     sections: [
       {
-        title: 'Valutazione Preliminare',
-        content: 'Partendo da una valutazione preliminare che considera i seguenti elementi di base:',
+        title: '',
+        content: '',
         list: [
           'Consumo annuo dell\'utenza',
           'Spazio disponibile',
@@ -89,18 +89,8 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettazione-e-consulenza-tecnica': {
     title: 'Progettazione e consulenza tecnica',
     breadcrumb: 'Progettazione e consulenza tecnica',
-    introduction: 'Da oltre 25 anni offriamo un servizio di consulenza, progettazione e supporto nelle realizzazioni impiantistiche civili ed industriali. Ogni soluzione è valutata e condivisa nel rispetto delle esigenze del committente.',
+    introduction: 'Nella realizzazione di opere impiantistiche vi è la necessità di gestire le diverse fasi operative in modo da coordinare lo svolgimento dei lavori e garantire la funzionalità del prodotto finale.',
     sections: [
-      {
-        title: 'Progettazione e consulenza tecnica',
-        content: 'LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:',
-        list: [
-          'Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.',
-          'Definizione della tipologia di impianto in relazione alla struttura, con sistemi di controllo e monitoraggio on-site e remoto.',
-          'Assistenza ai lavori per perseguire e conseguire il risultato previsto nelle fasi di progettazione ed esecuzione.',
-          'Assistenza al collaudo delle opere e la loro certificazione.',
-        ],
-      },
       {
         title: 'Impianti Elettrici',
         content: '',
@@ -123,6 +113,16 @@ export const servicesData: { [key: string]: ServiceData } = {
           'Impianti alimentati da fonti rinnovabili (geotermia, solare termico termodinamico/fotovoltaico)',
           'Impianti di cogenerazione',
           'Impianti a biomassa',
+        ],
+      },
+      {
+        title: 'Progettazione e consulenza tecnica',
+        content: 'LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:',
+        list: [
+          'Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.',
+          'Definizione della tipologia di impianto in relazione alla struttura, con sistemi di controllo e monitoraggio on-site e remoto.',
+          'Assistenza ai lavori per perseguire e conseguire il risultato previsto nelle fasi di progettazione ed esecuzione.',
+          'Assistenza al collaudo delle opere e la loro certificazione.',
         ],
       },
       {
@@ -152,10 +152,14 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'contabilizzazione-calore-impianti-termici-centralizzati': {
-    title: 'Contabilizzazione e ripartizione del calore',
+    title: 'Contabilizzazione e Ripartizione del Calore',
     breadcrumb: 'Contabilizzazione e Ripartizione del Calore',
-    introduction: 'Progettiamo sistemi di contabilizzazione e ripartizione del calore per edifici costituiti da più unità immobiliari.',
+    introduction: 'Sistemi di contabilizzazione e ripartizione del calore',
     sections: [
+      {
+        title: '',
+        content: 'In Italia fino a pochi anni orsono la ripartizione delle spese di riscaldamento, nei condomini dotati di impianto centralizzato, avveniva prevalentemente a millesimi di riscaldamento indipendentemente dall’effettivo utilizzo del singolo condomino.',
+      },
       {
         title: 'Tecnologia Avanzata',
         content: 'Negli ultimi decenni, con l\'avvento della tecnologia, è possibile misurare il calore effettivo prelevato da un impianto termico centralizzato per riscaldare la propria unità immobiliare.',
@@ -167,9 +171,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     ],
   },
   'progettazione-antincendio': {
-    title: 'Progettazione Antincendio',
-    breadcrumb: 'Progettazione Antincendio',
-    introduction: 'LC Energia offre consulenza e progettazione antincendio, con impianti di estinzione fissi ad idranti e sprinkler, evacuatori di fumo e calore.',
+    title: 'Progettazione Prevenzioni Incendi',
+    breadcrumb: 'Progettazione Prevenzioni Incendi',
+    introduction: 'Siamo specializzati nella redazione di pratiche per l’ottenimento del Certificato di Prevenzione Incendi o S.C.I.A. presso i Comandi Provinciali dei Vigili del Fuoco.',
     sections: [
       {
         title: 'Servizi Offerti',
@@ -194,7 +198,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettazione-acustica': {
     title: 'Progettazione Acustica',
     breadcrumb: 'Progettazione Acustica',
-    introduction: 'L\'inquinamento acustico rappresenta uno dei problemi più rilevanti per la società attuale e per le attività produttive; esso è definito dalla Legge Quadro 447/95.',
+    introduction: 'LC Energia offre una consulenza specifica per il settore acustico con la redazione delle pratiche di valutazione del clima acustico.',
     sections: [
       {
         title: 'Isolamento da Rumori',
@@ -246,7 +250,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'stazioni-di-ricarica': {
     title: 'Stazioni di Ricarica',
     breadcrumb: 'Stazioni di Ricarica',
-introduction: 'Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
+    introduction: 'STAZIONI DI RICARICA<br>Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
     sections: [
       {
         title: 'Vantaggi',
@@ -270,7 +274,7 @@ introduction: 'Caricare l\'auto direttamente a casa, invece che nelle stazioni d
   'riqualificazione-di-centrali-termiche-esistenti': {
     title: 'Riqualificazione di centrali termiche esistenti',
     breadcrumb: 'Riqualificazione di centrali termiche esistenti',
-    introduction: 'LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica.',
+    introduction: 'Riqualificazione di centrali termiche esistenti<br>LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica.',
     sections: [
       {
         title: '',
