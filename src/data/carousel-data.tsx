@@ -7,7 +7,7 @@ export const carouselData = [
   },
   {
     img: '/img/3.png',
-    title: 'Pionieri dell'Energia Solare e Rinnovabile',
+    title: "Pionieri dell'Energia Solare e Rinnovabile",
     text: 'Ogni progetto è studiato su misura per soddisfare le tue esigenze. Scopri le migliori soluzioni per il tuo impianto, offriamo consulenza e supporto tecnico a 360 gradi garantendo la massima qualità in ogni dettaglio',
     link: '/impianti-fotovoltaici'
   },
@@ -34,7 +34,7 @@ export const testimonialData = [
   },
   {
     type: 'text',
-    text: 'Impegnati per l'ambiente e l'efficienza energetica.',
+    text: "Impegnati per l'ambiente e l'efficienza energetica.",
   },
   {
     type: 'text',
