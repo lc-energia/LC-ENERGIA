@@ -26,6 +26,14 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
         <p className="lead" dangerouslySetInnerHTML={{ __html: service.introduction }}></p>
       </div>
 
+      {service.mainFeatures && (
+        <div className="row g-4 justify-content-center mb-5">
+          {service.mainFeatures.map((feature, i) => (
+            <FeatureCard key={i} feature={feature} variants={cardVariants} i={i} columnClass="col-lg-3 col-md-6" />
+          ))}
+        </div>
+      )}
+
       <div className="row g-4 justify-content-center">
         {slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
           <div className="col-lg-12">
