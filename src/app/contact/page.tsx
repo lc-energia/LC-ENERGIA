@@ -1,7 +1,5 @@
 'use client';
 import PageHeader from '@/components/PageHeader';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/variants';
 
 const ContactPage = () => {
 

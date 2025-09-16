@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { FC } from 'react';
 
 interface SimpleTextCardProps {
   text: string;
-  variants: any;
+  variants: Variants;
   i: number;
   columnClass: string;
 }

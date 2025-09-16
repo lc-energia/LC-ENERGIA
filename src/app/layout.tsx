@@ -1,6 +1,5 @@
 import { Open_Sans, Roboto } from 'next/font/google';
 import { metadata } from './metadata';
-import AppInitializer from '@/components/AppInitializer';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -32,16 +31,20 @@ export default function RootLayout({
         <link rel="icon" href="/img/logo.ico" />
         
         {/* Icon Font Stylesheet */}
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
         {/* Libraries Stylesheet */}
 
 
         {/* Customized Bootstrap Stylesheet */}
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
 
         {/* Template Stylesheet */}
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link href="/css/style.css" rel="stylesheet" />
       </head>
       <body>

@@ -1,8 +1,6 @@
 'use client';
 import PageHeader from '@/components/PageHeader';
 import { accreditations } from '@/data/azienda-data';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/variants';
 import Link from 'next/link';
 
 const AccreditationsPage = () => {
