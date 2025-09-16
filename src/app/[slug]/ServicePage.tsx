@@ -27,70 +27,81 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
       </div>
 
       <div className="row g-4 justify-content-center">
-        {service.sections.map((section, i) => {
-          if (section.modes || section.features) {
-            const items = section.modes || section.features;
-            let featureCardColumnClass = 'col-lg-4 col-md-6';
-            if (slug === 'progettazione-acustica' || slug === 'progettazione-antincendio') {
-              featureCardColumnClass = 'col-lg-6 col-md-6';
+        {slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
+          <div className="col-lg-12">
+            {service.sections.map((section, i) => (
+              <div key={i} className="mb-5">
+                {section.title && <h2 className="mb-3">{section.title}</h2>}
+                <p>{section.content}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          service.sections.map((section, i) => {
+            if (section.modes || section.features) {
+              const items = section.modes || section.features;
+              let featureCardColumnClass = 'col-lg-4 col-md-6';
+              if (slug === 'progettazione-acustica' || slug === 'progettazione-antincendio') {
+                featureCardColumnClass = 'col-lg-6 col-md-6';
+              }
+              return (
+                <div className="col-12" key={i}>
+                  <div className="row justify-content-center g-4">
+                    <div className="col-lg-12 text-center mb-4">
+                      <h2>{section.title}</h2>
+                    </div>
+                    {items?.map((item, j) => (
+                      <FeatureCard key={j} feature={item} variants={cardVariants} i={i + j} columnClass={featureCardColumnClass} />
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+            if (section.title === 'FAQ') {
+              return <FaqAccordion key={i} section={section} />;
+            }
+            let columnClass = section.fullWidth ? 'col-lg-12' : 'col-lg-4 col-md-6';
+            if (slug === 'impianti-geotermici' && !section.fullWidth) {
+              columnClass = 'col-lg-6 col-md-6';
             }
             return (
-              <div className="col-12" key={i}>
-                <div className="row justify-content-center g-4">
-                  <div className="col-lg-12 text-center mb-4">
-                    <h2>{section.title}</h2>
-                  </div>
-                  {items?.map((item, j) => (
-                    <FeatureCard key={j} feature={item} variants={cardVariants} i={i + j} columnClass={featureCardColumnClass} />
-                  ))}
-                </div>
-              </div>
-            );
-          }
-          if (section.title === 'FAQ') {
-            return <FaqAccordion key={i} section={section} />;
-          }
-          let columnClass = section.fullWidth ? 'col-lg-12' : 'col-lg-4 col-md-6';
-          if (slug === 'impianti-geotermici' && !section.fullWidth) {
-            columnClass = 'col-lg-6 col-md-6';
-          }
-          return (
-            <motion.div
-              key={i}
-              className={columnClass}
-              custom={i}
-              initial="hidden"
-              animate="visible"
-              variants={cardVariants}
-            >
-              <div className="card h-100 shadow-sm border-0">
-                <div className="card-body p-4">
-                  <div className="d-flex align-items-center mb-3">
-                    {!section.hideLogo && (
-                      <div className="flex-shrink-0">
-                        <Image src="/img/logo.png" alt="icon" width={40} height={40} style={{ height: 'auto' }} />
+              <motion.div
+                key={i}
+                className={columnClass}
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={cardVariants}
+              >
+                <div className="card h-100 shadow-sm border-0">
+                  <div className="card-body p-4">
+                    <div className="d-flex align-items-center mb-3">
+                      {!section.hideLogo && (
+                        <div className="flex-shrink-0">
+                          <Image src="/img/logo.png" alt="icon" width={40} height={40} style={{ height: 'auto' }} />
+                        </div>
+                      )}
+                      <div className="flex-grow-1 ms-3">
+                        <h5 className="card-title mb-0">{section.title}</h5>
                       </div>
-                    )}
-                    <div className="flex-grow-1 ms-3">
-                      <h5 className="card-title mb-0">{section.title}</h5>
                     </div>
+                    <p className="card-text">{section.content}</p>
+                    {section.list && (
+                      <ul className="list-unstyled mb-0">
+                        {section.list.map((item, j) => (
+                          <li key={j} className="d-flex align-items-start mb-2">
+                            <i className="fa fa-check-circle text-primary mt-1 me-2"></i>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
-                  <p className="card-text">{section.content}</p>
-                  {section.list && (
-                    <ul className="list-unstyled mb-0">
-                      {section.list.map((item, j) => (
-                        <li key={j} className="d-flex align-items-start mb-2">
-                          <i className="fa fa-check-circle text-primary mt-1 me-2"></i>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </div>
-              </div>
-            </motion.div>
-          );
-        })}
+              </motion.div>
+            );
+          })
+        )}
       </div>
 
       {service.partners && (
