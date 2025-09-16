@@ -1,13 +1,24 @@
 
+export interface Section {
+  title: string;
+  content: string;
+  list?: string[];
+  modes?: {
+    title: string;
+    description: string;
+    image: string;
+  }[];
+  questions?: {
+    question: string;
+    answer: string;
+  }[];
+}
+
 export interface ServiceData {
   title: string;
   breadcrumb: string;
   introduction: string;
-  sections: {
-    title: string;
-    content: string;
-    list?: string[];
-  }[];
+  sections: Section[];
   partnersTitle?: string;
   partnersIntroduction?: string;
   partners?: {
@@ -250,23 +261,41 @@ export const servicesData: { [key: string]: ServiceData } = {
   'stazioni-di-ricarica': {
     title: 'Stazioni di Ricarica',
     breadcrumb: 'Stazioni di Ricarica',
-    introduction: 'STAZIONI DI RICARICA<br>Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
+    introduction: 'Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
     sections: [
       {
         title: 'Vantaggi',
         content: 'La potenza erogata da una stazione domestica consente di raggiungere una maggiore velocità di ricarica, rispetto all’utilizzo delle normali prese elettriche. Inoltre, attivando la funzione Dynamic Power Management (che rappresenta un\'opzione indispensabile nelle installazioni residenziali in cui la potenza disponibile è limitata), si consente al wall box di modulare la corrente destinata alla ricarica del veicolo elettrico basandosi sul consumo istantaneo di tutti gli elettrodomestici, tenendo anche in considerazione la corrente generata da pannelli fotovoltaici o altre fonti rinnovabili, (se presenti). Una volta attivata la funzione Dynamic Power Management, è possibile scegliere tra 3 diverse modalità di funzionamento: Full, EcoSmart e EcoPlus.',
       },
       {
-        title: 'FAQ',
-        content: 'Come ricaricare la tua auto con la nostra stazione di ricarica innovativa? La nostra stazione di ricarica offre la possibilità di caricare la tua auto in modo intelligente. Quando è attiva la funzione Dynamic Power Management, è possibile scegliere tra 3 diverse modalità di funzionamento: Full, Ecosmart e Ecoplus.',
-      },
-      {
         title: 'Modalità di Funzionamento',
         content: '',
-        list: [
-          'FULL Mode: Ricarica alla massima potenza, in base alla richiesta energetica del veicolo. Utilizza sia la potenza disponibile dalla rete che quella generata dall\'impianto locale di produzione da fonte rinnovabile (se presente).',
-          'ECOSMART: Utilizza la potenza generata dalla fonte rinnovabile più un contributo minimo proveniente dalla rete. La percentuale proveniente dalla rete è predefinita e può essere incrementata dall\'utente per garantire continuità di carica.',
-          'ECOPLUS: Utilizza solo la potenza derivante da un impianto di produzione locale da fonte rinnovabile. La carica è totalmente dipendente dalla potenza generata e può essere soggetta a sospensioni.',
+                modes: [
+          {
+            title: 'FULL Mode',
+            description: 'Ricarica alla massima potenza, in base alla richiesta energetica del veicolo. Utilizza sia la potenza disponibile dalla rete che quella generata dall\'impianto locale di produzione da fonte rinnovabile (se presente).',
+            image: '/img/full.png',
+          },
+          {
+            title: 'ECOSMART',
+            description: 'Utilizza la potenza generata dalla fonte rinnovabile più un contributo minimo proveniente dalla rete. La percentuale proveniente dalla rete è predefinita e può essere incrementata dall\'utente per garantire continuità di carica.',
+            image: '/img/ecosmart.png',
+          },
+          {
+            title: 'ECOPLUS',
+            description: 'Utilizza solo la potenza derivante da un impianto di produzione locale da fonte rinnovabile. La carica è totalmente dipendente dalla potenza generata e può essere soggetta a sospensioni.',
+            image: '/img/ecoplus.png',
+          },
+        ],
+      },
+      {
+        title: 'FAQ',
+        content: '',
+        questions: [
+          {
+            question: 'Come ricaricare la tua auto con la nostra stazione di ricarica innovativa?',
+            answer: 'La nostra stazione di ricarica offre la possibilità di caricare la tua auto in modo intelligente. Quando è attiva la funzione Dynamic Power Management, è possibile scegliere tra 3 diverse modalità di funzionamento: Full, Ecosmart e Ecoplus.',
+          },
         ],
       },
     ],
