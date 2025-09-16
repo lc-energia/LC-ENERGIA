@@ -23,7 +23,7 @@ const Footer = () => {
               <Image src="/img/logo.png" alt="LC Energia Logo" width={150} height={50} />
             </Link>
             <p className="mb-4">P.iva 04115680136</p>
-            <h5 class="text-white mb-4">Linkedin</h5>
+            <h5 className="text-white mb-4">Linkedin</h5>
             <div className="flex space-x-2">
               <a 
                 className="w-10 h-10 border border-light rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-colors" 
