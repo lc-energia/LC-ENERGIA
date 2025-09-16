@@ -1,10 +1,9 @@
-
 'use client';
 import ServicePageLayout from '@/components/ServicePageLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ServiceData } from '@/data/services-data';
-import OperatingModeCard from '@/components/OperatingModeCard';
+import FeatureCard from '@/components/FeatureCard';
 import FaqAccordion from '@/components/FaqAccordion';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
@@ -29,15 +28,20 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
 
       <div className="row g-4 justify-content-center">
         {service.sections.map((section, i) => {
-          if (section.title === 'Modalità di Funzionamento') {
+          if (section.modes || section.features) {
+            const items = section.modes || section.features;
+            let featureCardColumnClass = 'col-lg-4 col-md-6';
+            if (slug === 'progettazione-acustica') {
+              featureCardColumnClass = 'col-lg-6 col-md-6';
+            }
             return (
               <div className="col-12" key={i}>
                 <div className="row justify-content-center g-4">
                   <div className="col-lg-12 text-center mb-4">
                     <h2>{section.title}</h2>
                   </div>
-                  {section.modes?.map((mode, j) => (
-                    <OperatingModeCard key={j} mode={mode} variants={cardVariants} i={i + j} />
+                  {items?.map((item, j) => (
+                    <FeatureCard key={j} feature={item} variants={cardVariants} i={i + j} columnClass={featureCardColumnClass} />
                   ))}
                 </div>
               </div>

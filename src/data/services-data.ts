@@ -10,6 +10,11 @@ export interface Section {
     description: string;
     image: string;
   }[];
+  features?: {
+    title: string;
+    description: string;
+    icon: string;
+  }[];
   questions?: {
     question: string;
     answer: string;
@@ -33,7 +38,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettare-il-risparmio-energetico': {
     title: 'Progettare il Risparmio Energetico',
     breadcrumb: 'Progettare il Risparmio Energetico',
-    introduction: 'L’obiettivo del risparmio energetico è perseguibile solo attraverso competenze specifiche.',
+    introduction: 'L’obiettivo del risparmio energetico è perseguibile solo attraverso competenze specifiche.<br><br>LC Energia offre supporto e consulenza per orientarsi nel panorama degli incentivi e realizzare progetti di efficienza energetica in modo ottimale.',
     sections: [
       {
         title: 'Competenze Specifiche',
@@ -47,10 +52,6 @@ export const servicesData: { [key: string]: ServiceData } = {
       {
         title: 'Strumenti e Incentivi',
         content: 'Numerosi strumenti tecnici e finanziari sono oggi a disposizione del fruitore interessato ai temi della sostenibilità, con la possibilità di effettuare investimenti per l’efficienza energetica sfruttando gli incentivi governativi.',
-      },
-      {
-        title: '',
-        content: 'LC Energia offre supporto e consulenza per orientarsi nel panorama degli incentivi e realizzare progetti di efficienza energetica in modo ottimale.',
       },
     ],
   },
@@ -186,7 +187,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettazione-antincendio': {
     title: 'Progettazione Prevenzioni Incendi',
     breadcrumb: 'Progettazione Prevenzioni Incendi',
-    introduction: 'Siamo specializzati nella redazione di pratiche per l’ottenimento del Certificato di Prevenzione Incendi o S.C.I.A. presso i Comandi Provinciali dei Vigili del Fuoco.',
+    introduction: 'Siamo specializzati nella redazione di pratiche per l’ottenimento del Certificato di Prevenzione Incendi o S.C.I.A. presso i Comandi Provinciali dei Vigili del Fuoco. La nostra esperienza include l\'asseverazione delle opere di prevenzione incendi a firma di un tecnico iscritto nell’elenco del Ministero degli Interni ai sensi del DLgs. 139/06, nonché certificazioni antincendio e di resistenza al fuoco delle strutture. <br> LC Energia si impegna a garantire che tutti i nostri progetti rispettino le normative vigenti, offrendo soluzioni efficienti e sicure per la protezione antincendio.',
     sections: [
       {
         title: 'Servizi Offerti',
@@ -198,39 +199,41 @@ export const servicesData: { [key: string]: ServiceData } = {
           'Certificazione di manufatti, impianti e strutture edilizie.',
         ],
       },
-      {
-        title: '',
-        content: 'La nostra esperienza include l\'asseverazione delle opere di prevenzione incendi a firma di un tecnico iscritto nell’elenco del Ministero degli Interni ai sensi del DLgs. 139/06, nonché certificazioni antincendio e di resistenza al fuoco delle strutture.',
-      },
-      {
-        title: '',
-        content: 'LC Energia si impegna a garantire che tutti i nostri progetti rispettino le normative vigenti, offrendo soluzioni efficienti e sicure per la protezione antincendio.',
-      },
+     
     ],
   },
   'progettazione-acustica': {
     title: 'Progettazione Acustica',
     breadcrumb: 'Progettazione Acustica',
-    introduction: 'LC Energia offre una consulenza specifica per il settore acustico con la redazione delle pratiche di valutazione del clima acustico.',
+    introduction: 'LC Energia offre una consulenza specifica per il settore acustico con la redazione delle pratiche di valutazione del clima acustico. <br>Forniamo soluzioni efficaci e conformi alle normative vigenti, garantendo il comfort acustico degli ambienti. La nostra esperienza nel settore acustico ci consente di assistere i clienti in ogni fase del processo, dalla progettazione alla certificazione finale.',
     sections: [
       {
         title: 'Isolamento da Rumori',
         content: 'Offriamo servizi di analisi e progettazione per garantire un adeguato isolamento acustico delle strutture, comprese:',
-        list: [
-          'Redazione delle pratiche di valutazione del clima acustico.',
-          'Analisi dei requisiti acustici delle strutture (D.P.C.M. 5/12/97).',
-          'Verifiche di impatto acustico.',
-          'Assistenza lavori e collaudo acustico degli edifici.',
-        ],
+        features: [
+          {
+            title: 'Valutazione Clima Acustico',
+            description: 'Redazione delle pratiche di valutazione del clima acustico.',
+            icon: 'fa-file-alt',
+          },
+          {
+            title: 'Analisi Requisiti Acustici',
+            description: 'Analisi dei requisiti acustici delle strutture (D.P.C.M. 5/12/97).',
+            icon: 'fa-tasks',
+          },
+          {
+            title: 'Verifiche Impatto Acustico',
+            description: 'Verifiche di impatto acustico.',
+            icon: 'fa-bullhorn',
+          },
+          {
+            title: 'Assistenza e Collaudo',
+            description: 'Assistenza lavori e collaudo acustico degli edifici.',
+            icon: 'fa-hard-hat',
+          },
+        ]
       },
-      {
-        title: '',
-        content: 'LC Energia si impegna a fornire soluzioni efficaci e conformi alle normative vigenti, garantendo il comfort acustico degli ambienti.',
-      },
-      {
-        title: '',
-        content: 'La nostra esperienza nel settore acustico ci consente di assistere i clienti in ogni fase del processo, dalla progettazione alla certificazione finale.',
-      },
+      
     ],
   },
   'impianti-geotermici': {
