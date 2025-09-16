@@ -28,7 +28,7 @@ const AccreditationsPage = () => {
                       </div>
                   </div>
                   <div className="col-lg-6 wow fadeIn text-center" data-wow-delay="0.5s">
-                      <i className="bi bi-shield-fill-check display-1 text-primary" style={{ fontSize: '12rem' }}></i>
+                      <i className="bi bi-shield-fill-check text-primary" style={{ fontSize: '8rem' }}></i>
                   </div>
               </div>
           </div>

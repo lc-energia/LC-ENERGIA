@@ -39,7 +39,7 @@ const ContactPage = () => {
 
               <div className="row">
                   <div className="col-12">
-                      <div style={{ height: "450px" }}>
+                      <div className="h-[300px] md:h-[450px]">
                           <iframe className="w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.386039023569!2d9.224754576986633!3d45.66315002014133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786bc9573a448a1%3A0x51f9fe9c02a37f97!2sVia%20della%20Valle%2C%2039%2C%2020841%20Carate%20Brianza%20MB%2C%20Italy!5e0!3m2!1sen!2ssi!4v1729678261040!5m2!1sen!2ssi" frameBorder="0" allowFullScreen></iframe>
                       </div>
                   </div>

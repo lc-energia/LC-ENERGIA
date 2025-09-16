@@ -132,7 +132,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
       {service.partners && (
         <div className="container-xxl py-5">
           <div className="container">
-            <div className="text-center mx-auto mb-5" style={{ maxWidth: '600px' }}>
+            <div className="text-center mx-auto mb-5">
               <h2 className="display-6 mb-4">{service.partnersTitle}</h2>
               <p className="lead">{service.partnersIntroduction}</p>
             </div>

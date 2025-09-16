@@ -101,7 +101,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="flex justify-center"
           >
-            <Image src="/img/image3.png" alt="Collaborazione" width={400} height={200} className="rounded-lg shadow-lg" />
+            <Image src="/img/image3.png" alt="Collaborazione" width={400} height={200} style={{ width: '100%', height: 'auto' }} className="rounded-lg shadow-lg" />
           </motion.div>
         </div>
       </section>

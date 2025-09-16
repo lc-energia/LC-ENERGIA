@@ -22,7 +22,7 @@ const NewCarousel = () => {
 
   return (
     <div className="container-fluid p-0 pb-5">
-      <div className="relative" style={{ height: '600px' }}>
+      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px]">
         <AnimatePresence initial={false}>
           <motion.div
             key={index}
