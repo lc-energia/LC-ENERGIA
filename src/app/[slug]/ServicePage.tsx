@@ -7,7 +7,7 @@ import { ServiceData } from '@/data/services-data';
 import OperatingModeCard from '@/components/OperatingModeCard';
 import FaqAccordion from '@/components/FaqAccordion';
 
-const ServicePage = ({ service }: { service: ServiceData }) => {
+const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
@@ -22,9 +22,9 @@ const ServicePage = ({ service }: { service: ServiceData }) => {
 
   return (
     <ServicePageLayout title={service.title} breadcrumb={service.breadcrumb}>
-      <div className="text-center mx-auto mb-5" style={{ maxWidth: '600px' }}>
+      <div className="text-center mx-auto mb-5">
         <h1 className="display-5 mb-4">{service.title}</h1>
-        <p className="lead">{service.introduction}</p>
+        <p className="lead" dangerouslySetInnerHTML={{ __html: service.introduction }}></p>
       </div>
 
       <div className="row g-4 justify-content-center">
@@ -46,7 +46,10 @@ const ServicePage = ({ service }: { service: ServiceData }) => {
           if (section.title === 'FAQ') {
             return <FaqAccordion key={i} section={section} />;
           }
-          const columnClass = (section.title === 'Vantaggi') ? 'col-lg-12' : 'col-lg-4 col-md-6';
+          let columnClass = section.fullWidth ? 'col-lg-12' : 'col-lg-4 col-md-6';
+          if (slug === 'impianti-geotermici' && !section.fullWidth) {
+            columnClass = 'col-lg-6 col-md-6';
+          }
           return (
             <motion.div
               key={i}
@@ -59,9 +62,11 @@ const ServicePage = ({ service }: { service: ServiceData }) => {
               <div className="card h-100 shadow-sm border-0">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="flex-shrink-0">
-                      <Image src="/img/logo.png" alt="icon" width={40} height={40} style={{ height: 'auto' }} />
-                    </div>
+                    {!section.hideLogo && (
+                      <div className="flex-shrink-0">
+                        <Image src="/img/logo.png" alt="icon" width={40} height={40} style={{ height: 'auto' }} />
+                      </div>
+                    )}
                     <div className="flex-grow-1 ms-3">
                       <h5 className="card-title mb-0">{section.title}</h5>
                     </div>

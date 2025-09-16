@@ -3,6 +3,8 @@ export interface Section {
   title: string;
   content: string;
   list?: string[];
+  fullWidth?: boolean;
+  hideLogo?: boolean;
   modes?: {
     title: string;
     description: string;
@@ -234,22 +236,18 @@ export const servicesData: { [key: string]: ServiceData } = {
   'impianti-geotermici': {
     title: 'Impianti Geotermici',
     breadcrumb: 'Impianti Geotermici',
-    introduction: 'LC Energia da diversi anni realizza impianti che utilizzano fonti alternative, in particolare impianti geotermici puri o integrati con altri sistemi di produzione dell’energia, nell’ambito di una politica di ricerca della massima soddisfazione del cliente.',
+    introduction: 'LC Energia da diversi anni realizza impianti che utilizzano fonti alternative, in particolare impianti geotermici puri o integrati con altri sistemi di produzione dell’energia, nell’ambito di una politica di ricerca della massima soddisfazione del cliente.<br><br>Per questo da alcuni anni ormai, la normativa europea prescrive l’adozione di tecnologie funzionanti con fonti rinnovabili e pulite quali il sole, il vento e il terreno nell’ambito delle nuove costruzioni e delle ristrutturazioni edilizie.',
     sections: [
       {
-        title: '',
-        content: 'Per questo da alcuni anni ormai, la normativa europea prescrive l’adozione di tecnologie funzionanti con fonti rinnovabili e pulite quali il sole, il vento e il terreno nell’ambito delle nuove costruzioni e delle ristrutturazioni edilizie.',
-      },
-      {
         title: 'REALIZZAZIONE',
-        content: 'Gli impianti geotermici sono sistemi che richiedono una corretta valutazione che LC Energia effettua per ogni impianto con l’ausilio di tecnici qualificati sia nel campo della tecnica ingegneristica che di quella geologica.',
+        content: 'Gli impianti geotermici sono sistemi che richiedono una corretta valutazione che LC Energia effettua per ogni impianto con l’ausilio di tecnici qualificati sia nel campo della tecnica ingegeneristica che di quella geologica.',
       },
       {
         title: 'TECNOLOGIA DELL\'IMPIANTO',
         content: 'Il D.Lgs 199/21 oggi impone che il 60% dell’energia termica consumata dai nuovi edifici e nel caso di ristrutturazioni importanti, sia prodotta da fonti rinnovabili. Questo obbligo pone la necessità di definire preventivamente la tipologia dei sistemi di climatizzazione da installare.',
       },
       {
-        title: '',
+        title: 'Vantaggi',
         content: 'I plus di questa soluzione sono i seguenti: sistema efficiente, soluzione per eliminare problematiche atmosferiche, impianto che sfrutta una risorsa inesauribile di energia, edificio valorizzato, maggior sicurezza degli impianti e possibilità di rinunciare all\'allaccio del gas-metano.',
       },
       {
@@ -266,6 +264,7 @@ export const servicesData: { [key: string]: ServiceData } = {
       {
         title: 'Vantaggi',
         content: 'La potenza erogata da una stazione domestica consente di raggiungere una maggiore velocità di ricarica, rispetto all’utilizzo delle normali prese elettriche. Inoltre, attivando la funzione Dynamic Power Management (che rappresenta un\'opzione indispensabile nelle installazioni residenziali in cui la potenza disponibile è limitata), si consente al wall box di modulare la corrente destinata alla ricarica del veicolo elettrico basandosi sul consumo istantaneo di tutti gli elettrodomestici, tenendo anche in considerazione la corrente generata da pannelli fotovoltaici o altre fonti rinnovabili, (se presenti). Una volta attivata la funzione Dynamic Power Management, è possibile scegliere tra 3 diverse modalità di funzionamento: Full, EcoSmart e EcoPlus.',
+        fullWidth: true,
       },
       {
         title: 'Modalità di Funzionamento',

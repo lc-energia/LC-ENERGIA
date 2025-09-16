@@ -11,7 +11,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     notFound();
   }
 
-  return <ServicePage service={service} />;
+  return <ServicePage service={service} slug={slug} />;
 };
 
 export default Page;
