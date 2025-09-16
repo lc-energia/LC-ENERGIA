@@ -1,6 +1,20 @@
+import { Open_Sans, Roboto } from 'next/font/google';
 import { metadata } from './metadata';
 import AppInitializer from '@/components/AppInitializer';
 import './globals.css';
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-open-sans',
+});
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['500', '700', '900'],
+  display: 'swap',
+  variable: '--font-roboto',
+});
 
 export { metadata };
 
@@ -10,15 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it">
+    <html lang="it" className={`${openSans.variable} ${roboto.variable}`}>
       <head>
         <link rel="icon" href="/img/logo.ico" />
         
-        {/* Google Web Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet" />
-
         {/* Icon Font Stylesheet */}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
@@ -34,6 +43,7 @@ export default function RootLayout({
       </head>
       <body>
         <AppInitializer>{children}</AppInitializer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossOrigin="anonymous"></script>
       </body>
     </html>
   );

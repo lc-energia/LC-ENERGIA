@@ -18,7 +18,7 @@ const Navbar = () => {
       <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="navbar-collapse" id="navbarCollapse">
+      <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav ms-auto p-4 p-lg-0">
           <Link href="/" className="nav-item nav-link ">Home</Link>
           <Link href="/azienda" className="nav-item nav-link">Azienda</Link>
