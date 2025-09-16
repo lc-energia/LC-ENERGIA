@@ -29,12 +29,28 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
       <div className="row g-4 justify-content-center">
         {slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
           <div className="col-lg-12">
-            {service.sections.map((section, i) => (
-              <div key={i} className="mb-5">
-                {section.title && <h2 className="mb-3">{section.title}</h2>}
-                <p>{section.content}</p>
-              </div>
-            ))}
+            <div className="mb-5">
+              <p>{service.sections[0].content}</p>
+            </div>
+            <div className="row justify-content-center g-4">
+              {service.sections.slice(1).map((section, i) => (
+                <motion.div
+                  key={i}
+                  className="col-lg-6"
+                  custom={i}
+                  initial="hidden"
+                  animate="visible"
+                  variants={cardVariants}
+                >
+                  <div className="card h-100 shadow-sm border-0">
+                    <div className="card-body p-4">
+                      <h5 className="card-title mb-3">{section.title}</h5>
+                      <p className="card-text">{section.content}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         ) : (
           service.sections.map((section, i) => {
