@@ -3,7 +3,7 @@ import { servicesData } from '@/data/services-data';
 import ServicePage from './ServicePage';
 import { notFound } from 'next/navigation';
 
-const Page = ({ params }: { params: { slug: string } }) => {
+const Page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
   const service = servicesData[slug];
 

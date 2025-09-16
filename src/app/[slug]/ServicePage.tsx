@@ -39,7 +39,7 @@ const ServicePage = ({ service }: { service: ServiceData }) => {
               <div className="card-body p-4">
                 <div className="d-flex align-items-center mb-3">
                   <div className="flex-shrink-0">
-                    <Image src="/img/logo.png" alt="icon" width={40} height={40} />
+                    <Image src="/img/logo.png" alt="icon" width={40} height={40} style={{ height: 'auto' }} />
                   </div>
                   <div className="flex-grow-1 ms-3">
                     <h5 className="card-title mb-0">{section.title}</h5>
@@ -80,7 +80,7 @@ const ServicePage = ({ service }: { service: ServiceData }) => {
                   variants={cardVariants}
                 >
                   <div className="partner-logo d-flex justify-content-center align-items-center h-100">
-                    <Image src={partner.src} alt={partner.alt} width={150} height={150} style={{ objectFit: 'contain' }} />
+                    <Image src={partner.src} alt={partner.alt} width={150} height={150} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
                   </div>
                 </motion.div>
               ))}

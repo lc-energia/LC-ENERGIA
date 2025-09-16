@@ -54,7 +54,7 @@ const About = () => {
             className="w-full lg:w-1/2 min-h-[400px] lg:min-h-full"
           >
             <div className="relative w-full h-full">
-              <Image src="/img/1Trabajador campo paneles solares.jpg" alt="Lavoratore in un campo di pannelli solari" layout="fill" objectFit="cover" />
+              <Image src="/img/1Trabajador campo paneles solares.jpg" alt="Lavoratore in un campo di pannelli solari" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </div>
           </motion.div>
         </div>
