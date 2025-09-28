@@ -7,6 +7,7 @@ import FeatureCard from '@/components/FeatureCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import SimpleTextCard from '@/components/SimpleTextCard';
 import InfoAccordion from '@/components/InfoAccordion';
+import ImageCarousel from '@/components/ImageCarousel';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
   const cardVariants = {
@@ -32,6 +33,34 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           {service.mainFeatures.map((feature, i) => (
             <SimpleTextCard key={i} feature={feature} variants={cardVariants} i={i} columnClass="col-lg-3 col-md-6" />
           ))}
+        </div>
+      )}
+
+      {slug === 'impianti-fotovoltaici' && (
+        <div className="container-xxl py-5">
+          <div className="container">
+            <div className="row g-5 align-items-center">
+              <div className="col-lg-6">
+                <p className="lead">
+                  Grazie alla comunità energetica è possibile ricevere un incentivo per l’energia immessa in rete e consumata all’interno della Comunità Energetica Rinnovabile.
+                </p>
+              </div>
+              <div className="col-lg-6">
+                <ImageCarousel images={[
+                  '/img/volta1.JPEG',
+                  '/img/volta5.JPEG',
+                  '/img/volta7.JPEG'
+                  
+                ]} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {slug === 'stazioni-di-ricarica' && (
+        <div className="text-center my-5">
+          <Image src="/img/scame.png" alt="Stazioni di Ricarica" width={500} height={500} className="mx-auto" />
         </div>
       )}
 
