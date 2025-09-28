@@ -184,7 +184,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'progettazione-antincendio': {
     title: 'Progettazione Prevenzioni Incendi',
     breadcrumb: 'Progettazione Prevenzioni Incendi',
-    introduction: 'Siamo specializzati nella redazione di pratiche per l’ottenimento del Certificato di Prevenzione Incendi o S.C.I.A. presso i Comandi Provinciali dei Vigili del Fuoco. La nostra esperienza include l\'asseverazione delle opere di prevenzione incendi a firma di un tecnico iscritto nell’elenco del Ministero degli Interni ai sensi del DLgs. 139/06, nonché certificazioni antincendio e di resistenza al fuoco delle strutture. <br> LC Energia si impegna a garantire che tutti i nostri progetti rispettino le normative vigenti, offrendo soluzioni efficienti e sicure per la protezione antincendio.',
+    introduction: 'Siamo specializzati nella redazione di pratiche per l’ottenimento del Certificato di Prevenzione Incendi o S.C.I.A. presso i Comandi Provinciali dei Vigili del Fuoco. La nostra esperienza include l\'osseverazione delle opere di prevenzione incendi a firma di un tecnico iscritto nell’elenco del Ministero degli Interni ai sensi del DLgs. 139/06, nonché certificazioni antincendio e di resistenza al fuoco delle strutture. <br> LC Energia si impegna a garantire che tutti i nostri progetti rispettino le normative vigenti, offrendo soluzioni efficienti e sicure per la protezione antincendio.',
     sections: [
       {
         title: 'Servizi Offerti',
@@ -225,23 +225,23 @@ export const servicesData: { [key: string]: ServiceData } = {
         content: 'Offriamo servizi di analisi e progettazione per garantire un adeguato isolamento acustico delle strutture, comprese:',
         features: [
           {
-            title: 'Valutazione Clima Acustico',
-            description: 'Redazione delle pratiche di valutazione del clima acustico.',
+            title: 'Redazione delle pratiche di valutazione del clima acustico.',
+            description: '',
             icon: 'fa-file-alt',
           },
           {
-            title: 'Analisi Requisiti Acustici',
-            description: 'Analisi dei requisiti acustici delle strutture (D.P.C.M. 5/12/97).',
+            title: 'Analisi dei requisiti acustici delle strutture (D.P.C.M. 5/12/97).',
+            description: '',
             icon: 'fa-tasks',
           },
           {
-            title: 'Verifiche Impatto Acustico',
-            description: 'Verifiche di impatto acustico.',
+            title: 'Verifiche di impatto acustico.',
+            description: '',
             icon: 'fa-bullhorn',
           },
           {
-            title: 'Assistenza e Collaudo',
-            description: 'Assistenza lavori e collaudo acustico degli edifici.',
+            title: 'Assistenza lavori e collaudo acustico degli edifici.',
+            description: '',
             icon: 'fa-hard-hat',
           },
         ]
@@ -318,11 +318,11 @@ export const servicesData: { [key: string]: ServiceData } = {
   'riqualificazione-di-centrali-termiche-esistenti': {
     title: 'Riqualificazione di centrali termiche esistenti',
     breadcrumb: 'Riqualificazione di centrali termiche esistenti',
-    introduction: 'Riqualificazione di centrali termiche esistenti<br>LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica.',
+    introduction: 'Riqualificazione di centrali termiche esistenti<br>LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica. Tramite i nostri tecnici qualificati ed accreditati offriamo la necessaria consulenza per la redazione della documentazione richiesta, la quale risulta di fondamentale importanza per poter valutare e definire gli eventuali interventi di efficientamento dell\'edificio.',
     sections: [
       {
-        title: '',
-        content: 'Sotto il profilo normativo: adeguamento sotto il profilo della sicurezza antincendio e ambientale comprese denunce INAIL (D.M. 1/12/75), pratiche gas combustibile (D.M. 37/2008, Delibera 40/08), certificazione prevenzione incendi (D.P.R. 37/98), diagnosi e certificazione energetica (decreto 311/07 e delibere Regione Lombardia 8745/08 e successivi aggiornamenti).',
+        title: 'Sotto il profilo normativo',
+        content: 'Adeguamento sotto il profilo della sicurezza antincendio e ambientale comprese denunce INAIL (D.M. 1/12/75), pratiche gas combustibile (D.M. 37/2008, Delibera 40/08), certificazione prevenzione incendi (D.P.R. 37/98), diagnosi e certificazione energetica (decreto 311/07 e delibere Regione Lombardia 8745/08 e successivi aggiornamenti).',
       },
       {
         title: 'Centrali termiche esistenti con generatori di età maggiore di 15 anni',
@@ -338,10 +338,6 @@ export const servicesData: { [key: string]: ServiceData } = {
           'Sostituzione dei serramenti obsoleti.',
           'Riqualifica dell\'involucro edilizio mediante coibentazione delle strutture disperdenti, in particolare pareti esterne e copertura.',
         ],
-      },
-      {
-        title: '',
-        content: 'LC Energia tramite i propri tecnici qualificati ed accreditati offre la necessaria consulenza per la redazione della documentazione richiesta, la quale risulta di fondamentale importanza per poter valutare e definire gli eventuali interventi di efficientamento dell\'edificio.',
       },
     ],
   },

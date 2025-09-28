@@ -73,6 +73,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   <div className="row justify-content-center g-4">
                     <div className="col-lg-12 text-center mb-4">
                       <h2>{section.title}</h2>
+                      {section.content && <p className="lead mb-4">{section.content}</p>}
                     </div>
                     {items?.map((item, j) => (
                       <FeatureCard key={j} feature={item} variants={cardVariants} i={i + j} columnClass={featureCardColumnClass} />
