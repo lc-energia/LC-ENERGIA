@@ -2,48 +2,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 interface PageHeaderProps {
   title: string;
-  breadcrumb: string;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ title, breadcrumb }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
   const headerStyle = {
-    background: `linear-gradient(rgba(26, 42, 54, 0.8), rgba(26, 42, 54, 0.8)), url(/img/slider1.png) center center no-repeat`,
+    background: `linear-gradient(rgba(26, 42, 54, 0.8), rgba(26, 42, 54, 0.8)), url(/img/imagenheader.JPEG) center center no-repeat`,
     backgroundSize: 'cover',
   };
 
   return (
-    <div style={headerStyle} className="py-24 sm:py-32 mb-5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div style={headerStyle} className="py-20 sm:py-24 md:py-28 mb-5">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-3"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
         >
           {title}
         </motion.h1>
-        <motion.nav
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          aria-label="breadcrumb"
-        >
-          <ol className="flex items-center space-x-2 text-white">
-            <li>
-              <Link href="/" className="hover:text-primary transition-colors">
-                Home
-              </Link>
-            </li>
-            <li className="text-gray-400">&gt;</li>
-            <li className="font-semibold" aria-current="page">
-              {breadcrumb}
-            </li>
-          </ol>
-        </motion.nav>
       </div>
     </div>
   );

@@ -5,13 +5,12 @@ const ContactPage = () => {
 
   return (
     <>
-      <PageHeader title="Richiedi un preventivo" breadcrumb="Richiedi un preventivo" />
+      <PageHeader title="Richiedi un preventivo" />
 
       <div className="container-fluid bg-light overflow-hidden px-lg-0" style={{ margin: "6rem 0" }}>
           <div className="container contact px-lg-0">
               <div className="row justify-content-center">
                   <div className="col-lg-8 text-center p-5">
-                      <h2 className="mb-4">Contattaci</h2>
                       <p className="lead mb-5">Se hai bisogno di un preventivo, non esitare a contattarci:</p>
                       
                       <div className="row">

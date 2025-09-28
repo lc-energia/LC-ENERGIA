@@ -8,7 +8,7 @@ import { valuePropositions, reasons, teamMembers } from '@/data/azienda-data';
 const AziendaPage = () => {
   return (
     <>
-      <PageHeader title="Azienda" breadcrumb="Azienda" />
+      <PageHeader title="Azienda" />
 
       {/* Value Proposition Section */}
       <section className="py-16 sm:py-20">
@@ -20,7 +20,6 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <h6 className="text-primary font-bold text-lg">Azienda</h6>
             <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 text-dark">Il valore dell’esperienza per l’efficienza ed il risparmio energetico</h1>
           </motion.div>
           

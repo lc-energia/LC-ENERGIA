@@ -5,14 +5,13 @@ import PageHeader from "@/components/PageHeader";
 
 interface ServicePageLayoutProps {
   title: string;
-  breadcrumb: string;
   children: React.ReactNode;
 }
 
-const ServicePageLayout = ({ title, breadcrumb, children }: ServicePageLayoutProps) => {
+const ServicePageLayout = ({ title, children }: ServicePageLayoutProps) => {
   return (
     <>
-      <PageHeader title={title} breadcrumb={breadcrumb} />
+      <PageHeader title={title} />
       <div className="container-xxl py-5">
         <div className="container">
           <motion.div

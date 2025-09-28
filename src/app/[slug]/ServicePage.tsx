@@ -21,9 +21,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
   };
 
   return (
-    <ServicePageLayout title={service.title} breadcrumb={service.breadcrumb}>
+    <ServicePageLayout title={service.title}>
       <div className="text-center mx-auto mb-5">
-        <h1 className="display-5 mb-4">{service.title}</h1>
         <p className="lead" dangerouslySetInnerHTML={{ __html: service.introduction }}></p>
       </div>
 

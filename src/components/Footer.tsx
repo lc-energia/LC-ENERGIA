@@ -20,7 +20,7 @@ const Footer = () => {
             className="flex flex-col items-start"
           >
             <Link href="/" className="mb-4">
-              <Image src="/img/logo.png" alt="LC Energia Logo" width={150} height={50} style={{ height: 'auto' }} />
+              <Image src="/img/logoblanco.png" alt="LC Energia Logo" width={150} height={50} style={{ height: 'auto' }} />
             </Link>
             <p className="mb-4">P.iva 04115680136</p>
             <h5 className="text-white mb-4">Linkedin</h5>

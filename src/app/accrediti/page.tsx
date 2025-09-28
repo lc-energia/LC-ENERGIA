@@ -8,13 +8,12 @@ const AccreditationsPage = () => {
 
   return (
     <>
-      <PageHeader title="Accrediti" breadcrumb="Accrediti" />
+      <PageHeader title="Accrediti" />
 
       <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
           <div className="container">
               <div className="row g-5 align-items-center">
                   <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                      <h1 className="display-5 mb-4">{accreditation.pageTitle}</h1>
                       <p className="mb-4">{accreditation.pageDescription}</p>
                       <ul className="list-group list-group-flush">
                           {accreditation.description.split('.<br>').map((item, index) => (
