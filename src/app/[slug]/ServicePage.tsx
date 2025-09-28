@@ -6,6 +6,7 @@ import { ServiceData } from '@/data/services-data';
 import FeatureCard from '@/components/FeatureCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import SimpleTextCard from '@/components/SimpleTextCard';
+import InfoAccordion from '@/components/InfoAccordion';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
   const cardVariants = {
@@ -28,8 +29,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
 
       {service.mainFeatures && (
         <div className="row g-4 justify-content-center mb-5">
-          {service.mainFeatures.map((text, i) => (
-            <SimpleTextCard key={i} text={text} variants={cardVariants} i={i} columnClass="col-lg-3 col-md-6" />
+          {service.mainFeatures.map((feature, i) => (
+            <SimpleTextCard key={i} feature={feature} variants={cardVariants} i={i} columnClass="col-lg-3 col-md-6" />
           ))}
         </div>
       )}
@@ -60,6 +61,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               ))}
             </div>
           </div>
+        ) : slug === 'impianti-fotovoltaici' ? (
+          <InfoAccordion items={service.sections} />
         ) : (
           service.sections.map((section, i) => {
             if (section.modes || section.features) {
@@ -86,7 +89,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               return <FaqAccordion key={i} section={section} />;
             }
             let columnClass = section.fullWidth ? 'col-lg-12' : 'col-lg-4 col-md-6';
-            if ((slug === 'impianti-geotermici' || slug === 'impianti-fotovoltaici') && !section.fullWidth) {
+            if ((slug === 'impianti-geotermici') && !section.fullWidth) {
               columnClass = 'col-lg-6 col-md-6';
             }
             return (

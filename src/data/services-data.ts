@@ -25,7 +25,7 @@ export interface ServiceData {
   title: string;
   breadcrumb: string;
   introduction: string;
-  mainFeatures?: string[];
+  mainFeatures?: { text: string; icon: string }[];
   sections: Section[];
   partnersTitle?: string;
   partnersIntroduction?: string;
@@ -60,11 +60,11 @@ export const servicesData: { [key: string]: ServiceData } = {
     title: 'Impianti Fotovoltaici',
     breadcrumb: 'Impianti Fotovoltaici',
     introduction: 'IL NOSTRO INTERVENTO<br>Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" partendo da una valutazione preliminare che considera i seguenti elementi di base:',
-        mainFeatures: [
-        'Consumo annuo\'utenza',
-        'Spazio disponibile',
-        'Orientamento dell\'area di posa dei pannelli',
-        'Presenza di ombreggiamenti e possibili soluzioni migliorative',
+    mainFeatures: [
+      { text: 'Consumo annuo\'utenza', icon: 'fa-bolt' },
+      { text: 'Spazio disponibile', icon: 'fa-ruler-combined' },
+      { text: 'Orientamento dell\'area di posa dei pannelli', icon: 'fa-compass' },
+      { text: 'Presenza di ombreggiamenti e possibili soluzioni migliorative', icon: 'fa-cloud-sun' },
     ],
     sections: [
       {
