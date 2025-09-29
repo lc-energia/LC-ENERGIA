@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import type { SwiperClass } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { carouselData } from '@/data/carousel-data';
