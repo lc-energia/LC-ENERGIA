@@ -30,7 +30,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
         {slug === 'impianti-fotovoltaici' ? (
           <>
             <h6 className="text-primary font-bold text-lg uppercase">IL NOSTRO INTERVENTO</h6>
-            <p className="lead">Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" partendo da una valutazione preliminare che considera i seguenti elementi di base:</p>
+            <p className="lead">Progettiamo e installiamo impianti fotovoltaici &quot;chiavi in mano&quot; partendo da una valutazione preliminare che considera i seguenti elementi di base:</p>
           </>
         ) : (
           <p className="lead" dangerouslySetInnerHTML={{ __html: service.introduction }}></p>
