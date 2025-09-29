@@ -9,15 +9,15 @@ const ContactPage = () => {
     <>
       <PageHeader title="Richiedi un preventivo" />
 
-      <div className="container-fluid bg-light overflow-hidden px-lg-0" style={{ margin: "6rem 0" }}>
+            <section className="container-fluid bg-light overflow-hidden px-lg-0 py-12 sm:py-16">
           <div className="container contact px-lg-0">
               <div className="row justify-content-center">
-                  <div className="col-lg-8 text-center p-5">
-                      <p className="lead mb-5">Se hai bisogno di un preventivo, non esitare a contattarci:</p>
+                  <div className="col-lg-8 text-center p-6">
+                      <p className="lead mb-8">Se hai bisogno di un preventivo, non esitare a contattarci:</p>
                       
                       <div className="row">
                           <div className="col-md-6 mb-4">
-                              <div className="p-3">
+                              <div className="p-4">
                                   <FontAwesomeIcon icon={faEnvelope} className="fa-3x text-primary mb-3" />
                                   <h5 className="mb-3">Invia una mail</h5>
                                   <p className="text-muted">info@lc-energia.it</p>
@@ -25,7 +25,7 @@ const ContactPage = () => {
                               </div>
                           </div>
                           <div className="col-md-6 mb-4">
-                              <div className="p-3">
+                              <div className="p-4">
                                   <FontAwesomeIcon icon={faPhone} className="fa-3x text-primary mb-3" />
                                   <h5 className="mb-3">Chiama ora</h5>
                                   <p className="text-muted">0362 992142</p>

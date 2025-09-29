@@ -20,7 +20,7 @@ const AziendaPage = () => {
       <PageHeader title="Azienda" />
 
       {/* Value Proposition Section */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn('up', 0.2)}
@@ -40,7 +40,7 @@ const AziendaPage = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.25 }}
-                className="bg-white p-8 rounded-lg shadow-lg"
+                className="bg-white p-6 rounded-lg shadow-lg"
               >
                 <p className="text-gray-600 leading-relaxed">{item.content}</p>
                 {item.list && (
@@ -57,7 +57,7 @@ const AziendaPage = () => {
       </section>
 
       {/* Reasons Section */}
-      <section className="py-16 sm:py-20 bg-light">
+      <section className="py-12 sm:py-16 bg-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn('up', 0.2)}
@@ -94,7 +94,7 @@ const AziendaPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 sm:py-20 bg-light">
+      <section className="py-12 sm:py-16 bg-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="testimonial-item text-center">
               <div className="testimonial-text text-center rounded p-4">

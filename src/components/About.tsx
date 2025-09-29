@@ -4,11 +4,11 @@ import FadeIn from './motion/FadeIn';
 
 const About = () => {
   return (
-    <section className="bg-[#F6F7F8] overflow-hidden my-16 sm:my-20">
+    <section className="bg-[#F6F7F8] overflow-hidden py-12 sm:py-16">
       <div className="container mx-auto">
         <div className="flex flex-wrap lg:flex-nowrap">
           {/* Text Content */}
-          <FadeIn direction="right" delay={0.2} className="w-full lg:w-1/2 flex items-center py-12 px-4 sm:px-6 lg:px-8">
+          <FadeIn direction="right" delay={0.2} className="w-full lg:w-1/2 flex items-center py-8">
             <div>
               <h6 className="text-[#F49918]">Eccellenza nella Riqualificazione Energetica e Progettazione Tecnologica</h6>
               <h1 className="mb-4">Perché scegliere LC Energia?</h1>
