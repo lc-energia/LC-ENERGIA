@@ -44,10 +44,10 @@ const SimpleTextCard: FC<SimpleTextCardProps> = ({ feature, i, columnClass }) =>
       animate="visible"
       variants={cardVariants}
     >
-      <div className="bg-white rounded-lg shadow-sm h-full text-center border-0">
+      <div className="bg-white rounded-lg shadow-md p-4 h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary text-center">
         <div className="p-4">
           <div className="mb-3">
-            {icon && <FontAwesomeIcon icon={icon} className="fa-3x text-[#F49918]" />}
+            {icon && <FontAwesomeIcon icon={icon} className="fa-2x text-[#F49918]" />}
           </div>
           <p className="font-bold">{feature.text}</p>
         </div>

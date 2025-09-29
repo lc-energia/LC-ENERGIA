@@ -79,7 +79,7 @@ const AziendaPage = () => {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.25 }}
-                  className="bg-white rounded-lg shadow-lg p-6 text-center h-full transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+                  className="bg-white rounded-lg shadow-md p-6 text-center h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary"
                 >
                   <div className="inline-block p-4 bg-primary text-white rounded-full mb-4">
                     {icon && <FontAwesomeIcon icon={icon} className="fa-2x" />}
@@ -149,7 +149,7 @@ const AziendaPage = () => {
                 viewport={{ once: true, amount: 0.25 }}
                 className="w-full sm:w-1/2 md:w-1/3 p-4"
               >
-                <div className="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-2xl h-full">
+                <div className="bg-white rounded-lg shadow-md p-6 text-center h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary">
                   <h5 className="text-xl font-bold text-dark">{member.name}</h5>
                   <p className="text-primary">{member.role}</p>
                 </div>

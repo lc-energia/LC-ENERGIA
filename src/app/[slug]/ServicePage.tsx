@@ -139,35 +139,33 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 animate="visible"
                 variants={cardVariants}
               >
-                <div className="card h-100 shadow-sm border-0">
-                  <div className="card-body p-4">
-                    <div className="d-flex align-items-center mb-3">
-                      {!section.hideLogo && (
-                        <div className="flex-shrink-0">
-                          <Image src="/img/logo.png" alt="icon" width={40} height={40} style={{ height: 'auto' }} />
-                        </div>
-                      )}
-                      <div className="flex-grow-1 ms-3">
-                        <h5 className="card-title mb-0">{section.title}</h5>
+                <div className="bg-white rounded-lg shadow-md p-6 h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary">
+                  <div className="flex items-center mb-4">
+                    {!section.hideLogo && (
+                      <div className="flex-shrink-0">
+                        <Image src="/img/logo.png" alt="icon" width={40} height={40} style={{ height: 'auto' }} />
                       </div>
+                    )}
+                    <div className="flex-grow ml-4">
+                      <h5 className="font-bold text-lg mb-0">{section.title}</h5>
                     </div>
-                    <p className="card-text" dangerouslySetInnerHTML={{ __html: section.content }}></p>
-                    {section.list && (
-                      <ul className="list-unstyled mb-0">
-                        {section.list.map((item, j) => (
-                          <li key={j} className="d-flex align-items-start mb-2">
-                            <FontAwesomeIcon icon={faCheckCircle} className="text-primary mt-1 me-2" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {section.accordionItems && (
-                      <div className="mt-4">
-                        <InfoAccordion items={section.accordionItems} />
-                      </div>
-                    )}
                   </div>
+                  <div className="text-sm text-gray-600 space-y-2" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                  {section.list && (
+                    <ul className="space-y-2 mt-4">
+                      {section.list.map((item, j) => (
+                        <li key={j} className="flex items-start">
+                          <FontAwesomeIcon icon={faCheckCircle} className="text-primary mt-1 mr-2 flex-shrink-0" />
+                          <span className="text-sm text-gray-600">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.accordionItems && (
+                    <div className="mt-4">
+                      <InfoAccordion items={section.accordionItems} />
+                    </div>
+                  )}
                 </div>
               </motion.div>
             );

@@ -8,10 +8,22 @@ export default function Home() {
   return (
     <>
       <NewCarousel />
-      <NewTestimonial />
-      <About />
-      <Feature />
-      <Services />
+
+      <section className="py-12 sm:py-16 bg-light">
+        <NewTestimonial />
+      </section>
+
+      <section className="py-12 sm:py-16 bg-white">
+        <About />
+      </section>
+
+      <section className="py-12 sm:py-16 bg-light">
+        <Feature />
+      </section>
+
+      <section className="py-12 sm:py-16 bg-white">
+        <Services />
+      </section>
     </>
   );
 }

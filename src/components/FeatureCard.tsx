@@ -63,14 +63,16 @@ const FeatureCard: FC<FeatureCardProps> = ({ feature, i, columnClass }) => {
       animate="visible"
       variants={cardVariants}
     >
-      <div className="bg-white rounded-lg shadow-sm h-full text-center border-0">
-        <div className="p-4">
-          <div className="mb-3">
-            {feature.image && <Image src={feature.image} alt={feature.title} width={100} height={100} style={{ objectFit: 'contain' }} />}
-            {icon && <FontAwesomeIcon icon={icon} className="fa-3x text-[#F49918]" />}
+      <div className="bg-white rounded-lg shadow-md p-6 h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary text-left">
+        <div className="flex items-start space-x-4">
+          <div className="flex-shrink-0">
+            {feature.image && <Image src={feature.image} alt={feature.title} width={48} height={48} style={{ objectFit: 'contain' }} />}
+            {icon && <FontAwesomeIcon icon={icon} className="fa-2x text-[#F49918]" />}
           </div>
-          <h5 className="font-bold text-lg">{feature.title}</h5>
-          <p>{feature.description}</p>
+          <div>
+            <h5 className="font-bold text-lg mb-1">{feature.title}</h5>
+            <p className="text-sm text-gray-600">{feature.description}</p>
+          </div>
         </div>
       </div>
     </motion.div>
