@@ -20,12 +20,12 @@ const SimpleTextCard: FC<SimpleTextCardProps> = ({ feature, variants, i, columnC
       animate="visible"
       variants={variants}
     >
-      <div className="card h-100 shadow-sm border-0 text-center">
-        <div className="card-body p-4">
+      <div className="bg-white rounded-lg shadow-sm h-full text-center border-0">
+        <div className="p-4">
           <div className="mb-3">
-            <i className={`fa ${feature.icon} fa-3x text-primary`}></i>
+            <i className={`fa ${feature.icon} fa-3x text-[#F49918]`}></i>
           </div>
-          <p className="card-text fw-bold">{feature.text}</p>
+          <p className="font-bold">{feature.text}</p>
         </div>
       </div>
     </motion.div>

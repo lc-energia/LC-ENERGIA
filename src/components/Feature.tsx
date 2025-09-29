@@ -49,15 +49,15 @@ const Feature = () => {
               className="text-center"
             >
               <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
+                <div className="w-16 h-16 bg-[#F49918] rounded-full flex items-center justify-center mr-4">
                   <i className={`fa ${feature.icon} text-white text-2xl`}></i>
                 </div>
                 <div className="flex items-baseline">
                   <Counter from={0} to={parseInt(feature.count)} />
-                  <span className="text-2xl font-bold text-dark">{feature.suffix}</span>
+                  <span className="text-2xl font-bold text-[#1A2A36]">{feature.suffix}</span>
                 </div>
               </div>
-              <h5 className="text-xl font-bold mb-2 text-dark">{feature.title}</h5>
+              <h5 className="text-xl font-bold mb-2 text-[#1A2A36]">{feature.title}</h5>
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}

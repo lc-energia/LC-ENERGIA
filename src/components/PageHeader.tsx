@@ -8,13 +8,10 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
-  const headerStyle = {
-    background: `linear-gradient(rgba(26, 42, 54, 0.8), rgba(26, 42, 54, 0.8)), url(/img/imagenheader.JPEG) center center no-repeat`,
-    backgroundSize: 'cover',
-  };
+
 
   return (
-    <div style={headerStyle} className="py-20 sm:py-24 md:py-28 mb-5">
+    <div className="py-20 sm:py-24 md:py-28 mb-5 bg-cover bg-center bg-no-repeat bg-[linear-gradient(rgba(26,42,54,0.8),rgba(26,42,54,0.8)),url('/img/imagenheader.JPEG')]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}

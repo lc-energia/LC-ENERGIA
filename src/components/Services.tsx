@@ -93,7 +93,7 @@ const Services = () => {
           className="text-center mx-auto mb-12"
           style={{ maxWidth: '600px' }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-primary">I Nostri Servizi</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#F49918]">I Nostri Servizi</h1>
         </motion.div>
 
         {/* Filter Buttons */}
@@ -111,8 +111,8 @@ const Services = () => {
                 onClick={() => setFilter(button.value)}
                 className={`cursor-pointer font-medium py-2 px-4 rounded-full transition-colors duration-300 ${
                   filter === button.value
-                    ? 'bg-primary text-white shadow-md'
-                    : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'
+                    ? 'bg-[#F49918] text-white shadow-md'
+                    : 'bg-gray-200 text-gray-700 hover:bg-[#F49918] hover:text-white'
                 }`}
               >
                 {button.name}
@@ -138,14 +138,14 @@ const Services = () => {
               >
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
                   <div className="p-6 flex-grow">
-                    <div className="text-primary mb-4">
+                    <div className="text-[#F49918] mb-4">
                       <i className={`fa ${service.icon} text-4xl`}></i>
                     </div>
-                    <h4 className="text-xl font-bold mb-3 text-dark">{service.title}</h4>
+                    <h4 className="text-xl font-bold mb-3 text-[#1A2A36]">{service.title}</h4>
                     <p className="text-gray-600 mb-4 flex-grow">{service.description}</p>
                   </div>
                   <div className="p-6 bg-gray-50">
-                    <Link href={service.link} className="font-medium text-primary hover:text-orange-700 transition-colors">
+                    <Link href={service.link} className="font-medium text-[#F49918] hover:text-orange-700 transition-colors">
                       Leggi di più <i className="fa fa-arrow-right ml-2"></i>
                     </Link>
                   </div>

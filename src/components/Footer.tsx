@@ -7,7 +7,7 @@ import Image from 'next/image';
 const Footer = () => {
   return (
     <motion.footer
-      className="bg-dark text-light mt-5 pt-16"
+      className="bg-[#1A2A36] text-[#F6F7F8] mt-5 pt-16"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -26,7 +26,7 @@ const Footer = () => {
             <h5 className="text-white mb-4">Linkedin</h5>
             <div className="flex space-x-2">
               <a 
-                className="w-10 h-10 border border-light rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-colors" 
+                className="w-10 h-10 border border-[#F6F7F8] rounded-full flex items-center justify-center hover:bg-[#F49918] hover:border-[#F49918] transition-colors" 
                 href="https://www.linkedin.com/company/lc-energia-s-r-l"
                 aria-label="Linkedin"
               >
@@ -44,10 +44,10 @@ const Footer = () => {
           >
             <h5 className="text-white text-xl font-bold mb-4">Link Veloci</h5>
             <nav className="flex flex-col space-y-2">
-              <Link className="hover:text-primary transition-colors" href="/azienda">Chi Siamo</Link>
-              <Link className="hover:text-primary transition-colors" href="/contact">Richiedi un Preventivo</Link>
-              <Link className="hover:text-primary transition-colors" href="/">I Nostri Servizi</Link>
-              <Link className="hover:text-primary transition-colors" href="/accrediti">Accrediti</Link>
+              <Link className="hover:text-[#F49918] transition-colors hover:tracking-[1px]" href="/azienda">Chi Siamo</Link>
+              <Link className="hover:text-[#F49918] transition-colors hover:tracking-[1px]" href="/contact">Richiedi un Preventivo</Link>
+              <Link className="hover:text-[#F49918] transition-colors hover:tracking-[1px]" href="/">I Nostri Servizi</Link>
+              <Link className="hover:text-[#F49918] transition-colors hover:tracking-[1px]" href="/accrediti">Accrediti</Link>
             </nav>
           </motion.div>
 
@@ -59,9 +59,9 @@ const Footer = () => {
             viewport={{ once: true, amount: 0.25 }}
           >
             <h5 className="text-white text-xl font-bold mb-4">Indirizzo</h5>
-            <p className="mb-2 flex items-start"><i className="fa fa-map-marker-alt me-3 mt-1"></i>Via della Valle 39, 20841, Carate Brianza (MB)</p>
-            <p className="mb-2 flex items-center"><i className="fa fa-phone-alt me-3"></i>0362992142</p>
-            <p className="mb-2 flex items-center"><i className="fa fa-envelope me-3"></i>info@lc-energia.it</p>
+            <p className="mb-2 flex items-start"><i className="fa fa-map-marker-alt mr-3 mt-1"></i>Via della Valle 39, 20841, Carate Brianza (MB)</p>
+            <p className="mb-2 flex items-center"><i className="fa fa-phone-alt mr-3"></i>0362992142</p>
+            <p className="mb-2 flex items-center"><i className="fa fa-envelope mr-3"></i>info@lc-energia.it</p>
           </motion.div>
         </div>
       </div>

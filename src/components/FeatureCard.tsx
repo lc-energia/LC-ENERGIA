@@ -25,14 +25,14 @@ const FeatureCard: FC<FeatureCardProps> = ({ feature, variants, i, columnClass }
       animate="visible"
       variants={variants}
     >
-      <div className="card h-100 shadow-sm border-0 text-center">
-        <div className="card-body p-4">
+      <div className="bg-white rounded-lg shadow-sm h-full text-center border-0">
+        <div className="p-4">
           <div className="mb-3">
             {feature.image && <Image src={feature.image} alt={feature.title} width={100} height={100} style={{ objectFit: 'contain' }} />}
-            {feature.icon && <i className={`fa ${feature.icon} fa-3x text-primary`}></i>}
+            {feature.icon && <i className={`fa ${feature.icon} fa-3x text-[#F49918]`}></i>}
           </div>
-          <h5 className="card-title">{feature.title}</h5>
-          <p className="card-text">{feature.description}</p>
+          <h5 className="font-bold text-lg">{feature.title}</h5>
+          <p>{feature.description}</p>
         </div>
       </div>
     </motion.div>

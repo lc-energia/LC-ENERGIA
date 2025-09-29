@@ -8,7 +8,7 @@ const Spinner = ({ isLoading }: { isLoading: boolean }) => {
       {isLoading && (
         <motion.div
           id="spinner"
-          className="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+          className="bg-white fixed inset-0 z-50 flex items-center justify-center"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}

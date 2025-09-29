@@ -13,7 +13,7 @@ const BackToTop = () => {
     <AnimatePresence>
       {isSticky && (
         <motion.button
-          className="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
+          className="fixed bottom-[45px] right-[45px] z-[99] w-12 h-12 flex items-center justify-center rounded-full bg-[#F49918] text-white font-medium shadow-[0_4px_16px_rgba(234,231,228,0.18)] transition-all duration-300 hover:scale-110 hover:rotate-5 hover:shadow-[0_8px_32px_rgba(233,231,229,0.25)] hover:bg-[#e68a16]"
           onClick={scrollToTop}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

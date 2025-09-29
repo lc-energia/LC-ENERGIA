@@ -1,6 +1,6 @@
 'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Disclosure, Transition } from '@headlessui/react';
+import { ChevronUpIcon } from '@heroicons/react/20/solid';
 
 interface AccordionItem {
   title: string;
@@ -11,45 +11,36 @@ interface InfoAccordionProps {
   items: AccordionItem[];
 }
 
-const InfoAccordion = ({ items }: InfoAccordionProps) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-  const toggleAccordion = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
+const InfoAccordion: React.FC<InfoAccordionProps> = ({ items }) => {
   return (
-    <div className="col-lg-12">
-      <div className="accordion" id="infoAccordion">
+    <div className="w-full">
+      <div className="mx-auto w-full rounded-2xl bg-white p-2 space-y-2">
         {items.map((item, index) => (
-          <div className="accordion-item" key={index}>
-            <h2 className="accordion-header" id={`heading${index}`}>
-              <button
-                className={`accordion-button ${activeIndex === index ? '' : 'collapsed'}`}
-                type="button"
-                onClick={() => toggleAccordion(index)}
-              >
-                {item.title}
-              </button>
-            </h2>
-            <AnimatePresence initial={false}>
-              {activeIndex === index && (
-                <motion.div
-                  key="content"
-                  initial="collapsed"
-                  animate="open"
-                  exit="collapsed"
-                  variants={{
-                    open: { opacity: 1, height: 'auto' },
-                    collapsed: { opacity: 0, height: 0 },
-                  }}
-                  transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+          <Disclosure as="div" key={index} defaultOpen={index === 0}>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-100 px-4 py-3 text-left text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-opacity-75">
+                  <span>{item.title}</span>
+                  <ChevronUpIcon
+                    className={`${open ? 'rotate-180 transform' : ''} h-5 w-5 text-gray-500 transition-transform`}
+                  />
+                </Disclosure.Button>
+                <Transition
+                  show={open}
+                  enter="transition duration-200 ease-out"
+                  enterFrom="transform scale-95 opacity-0"
+                  enterTo="transform scale-100 opacity-100"
+                  leave="transition duration-100 ease-out"
+                  leaveFrom="transform scale-100 opacity-100"
+                  leaveTo="transform scale-95 opacity-0"
                 >
-                  <div className="accordion-body">{item.content}</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-600" static>
+                    {item.content}
+                  </Disclosure.Panel>
+                </Transition>
+              </>
+            )}
+          </Disclosure>
         ))}
       </div>
     </div>
