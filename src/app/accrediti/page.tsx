@@ -2,6 +2,9 @@
 import PageHeader from '@/components/PageHeader';
 import { accreditations } from '@/data/azienda-data';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { ShieldFillCheck } from 'react-bootstrap-icons';
 
 const AccreditationsPage = () => {
   const accreditation = accreditations[0];
@@ -17,7 +20,7 @@ const AccreditationsPage = () => {
                       <p className="mb-4">{accreditation.pageDescription}</p>
                       <ul className="list-group list-group-flush">
                           {accreditation.description.split('.<br>').map((item, index) => (
-                              <li key={index} className="list-group-item"><i className="fa fa-check-circle text-primary me-2"></i>{item}</li>
+                              <li key={index} className="list-group-item"><FontAwesomeIcon icon={faCheckCircle} className="text-primary me-2" />{item}</li>
                           ))}
                       </ul>
                       <div className="mt-4">
@@ -25,7 +28,7 @@ const AccreditationsPage = () => {
                       </div>
                   </div>
                   <div className="col-lg-6 wow fadeIn text-center" data-wow-delay="0.5s">
-                      <i className="bi bi-shield-fill-check text-primary" style={{ fontSize: '8rem' }}></i>
+                      <ShieldFillCheck className="text-primary" style={{ fontSize: '8rem' }} />
                   </div>
               </div>
           </div>

@@ -3,10 +3,13 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
-    <motion.footer
+    <footer
       className="bg-[#1A2A36] text-[#F6F7F8] mt-5 pt-16"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -30,7 +33,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/lc-energia-s-r-l"
                 aria-label="Linkedin"
               >
-                <i className="fab fa-linkedin-in"></i>
+                <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
             </div>
           </motion.div>
@@ -59,9 +62,9 @@ const Footer = () => {
             viewport={{ once: true, amount: 0.25 }}
           >
             <h5 className="text-white text-xl font-bold mb-4">Indirizzo</h5>
-            <p className="mb-2 flex items-start"><i className="fa fa-map-marker-alt mr-3 mt-1"></i>Via della Valle 39, 20841, Carate Brianza (MB)</p>
-            <p className="mb-2 flex items-center"><i className="fa fa-phone-alt mr-3"></i>0362992142</p>
-            <p className="mb-2 flex items-center"><i className="fa fa-envelope mr-3"></i>info@lc-energia.it</p>
+            <p className="mb-2 flex items-start"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-3 mt-1" />Via della Valle 39, 20841, Carate Brianza (MB)</p>
+            <p className="mb-2 flex items-center"><FontAwesomeIcon icon={faPhoneAlt} className="mr-3" />0362992142</p>
+            <p className="mb-2 flex items-center"><FontAwesomeIcon icon={faEnvelope} className="mr-3" />info@lc-energia.it</p>
           </motion.div>
         </div>
       </div>
@@ -72,7 +75,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 };
 

@@ -4,7 +4,7 @@ import ServicePage from './ServicePage';
 import { notFound } from 'next/navigation';
 
 const Page = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+    const { slug } = await params;
   const service = servicesData[slug];
 
   if (!service) {

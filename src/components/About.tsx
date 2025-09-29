@@ -1,8 +1,6 @@
-'use client';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/variants';
 import FlippableCard from './FlippableCard';
 import Image from 'next/image';
+import FadeIn from './motion/FadeIn';
 
 const About = () => {
   return (
@@ -10,13 +8,7 @@ const About = () => {
       <div className="container mx-auto">
         <div className="flex flex-wrap lg:flex-nowrap">
           {/* Text Content */}
-          <motion.div
-            variants={fadeIn('right', 0.2)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="w-full lg:w-1/2 flex items-center py-12 px-4 sm:px-6 lg:px-8"
-          >
+          <FadeIn direction="right" delay={0.2} className="w-full lg:w-1/2 flex items-center py-12 px-4 sm:px-6 lg:px-8">
             <div>
               <h6 className="text-[#F49918]">Eccellenza nella Riqualificazione Energetica e Progettazione Tecnologica</h6>
               <h1 className="mb-4">Perché scegliere LC Energia?</h1>
@@ -26,40 +18,22 @@ const About = () => {
                 Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L’obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
               </p>
               <div className="flex flex-wrap -m-2 mt-6">
-                <motion.div
-                  variants={fadeIn('up', 0.3)}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.25 }}
-                  className="w-full sm:w-1/2 p-2"
-                >
+                <FadeIn direction="up" delay={0.3} className="w-full sm:w-1/2 p-2">
                   <FlippableCard text="Recependo e concretizzando al meglio le sue richieste." />
-                </motion.div>
-                <motion.div
-                  variants={fadeIn('up', 0.4)}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.25 }}
-                  className="w-full sm:w-1/2 p-2"
-                >
+                </FadeIn>
+                <FadeIn direction="up" delay={0.4} className="w-full sm:w-1/2 p-2">
                   <FlippableCard text="Offrendo la nostra professionalità e disponibilità." />
-                </motion.div>
+                </FadeIn>
               </div>
             </div>
-          </motion.div>
+          </FadeIn>
 
           {/* Image */}
-          <motion.div
-            variants={fadeIn('left', 0.3)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="w-full lg:w-1/2 min-h-[400px] lg:min-h-full"
-          >
+          <FadeIn direction="left" delay={0.3} className="w-full lg:w-1/2 min-h-[400px] lg:min-h-full">
             <div className="relative w-full h-full">
               <Image src="/img/1Trabajador campo paneles solares.jpg" alt="Lavoratore in un campo di pannelli solari" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>

@@ -2,32 +2,43 @@
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import Counter from './Counter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faUsers, faCheck, faAward, faLeaf } from '@fortawesome/free-solid-svg-icons';
+
+interface FeatureData {
+  icon: IconDefinition;
+  count: string;
+  suffix: string;
+  title: string;
+  description: string;
+}
 
 const Feature = () => {
-  const features = [
+  const features: FeatureData[] = [
     {
-      icon: "fa-users",
+      icon: faUsers,
       count: "200",
       suffix: "+",
       title: "Oltre 200 Progetti",
       description: "Progetti realizzati con successo, garantendo alta qualità e affidabilità."
     },
     {
-      icon: "fa-check",
+      icon: faCheck,
       count: "2000",
       suffix: "kW",
       title: "Oltre 2000 kW Installati",
       description: "Capacità energetica installata per diverse soluzioni sostenibili."
     },
     {
-      icon: "fa-award",
+      icon: faAward,
       count: "2500",
       suffix: "kWh",
       title: "Oltre 2500 kWh Prodotti",
       description: "Energia prodotta per alimentare abitazioni e imprese."
     },
     {
-      icon: "fa-leaf",
+      icon: faLeaf,
       count: "1750",
       suffix: "T",
       title: "1750 Tonnellate di Co2 evitate",
@@ -53,7 +64,7 @@ const Feature = () => {
             >
               <div className="flex items-center justify-center mb-4">
                 <div className="w-16 h-16 bg-[#F49918] rounded-full flex items-center justify-center mr-4">
-                  <i className={`fa ${feature.icon} text-white text-2xl`}></i>
+                  <FontAwesomeIcon icon={feature.icon} className="text-white text-2xl" />
                 </div>
                 <div className="flex items-baseline">
                   <Counter from={0} to={parseInt(feature.count)} />

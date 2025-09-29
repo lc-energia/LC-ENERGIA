@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     locales: ['it'],
     defaultLocale: 'it',
   },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
 };
 
 export default nextConfig;

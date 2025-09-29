@@ -1,5 +1,7 @@
 'use client';
 import PageHeader from '@/components/PageHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const ContactPage = () => {
 
@@ -16,7 +18,7 @@ const ContactPage = () => {
                       <div className="row">
                           <div className="col-md-6 mb-4">
                               <div className="p-3">
-                                  <i className="fa fa-envelope fa-3x text-primary mb-3"></i>
+                                  <FontAwesomeIcon icon={faEnvelope} className="fa-3x text-primary mb-3" />
                                   <h5 className="mb-3">Invia una mail</h5>
                                   <p className="text-muted">info@lc-energia.it</p>
                                   <a href="mailto:info@lc-energia.it" className="btn btn-outline-primary mt-3">Scrivi ora</a>
@@ -24,7 +26,7 @@ const ContactPage = () => {
                           </div>
                           <div className="col-md-6 mb-4">
                               <div className="p-3">
-                                  <i className="fa fa-phone fa-3x text-primary mb-3"></i>
+                                  <FontAwesomeIcon icon={faPhone} className="fa-3x text-primary mb-3" />
                                   <h5 className="mb-3">Chiama ora</h5>
                                   <p className="text-muted">0362 992142</p>
                                   <a href="tel:0362992142" className="btn btn-outline-secondary mt-3">Chiama</a>

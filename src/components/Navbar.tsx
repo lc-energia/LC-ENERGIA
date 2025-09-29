@@ -1,4 +1,6 @@
 'use client';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
@@ -104,7 +106,7 @@ export default function Navbar() {
                 
                 <Link href="/contact" className="whitespace-nowrap rounded-none bg-[#F49918] px-4 py-4 text-white hover:bg-[#e68a16] lg:px-5 hidden lg:block">
                   Richiedi un preventivo
-                  <i className="fa fa-arrow-right ml-3"></i>
+                  <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
                 </Link>
               </div>
 

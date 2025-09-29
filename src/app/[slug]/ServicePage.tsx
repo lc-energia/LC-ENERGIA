@@ -1,4 +1,6 @@
 'use client';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import ServicePageLayout from '@/components/ServicePageLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -31,7 +33,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
       {service.mainFeatures && (
         <div className="row g-4 justify-content-center mb-5">
           {service.mainFeatures.map((feature, i) => (
-            <SimpleTextCard key={i} feature={feature} variants={cardVariants} i={i} columnClass="col-lg-3 col-md-6" />
+            <SimpleTextCard key={i} feature={feature} i={i} columnClass="col-lg-3 col-md-6" />
           ))}
         </div>
       )}
@@ -108,7 +110,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       {section.content && <p className="lead mb-4">{section.content}</p>}
                     </div>
                     {items?.map((item, j) => (
-                      <FeatureCard key={j} feature={item} variants={cardVariants} i={i + j} columnClass={featureCardColumnClass} />
+                      <FeatureCard key={j} feature={item} i={i + j} columnClass={featureCardColumnClass} />
                     ))}
                   </div>
                 </div>
@@ -147,7 +149,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       <ul className="list-unstyled mb-0">
                         {section.list.map((item, j) => (
                           <li key={j} className="d-flex align-items-start mb-2">
-                            <i className="fa fa-check-circle text-primary mt-1 me-2"></i>
+                            <FontAwesomeIcon icon={faCheckCircle} className="text-primary mt-1 me-2" />
                             <span>{item}</span>
                           </li>
                         ))}

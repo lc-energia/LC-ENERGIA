@@ -1,6 +1,7 @@
 'use client';
 import { useSticky } from '@/hooks/useSticky';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUp } from 'react-bootstrap-icons';
 
 const BackToTop = () => {
   const isSticky = useSticky();
@@ -20,7 +21,7 @@ const BackToTop = () => {
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
         >
-          <i className="bi bi-arrow-up"></i>
+          <ArrowUp />
         </motion.button>
       )}
     </AnimatePresence>
