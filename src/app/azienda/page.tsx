@@ -4,7 +4,6 @@ import { IconDefinition, faSolarPanel, faWind, faLightbulb, faHeadset } from '@f
 import PageHeader from '@/components/PageHeader';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
-import Image from 'next/image';
 import { valuePropositions, reasons, teamMembers } from '@/data/azienda-data';
 
 const iconMap: { [key: string]: IconDefinition } = {
@@ -90,6 +89,30 @@ const AziendaPage = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Collaborazioni Section */}
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={fadeIn('up', 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold mt-2 mb-4 text-dark">Collaborazioni</h2>
+          </motion.div>
+          <motion.div
+            variants={fadeIn('up', 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="flex justify-center"
+          >
+            <img src="/img/image3.png" alt="Collaborazioni" className="w-64 h-auto" />
+          </motion.div>
         </div>
       </section>
 

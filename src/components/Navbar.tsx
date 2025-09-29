@@ -1,7 +1,7 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -49,14 +49,15 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   const isSticky = useSticky();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className={classNames(
       'sticky top-0 z-50 w-full bg-white transition-shadow duration-300',
       isSticky ? 'shadow-sm' : ''
     )}>
-      <Disclosure as="nav">
-        {({ open, close }) => (
+      <Disclosure as="nav" open={isOpen} onClose={() => setIsOpen(false)}>
+        {({ close }) => (
           <>
             <div className="flex h-auto items-center">
               {/* Logo */}
@@ -86,7 +87,7 @@ export default function Navbar() {
                               {dropdown.items.map((item) => (
                                 <Menu.Item key={item.name}>
                                   {({ active }) => (
-                                    <Link href={item.href} onClick={() => close()} className={classNames(active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                                    <Link href={item.href} className={classNames(active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700')}>
                                       {item.name}
                                     </Link>
                                   )}
@@ -112,9 +113,9 @@ export default function Navbar() {
 
               {/* Mobile menu button */}
               <div className="flex items-center lg:hidden">
-                <Disclosure.Button className="mr-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#F49918]">
+                <Disclosure.Button className="mr-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#F49918]" onClick={() => setIsOpen(!isOpen)}>
                   <span className="sr-only">Open main menu</span>
-                  {open ? (
+                  {isOpen ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
@@ -127,21 +128,21 @@ export default function Navbar() {
             <Disclosure.Panel className="w-full lg:hidden border-t">
               <div className="space-y-1 p-4">
                 {navigation.links.map((item) => (
-                  <Disclosure.Button key={item.name} as={Link} href={item.href} onClick={() => setTimeout(close, 0)} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                  <Link href={item.href} key={item.name} onClick={() => close()} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
                     {item.name}
-                  </Disclosure.Button>
+                  </Link>
                 ))}
                 {navigation.dropdowns.map((dropdown) => (
-                  <Disclosure key={dropdown.name}>
+                  <Disclosure as="div" key={dropdown.name} className="space-y-1">
                     {({ open: dOpen }) => (
                       <>
                         <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
                           <span>{dropdown.name}</span>
-                          <ChevronDownIcon className={classNames(dOpen ? 'rotate-180' : '', 'h-5 w-5')} />
+                          <ChevronDownIcon className={classNames(dOpen ? 'rotate-180' : '', 'h-5 w-5 transition-transform duration-200')} />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="pl-4">
+                        <Disclosure.Panel className="pl-4 space-y-1">
                           {dropdown.items.map((item) => (
-                            <Disclosure.Button key={item.name} as={Link} href={item.href} onClick={close} className="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#F49918]">
+                            <Disclosure.Button as={Link} href={item.href} key={item.name} onClick={() => close()} className="block rounded-md px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#F49918]">
                               {item.name}
                             </Disclosure.Button>
                           ))}
@@ -150,12 +151,12 @@ export default function Navbar() {
                     )}
                   </Disclosure>
                 ))}
-                <Disclosure.Button as={Link} href={navigation.rightLink.href} onClick={() => setTimeout(close, 0)} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                <Link href={navigation.rightLink.href} key={navigation.rightLink.name} onClick={() => close()} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
                   {navigation.rightLink.name}
-                </Disclosure.Button>
-                <Disclosure.Button as={Link} href="/contact" onClick={() => setTimeout(close, 0)} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                </Link>
+                <Link href="/contact" key="contact" onClick={() => close()} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
                   Richiedi un preventivo
-                </Disclosure.Button>
+                </Link>
               </div>
             </Disclosure.Panel>
           </>
