@@ -8,7 +8,7 @@ import 'swiper/css';
 
 const NewTestimonial = () => {
   return (
-    <div className="py-16 sm:py-20">
+    <div className="py-4 sm:py-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative max-w-3xl mx-auto text-center">
           <Swiper
@@ -23,7 +23,7 @@ const NewTestimonial = () => {
           >
             {testimonialData.map((testimonial, index) => (
               <SwiperSlide key={index}>
-                <div className="py-12">
+                <div className="py-4">
                   <p className="text-xl sm:text-2xl leading-relaxed text-gray-700">
                     {testimonial.text}
                   </p>

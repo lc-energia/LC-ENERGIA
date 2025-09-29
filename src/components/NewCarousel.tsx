@@ -1,18 +1,21 @@
 'use client';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { carouselData } from '@/data/carousel-data';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import SwiperPagination from './SwiperPagination';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
 
 const NewCarousel = () => {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
+
   return (
-    <div className="w-full p-0 pb-5">
+    <div className="w-full p-0 relative">
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
@@ -21,13 +24,7 @@ const NewCarousel = () => {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-          el: '.swiper-pagination-custom', // Use a custom pagination container
-          renderBullet: function (index, className) {
-            return '<span class="' + className + ' w-3 h-3 bg-gray-400 rounded-full transition-colors duration-300"></span>';
-          },
-        }}
+        onSwiper={setSwiperInstance}
         className="relative h-[400px] sm:h-[500px] lg:h-[600px]"
       >
         {carouselData.map((slide, index) => (
@@ -51,9 +48,8 @@ const NewCarousel = () => {
                       initial={{ y: -50, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                      {slide.text}
-                    </motion.p>
+                      dangerouslySetInnerHTML={{ __html: slide.text }}
+                    />
                     <motion.div
                       initial={{ x: -100, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
@@ -72,9 +68,8 @@ const NewCarousel = () => {
             </div>
           </SwiperSlide>
         ))}
-        {/* Custom Pagination Container */}
-        <div className="swiper-pagination-custom absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10"></div>
       </Swiper>
+      <SwiperPagination swiper={swiperInstance} totalSlides={carouselData.length} />
     </div>
   );
 };

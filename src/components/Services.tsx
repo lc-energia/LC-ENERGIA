@@ -154,9 +154,6 @@ const Services = () => {
             {filteredServices.map((service) => (
               <motion.div
                 key={service.title}
-                layout
-                variants={fadeIn('up', 0)} // Delay is now controlled by parent's staggerChildren
-                exit={{ opacity: 0, y: -20, transition: { duration: 0.3 } }}
                 className="w-full"
               >
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">

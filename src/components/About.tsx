@@ -6,9 +6,9 @@ const About = () => {
   return (
     <section className="bg-[#F6F7F8] overflow-hidden py-12 sm:py-16">
       <div className="container mx-auto">
-        <div className="flex flex-wrap lg:flex-nowrap">
+        <div className="flex flex-wrap lg:flex-nowrap gap-8">
           {/* Text Content */}
-          <FadeIn direction="right" delay={0.2} className="w-full lg:w-1/2 flex items-center py-8">
+          <FadeIn direction="right" delay={0.2} className="w-full lg:w-[calc(50%-1rem)] flex items-center py-8">
             <div>
               <h6 className="text-[#F49918]">Eccellenza nella Riqualificazione Energetica e Progettazione Tecnologica</h6>
               <h1 className="mb-4">Perché scegliere LC Energia?</h1>
@@ -29,7 +29,7 @@ const About = () => {
           </FadeIn>
 
           {/* Image */}
-          <FadeIn direction="left" delay={0.3} className="w-full lg:w-1/2 min-h-[400px] lg:min-h-full">
+          <FadeIn direction="left" delay={0.3} className="w-full lg:w-[calc(50%-1rem)] min-h-[400px] lg:min-h-full">
             <div className="relative w-full h-full">
               <Image src="/img/1Trabajador campo paneles solares.jpg" alt="Lavoratore in un campo di pannelli solari" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </div>
