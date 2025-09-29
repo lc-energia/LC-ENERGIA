@@ -59,7 +59,6 @@ export const servicesData: { [key: string]: ServiceData } = {
   'impianti-fotovoltaici': {
     title: 'Impianti Fotovoltaici',
     breadcrumb: 'Impianti Fotovoltaici',
-    title: 'Perché conviene?',
     introduction: '<br>Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" <br>partendo da una valutazione preliminare che considera i seguenti elementi di base:',
     mainFeatures: [
       { text: 'Consumo annuo\'utenza', icon: 'fa-bolt' },
