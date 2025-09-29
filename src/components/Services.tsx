@@ -125,7 +125,7 @@ const Services = () => {
           viewport={{ once: true, amount: 0.25 }}
           className="flex justify-center mb-10"
         >
-          <ul className="flex flex-wrap items-center space-x-2 sm:space-x-4">
+          <ul className="flex flex-wrap items-center space-x-4 md:space-x-6">
             {filterButtons.map(button => (
               <li
                 key={button.value}

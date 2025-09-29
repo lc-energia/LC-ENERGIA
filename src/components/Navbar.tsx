@@ -127,7 +127,7 @@ export default function Navbar() {
             <Disclosure.Panel className="w-full lg:hidden border-t">
               <div className="space-y-1 p-4">
                 {navigation.links.map((item) => (
-                  <Disclosure.Button key={item.name} as={Link} href={item.href} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                  <Disclosure.Button key={item.name} as={Link} href={item.href} onClick={() => setTimeout(close, 0)} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
                     {item.name}
                   </Disclosure.Button>
                 ))}
@@ -141,7 +141,7 @@ export default function Navbar() {
                         </Disclosure.Button>
                         <Disclosure.Panel className="pl-4">
                           {dropdown.items.map((item) => (
-                            <Disclosure.Button key={item.name} as={Link} href={item.href} className="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#F49918]">
+                            <Disclosure.Button key={item.name} as={Link} href={item.href} onClick={close} className="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#F49918]">
                               {item.name}
                             </Disclosure.Button>
                           ))}
@@ -150,10 +150,10 @@ export default function Navbar() {
                     )}
                   </Disclosure>
                 ))}
-                <Disclosure.Button as={Link} href={navigation.rightLink.href} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                <Disclosure.Button as={Link} href={navigation.rightLink.href} onClick={() => setTimeout(close, 0)} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
                   {navigation.rightLink.name}
                 </Disclosure.Button>
-                <Disclosure.Button as={Link} href="/contact" className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                <Disclosure.Button as={Link} href="/contact" onClick={() => setTimeout(close, 0)} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
                   Richiedi un preventivo
                 </Disclosure.Button>
               </div>
