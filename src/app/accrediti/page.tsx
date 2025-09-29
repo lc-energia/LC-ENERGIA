@@ -1,38 +1,39 @@
 'use client';
 import PageHeader from '@/components/PageHeader';
+import AccreditationCard from '@/components/AccreditationCard';
 import { accreditations } from '@/data/azienda-data';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { ShieldFillCheck } from 'react-bootstrap-icons';
+import { motion } from 'framer-motion';
+import { fadeIn } from '@/variants';
 
 const AccreditationsPage = () => {
-  const accreditation = accreditations[0];
-
   return (
     <>
       <PageHeader title="Accrediti" />
 
-      <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-          <div className="container">
-              <div className="row g-5 align-items-center">
-                  <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                      <p className="mb-4">{accreditation.pageDescription}</p>
-                      <ul className="list-group list-group-flush">
-                          {accreditation.description.split('.<br>').map((item, index) => (
-                              <li key={index} className="list-group-item"><FontAwesomeIcon icon={faCheckCircle} className="text-primary me-2" />{item}</li>
-                          ))}
-                      </ul>
-                      <div className="mt-4">
-                        <Link href="/contact" className="btn btn-primary rounded-pill py-3 px-5">Richiedi un preventivo</Link>
-                      </div>
-                  </div>
-                  <div className="col-lg-6 wow fadeIn text-center" data-wow-delay="0.5s">
-                      <ShieldFillCheck className="text-primary" style={{ fontSize: '8rem' }} />
-                  </div>
-              </div>
+      <section className="py-12 sm:py-16 bg-light">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h1 className="text-4xl sm:text-5xl font-bold text-dark">Siamo Professionisti Qualificati</h1>
+            <p className="mt-4 text-lg text-gray-600">
+              La nostra competenza è garantita da numerose abilitazioni e iscrizioni che attestano la nostra professionalità nel settore energetico e della sicurezza.
+            </p>
           </div>
-      </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {accreditations.map((accreditation, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn('up', 0.3 + index * 0.1)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <AccreditationCard accreditation={accreditation} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };

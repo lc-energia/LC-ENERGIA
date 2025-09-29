@@ -2,6 +2,7 @@ export interface Section {
   title: string;
   content: string;
   list?: string[];
+  accordionItems?: { title: string; content: string; }[];
   fullWidth?: boolean;
   hideLogo?: boolean;
   modes?: {
@@ -58,7 +59,8 @@ export const servicesData: { [key: string]: ServiceData } = {
   'impianti-fotovoltaici': {
     title: 'Impianti Fotovoltaici',
     breadcrumb: 'Impianti Fotovoltaici',
-    introduction: 'IL NOSTRO INTERVENTO<br>Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" partendo da una valutazione preliminare che considera i seguenti elementi di base:',
+    title: 'Perché conviene?',
+    introduction: '<br>Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" <br>partendo da una valutazione preliminare che considera i seguenti elementi di base:',
     mainFeatures: [
       { text: 'Consumo annuo\'utenza', icon: 'fa-bolt' },
       { text: 'Spazio disponibile', icon: 'fa-ruler-combined' },
@@ -190,23 +192,23 @@ export const servicesData: { [key: string]: ServiceData } = {
         content: 'Offriamo una gamma completa di servizi per la prevenzione incendi, tra cui:',
         features: [
           {
-            title: 'Autorizzazioni VVF',
-            description: 'Ottenimento delle autorizzazioni dei Comandi VVF, anche eventualmente con istanza di deroga.',
+            title: 'Ottenimento delle autorizzazioni dei Comandi VVF, anche eventualmente con istanza di deroga.',
+            description: '',
             icon: 'fa-file-signature',
           },
           {
-            title: 'Progettazione Architettonica',
-            description: 'Progettazione architettonica di prevenzione incendi.',
+            title: 'Progettazione architettonica di prevenzione incendi.',
+            description: '',
             icon: 'fa-building',
           },
           {
-            title: 'Progettazione Impiantistica',
-            description: 'Progettazione impiantistica antincendio.',
+            title: 'Progettazione impiantistica antincendio.',
+            description: '',
             icon: 'fa-fire-extinguisher',
           },
           {
-            title: 'Certificazione Manufatti',
-            description: 'Certificazione di manufatti, impianti e strutture edilizie.',
+            title: 'Certificazione di manufatti, impianti e strutture edilizie.',
+            description: '',
             icon: 'fa-certificate',
           },
         ]
@@ -255,19 +257,21 @@ export const servicesData: { [key: string]: ServiceData } = {
     sections: [
       {
         title: 'REALIZZAZIONE',
-        content: 'Gli impianti geotermici sono sistemi che richiedono una corretta valutazione che LC Energia effettua per ogni impianto con l’ausilio di tecnici qualificati sia nel campo della tecnica ingegeneristica che di quella geologica.',
-      },
-      {
-        title: 'TECNOLOGIA DELL\'IMPIANTO',
-        content: 'Il D.Lgs 199/21 oggi impone che il 60% dell’energia termica consumata dai nuovi edifici e nel caso di ristrutturazioni importanti, sia prodotta da fonti rinnovabili. Questo obbligo pone la necessità di definire preventivamente la tipologia dei sistemi di climatizzazione da installare.',
-      },
-      {
-        title: 'Vantaggi',
-        content: 'I plus di questa soluzione sono i seguenti: sistema efficiente, soluzione per eliminare problematiche atmosferiche, impianto che sfrutta una risorsa inesauribile di energia, edificio valorizzato, maggior sicurezza degli impianti e possibilità di rinunciare all\'allaccio del gas-metano.',
+        content: 'Gli impianti geotermici sono sistemi che richiedono una corretta valutazione che LC Energia effettua per ogni impianto con l’ausilio di tecnici qualificati sia nel campo della tecnica ingeneristica che di quella geologica.',
       },
       {
         title: 'CLIMATIZZAZIONE ESTIVA',
         content: 'Abbattere le bollette energetiche, ridurre i consumi di combustibile e valorizzare la prestazione energetica della propria abitazione è possibile con i nuovi sistemi geotermici di terza generazione, che presentano una efficienza media maggiore del 20% rispetto ai precedenti sistemi.',
+      },
+      {
+        title: 'TECNOLOGIA DELL\'IMPIANTO',
+        content: 'Il D.Lgs 199/21 oggi impone che il 60% dell’energia termica consumata dai nuovi edifici e nel caso di ristrutturazioni importanti, sia prodotta da fonti rinnovabili. Questo obbligo pone la necessità di definire preventivamente la tipologia dei sistemi di climatizzazione da installare.',
+        accordionItems: [
+          {
+            title: 'Vantaggi',
+            content: 'I plus di questa soluzione sono i seguenti: sistema efficiente, soluzione per eliminare problematiche atmosferiche, impianto che sfrutta una risorsa inesauribile di energia, edificio valorizzato, maggior sicurezza degli impianti e possibilità di rinunciare all\'allaccio del gas-metano.'
+          }
+        ]
       },
     ],
   },

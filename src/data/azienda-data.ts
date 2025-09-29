@@ -37,16 +37,37 @@ export interface Accreditation {
   title: string;
   description: string;
   icon: string;
-  pageTitle: string;
-  pageDescription: string;
 }
 
 export const accreditations: Accreditation[] = [
   {
-    title: "Accrediti LC Energia",
-    description: "Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.<br>Certificatori Energetici di cui alla D.G.R. Lombardia.<br>Iscritti negli elenchi del Ministero degli Interni dei professionisti abilitati alla progettazione antincendio ed all'estensione di perizie giurate di cui alla Legge 818/84.<br>Verificatori in materia di sicurezza degli impianti ai sensi della Legge 46/90.<br>Consulenti tecnici del Tribunale di Como, Monza, Lecco.",
-    icon: "bi bi-shield-fill-check",
-    pageTitle: "Accrediti LC Energia",
-    pageDescription: "Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.",
+    title: "Albi Professionali",
+    description: "Iscritti all'ordine degli Ingegneri e all'albo Provinciale dei Periti Industriali.",
+    icon: "bi bi-person-badge"
   },
+  {
+    title: "Certificatori Energetici",
+    description: "Abilitati secondo la D.G.R. 8/5018 – 20.07.2007 della Regione Lombardia.",
+    icon: "bi bi-patch-check"
+  },
+  {
+    title: "Energy Building Manager",
+    description: "Accreditati presso la Regione Lombardia ai sensi del D.G.R. VIII/8355 del 5 Novembre 2008.",
+    icon: "bi bi-building-check"
+  },
+  {
+    title: "Progettisti Antincendio",
+    description: "Iscritti nell’elenco del Ministero dell’Interno di cui al D.Lgs n.139/2006 (ex Legge 818/84).",
+    icon: "bi bi-fire"
+  },
+  {
+    title: "Verificatori Sicurezza Impianti",
+    description: "Abilitati alla verifica di sicurezza degli impianti ai sensi del DM 22/1/08 n. 37.",
+    icon: "bi bi-shield-check"
+  },
+  {
+    title: "Consulenti Tecnici del Tribunale",
+    description: "In qualità di Consulenti Tecnici d’Ufficio (CTU) per i Tribunali di Como, Monza e Lecco.",
+    icon: "bi bi-briefcase"
+  }
 ];

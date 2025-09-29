@@ -27,7 +27,14 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
   return (
     <ServicePageLayout title={service.title}>
       <div className="text-center mx-auto mb-5">
-        <p className="lead" dangerouslySetInnerHTML={{ __html: service.introduction }}></p>
+        {slug === 'impianti-fotovoltaici' ? (
+          <>
+            <h6 className="text-primary font-bold text-lg uppercase">IL NOSTRO INTERVENTO</h6>
+            <p className="lead">Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" partendo da una valutazione preliminare che considera i seguenti elementi di base:</p>
+          </>
+        ) : (
+          <p className="lead" dangerouslySetInnerHTML={{ __html: service.introduction }}></p>
+        )}
       </div>
 
       {service.mainFeatures && (
@@ -43,7 +50,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           <div className="container">
             <div className="row g-5 align-items-center">
               <div className="col-lg-6">
-                <p className="lead">
+                <p className="lead text-dark font-bold">
                   Grazie alla comunità energetica è possibile ricevere un incentivo per l’energia immessa in rete e consumata all’interno della Comunità Energetica Rinnovabile.
                 </p>
               </div>
@@ -144,7 +151,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                         <h5 className="card-title mb-0">{section.title}</h5>
                       </div>
                     </div>
-                    <p className="card-text">{section.content}</p>
+                    <p className="card-text" dangerouslySetInnerHTML={{ __html: section.content }}></p>
                     {section.list && (
                       <ul className="list-unstyled mb-0">
                         {section.list.map((item, j) => (
@@ -154,6 +161,11 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                           </li>
                         ))}
                       </ul>
+                    )}
+                    {section.accordionItems && (
+                      <div className="mt-4">
+                        <InfoAccordion items={section.accordionItems} />
+                      </div>
                     )}
                   </div>
                 </div>
@@ -167,7 +179,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
         <div className="container-xxl py-5">
           <div className="container">
             <div className="text-center mx-auto mb-5">
-              <h2 className="display-6 mb-4">{service.partnersTitle}</h2>
+              <h6 className="text-primary font-bold text-lg uppercase mb-2">{service.partnersTitle}</h6>
               <p className="lead">{service.partnersIntroduction}</p>
             </div>
             <div className="row g-4 justify-content-center">
