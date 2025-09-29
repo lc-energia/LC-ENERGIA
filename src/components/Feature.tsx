@@ -38,14 +38,17 @@ const Feature = () => {
   return (
     <section className="py-16 sm:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+        >
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              variants={fadeIn('up', i * 0.2)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              variants={fadeIn('up', 0)} // Delay is now controlled by parent's staggerChildren
               className="text-center"
             >
               <div className="flex items-center justify-center mb-4">
@@ -61,7 +64,7 @@ const Feature = () => {
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

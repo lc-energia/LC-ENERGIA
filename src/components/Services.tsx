@@ -124,16 +124,18 @@ const Services = () => {
         {/* Services Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
         >
           <AnimatePresence>
             {filteredServices.map((service) => (
               <motion.div
                 key={service.title}
                 layout
-                variants={fadeIn('up', 0.3)}
-                initial="hidden"
-                animate="show"
-                exit="hidden"
+                variants={fadeIn('up', 0)} // Delay is now controlled by parent's staggerChildren
+                exit={{ opacity: 0, y: -20, transition: { duration: 0.3 } }}
                 className="w-full"
               >
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">

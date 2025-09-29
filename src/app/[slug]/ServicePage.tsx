@@ -115,7 +115,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               );
             }
             if (section.title === 'FAQ') {
-              return <FaqAccordion key={i} section={section} />;
+              return <FaqAccordion key={i} faqs={section.questions || []} />;
             }
             let columnClass = section.fullWidth ? 'col-lg-12' : 'col-lg-4 col-md-6';
             if ((slug === 'impianti-geotermici') && !section.fullWidth) {

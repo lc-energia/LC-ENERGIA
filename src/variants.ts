@@ -13,7 +13,7 @@ export const fadeIn = (direction: 'up' | 'down' | 'left' | 'right', delay: numbe
       opacity: 1,
       transition: {
         type: 'tween',
-        duration: 0.8,
+        duration: 0.5,
         delay: delay,
         ease: [0.25, 0.25, 0.25, 0.75],
       },
