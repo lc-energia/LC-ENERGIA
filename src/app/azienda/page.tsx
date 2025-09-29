@@ -2,6 +2,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition, faSolarPanel, faWind, faLightbulb, faHeadset } from '@fortawesome/free-solid-svg-icons';
 import PageHeader from '@/components/PageHeader';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { valuePropositions, reasons, teamMembers } from '@/data/azienda-data';
@@ -111,7 +112,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="flex justify-center"
           >
-            <img src="/img/image3.png" alt="Collaborazioni" className="w-64 h-auto" />
+            <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" />
           </motion.div>
         </div>
       </section>
