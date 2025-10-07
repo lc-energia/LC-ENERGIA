@@ -29,7 +29,6 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${openSans.variable} ${roboto.variable}`}>
       <head>
-        <link rel="icon" href="/img/logo.ico" />
       </head>
       <body>
         <Navbar />

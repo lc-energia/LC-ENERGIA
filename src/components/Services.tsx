@@ -111,10 +111,13 @@ const Services = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="text-center mx-auto mb-12"
-          style={{ maxWidth: '600px' }}
+          className="text-center mx-auto mb-16"
+          style={{ maxWidth: '800px' }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#F49918]">I Nostri Servizi</h1>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark-200 mb-4">I Nostri Servizi</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Soluzioni integrate e innovative per l'efficienza energetica e la sostenibilità ambientale
+          </p>
         </motion.div>
 
         {/* Filter Buttons */}
@@ -123,20 +126,21 @@ const Services = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="flex justify-center mb-10"
+          className="flex justify-center mb-12"
         >
-          <ul className="flex flex-wrap items-center space-x-4 md:space-x-6">
+          <ul className="flex flex-wrap items-center gap-3">
             {filterButtons.map(button => (
-              <li
-                key={button.value}
-                onClick={() => setFilter(button.value)}
-                className={`cursor-pointer font-medium py-2 px-4 rounded-full transition-colors duration-300 ${
-                  filter === button.value
-                    ? 'bg-[#F49918] text-white shadow-md'
-                    : 'bg-gray-200 text-gray-700 hover:bg-[#F49918] hover:text-white'
-                }`}
-              >
-                {button.name}
+              <li key={button.value}>
+                <button
+                  onClick={() => setFilter(button.value)}
+                  className={`font-medium py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 ${
+                    filter === button.value
+                      ? 'bg-primary text-white shadow-primary shadow-lg'
+                      : 'bg-neutral-200 text-gray-700 hover:bg-primary hover:text-white hover:shadow-md'
+                  }`}
+                >
+                  {button.name}
+                </button>
               </li>
             ))}
           </ul>
@@ -144,8 +148,8 @@ const Services = () => {
 
         {/* Services Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          variants={{ show: { transition: { staggerChildren: 0.15 } } }}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
@@ -154,19 +158,38 @@ const Services = () => {
             {filteredServices.map((service) => (
               <motion.div
                 key={service.title}
-                className="w-full"
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="w-full group"
               >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-                  <div className="p-6 flex-grow">
-                    <div className="text-[#F49918] mb-4">
-                      <FontAwesomeIcon icon={service.icon} className="text-4xl" />
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col border border-neutral-100">
+                  <div className="p-8 flex-grow relative">
+                    {/* Icon Background */}
+                    <div className="absolute top-8 right-8 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
+                      <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <FontAwesomeIcon icon={service.icon} className="text-white text-2xl" />
+                      </div>
                     </div>
-                    <h4 className="text-xl font-bold mb-3 text-[#1A2A36]">{service.title}</h4>
-                    <p className="text-gray-600 mb-4 flex-grow">{service.description}</p>
+
+                    <div className="mb-6">
+                      <h4 className="text-xl font-bold text-dark-200 mb-4 pr-20">{service.title}</h4>
+                      <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                    </div>
                   </div>
-                  <div className="p-6 bg-gray-50">
-                    <Link href={service.link} className="font-medium text-[#F49918] hover:text-orange-700 transition-colors">
-                      Leggi di più <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
+
+                  <div className="p-8 bg-gradient-to-r from-neutral-50 to-white border-t border-neutral-100">
+                    <Link
+                      href={service.link}
+                      className="inline-flex items-center font-semibold text-primary hover:text-primary-600 transition-colors duration-300 group/link"
+                    >
+                      Scopri di più
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        className="ml-2 transition-transform duration-300 group-hover/link:translate-x-2"
+                      />
                     </Link>
                   </div>
                 </div>

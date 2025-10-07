@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { carouselData } from '@/data/carousel-data';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SwiperPagination from './SwiperPagination';
 
@@ -22,48 +23,62 @@ const NewCarousel = () => {
         effect="fade"
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         onSwiper={setSwiperInstance}
-        className="relative h-[400px] sm:h-[500px] lg:h-[600px]"
+        className="relative h-[70vh] min-h-[500px] lg:min-h-[700px]"
       >
         {carouselData.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.img})` }}
-            >
-              <div className="absolute inset-0 flex items-center bg-gradient-to-t from-black/70 to-transparent">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="max-w-3xl">
-                    <motion.h1
-                      className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
-                      initial={{ y: -50, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      dangerouslySetInnerHTML={{ __html: slide.title }}
-                    />
-                    <motion.p
-                      className="text-lg text-white mb-6 mt-4 max-w-2xl [text-shadow:1px_1px_1px_rgba(0,0,0,0.7),_-2px_-2px_4px_rgba(0,0,0,0.7),_0_0_6px_#000000]"
-                      initial={{ y: -50, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                      dangerouslySetInnerHTML={{ __html: slide.text }}
-                    />
-                    <motion.div
-                      initial={{ x: -100, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
+            <Image
+              src={slide.img}
+              alt={slide.alt}
+              fill
+              priority={index === 0}
+              style={{ objectFit: 'cover' }}
+              className="-z-10"
+            />
+            <div className="absolute inset-0 flex items-center bg-gradient-to-r from-black/80 via-black/50 to-transparent">
+              <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+                <div className="max-w-4xl">
+                  <motion.h1
+                    className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6"
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    {slide.title}
+                  </motion.h1>
+                  <motion.p
+                    className="text-lg sm:text-xl text-white/95 mb-8 mt-4 max-w-3xl leading-relaxed [text-shadow:1px_1px_1px_rgba(0,0,0,0.7),_-2px_-2px_4px_rgba(0,0,0,0.7),_0_0_6px_#000000]"
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    {slide.text}
+                  </motion.p>
+                  <motion.div
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="flex flex-col sm:flex-row gap-4"
+                  >
+                    <Link
+                      href={slide.link}
+                      className="inline-flex items-center px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary text-center justify-center"
                     >
-                      <Link
-                        href={slide.link}
-                        className="inline-block bg-[#F49918] text-white rounded-full py-3 px-6 font-medium hover:bg-[#e68a16] transition-colors"
-                      >
-                        Read More
-                      </Link>
-                    </motion.div>
-                  </div>
+                      Scopri di più
+                      <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center px-8 py-4 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-secondary text-center justify-center"
+                    >
+                      Richiedi preventivo
+                      <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </div>

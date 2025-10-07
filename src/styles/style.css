@@ -1,8 +1,12 @@
 /********** Template CSS **********/
 :root {
-    --primary: #F49918;  
-    --light: #F6F7F8;
-    --dark: #1A2A36;
+    /* Semantic color variables - mapped to Tailwind theme */
+    --color-primary: #9BBD2D;
+    --color-secondary: #F49918;
+    --color-neutral: #E2E2E2;
+    --color-dark: #1A2A36;
+    --color-white: #FFFFFF;
+    --color-light: #F6F7F8;
 }
 .header-carousel .owl-carousel-item p {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7), -2px -2px 4px rgba(0, 0, 0, 0.7), 0 0 6px #000000;
@@ -65,15 +69,30 @@
 .btn.btn-primary,
 .btn.btn-outline-primary:hover {
     color: #FFFFFF;
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
     transition: all 0.3s ease;
     transform: translateY(0);
 }
 
 .btn.btn-primary:hover {
-    background-color: #e68a16;
-    border-color: #e68a16;
+    background-color: #cf7d0a;
+    border-color: #cf7d0a;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(244, 153, 24, 0.3);
+}
+
+.btn.btn-secondary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #FFFFFF;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #7d9824;
+    border-color: #7d9824;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(155, 189, 45, 0.3);
 }
 
 .btn.btn-primary:active {
@@ -132,7 +151,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary);
+    background: var(--color-primary);
     transition: width 0.3s ease;
 }
 
@@ -143,7 +162,7 @@
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: var(--color-primary);
     transform: translateY(-3px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -168,7 +187,7 @@
     
     .navbar .navbar-nav .nav-link:hover {
         transform: translateX(8px);
-        color: var(--primary);
+        color: var(--color-primary);
     }
 
     .navbar .navbar-nav {
@@ -183,7 +202,7 @@
     }
     
     .navbar-toggler:focus {
-        box-shadow: 0 0 0 0.15rem rgba(244, 153, 24, 0.25);
+        box-shadow: 0 0 0 0.15rem rgba(155, 189, 45, 0.25);
     }
     
     .navbar-toggler:hover {
@@ -325,7 +344,7 @@
     transition: box-shadow .4s cubic-bezier(.4,0,.2,1), transform .3s cubic-bezier(.4,0,.2,1);
 }
 .service-item:hover {
-    box-shadow: 0 8px 32px rgba(244,153,24,0.18), 0 1.5px 4px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 32px rgba(155,189,45,0.18), 0 1.5px 4px rgba(0,0,0,0.08);
     transform: translateY(-4px) scale(1.03);
 }
 
@@ -346,7 +365,7 @@
 
 .service-item:hover .service-icon {
     color: #FFFFFF;
-    background: var(--primary);
+    background: var(--color-primary);
     transform: scale(1.1); /* Added hover effect */
 }
 
@@ -387,8 +406,8 @@
 
 #portfolio-flters li:hover,
 #portfolio-flters li.active {
-    color: var(--primary);
-    border-color: var(--primary);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .portfolio-img {
@@ -613,8 +632,8 @@
 }
 
 .footer .btn.btn-social:hover {
-    color: var(--primary);
-    border-color: var(--light);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .footer .btn.btn-link {

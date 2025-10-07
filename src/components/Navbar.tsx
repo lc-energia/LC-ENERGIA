@@ -78,14 +78,14 @@ export default function Navbar() {
             <div className="hidden w-full items-center lg:flex ml-auto">
               <div className="ml-auto flex items-center p-0">
                 {navigation.links.map((item) => (
-                  <Link key={item.name} href={item.href} className="whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-[#F49918] transition-all duration-300 hover:-translate-y-1">
+                  <Link key={item.name} href={item.href} className="whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-primary transition-all duration-300 hover:-translate-y-1">
                     {item.name}
                   </Link>
                 ))}
 
                 {navigation.dropdowns.map((dropdown) => (
                   <Menu as="div" className="relative" key={dropdown.name}>
-                    <Menu.Button className="flex items-center whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-[#F49918] transition-all duration-300 hover:-translate-y-1">
+                    <Menu.Button className="flex items-center whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-primary transition-all duration-300 hover:-translate-y-1">
                       {dropdown.name}
                       <ChevronDownIcon className="ml-1 h-4 w-4" />
                     </Menu.Button>
@@ -107,13 +107,13 @@ export default function Navbar() {
                   </Menu>
                 ))}
 
-                <Link href={navigation.rightLink.href} className="whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-[#F49918] transition-all duration-300 hover:-translate-y-1">
+                <Link href={navigation.rightLink.href} className="whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-primary transition-all duration-300 hover:-translate-y-1">
                   {navigation.rightLink.name}
                 </Link>
               </div>
             </div>
-            
-            <Link href="/contact" className="whitespace-nowrap rounded-none bg-[#F49918] px-4 py-4 text-white hover:bg-[#e68a16] lg:px-5 hidden lg:block">
+
+            <Link href="/contact" className="whitespace-nowrap rounded-none bg-secondary hover:bg-secondary-600 text-white px-4 py-4 transition-all duration-300 hover:-translate-y-1 lg:px-5 hidden lg:block">
               Richiedi un preventivo
               <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
             </Link>
@@ -121,7 +121,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="flex items-center lg:hidden">
-            <button className="mr-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#F49918]" onClick={() => setIsOpen(!isOpen)}>
+            <button className="mr-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300" onClick={() => setIsOpen(!isOpen)}>
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
                 <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -137,7 +137,7 @@ export default function Navbar() {
           <div className="lg:hidden border-t absolute w-full bg-white shadow-lg">
             <div className="space-y-1 p-4">
               {navigation.links.map((item) => (
-                <Link href={item.href} key={item.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                <Link href={item.href} key={item.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
                   {item.name}
                 </Link>
               ))}
@@ -145,13 +145,13 @@ export default function Navbar() {
                 <Disclosure as="div" key={dropdown.name} className="space-y-1">
                   {({ open: dOpen }) => (
                     <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+                      <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
                         <span>{dropdown.name}</span>
                         <ChevronDownIcon className={classNames(dOpen ? 'rotate-180' : '', 'h-5 w-5 transition-transform duration-200')} />
                       </Disclosure.Button>
                       <Disclosure.Panel className="pl-4 space-y-1">
                         {dropdown.items.map((item) => (
-                          <Link href={item.href} key={item.name} className="block rounded-md px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#F49918]">
+                          <Link href={item.href} key={item.name} className="block rounded-md px-4 py-2 text-sm font-medium text-gray-600 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
                             {item.name}
                           </Link>
                         ))}
@@ -160,10 +160,10 @@ export default function Navbar() {
                   )}
                 </Disclosure>
               ))}
-              <Link href={navigation.rightLink.href} key={navigation.rightLink.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+              <Link href={navigation.rightLink.href} key={navigation.rightLink.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
                 {navigation.rightLink.name}
               </Link>
-              <Link href="/contact" key="contact" className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#F49918]">
+              <Link href="/contact" key="contact" className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
                 Richiedi un preventivo
               </Link>
             </div>
