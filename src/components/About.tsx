@@ -1,6 +1,9 @@
+'use client';
+
 import FlippableCard from './FlippableCard';
 import Image from 'next/image';
 import FadeIn from './motion/FadeIn';
+import { motion } from 'framer-motion';
 
 const About = () => {
   return (
