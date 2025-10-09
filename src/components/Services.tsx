@@ -116,7 +116,7 @@ const Services = () => {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark-200 mb-4">I Nostri Servizi</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Soluzioni integrate e innovative per l'efficienza energetica e la sostenibilità ambientale
+            Soluzioni integrate e innovative per l&apos;efficienza energetica e la sostenibilità ambientale
           </p>
         </motion.div>
 
