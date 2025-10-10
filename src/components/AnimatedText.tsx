@@ -116,41 +116,35 @@ export const AnimatedHTMLText: React.FC<{
   delay?: number;
   duration?: number;
 }> = ({ html, className = '', delay = 0, duration = 0.6 }) => {
-  // Parsear HTML y animar solo el texto, preservando los spans
-  const parseAndAnimate = (htmlString: string) => {
-    // Crear un DOM parser temporal
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    const result: Array<{ type: 'text' | 'element'; content: string; className?: string }> = [];
+  // Simple parseo de HTML para spans con colores
+  const parseHTML = (htmlString: string) => {
+    // Reemplazar spans con marcadores para después estilizar
+    const parts = htmlString.split(/(<span[^>]*>.*?<\/span>)/g);
+    const result: Array<{ text: string; isColored: boolean; className?: string }> = [];
 
-    // Extraer texto y spans
-    const walker = doc.createTreeWalker(
-      doc.body,
-      NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
-      null
-    );
-
-    let node;
-    while ((node = walker.nextNode())) {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const text = node.textContent || '';
-        if (text.trim()) {
-          result.push({ type: 'text', content: text });
+    parts.forEach(part => {
+      if (part.includes('<span')) {
+        // Extraer el texto y la clase del span
+        const textMatch = part.match(/<span[^>]*class="([^"]*)"[^>]*>(.*?)<\/span>/);
+        if (textMatch) {
+          result.push({
+            text: textMatch[2],
+            isColored: true,
+            className: textMatch[1]
+          });
         }
-      } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName === 'SPAN') {
-        const element = node as Element;
-        const text = element.textContent || '';
-        const className = element.getAttribute('class') || '';
-        if (text.trim()) {
-          result.push({ type: 'element', content: text, className });
-        }
+      } else if (part.trim()) {
+        result.push({
+          text: part,
+          isColored: false
+        });
       }
-    }
+    });
 
     return result;
   };
 
-  const parsedContent = parseAndAnimate(html);
+  const parsedContent = parseHTML(html);
 
   return (
     <motion.div
@@ -162,8 +156,8 @@ export const AnimatedHTMLText: React.FC<{
       {parsedContent.map((item, index) => (
         <motion.span
           key={index}
-          className={item.className || 'inline-block mr-1'}
-          dangerouslySetInnerHTML={{ __html: item.content }}
+          className={item.isColored ? (item.className || 'text-primary') : 'inline-block mr-1'}
+          dangerouslySetInnerHTML={{ __html: item.text }}
           variants={{
             hidden: { y: 50, opacity: 0 },
             visible: { y: 0, opacity: 1 },

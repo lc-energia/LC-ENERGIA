@@ -1,23 +1,15 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useParallax = (speed: number = 0.5) => {
   const [offsetY, setOffsetY] = useState(0);
-  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!ref.current) return;
-
-      const rect = ref.current.getBoundingClientRect();
       const scrolled = window.scrollY;
       const rate = scrolled * -speed;
-
-      // Solo aplicar parallax cuando el elemento está visible
-      if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
-        setOffsetY(rate);
-      }
+      setOffsetY(rate);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -28,5 +20,5 @@ export const useParallax = (speed: number = 0.5) => {
     };
   }, [speed]);
 
-  return { ref, offsetY };
+  return offsetY;
 };

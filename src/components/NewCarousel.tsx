@@ -18,8 +18,8 @@ const NewCarousel = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
 
   // Efectos parallax para diferentes capas
-  const { offsetY: bgOffsetY } = useParallax(0.5);  // Fondo lento
-  const { offsetY: contentOffsetY } = useParallax(0.8); // Contenido más rápido
+  const bgOffsetY = useParallax(0.5);  // Fondo lento
+  const contentOffsetY = useParallax(0.8); // Contenido más rápido
 
   return (
     <div className="w-full p-0 relative">
@@ -69,12 +69,19 @@ const NewCarousel = () => {
                       delay={0.2}
                       duration={0.8}
                     />
-                    <AnimatedHTMLText
-                      html={slide.text}
-                      className="text-lg text-white mb-6 mt-4 max-w-2xl leading-relaxed [text-shadow:1px_1px_1px_rgba(0,0,0,0.7),_-2px_-2px_4px_rgba(0,0,0,0.7),_0_0_6px_#000000]"
-                      delay={0.6}
-                      duration={0.8}
-                    />
+                    <div
+                      className="text-lg text-white mb-6 mt-4 max-w-2xl leading-relaxed"
+                      style={{
+                        textShadow: '1px 1px 1px rgba(0,0,0,0.7), -2px -2px 4px rgba(0,0,0,0.7), 0 0 6px #000000'
+                      }}
+                    >
+                      <AnimatedHTMLText
+                        html={slide.text}
+                        className="text-lg text-white leading-relaxed"
+                        delay={0.6}
+                        duration={0.8}
+                      />
+                    </div>
                     <motion.div
                       initial={{ x: -100, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
