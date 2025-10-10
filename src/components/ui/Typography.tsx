@@ -30,7 +30,7 @@ export function Heading1({ children, className, as = 'h1', color = 'primary' }: 
   };
   return (
     <Tag className={cn(
-      'hero-title font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-none',
+      'hero-title font-heading text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter leading-none',
       colorClasses[color],
       'mb-4',
       className
@@ -53,7 +53,7 @@ export function Heading2({ children, className, as = 'h2', color = 'primary' }: 
   };
   return (
     <Tag className={cn(
-      'section-title font-heading text-lg md:text-xl lg:text-2xl font-bold tracking-tight leading-tight',
+      'section-title font-heading text-base md:text-lg lg:text-xl font-bold tracking-tight leading-tight',
       colorClasses[color],
       'mb-3',
       className
@@ -122,7 +122,7 @@ export function Heading5({ children, className, as = 'h5', color = 'primary' }: 
   };
   return (
     <Tag className={cn(
-      'font-heading text-xs md:text-sm lg:text-base font-semibold leading-tight',
+      'font-heading text-xs md:text-sm lg:text-sm font-semibold leading-tight',
       colorClasses[color],
       'mb-1',
       className
@@ -210,7 +210,7 @@ export function Text({
       sizeClasses[size],
       weightClasses[weight],
       colorClasses[color],
-      justify && 'text-justified',
+      justify && 'text-justify',
       maxWidth && 'max-w-65ch',
       className
     )}>
@@ -249,7 +249,7 @@ export function CardDescription({ children, className, color = 'dark' }: { child
     <Text
       size="sm"
       color={color}
-      className={cn('text-left', className)}
+      className={cn(className)}
     >
       {children}
     </Text>
@@ -269,7 +269,7 @@ export function ServiceDescription({ children, className }: { children: React.Re
     <Text
       size="sm"
       color="secondary"
-      className={cn('text-left', className)}
+      className={cn(className)}
     >
       {children}
     </Text>

@@ -7,8 +7,9 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-open-sans)', 'sans-serif'],
-        roboto: ['var(--font-roboto)', 'sans-serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
+        heading: ['var(--font-heading)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
       },
       colors: {
         // Brand Colors - Semantic naming

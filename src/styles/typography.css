@@ -177,14 +177,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--tracking-tighter);
   line-height: var(--leading-none);
 }
 
 h2 {
-  font-size: var(--text-3xl);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--tracking-tight);
 }
@@ -200,7 +198,6 @@ h4 {
 }
 
 h5 {
-  font-size: var(--text-lg);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -283,7 +280,6 @@ p:not(.text-no-justify):not([class*="text-"]) {
 /* Hero Title */
 .hero-title {
   font-family: var(--font-heading);
-  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-none);
   letter-spacing: var(--tracking-tighter);
@@ -291,31 +287,12 @@ p:not(.text-no-justify):not([class*="text-"]) {
   margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: var(--text-5xl);
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-title {
-    font-size: var(--text-6xl);
-  }
-}
-
 /* Section Title */
 .section-title {
   font-family: var(--font-heading);
-  font-size: var(--text-2xl);
   font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  .section-title {
-    font-size: var(--text-3xl);
-  }
 }
 
 /* Card Title */
