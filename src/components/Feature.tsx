@@ -48,20 +48,20 @@ const StatCardWithDescription: React.FC<{
         whileInView={{ opacity: 1 }}
         transition={{ delay: delay + 0.4 }}
       >
-        <motion.span
-          className="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+        <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ delay: delay + 0.5, duration: 0.8 }}
-          style={{
-            textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-            fontWeight: 'bold',
-            fontSize: '3rem'
-          }}
+          className="flex items-center justify-center stats-number"
+          style={{ filter: 'none !important' }}
         >
-          {formatNumber(number)}
-        </motion.span>
-        <span className="font-bold text-secondary ml-1">{suffix}</span>
+          <span className="stats-number text-primary" style={{ fontSize: '3rem', fontWeight: '900' }}>
+            {formatNumber(number)}
+          </span>
+          <span className="stats-number text-secondary ml-1" style={{ fontSize: '3rem', fontWeight: '900' }}>
+            {suffix}
+          </span>
+        </motion.div>
       </motion.div>
 
       {/* Título */}
