@@ -13,32 +13,32 @@ const config = {
       colors: {
         // Brand Colors - Semantic naming
         primary: {
-          50: '#edf5d2',
-          100: '#daeaa6',
-          200: '#c8e079',
-          300: '#b5d54d',
-          400: '#9bbd2d',
-          500: '#9BBD2D', // Main brand color
-          600: '#7d9824',
-          700: '#5e721b',
-          800: '#3e4c12',
-          900: '#1f2609',
+          50: '#fff7e6',
+          100: '#ffe9bf',
+          200: '#ffd680',
+          300: '#ffc340',
+          400: '#ffac00',
+          500: '#FF8C00', // Main brand color (Naranja Vibrante)
+          600: '#e67e00',
+          700: '#cc6f00',
+          800: '#b36000',
+          900: '#995100',
         },
         secondary: {
-          50: '#fdebd1',
-          100: '#fbd6a3',
-          200: '#f9c276',
-          300: '#f6ae48',
-          400: '#f49918',
-          500: '#F49918', // Secondary/CTA color
-          600: '#cf7d0a',
-          700: '#9b5d07',
-          800: '#673e05',
-          900: '#341f02',
+          50: '#f0f7e6',
+          100: '#e0efbf',
+          200: '#cce080',
+          300: '#b3d14a',
+          400: '#99c34a',
+          500: '#8BC34A', // Secondary/CTA color (Verde Lima)
+          600: '#7db042',
+          700: '#6e9c3a',
+          800: '#5f8932',
+          900: '#50752a',
         },
         neutral: {
-          50: '#f9f9f9',
-          100: '#f4f4f4',
+          50: '#fcfcfc', // Neutro muy claro
+          100: '#f7f7f7', // Neutro claro
           200: '#eeeeee',
           300: '#e9e9e9',
           400: '#e2e2e2',
@@ -60,14 +60,21 @@ const config = {
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, theme(colors.primary.500) 0%, theme(colors.primary.600) 100%)',
         'gradient-secondary': 'linear-gradient(135deg, theme(colors.secondary.500) 0%, theme(colors.secondary.600) 100%)',
-        'gradient-hero': 'linear-gradient(135deg, rgba(155, 189, 45, 0.9) 0%, rgba(155, 189, 45, 0.7) 50%, rgba(244, 153, 24, 0.8) 100%)',
+        // Actualizar gradiente hero con los nuevos colores base: Naranja (#FF8C00) y Verde Lima (#8BC34A)
+        'gradient-hero': 'linear-gradient(135deg, rgba(255, 140, 0, 0.9) 0%, rgba(255, 140, 0, 0.7) 50%, rgba(139, 195, 74, 0.8) 100%)',
+      },
+      borderRadius: {
+        'xl': '1rem', // 16px
+        '2xl': '1.5rem', // 24px - Para tarjetas grandes
       },
       boxShadow: {
-        'primary': '0 8px 32px rgba(155, 189, 45, 0.18)',
-        'secondary': '0 8px 32px rgba(244, 153, 24, 0.18)',
-        'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
-        'card-hover': '0 8px 40px rgba(0, 0, 0, 0.12)',
-        'soft': '0 2px 12px rgba(0, 0, 0, 0.06)',
+        // Sombras más suaves y modernas, inspiradas en los dashboards
+        // Actualizar sombras con los nuevos colores base: Naranja (#FF8C00) y Verde Lima (#8BC34A)
+        'primary': '0 10px 30px rgba(255, 140, 0, 0.15)',
+        'secondary': '0 10px 30px rgba(139, 195, 74, 0.15)',
+        'card': '0 4px 15px rgba(0, 0, 0, 0.05)', // Sombra sutil para tarjetas
+        'card-hover': '0 10px 30px rgba(0, 0, 0, 0.1)', // Sombra más pronunciada al hacer hover
+        'soft': '0 2px 8px rgba(0, 0, 0, 0.04)',
       }
     },
     animation: {

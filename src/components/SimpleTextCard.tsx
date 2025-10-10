@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition, faBolt, faRulerCombined, faCompass, faCloudSun } from '@fortawesome/free-solid-svg-icons';
+import { Card, CardContent } from '@/components/ui/Card';
 
 const iconMap: { [key: string]: IconDefinition } = {
   'fa-bolt': faBolt,
@@ -30,28 +31,26 @@ interface SimpleTextCardProps {
     icon: string;
   };
   i: number;
-  columnClass: string;
 }
 
-const SimpleTextCard: FC<SimpleTextCardProps> = ({ feature, i, columnClass }) => {
+const SimpleTextCard: FC<SimpleTextCardProps> = ({ feature, i }) => {
   const icon = iconMap[feature.icon];
 
   return (
     <motion.div
-      className={columnClass}
       custom={i}
       initial="hidden"
       animate="visible"
       variants={cardVariants}
     >
-      <div className="bg-white rounded-lg shadow-md p-4 h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary text-center">
-        <div className="p-4">
+      <Card className="h-full text-center">
+        <CardContent className="p-4">
           <div className="mb-3">
-            {icon && <FontAwesomeIcon icon={icon} className="fa-2x text-[#F49918]" />}
+            {icon && <FontAwesomeIcon icon={icon} className="fa-2x text-primary" />}
           </div>
           <p className="font-bold">{feature.text}</p>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </motion.div>
   );
 };

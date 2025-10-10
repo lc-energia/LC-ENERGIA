@@ -1,8 +1,6 @@
 import { Open_Sans, Roboto } from 'next/font/google';
 import { metadata } from './metadata';
 import './globals.css';
-import '@/styles/bootstrap.min.css';
-import '@/styles/style.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 

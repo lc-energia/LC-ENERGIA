@@ -38,7 +38,7 @@ const NewCarousel = () => {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="max-w-3xl">
                     <motion.h1
-                      className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
+                      className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white"
                       initial={{ y: -50, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.2 }}

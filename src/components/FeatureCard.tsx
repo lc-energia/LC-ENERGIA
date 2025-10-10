@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/Card';
 import { 
   IconDefinition,
   faFileSignature, 
@@ -49,32 +50,32 @@ interface Feature {
 interface FeatureCardProps {
   feature: Feature;
   i: number;
-  columnClass: string;
 }
 
-const FeatureCard: FC<FeatureCardProps> = ({ feature, i, columnClass }) => {
+const FeatureCard: FC<FeatureCardProps> = ({ feature, i }) => {
   const icon = feature.icon ? iconMap[feature.icon] : undefined;
 
   return (
     <motion.div
-      className={columnClass}
       custom={i}
       initial="hidden"
       animate="visible"
       variants={cardVariants}
     >
-      <div className="bg-white rounded-lg shadow-md p-6 h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary text-left">
-        <div className="flex items-start space-x-4">
-          <div className="flex-shrink-0">
-            {feature.image && <Image src={feature.image} alt={feature.title} width={48} height={48} style={{ objectFit: 'contain' }} />}
-            {icon && <FontAwesomeIcon icon={icon} className="fa-2x text-[#F49918]" />}
+      <Card className="h-full text-left">
+        <CardContent>
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              {feature.image && <Image src={feature.image} alt={feature.title} width={48} height={48} style={{ objectFit: 'contain' }} />}
+              {icon && <FontAwesomeIcon icon={icon} className="fa-2x text-primary" />}
+            </div>
+            <div>
+              <CardTitle>{feature.title}</CardTitle>
+              <CardDescription>{feature.description}</CardDescription>
+            </div>
           </div>
-          <div>
-            <h5 className="font-bold text-lg mb-1">{feature.title}</h5>
-            <p className="text-sm text-gray-600">{feature.description}</p>
-          </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </motion.div>
   );
 };

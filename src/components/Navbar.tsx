@@ -1,6 +1,8 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { cn } from '@/lib/utils';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '@/components/ui/Button';
 import { Fragment, useState, useEffect } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
@@ -44,10 +46,6 @@ const navigation = {
   rightLink: { name: 'Accrediti', href: '/accrediti' }
 };
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export default function Navbar() {
   const isSticky = useSticky();
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +60,7 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header className={classNames(
+    <header className={cn(
       'sticky top-0 z-50 w-full bg-white transition-shadow duration-300',
       isSticky ? 'shadow-sm' : ''
     )}>
@@ -95,7 +93,7 @@ export default function Navbar() {
                           {dropdown.items.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
-                                <Link href={item.href} className={classNames(active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                                <Link href={item.href} className={cn(active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700')}>
                                   {item.name}
                                 </Link>
                               )}
@@ -113,10 +111,12 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/contact" className="whitespace-nowrap rounded-none bg-secondary hover:bg-secondary-600 text-white px-4 py-4 transition-all duration-300 hover:-translate-y-1 lg:px-5 hidden lg:block">
-              Richiedi un preventivo
-              <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
-            </Link>
+            <Button asChild variant="secondary" size="lg" className="hidden lg:block hover:-translate-y-1">
+              <Link href="/contact">
+                Richiedi un preventivo
+                <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -147,7 +147,7 @@ export default function Navbar() {
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
                         <span>{dropdown.name}</span>
-                        <ChevronDownIcon className={classNames(dOpen ? 'rotate-180' : '', 'h-5 w-5 transition-transform duration-200')} />
+                        <ChevronDownIcon className={cn(dOpen ? 'rotate-180' : '', 'h-5 w-5 transition-transform duration-200')} />
                       </Disclosure.Button>
                       <Disclosure.Panel className="pl-4 space-y-1">
                         {dropdown.items.map((item) => (
@@ -163,9 +163,11 @@ export default function Navbar() {
               <Link href={navigation.rightLink.href} key={navigation.rightLink.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
                 {navigation.rightLink.name}
               </Link>
-              <Link href="/contact" key="contact" className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
-                Richiedi un preventivo
-              </Link>
+              <Button asChild variant="ghost" className="w-full justify-start">
+                <Link href="/contact" key="contact">
+                  Richiedi un preventivo
+                </Link>
+              </Button>
             </div>
           </div>
         )}

@@ -1,7 +1,8 @@
 'use client';
 import { useSticky } from '@/hooks/useSticky';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp } from 'react-bootstrap-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 const BackToTop = () => {
   const isSticky = useSticky();
@@ -21,7 +22,7 @@ const BackToTop = () => {
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
         >
-          <ArrowUp />
+          <FontAwesomeIcon icon={faArrowUp} />
         </motion.button>
       )}
     </AnimatePresence>

@@ -5,7 +5,8 @@ import { fadeIn } from '@/variants';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { 
+import { Card, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/Card';
+import {
   faGlobe, 
   faTools, 
   faFireExtinguisher, 
@@ -104,7 +105,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeIn('up', 0.1)}
@@ -165,8 +166,8 @@ const Services = () => {
                 transition={{ duration: 0.3 }}
                 className="w-full group"
               >
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col border border-neutral-100">
-                  <div className="p-8 flex-grow relative">
+                <Card className="h-full flex flex-col group hover:-translate-y-2 transition-transform duration-500">
+                  <CardContent className="p-8 flex-grow relative">
                     {/* Icon Background */}
                     <div className="absolute top-8 right-8 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
                       <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -175,12 +176,12 @@ const Services = () => {
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="text-xl font-bold text-dark-200 mb-4 pr-20">{service.title}</h4>
-                      <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                      <CardTitle className="text-xl font-bold text-dark-200 mb-4 pr-20">{service.title}</CardTitle>
+                      <CardDescription className="text-gray-600 leading-relaxed">{service.description}</CardDescription>
                     </div>
-                  </div>
+                  </CardContent>
 
-                  <div className="p-8 bg-gradient-to-r from-neutral-50 to-white border-t border-neutral-100">
+                  <CardFooter className="p-8 bg-gradient-to-r from-neutral-50 to-white border-t border-neutral-100">
                     <Link
                       href={service.link}
                       className="inline-flex items-center font-semibold text-primary hover:text-primary-600 transition-colors duration-300 group/link"
@@ -191,8 +192,8 @@ const Services = () => {
                         className="ml-2 transition-transform duration-300 group-hover/link:translate-x-2"
                       />
                     </Link>
-                  </div>
-                </div>
+                  </CardFooter>
+                </Card>
               </motion.div>
             ))}
           </AnimatePresence>
