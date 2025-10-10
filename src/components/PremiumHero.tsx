@@ -85,8 +85,8 @@ const PremiumHero = () => {
             >
               <div className="relative w-full h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/img/1Trabajador campo paneles solares.jpg"
-                  alt="Lavoratore in un campo di pannelli solari"
+                  src="/img/home page.png"
+                  alt="LC Energia - Soluzioni energetiche innovative"
                   fill
                   className="object-cover"
                   priority
