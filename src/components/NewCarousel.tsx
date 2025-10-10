@@ -7,6 +7,8 @@ import { carouselData } from '@/data/carousel-data';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import SwiperPagination from './SwiperPagination';
+import AnimatedHTMLText from './AnimatedText';
+import { useParallax } from '@/hooks/useParallax';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -14,6 +16,10 @@ import 'swiper/css/effect-fade';
 
 const NewCarousel = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
+
+  // Efectos parallax para diferentes capas
+  const { offsetY: bgOffsetY } = useParallax(0.5);  // Fondo lento
+  const { offsetY: contentOffsetY } = useParallax(0.8); // Contenido más rápido
 
   return (
     <div className="w-full p-0 relative">
@@ -30,31 +36,49 @@ const NewCarousel = () => {
       >
         {carouselData.map((slide, index) => (
           <SwiperSlide key={index}>
+            {/* Capa de fondo con parallax lento */}
             <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.img})` }}
+              className="absolute inset-0 bg-cover bg-center scale-110"
+              style={{
+                backgroundImage: `url(${slide.img})`,
+                transform: `translateY(${bgOffsetY}px) scale(1.1)`,
+                willChange: 'transform'
+              }}
+            />
+
+            {/* Capa de overlay con parallax medio */}
+            <div
+              className="absolute inset-0 flex items-center bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+              style={{
+                transform: `translateY(${contentOffsetY * 0.3}px)`,
+                willChange: 'transform'
+              }}
             >
-              <div className="absolute inset-0 flex items-center bg-gradient-to-t from-black/70 to-transparent">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="max-w-3xl">
-                    <motion.h1
-                      className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white"
-                      initial={{ y: -50, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      dangerouslySetInnerHTML={{ __html: slide.title }}
+              {/* Capa de contenido con parallax rápido */}
+              <div
+                className="container mx-auto px-4 sm:px-6 lg:px-8"
+                style={{
+                  transform: `translateY(${contentOffsetY}px)`,
+                  willChange: 'transform'
+                }}
+              >
+                <div className="max-w-3xl">
+                    <AnimatedHTMLText
+                      html={slide.title}
+                      className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-tight"
+                      delay={0.2}
+                      duration={0.8}
                     />
-                    <motion.p
-                      className="text-lg text-white mb-6 mt-4 max-w-2xl [text-shadow:1px_1px_1px_rgba(0,0,0,0.7),_-2px_-2px_4px_rgba(0,0,0,0.7),_0_0_6px_#000000]"
-                      initial={{ y: -50, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                      dangerouslySetInnerHTML={{ __html: slide.text }}
+                    <AnimatedHTMLText
+                      html={slide.text}
+                      className="text-lg text-white mb-6 mt-4 max-w-2xl leading-relaxed [text-shadow:1px_1px_1px_rgba(0,0,0,0.7),_-2px_-2px_4px_rgba(0,0,0,0.7),_0_0_6px_#000000]"
+                      delay={0.6}
+                      duration={0.8}
                     />
                     <motion.div
                       initial={{ x: -100, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
+                      transition={{ duration: 0.8, delay: 1.0 }}
                     >
                       <Link
                         href={slide.link}
