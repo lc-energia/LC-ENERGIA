@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
+/* Variables de tema */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Aplicar variables de tipografía del sistema */
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: 'Open Sans', sans-serif;
+  color: var(--text-primary, var(--foreground));
+  font-family: var(--font-body, 'Open Sans', sans-serif);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal, 400);
+  line-height: var(--leading-relaxed, 1.6);
 }
 
 /* Fix for blurry numbers in stats section */

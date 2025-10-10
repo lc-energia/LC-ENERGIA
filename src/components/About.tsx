@@ -4,6 +4,7 @@ import FlippableCard from './FlippableCard';
 import Image from 'next/image';
 import FadeIn from './motion/FadeIn';
 import { motion } from 'framer-motion';
+import { SectionTitle, Text, HighlightText } from '@/components/ui/Typography';
 
 const About = () => {
   return (
@@ -20,39 +21,41 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm">
+                <span className="inline-block px-4 py-2 bg-accent/10 text-accent font-heading font-semibold rounded-full text-sm">
                   Eccellenza nella Riqualificazione Energetica
                 </span>
               </motion.div>
 
-              <motion.h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark-200 mb-8 leading-tight"
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Perché scegliere <span className="text-primary">LC Energia</span>?
-              </motion.h2>
+                <SectionTitle className="text-left mb-8">
+                  Perché scegliere <HighlightText>LC Energia</HighlightText>?
+                </SectionTitle>
+              </motion.div>
 
               <motion.div
-                className="space-y-6 text-lg text-gray-600 leading-relaxed"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <p>
-                  LC ENERGIA è una società ingegneristica composta da tecnici qualificati con esperienza trentennale nel campo della consulenza, progettazione e realizzazione impiantistica civile e industriale.
-                </p>
+                <div className="space-y-6">
+                  <Text size="lg" color="secondary">
+                    LC ENERGIA è una società ingegneristica composta da tecnici qualificati con esperienza trentennale nel campo della consulenza, progettazione e realizzazione impiantistica civile e industriale.
+                  </Text>
 
-                <p>
-                  Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all&apos;avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
-                </p>
+                  <Text size="lg" color="secondary">
+                    Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all'avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
+                  </Text>
 
-                <p>
-                  Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L&apos;obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
-                </p>
+                  <Text size="lg" color="secondary">
+                    Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L'obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
+                  </Text>
+                </div>
               </motion.div>
 
               <motion.div

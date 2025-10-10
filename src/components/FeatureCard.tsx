@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Card, CardContent } from '@/components/ui/Card';
+import { CardTitle, CardDescription } from '@/components/ui/Typography';
 import { 
   IconDefinition,
   faFileSignature, 

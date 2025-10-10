@@ -10,6 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSticky } from '@/hooks/useSticky';
 import { usePathname } from 'next/navigation';
+import { NavLink } from '@/components/ui/Typography';
 
 // Data structure for navigation
 const navigation = {
@@ -76,14 +77,19 @@ export default function Navbar() {
             <div className="hidden w-full items-center lg:flex ml-auto">
               <div className="ml-auto flex items-center p-0">
                 {navigation.links.map((item) => (
-                  <Link key={item.name} href={item.href} className="whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                  <NavLink
+                    key={item.name}
+                    href={item.href}
+                    className="whitespace-nowrap px-4 py-6 hover:-translate-y-1 transition-all duration-300"
+                    active={pathname === item.href}
+                  >
                     {item.name}
-                  </Link>
+                  </NavLink>
                 ))}
 
                 {navigation.dropdowns.map((dropdown) => (
                   <Menu as="div" className="relative" key={dropdown.name}>
-                    <Menu.Button className="flex items-center whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                    <Menu.Button className="nav-link flex items-center whitespace-nowrap px-4 py-6 hover:-translate-y-1 transition-all duration-300">
                       {dropdown.name}
                       <ChevronDownIcon className="ml-1 h-4 w-4" />
                     </Menu.Button>
@@ -105,9 +111,13 @@ export default function Navbar() {
                   </Menu>
                 ))}
 
-                <Link href={navigation.rightLink.href} className="whitespace-nowrap px-4 py-6 text-sm font-medium text-gray-700 hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                <NavLink
+                  href={navigation.rightLink.href}
+                  className="whitespace-nowrap px-4 py-6 hover:-translate-y-1 transition-all duration-300"
+                  active={pathname === navigation.rightLink.href}
+                >
                   {navigation.rightLink.name}
-                </Link>
+                </NavLink>
               </div>
             </div>
 

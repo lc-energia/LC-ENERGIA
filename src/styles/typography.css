@@ -1,0 +1,494 @@
+/* ===================================
+   SISTEMA TIPOGRÁFICO LC ENERGIA
+   Escalable, consistente y sostenible
+   =================================== */
+
+/* Import Google Fonts optimizadas */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@300;400&display=swap');
+
+/* ===================================
+   VARIABLES DE TIPOGRAFÍA
+   =================================== */
+:root {
+  /* Familias tipográficas */
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+
+  /* Pesos tipográficos */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Escala tipográfica Mobile First */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  --text-8xl: 6rem;        /* 96px */
+  --text-9xl: 8rem;        /* 128px */
+
+  /* Altura de línea optimizada */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Espaciado entre letras */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* Colores de texto con jerarquía */
+  --text-primary: #000000;
+  --text-secondary: #374151;
+  --text-tertiary: #6b7280;
+  --text-inverse: #ffffff;
+  --text-accent: #10b981;
+
+  /* Breakpoints para responsive */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ===================================
+   MEDIA QUERIES PARA TIPOGRAFÍA RESPONSIVE
+   =================================== */
+@media (min-width: 768px) {
+  :root {
+    --text-xs: 0.8125rem;   /* 13px */
+    --text-sm: 0.9375rem;   /* 15px */
+    --text-base: 1.0625rem; /* 17px */
+    --text-lg: 1.25rem;     /* 20px */
+    --text-xl: 1.4375rem;   /* 23px */
+    --text-2xl: 1.75rem;    /* 28px */
+    --text-3xl: 2.1875rem;  /* 35px */
+    --text-4xl: 2.6875rem;  /* 43px */
+    --text-5xl: 3.375rem;   /* 54px */
+    --text-6xl: 4.25rem;    /* 68px */
+    --text-7xl: 5.125rem;   /* 82px */
+    --text-8xl: 6.875rem;   /* 110px */
+    --text-9xl: 9.375rem;   /* 150px */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --text-xs: 0.875rem;    /* 14px */
+    --text-sm: 1rem;        /* 16px */
+    --text-base: 1.125rem;  /* 18px */
+    --text-lg: 1.3125rem;   /* 21px */
+    --text-xl: 1.5625rem;   /* 25px */
+    --text-2xl: 1.9375rem;  /* 31px */
+    --text-3xl: 2.4375rem;  /* 39px */
+    --text-4xl: 3.0625rem;  /* 49px */
+    --text-5xl: 3.8125rem;  /* 61px */
+    --text-6xl: 4.8125rem;  /* 77px */
+    --text-7xl: 5.8125rem;  /* 93px */
+    --text-8xl: 7.8125rem;  /* 125px */
+    --text-9xl: 10.625rem;  /* 170px */
+  }
+}
+
+/* ===================================
+   CLASES BASE TIPOGRÁFICAS
+   =================================== */
+
+/* Reset y base */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--text-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================
+   SISTEMA DE JUSTIFICACIÓN DE TEXTO
+   =================================== */
+
+/* Clases de justificación para consistencia */
+.text-justified {
+  text-align: justify;
+  text-align-last: center;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+.text-justified-left {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* Para párrafos largos */
+.prose {
+  text-align: justify;
+  line-height: var(--leading-relaxed);
+  orphans: 3;
+  widows: 3;
+}
+
+.prose p {
+  margin-bottom: 1em;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Para evitar justificación en elementos cortos */
+.text-no-justify {
+  text-align: left;
+}
+
+/* ===================================
+   TIPOGRAFÍA DE ENCABEZADOS
+   =================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-none);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+h6 {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ===================================
+   TIPOGRAFÍA DE CUERPO
+   =================================== */
+p {
+  margin-bottom: 1em;
+  max-width: 65ch; /* Línea óptima de lectura */
+}
+
+/* Párrafos justificados por defecto */
+p:not(.text-no-justify):not([class*="text-"]) {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ===================================
+   UTILIDADES DE TEXTO
+   =================================== */
+
+/* Tamaños de texto */
+.text-xs { font-size: var(--text-xs); }
+.text-sm { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-2xl { font-size: var(--text-2xl); }
+.text-3xl { font-size: var(--text-3xl); }
+.text-4xl { font-size: var(--text-4xl); }
+.text-5xl { font-size: var(--text-5xl); }
+.text-6xl { font-size: var(--text-6xl); }
+.text-7xl { font-size: var(--text-7xl); }
+.text-8xl { font-size: var(--text-8xl); }
+.text-9xl { font-size: var(--text-9xl); }
+
+/* Pesos */
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Alturas de línea */
+.leading-none { line-height: var(--leading-none); }
+.leading-tight { line-height: var(--leading-tight); }
+.leading-snug { line-height: var(--leading-snug); }
+.leading-normal { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+.leading-loose { line-height: var(--leading-loose); }
+
+/* Tracking */
+.tracking-tighter { letter-spacing: var(--tracking-tighter); }
+.tracking-tight { letter-spacing: var(--tracking-tight); }
+.tracking-normal { letter-spacing: var(--tracking-normal); }
+.tracking-wide { letter-spacing: var(--tracking-wide); }
+.tracking-wider { letter-spacing: var(--tracking-wider); }
+.tracking-widest { letter-spacing: var(--tracking-widest); }
+
+/* Familias tipográficas */
+.font-heading { font-family: var(--font-heading); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Colores de texto */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-inverse { color: var(--text-inverse); }
+.text-accent { color: var(--text-accent); }
+
+/* ===================================
+   COMPONENTES ESPECÍFICOS
+   =================================== */
+
+/* Hero Title */
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: var(--text-5xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: var(--text-6xl);
+  }
+}
+
+/* Section Title */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* Card Title */
+.card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Card Description */
+.card-description {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-secondary);
+  text-align: justify;
+  line-height: var(--leading-relaxed);
+}
+
+/* Service Title */
+.service-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+/* Service Description */
+.service-description {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-secondary);
+  text-align: justify;
+  line-height: var(--leading-relaxed);
+}
+
+/* Button Typography */
+.btn {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Navigation Typography */
+.nav-link {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-normal);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link-active {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Testimonial Text */
+.testimonial-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-style: italic;
+  text-align: justify;
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
+/* Stats Numbers */
+.stats-number {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-accent);
+}
+
+/* Labels y formularios */
+.form-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.form-input {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+}
+
+/* ===================================
+   OPTIMIZACIONES DE RENDIMIENTO
+   =================================== */
+
+/* Prevenir desplazamiento de texto (FOUT) */
+.font-display {
+  font-display: swap;
+}
+
+/* Optimización para fuentes variables */
+@supports (font-variation-settings: normal) {
+  :root {
+    --font-heading: 'Poppins', var(--font-body);
+  }
+}
+
+/* ===================================
+   UTILIDADES DE ACCESIBILIDAD
+   =================================== */
+
+/* Focus visible para navegación por teclado */
+.focus-visible\:ring-2:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===================================
+   CLASES RESPONSIVE
+   =================================== */
+
+@media (max-width: 767px) {
+  .mobile-text-center {
+    text-align: center !important;
+  }
+
+  .mobile-text-justify {
+    text-align: justify !important;
+  }
+}
+
+/* ===================================
+   IMPRESIÓN
+   =================================== */
+@media print {
+  body {
+    font-family: 'Times New Roman', serif;
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+    background: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    color: black;
+    page-break-after: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+    text-align: justify;
+  }
+}
