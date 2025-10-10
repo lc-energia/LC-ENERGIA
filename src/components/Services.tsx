@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Card, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/Card';
 import TiltCard from '@/components/TiltCard';
+import GlassmorphismCard from '@/components/GlassmorphismCard';
 import {
   faGlobe, 
   faTools, 
@@ -168,34 +169,38 @@ const Services = () => {
                 className="w-full group"
               >
                 <TiltCard intensity={12} scale={1.02}>
-                  <Card className="h-full flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300">
-                  <CardContent className="p-8 flex-grow relative">
-                    {/* Icon Background */}
-                    <div className="absolute top-8 right-8 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                      <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <FontAwesomeIcon icon={service.icon} className="text-white text-2xl" />
+                  <GlassmorphismCard
+                    variant="default"
+                    rounded="xl"
+                    className="h-full flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300"
+                  >
+                    <div className="p-8 flex-grow relative">
+                      {/* Icon Background with glassmorphism effect */}
+                      <div className="absolute top-8 right-8 w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                          <FontAwesomeIcon icon={service.icon} className="text-white text-2xl" />
+                        </div>
+                      </div>
+
+                      <div className="mb-6">
+                        <h3 className="text-xl font-bold text-dark-200 mb-4 pr-20">{service.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">{service.description}</p>
                       </div>
                     </div>
 
-                    <div className="mb-6">
-                      <CardTitle className="text-xl font-bold text-dark-200 mb-4 pr-20">{service.title}</CardTitle>
-                      <CardDescription className="text-gray-600 leading-relaxed">{service.description}</CardDescription>
+                    <div className="p-8 border-t border-white/20 bg-white/10 backdrop-blur-sm">
+                      <Link
+                        href={service.link}
+                        className="inline-flex items-center font-semibold text-primary hover:text-primary-600 transition-colors duration-300 group/link"
+                      >
+                        Scopri di più
+                        <FontAwesomeIcon
+                          icon={faArrowRight}
+                          className="ml-2 transition-transform duration-300 group-hover/link:translate-x-2"
+                        />
+                      </Link>
                     </div>
-                  </CardContent>
-
-                  <CardFooter className="p-8 bg-gradient-to-r from-neutral-50 to-white border-t border-neutral-100">
-                    <Link
-                      href={service.link}
-                      className="inline-flex items-center font-semibold text-primary hover:text-primary-600 transition-colors duration-300 group/link"
-                    >
-                      Scopri di più
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="ml-2 transition-transform duration-300 group-hover/link:translate-x-2"
-                      />
-                    </Link>
-                  </CardFooter>
-                </Card>
+                  </GlassmorphismCard>
                 </TiltCard>
               </motion.div>
             ))}
