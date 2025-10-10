@@ -83,7 +83,7 @@ const PremiumHero = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="relative"
             >
-              <div className="relative w-full h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[500px] lg:h-[600px] shadow-2xl">
                 <Image
                   src="/img/home page.png"
                   alt="LC Energia - Soluzioni energetiche innovative"
