@@ -21,50 +21,133 @@ const AziendaPage = () => {
     <>
       <PageHeader title="Azienda" />
 
-      {/* Value Proposition Section */}
-      <section className="py-12 sm:py-16">
+      {/* Nuova Sezione: Storia, Missione e Settori Operativi */}
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Blocco 1: Introduzione e Missione */}
           <motion.div
             variants={fadeIn('up', 0.2)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
-            className="text-center max-w-3xl mx-auto mb-12"
+            className="text-center max-w-4xl mx-auto mb-16"
           >
-            <Heading1 className="text-center" color="primary">Il valore dell’esperienza per l’efficienza ed il risparmio energetico</Heading1>
+            <Heading2 className="text-center mb-4" color="primary">La Nostra Storia e Missione</Heading2>
+            <Text color="muted" size="lg" className="leading-relaxed" justify={true}>
+              LC Energia vanta di personale qualificato e con grande esperienza nel settore della progettazione e realizzazione di impianti civili e industriali. L’impegno dell’azienda è volto a contribuire in prima linea agli obiettivi Europei e Nazionali per la decarbonizzazione e l’efficientamento energetico. Per questo LC Energia, oltre a fornire consulenza e progettazione per gli impianti termici, si è specializzata nella realizzazione di impianti fotovoltaici sia nel settore civile che industriale.
+            </Text>
           </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {valuePropositions.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={fadeIn('up', 0.3 + index * 0.1)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.25 }}
-              >
-                <TiltCard className="bg-white p-6 rounded-lg shadow-lg">
-                  <Text color="muted" className="leading-relaxed">
-                    {item.content}
-                  </Text>
-                  {item.list && (
-                    <ul className="list-disc list-inside mt-4">
-                      {item.list.map((point, i) => (
-                        <li key={i} className="text-gray-600 leading-relaxed">
-                          <Text as="span" color="muted" size="sm" justify={false} maxWidth={false}>
-                            {point}
-                          </Text>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </TiltCard>
-              </motion.div>
-            ))}
+
+          {/* Blocco 2: Compromiso y Beneficios (Destacado) */}
+          <motion.div
+            variants={fadeIn('up', 0.4)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="max-w-6xl mx-auto mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+          >
+            {/* Columna de Imagen */}
+            <motion.div
+              variants={fadeIn('right', 0.5)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+              className="relative h-64 lg:h-full rounded-xl overflow-hidden shadow-2xl"
+            >
+              <Image
+                src="/img/volta3.JPEG"
+                alt="Impegno per la Qualità"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-xl"
+              />
+            </motion.div>
+            
+            {/* Columna de Texto (TiltCard) */}
+            <motion.div
+              variants={fadeIn('left', 0.5)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+            >
+              <TiltCard className="bg-primary/10 p-8 rounded-xl shadow-2xl border-l-4 border-primary h-full">
+                <Heading5 color="primary" className="mb-4">Impegno per la Qualità e il Risparmio Energetico</Heading5>
+                <Text color="muted" size="base" className="leading-relaxed">
+                  Sfruttando le nostre competenze operiamo sempre nel rispetto degli obblighi legislativi e normativi per fornire al cliente un servizio a regola d’arte. Attraverso interventi di riqualificazione architettonica e impiantistica su diversi edifici nel campo industriale, civile, pubblico e nei processi produttivi, LC Energia permette ai suoi clienti di ottenere significativi risparmi energetici oltre a una miglior qualità di vita.
+                </Text>
+              </TiltCard>
+            </motion.div>
+          </motion.div>
+
+          {/* Blocco 3: Settori Operativi (Modulare) */}
+          <motion.div
+            variants={fadeIn('up', 0.6)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="text-center max-w-4xl mx-auto mb-12"
+          >
+            <Heading2 className="text-center mb-4" color="primary">I Nostri Settori Operativi</Heading2>
+            <Text color="muted" className="leading-relaxed mb-8" justify={true}>
+              Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall'utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi.
+            </Text>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+            {/* Settore 1: Consulenza */}
+            <motion.div
+              variants={fadeIn('right', 0.7)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+            >
+              <TiltCard className="bg-light p-6 rounded-xl shadow-lg h-full">
+                <div className="flex items-center mb-4">
+                  <FontAwesomeIcon icon={faHeadset} className="fa-2x text-primary mr-4" />
+                  <Heading5 color="primary">Consulenza Tecnica e Progettazione</Heading5>
+                </div>
+                <Text color="muted" className="leading-relaxed" justify={true}>
+                  Include anche attività di prevenzione incendi, acustica e assistenza ai lavori.
+                </Text>
+              </TiltCard>
+            </motion.div>
+
+            {/* Settore 2: Realizzazione */}
+            <motion.div
+              variants={fadeIn('left', 0.7)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+            >
+              <TiltCard className="bg-light p-6 rounded-xl shadow-lg h-full">
+                <div className="flex items-center mb-4">
+                  <FontAwesomeIcon icon={faSolarPanel} className="fa-2x text-primary mr-4" />
+                  <Heading5 color="primary">Realizzazione di Impianti ad Alto Profilo Tecnologico</Heading5>
+                </div>
+                <Text color="muted" className="leading-relaxed" justify={true}>
+                  Per la produzione di energia elettrica e termica per l’abbattimento dei consumi energetici.
+                </Text>
+              </TiltCard>
+            </motion.div>
           </div>
+
+          {/* Blocco 3 Conclusión: Soluciones a Medida */}
+          <motion.div
+            variants={fadeIn('up', 0.8)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <Heading5 color="primary" className="mb-4">Partner Affidabile per la Sostenibilità</Heading5>
+            <Text color="muted" size="base" className="leading-relaxed" justify={true}>
+              LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un'approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità.
+            </Text>
+          </motion.div>
         </div>
       </section>
 
+     
       {/* Reasons Section */}
       <section className="py-12 sm:py-16 bg-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
