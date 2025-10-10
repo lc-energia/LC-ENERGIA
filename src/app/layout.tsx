@@ -4,7 +4,6 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SmoothScroll from '@/components/SmoothScroll';
-import CustomCursor from '@/components/CustomCursor';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -31,7 +30,6 @@ export default function RootLayout({
       <head>
       </head>
       <body>
-        <CustomCursor />
         <SmoothScroll>
           <Navbar />
           {children}
