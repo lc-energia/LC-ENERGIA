@@ -1,64 +1,69 @@
 'use client';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faCheck, faAward, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
-// Componente de contador animado simplificado
+// Contador animado simple y robusto
 const AnimatedCounter: React.FC<{
-  from: number;
   to: number;
-  duration: number;
-  delay: number;
   suffix?: string;
-}> = ({ from, to, duration, delay, suffix = '' }) => {
-  const [displayValue, setDisplayValue] = useState(from);
-  const [hasStarted, setHasStarted] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+}> = ({ to, suffix = '' }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (inView && !hasStarted) {
-      setHasStarted(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+          startCounting();
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-      // Iniciar animación después del delay
-      const timeoutId = setTimeout(() => {
-        const startTime = Date.now();
-
-        const updateValue = () => {
-          const now = Date.now();
-          const progress = Math.min((now - startTime) / (duration * 1000), 1);
-
-          // Easing function para animación suave
-          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-          const currentValue = Math.floor(from + (to - from) * easeOutQuart);
-
-          setDisplayValue(currentValue);
-
-          if (progress < 1) {
-            requestAnimationFrame(updateValue);
-          }
-        };
-
-        requestAnimationFrame(updateValue);
-      }, delay * 1000);
-
-      return () => clearTimeout(timeoutId);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
-  }, [inView, hasStarted, from, to, duration, delay]);
 
-  const formatNumber = (num: number) => {
-    return num.toLocaleString('it-IT');
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [isVisible]);
+
+  const startCounting = () => {
+    const duration = 2000; // 2 segundos
+    const steps = 60;
+    const increment = to / steps;
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      const newCount = Math.min(Math.floor(increment * currentStep), to);
+      setCount(newCount);
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCount(to);
+      }
+    }, duration / steps);
   };
 
   return (
-    <span
-      ref={ref}
-      className="stats-number font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-      style={{ fontSize: '3rem', fontWeight: '900' }}
-    >
-      {formatNumber(displayValue)}{suffix}
-    </span>
+    <div ref={containerRef} className="text-5xl font-bold mb-2 relative">
+      <div className="flex items-center justify-center">
+        <span className="text-primary font-black" style={{ fontSize: '3rem' }}>
+          {count.toLocaleString('it-IT')}
+        </span>
+        <span className="text-secondary font-black ml-1" style={{ fontSize: '3rem' }}>
+          {suffix}
+        </span>
+      </div>
+    </div>
   );
 };
 
@@ -97,22 +102,13 @@ const StatCardWithDescription: React.FC<{
         </motion.div>
       </div>
 
-      {/* Número con contador animado */}
-      <motion.div
-        className="text-5xl font-bold mb-2 relative"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.2, duration: 0.5 }}
-        viewport={{ once: true, margin: '-100px' }}
-      >
+      {/* Número con contador animado simple */}
+      <div className="mb-2">
         <AnimatedCounter
-          from={0}
           to={number}
-          duration={2}
-          delay={delay}
           suffix={suffix}
         />
-      </motion.div>
+      </div>
 
       {/* Título */}
       <motion.h3
