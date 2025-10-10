@@ -8,15 +8,15 @@ export default function Home() {
     <>
       <PremiumHero />
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-6 sm:py-8 bg-white">
         <Feature />
       </section>
 
-      <section className="py-12 sm:py-16 bg-neutral-50">
+      <section className="py-6 sm:py-8 bg-neutral-50">
         <Services />
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-6 sm:py-8 bg-white">
         <DynamicNewTestimonial />
       </section>
     </>

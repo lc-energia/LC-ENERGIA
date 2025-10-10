@@ -107,7 +107,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24">
+    <section className="py-8 sm:py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeIn('up', 0.1)}
@@ -129,7 +129,7 @@ const Services = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-8"
         >
           <ul className="flex flex-wrap items-center gap-3">
             {filterButtons.map(button => (
