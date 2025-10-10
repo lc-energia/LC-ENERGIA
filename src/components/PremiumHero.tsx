@@ -35,7 +35,7 @@ const PremiumHero = () => {
               </div>
 
               {/* Title */}
-              <HeroTitle className="mb-8" color="secondary" style={{ color: '#F49918' }}>
+              <HeroTitle className="mb-8" color="secondary">
                 Perché scegliere <HighlightText>LC Energia</HighlightText>?
               </HeroTitle>
 

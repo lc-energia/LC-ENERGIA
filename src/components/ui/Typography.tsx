@@ -230,7 +230,7 @@ export function HeroTitle({ children, className, as = 'h1', color }: { children:
 
 export function SectionTitle({ children, className, color }: { children: React.ReactNode; className?: string; color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white'; }) {
   return (
-    <Heading2 color={color} className={cn('text-center', className)}>
+    <Heading2 color={color} className={cn(className)}>
       {children}
     </Heading2>
   );

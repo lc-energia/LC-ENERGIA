@@ -65,7 +65,11 @@ body {
   }
 }
 
-/* Corrección de especificidad para forzar el color Accent (Naranja) */
 .text-accent {
   color: #F49918 !important;
+}
+
+/* Clase de alta especificidad para forzar alineación a la izquierda */
+.force-text-left {
+  text-align: left !important;
 }

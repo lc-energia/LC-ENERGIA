@@ -32,7 +32,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <SectionTitle color="accent" className="text-left mb-8">
+                <SectionTitle color="accent" className="text-left mb-8 force-text-left w-full">
                   Perché scegliere <HighlightText>LC Energia</HighlightText>?
                 </SectionTitle>
               </motion.div>
