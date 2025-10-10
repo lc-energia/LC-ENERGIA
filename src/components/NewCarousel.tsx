@@ -40,8 +40,8 @@ const NewCarousel = () => {
             <div
               className="absolute inset-0 bg-cover bg-center scale-110"
               style={{
-                backgroundImage: `url(${slide.img})`,
-                transform: `translateY(${bgOffsetY}px) scale(1.1)`,
+                backgroundImage: 'url(' + slide.img + ')',
+                transform: 'translateY(' + bgOffsetY + 'px) scale(1.1)',
                 willChange: 'transform'
               }}
             />
@@ -50,7 +50,7 @@ const NewCarousel = () => {
             <div
               className="absolute inset-0 flex items-center bg-gradient-to-t from-black/70 via-black/30 to-transparent"
               style={{
-                transform: `translateY(${contentOffsetY * 0.3}px)`,
+                transform: 'translateY(' + (contentOffsetY * 0.3) + 'px)',
                 willChange: 'transform'
               }}
             >
@@ -58,7 +58,7 @@ const NewCarousel = () => {
               <div
                 className="container mx-auto px-4 sm:px-6 lg:px-8"
                 style={{
-                  transform: `translateY(${contentOffsetY}px)`,
+                  transform: 'translateY(' + contentOffsetY + 'px)',
                   willChange: 'transform'
                 }}
               >
