@@ -138,8 +138,8 @@ const Services = () => {
                   onClick={() => setFilter(button.value)}
                   className={`font-medium py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 ${
                     filter === button.value
-                      ? 'bg-primary text-white shadow-primary shadow-lg'
-                      : 'bg-neutral-200 text-gray-700 hover:bg-primary hover:text-white hover:shadow-md'
+                      ? 'bg-[#7db042] text-white shadow-lg'
+                      : 'bg-[#f3f4f6] text-[#374151] hover:bg-[#7db042] hover:text-white hover:shadow-md'
                   }`}
                 >
                   {button.name}
@@ -176,14 +176,14 @@ const Services = () => {
                   >
                     <div className="p-8 flex-grow relative">
                       {/* Icon Background with glassmorphism effect */}
-                      <div className="absolute top-8 right-8 w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                          <FontAwesomeIcon icon={service.icon} className="text-white text-2xl" />
+                      <div className="absolute top-8 right-8 w-14 h-14 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center border border-[#7db042]/30 shadow-lg">
+                        <div className="w-11 h-11 bg-gradient-to-br from-[#7db042] via-[#99c34a] to-[#e67e00] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                          <FontAwesomeIcon icon={service.icon} className="text-white text-lg drop-shadow-lg" />
                         </div>
                       </div>
 
                       <div className="mb-6">
-                        <h3 className="text-xl font-bold text-dark-200 mb-4 pr-20">{service.title}</h3>
+                        <h3 className="text-xl font-bold text-dark-200 mb-4 pr-16">{service.title}</h3>
                         <p className="text-gray-600 leading-relaxed">{service.description}</p>
                       </div>
                     </div>

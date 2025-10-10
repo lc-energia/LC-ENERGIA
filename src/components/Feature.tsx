@@ -56,10 +56,16 @@ const AnimatedCounter: React.FC<{
   return (
     <div ref={containerRef} className="text-5xl font-bold mb-2 relative">
       <div className="flex items-center justify-center">
-        <span className="text-primary font-black" style={{ fontSize: '3rem' }}>
+        <span
+          className="font-black bg-gradient-to-r from-[#7db042] via-[#99c34a] to-[#6e9c3a] bg-clip-text text-transparent stats-number"
+          style={{ fontSize: '3rem' }}
+        >
           {count.toLocaleString('it-IT')}
         </span>
-        <span className="text-secondary font-black ml-1" style={{ fontSize: '3rem' }}>
+        <span
+          className="font-black ml-1 bg-gradient-to-r from-[#e67e00] via-[#F49918] to-[#cc6f00] bg-clip-text text-transparent stats-number"
+          style={{ fontSize: '3rem' }}
+        >
           {suffix}
         </span>
       </div>
@@ -79,7 +85,7 @@ const StatCardWithDescription: React.FC<{
 
   return (
     <motion.div
-      className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg"
+      className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg relative overflow-hidden group"
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, delay: delay }}
@@ -90,6 +96,26 @@ const StatCardWithDescription: React.FC<{
       }}
       style={{ minHeight: '280px' }}
     >
+      {/* Efecto de brillo animado */}
+      <motion.div
+        className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+        style={{
+          background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent)',
+          transform: 'translateX(-100%)'
+        }}
+        whileHover={{
+          transform: 'translateX(100%)',
+          transition: { duration: 0.6, ease: 'easeInOut' }
+        }}
+      />
+      <motion.div
+        className="absolute -inset-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: 'linear-gradient(135deg, #7db042, #99c34a, #e67e00, #F49918, #7db042)',
+          filter: 'blur(20px)',
+          zIndex: -1
+        }}
+      />
       {/* Icono */}
       <div className="flex justify-center mb-4">
         <motion.div

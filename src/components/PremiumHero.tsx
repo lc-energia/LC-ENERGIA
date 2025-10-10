@@ -3,8 +3,17 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTiltEffect } from '@/hooks/useTiltEffect';
 
 const PremiumHero = () => {
+  const {
+    elementRef,
+    handleMouseMove,
+    handleMouseLeave,
+    getTransformStyle,
+    getLightingStyle,
+  } = useTiltEffect();
+
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-neutral-50 to-white">
       {/* Simple background gradient */}
@@ -39,40 +48,51 @@ const PremiumHero = () => {
                   LC ENERGIA è una società ingegneristica composta da tecnici qualificati con esperienza trentennale nel campo della consulenza, progettazione e realizzazione impiantistica civile e industriale.
                 </p>
                 <p>
-                  Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all'avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
+                  Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all&apos;avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
                 </p>
                 <p>
-                  Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L'obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
+                  Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L&apos;obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
                 </p>
               </div>
 
-              {/* Value Cards */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <div className="flex-1 bg-primary text-white p-4 rounded-lg shadow-lg min-h-[100px] flex items-center justify-center">
-                  <p className="text-center font-semibold">
-                    Recependo e concretizzando al meglio le sue richieste.
-                  </p>
-                </div>
-                <div className="flex-1 bg-secondary text-white p-4 rounded-lg shadow-lg min-h-[100px] flex items-center justify-center">
-                  <p className="text-center font-semibold">
-                    Offrendo la nostra professionalità e disponibilità.
-                  </p>
-                </div>
+              {/* Enhanced Value Cards */}
+              <div className="flex flex-col sm:flex-row gap-6 mb-10">
+                <motion.div
+                  className="flex-1 relative group"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl blur-sm" style={{ background: 'linear-gradient(to right, #e67e00, #cc6f00)' }}></div>
+                  <div className="relative p-6 rounded-2xl shadow-xl min-h-[120px] flex items-center justify-center border backdrop-blur-sm" style={{ background: 'linear-gradient(to bottom right, #e67e00, #cc6f00)', borderColor: 'rgba(255, 172, 0, 0.3)' }}>
+                    <div className="absolute inset-0 rounded-2xl" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.2), transparent)' }}></div>
+                    <div className="absolute top-0 left-1/4 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
+                    <p className="text-center font-semibold text-lg relative z-10 leading-relaxed" style={{ color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
+                      Recependo e concretizzando al meglio le sue richieste
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="flex-1 relative group"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl blur-sm" style={{ background: 'linear-gradient(to right, #7db042, #6e9c3a)' }}></div>
+                  <div className="relative p-6 rounded-2xl shadow-xl min-h-[120px] flex items-center justify-center border backdrop-blur-sm" style={{ background: 'linear-gradient(to bottom right, #7db042, #6e9c3a)', borderColor: 'rgba(153, 195, 74, 0.3)' }}>
+                    <div className="absolute inset-0 rounded-2xl" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.2), transparent)' }}></div>
+                    <div className="absolute top-0 right-1/4 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
+                    <p className="text-center font-semibold text-lg relative z-10 leading-relaxed" style={{ color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
+                      Offrendo la nostra professionalità e disponibilità
+                    </p>
+                  </div>
+                </motion.div>
               </div>
 
-              {/* CTA Button */}
-              <div>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center font-semibold text-white bg-gradient-to-r from-primary to-secondary px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Richiedi una Consulenza Gratuita
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-              </div>
-            </motion.div>
+              </motion.div>
           </div>
 
           {/* Right Image */}
@@ -83,34 +103,41 @@ const PremiumHero = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="relative"
             >
-              <div className="relative w-full h-[500px] lg:h-[600px] shadow-2xl">
+              <div
+                ref={elementRef}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                className="relative w-full bg-white rounded-xl overflow-hidden transition-all duration-300 cursor-pointer"
+                style={getTransformStyle()}
+              >
+                <div
+                  className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500"
+                  style={getLightingStyle()}
+                />
+
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
                 <Image
                   src="/img/home page.png"
                   alt="LC Energia - Soluzioni energetiche innovative"
-                  fill
-                  className="object-cover"
+                  width={2792}
+                  height={2835}
+                  className="w-full h-auto"
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   quality={90}
                 />
 
-                {/* Simple overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+  
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/5 to-transparent pointer-events-none" style={{ opacity: 0.6 }} />
 
-                {/* Status badges */}
-                <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm font-semibold">Attivo 24/7</span>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-3 shadow-lg">
-                  <div className="text-center">
-                    <div className="text-xl font-bold text-primary">30+</div>
-                    <div className="text-sm text-gray-600">Anni di Esperienza</div>
-                  </div>
-                </div>
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    backgroundImage: `radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%)`
+                  }}
+                />
               </div>
             </motion.div>
           </div>

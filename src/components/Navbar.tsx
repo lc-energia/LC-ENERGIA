@@ -67,7 +67,7 @@ export default function Navbar() {
       <nav className="relative">
         <div className="flex h-auto items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center border-r px-4 lg:px-5 self-stretch">
+          <Link href="/" className="flex items-center px-4 lg:px-5 self-stretch hover:opacity-80 transition-opacity duration-300">
             <Image src="/img/logo.png" alt="LC Energia Logo" width={150} height={35} priority />
           </Link>
 
@@ -114,10 +114,24 @@ export default function Navbar() {
                       <div className="hidden lg:block">
               <Link
                 href="/contact"
-                className="flex items-center font-semibold text-white bg-primary hover:bg-primary-600 px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
+                className="group relative inline-flex items-center justify-center px-4 py-2 text-sm font-bold text-white transition-all duration-300 rounded-full shadow-sm hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/30 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(to right, #e67e00, #cc6f00)',
+                }}
               >
-                Richiedi un preventivo
-                <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
+                <span className="relative z-10 flex items-center" style={{ color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.4)' }}>
+                  Preventivo
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="ml-1 w-3 h-3 transition-transform duration-300 group-hover:translate-x-1"
+                    style={{ color: '#ffffff' }}
+                  />
+                </span>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500" style={{
+                  background: 'linear-gradient(135deg, #ff6b35, #f7931e, #fdc830, #7db042, #6e9c3a, #e67e00, #cc6f00)',
+                  backgroundSize: '300% 300%',
+                  animation: 'gradient-shift 3s ease infinite'
+                }} />
               </Link>
             </div>
           </div>
