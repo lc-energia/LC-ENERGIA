@@ -7,6 +7,30 @@ interface LoadingScreenProps {
   onLoadingComplete: () => void;
 }
 
+// Fixed particle positions to avoid hydration mismatch
+const PARTICLE_POSITIONS = [
+  { left: 21.45, top: 47.99, delay: 1.45 },
+  { left: 67.99, top: 96.56, delay: 0.98 },
+  { left: 95.52, top: 8.37, delay: 0.95 },
+  { left: 93.47, top: 93.19, delay: 1.76 },
+  { left: 85.57, top: 68.42, delay: 0.67 },
+  { left: 40.44, top: 50.44, delay: 0.49 },
+  { left: 28.49, top: 18.56, delay: 1.01 },
+  { left: 30.68, top: 55.35, delay: 1.32 },
+  { left: 78.92, top: 2.75, delay: 1.16 },
+  { left: 40.64, top: 74.27, delay: 0.67 },
+  { left: 51.46, top: 40.72, delay: 0.09 },
+  { left: 82.11, top: 35.05, delay: 1.80 },
+  { left: 7.11, top: 42.35, delay: 1.10 },
+  { left: 28.01, top: 83.36, delay: 0.91 },
+  { left: 11.91, top: 88.94, delay: 1.50 },
+  { left: 88.03, top: 78.15, delay: 1.86 },
+  { left: 63.94, top: 14.60, delay: 1.52 },
+  { left: 24.16, top: 82.85, delay: 0.96 },
+  { left: 63.93, top: 60.01, delay: 1.00 },
+  { left: 8.42, top: 17.53, delay: 0.10 }
+];
+
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -98,7 +122,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         >
           {/* Animated background particles */}
           <div className="absolute inset-0 overflow-hidden">
-            {[...Array(20)].map((_, i) => (
+            {PARTICLE_POSITIONS.map((position, i) => (
               <motion.div
                 key={i}
                 variants={particlesVariants}
@@ -106,9 +130,9 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
                 animate="animate"
                 className="absolute w-2 h-2 bg-white/30 rounded-full"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 2}s`
+                  left: `${position.left}%`,
+                  top: `${position.top}%`,
+                  animationDelay: `${position.delay}s`
                 }}
               />
             ))}

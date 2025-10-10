@@ -173,6 +173,25 @@ const MorphingShapes: React.FC<MorphingShapesProps> = ({
     }
   };
 
+  // Fixed floating particle positions to avoid hydration mismatch
+  const FLOATING_PARTICLES = [
+    { left: 48.21, top: 38.61, duration: 15, delay: 1.5, xRange: -12 },
+    { left: 84.14, top: 50.11, duration: 18, delay: 0.8, xRange: 18 },
+    { left: 78.47, top: 72.37, duration: 12, delay: 2.1, xRange: -5 },
+    { left: 57.76, top: 71.08, duration: 20, delay: 0.3, xRange: 8 },
+    { left: 18.19, top: 10.24, duration: 14, delay: 1.8, xRange: -15 },
+    { left: 40.46, top: 52.94, duration: 16, delay: 0.6, xRange: 3 },
+    { left: 69.56, top: 81.06, duration: 19, delay: 2.4, xRange: -8 },
+    { left: 42.06, top: 86.66, duration: 13, delay: 1.2, xRange: 12 },
+    { left: 58.02, top: 97.88, duration: 17, delay: 0.9, xRange: -2 },
+    { left: 45.97, top: 65.28, duration: 15, delay: 1.7, xRange: 6 },
+    { left: 47.48, top: 93.11, duration: 18, delay: 0.4, xRange: -10 },
+    { left: 91.88, top: 88.69, duration: 14, delay: 2.2, xRange: 15 },
+    { left: 52.38, top: 82.05, duration: 16, delay: 1.1, xRange: -7 },
+    { left: 9.12, top: 50.82, duration: 20, delay: 0.5, xRange: 11 },
+    { left: 85.21, top: 19.19, duration: 12, delay: 1.9, xRange: -4 }
+  ];
+
   return (
     <div
       ref={containerRef}
@@ -278,24 +297,24 @@ const MorphingShapes: React.FC<MorphingShapesProps> = ({
       </svg>
 
       {/* Floating particles */}
-      {[...Array(15)].map((_, i) => (
+      {FLOATING_PARTICLES.map((particle, i) => (
         <motion.div
           key={`particle-${i}`}
           className="absolute w-1 h-1 bg-white/20 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`
+            left: `${particle.left}%`,
+            top: `${particle.top}%`
           }}
           animate={{
             y: [0, -100, 0],
-            x: [0, Math.random() * 50 - 25, 0],
+            x: [0, particle.xRange, 0],
             opacity: [0, 0.8, 0],
             scale: [0, 1, 0]
           }}
           transition={{
-            duration: 10 + Math.random() * 10,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 5,
+            delay: particle.delay,
             ease: "easeInOut"
           }}
         />
