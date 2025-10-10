@@ -22,7 +22,7 @@ const AziendaPage = () => {
       <PageHeader title="Azienda" />
 
       {/* Nuova Sezione: Storia, Missione e Settori Operativi */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-neutral-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Blocco 1: Introduzione e Missione */}
           <motion.div
@@ -119,7 +119,7 @@ const AziendaPage = () => {
               whileInView="show"
               viewport={{ once: true, amount: 0.25 }}
             >
-              <TiltCard className="bg-light p-6 rounded-xl shadow-lg h-full">
+              <TiltCard className="bg-white p-6 rounded-xl shadow-lg h-full">
                 <div className="flex items-center mb-4">
                   <FontAwesomeIcon icon={faSolarPanel} className="fa-2x text-primary mr-4" />
                   <Heading5 color="primary">Realizzazione di Impianti ad Alto Profilo Tecnologico</Heading5>
@@ -149,7 +149,7 @@ const AziendaPage = () => {
 
      
       {/* Reasons Section */}
-      <section className="py-12 sm:py-16 bg-light">
+      <section className="py-12 sm:py-16 bg-primary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn('up', 0.2)}
@@ -187,7 +187,7 @@ const AziendaPage = () => {
       </section>
 
       {/* Collaborazioni Section */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 bg-neutral-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn('up', 0.2)}
@@ -211,7 +211,7 @@ const AziendaPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-12 sm:py-16 bg-light">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="testimonial-item text-center">
               <div className="testimonial-text text-center rounded p-4">
@@ -244,7 +244,7 @@ const AziendaPage = () => {
                 viewport={{ once: true, amount: 0.25 }}
                 className="w-full sm:w-1/2 md:w-1/3 p-4"
               >
-                <div className="bg-white rounded-lg shadow-md p-6 text-center h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary">
+                <div className="bg-gradient-to-br from-primary-50 to-primary-200 rounded-lg shadow-xl p-6 text-center h-full transition-all duration-300 border border-gray-200 hover:shadow-2xl hover:border-primary hover:bg-primary-100 hover:text-white backdrop-blur-sm border-white/20">
                   <Heading5 color="primary">{member.name}</Heading5>
                   <Text color="primary" justify={false}>{member.role}</Text>
                 </div>
