@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Card, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/Card';
+import TiltCard from '@/components/TiltCard';
 import {
   faGlobe, 
   faTools, 
@@ -166,7 +167,8 @@ const Services = () => {
                 transition={{ duration: 0.3 }}
                 className="w-full group"
               >
-                <Card className="h-full flex flex-col group hover:-translate-y-2 transition-transform duration-500">
+                <TiltCard intensity={12} scale={1.02}>
+                  <Card className="h-full flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300">
                   <CardContent className="p-8 flex-grow relative">
                     {/* Icon Background */}
                     <div className="absolute top-8 right-8 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
@@ -194,6 +196,7 @@ const Services = () => {
                     </Link>
                   </CardFooter>
                 </Card>
+                </TiltCard>
               </motion.div>
             ))}
           </AnimatePresence>
