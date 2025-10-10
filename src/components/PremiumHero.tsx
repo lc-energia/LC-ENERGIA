@@ -35,7 +35,7 @@ const PremiumHero = () => {
               </div>
 
               {/* Title */}
-              <HeroTitle className="mb-8" color="secondary">
+              <HeroTitle className="mb-8 text-left text-5xl md:text-5xl lg:text-7xl" color="secondary">
                 Perché scegliere <HighlightText>LC Energia</HighlightText>?
               </HeroTitle>
 
@@ -48,7 +48,7 @@ const PremiumHero = () => {
                   Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all&apos;avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
                 </Text>
                 <Text>
-                  Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L&apos;obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
+                  Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L&apos;obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente.
                 </Text>
               </div>
 
@@ -59,14 +59,14 @@ const PremiumHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <div className="p-4 border border-gray-200 rounded-xl shadow-md bg-white/70 backdrop-blur-sm">
+                <div className="p-4 border border-gray-100 rounded-xl shadow-md bg-white/70 backdrop-blur-sm">
                   <Text size="lg" className="font-semibold text-gray-800">
-                    — Recependo e concretizzando al meglio le sue richieste.
+                    Recepiamo e concretizziamo al meglio le sue richieste.
                   </Text>
                 </div>
-                <div className="p-4 border border-gray-200 rounded-xl shadow-md bg-white/70 backdrop-blur-sm">
+                <div className="p-4 border border-gray-100 rounded-xl shadow-md bg-white/70 backdrop-blur-sm">
                   <Text size="lg" className="font-semibold text-gray-800">
-                    — Offrendo la nostra professionalità e disponibilità.
+                    Offriamo la nostra professionalità e disponibilità.
                   </Text>
                 </div>
               </motion.div>

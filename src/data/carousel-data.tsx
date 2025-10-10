@@ -29,10 +29,6 @@ export const testimonialData = [
   },
   {
     type: 'text',
-    text: 'Soluzioni efficienti per un mondo migliore.',
-  },
-  {
-    type: 'text',
     text: 'Innovazione in ogni progetto, rispettando il pianeta.',
   },
   {
@@ -49,15 +45,7 @@ export const testimonialData = [
   },
   {
     type: 'text',
-    text: 'Adattiamo il presente per proteggere il futuro.',
-  },
-  {
-    type: 'text',
     text: 'Verso un ambiente più pulito e sicuro.',
-  },
-  {
-    type: 'text',
-    text: 'Prestazioni superiori, impatto ambientale ridotto.',
   },
   {
     type: 'text',

@@ -38,7 +38,7 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div className="text-left">
-            <Heading5>Link Veloci</Heading5>
+            <Heading5 color="accent">Link Veloci</Heading5>
             <nav className="flex flex-col space-y-2">
               <NavLink href="/azienda">Chi Siamo</NavLink>
               <NavLink href="/contact">Richiedi un Preventivo</NavLink>
@@ -49,26 +49,26 @@ const Footer = () => {
 
           {/* Column 3: Address */}
           <div className="text-left">
-            <Heading5>Contatti</Heading5>
+            <Heading5 color="accent">Contatti</Heading5>
             <div className="space-y-2 text-sm">
               
               <Text as="div" className="flex items-center">
-                <FontAwesomeIcon icon={faPhoneAlt} className="mr-2 text-primary" />
+                <FontAwesomeIcon icon={faPhoneAlt} className="mr-2 text-accent" />
                 <NavLink href="tel:0362992142">
                   0362992142
                 </NavLink>
               </Text>
               <Text as="div" className="flex items-center">
-                <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-primary" />
+                <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-accent" />
                 <NavLink href="mailto:info@lc-energia.it">
                   info@lc-energia.it
                 </NavLink>
               </Text>
               <Text as="div" className="flex items-start">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 mt-1 text-primary" />
-                <span>
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 mt-1 text-accent" />
+                <Text as="span" color="accent" size="sm" justify={false} maxWidth={false}>
                   Via della Valle 39, 20841,<br />Carate Brianza (MB)
-                </span>
+                </Text>
               </Text>
             </div>
           </div>
