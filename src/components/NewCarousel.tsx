@@ -7,6 +7,7 @@ import { carouselData } from '@/data/carousel-data';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import SwiperPagination from './SwiperPagination';
+import MorphingShapes from './MorphingShapes';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,7 +17,12 @@ const NewCarousel = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
 
   return (
-    <div className="w-full p-0 relative">
+    <div className="w-full p-0 relative overflow-hidden">
+      {/* Morphing shapes background */}
+      <div className="absolute inset-0 z-10">
+        <MorphingShapes intensity="medium" />
+      </div>
+
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
