@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faCheck, faAward, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
-// Componente de contador animado
+// Componente de contador animado simplificado
 const AnimatedCounter: React.FC<{
   from: number;
   to: number;
@@ -13,39 +13,50 @@ const AnimatedCounter: React.FC<{
   suffix?: string;
 }> = ({ from, to, duration, delay, suffix = '' }) => {
   const [displayValue, setDisplayValue] = useState(from);
+  const [hasStarted, setHasStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   useEffect(() => {
-    if (inView && ref.current) {
-      const startTime = Date.now();
-      const endTime = startTime + duration * 1000;
+    if (inView && !hasStarted) {
+      setHasStarted(true);
 
-      const updateValue = () => {
-        const now = Date.now();
-        const progress = Math.min((now - startTime) / (duration * 1000), 1);
+      // Iniciar animación después del delay
+      const timeoutId = setTimeout(() => {
+        const startTime = Date.now();
 
-        // Easing function para animación suave
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const currentValue = Math.floor(from + (to - from) * easeOutQuart);
+        const updateValue = () => {
+          const now = Date.now();
+          const progress = Math.min((now - startTime) / (duration * 1000), 1);
 
-        setDisplayValue(currentValue);
+          // Easing function para animación suave
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          const currentValue = Math.floor(from + (to - from) * easeOutQuart);
 
-        if (progress < 1) {
-          requestAnimationFrame(updateValue);
-        }
-      };
+          setDisplayValue(currentValue);
 
-      requestAnimationFrame(updateValue);
+          if (progress < 1) {
+            requestAnimationFrame(updateValue);
+          }
+        };
+
+        requestAnimationFrame(updateValue);
+      }, delay * 1000);
+
+      return () => clearTimeout(timeoutId);
     }
-  }, [inView, from, to, duration]);
+  }, [inView, hasStarted, from, to, duration, delay]);
 
   const formatNumber = (num: number) => {
     return num.toLocaleString('it-IT');
   };
 
   return (
-    <span ref={ref} className="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+    <span
+      ref={ref}
+      className="stats-number font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+      style={{ fontSize: '3rem', fontWeight: '900' }}
+    >
       {formatNumber(displayValue)}{suffix}
     </span>
   );
@@ -89,20 +100,16 @@ const StatCardWithDescription: React.FC<{
       {/* Número con contador animado */}
       <motion.div
         className="text-5xl font-bold mb-2 relative"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: delay + 0.4, duration: 0.6 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: delay + 0.2, duration: 0.5 }}
         viewport={{ once: true, margin: '-100px' }}
-        style={{
-          fontSize: '3rem',
-          fontWeight: '900'
-        }}
       >
         <AnimatedCounter
           from={0}
           to={number}
-          duration={2.5}
-          delay={delay + 0.6}
+          duration={2}
+          delay={delay}
           suffix={suffix}
         />
       </motion.div>
