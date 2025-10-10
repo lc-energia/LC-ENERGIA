@@ -270,12 +270,6 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               return <FaqAccordion key={i} faqs={section.questions || []} />;
             }
             
-            // Layout para secciones de texto/acordeón
-            let gridClass = section.fullWidth ? 'lg:col-span-2' : 'lg:col-span-1';
-            if ((slug === 'impianti-geotermici') && !section.fullWidth) {
-              gridClass = 'lg:col-span-1'; // Ya manejado por el layout de arriba, pero mantenemos la lógica de columna si se usa fuera del bloque principal
-            }
-            
             return (
               <motion.div
                 key={i}

@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faCheck, faAward, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,29 +13,7 @@ const AnimatedCounter: React.FC<{
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-          startCounting();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, [isVisible]);
-
-  const startCounting = () => {
+  const startCounting = useCallback(() => {
     const duration = 2000; // 2 segundos
     const steps = 60;
     const increment = to / steps;
@@ -51,7 +29,31 @@ const AnimatedCounter: React.FC<{
         setCount(to);
       }
     }, duration / steps);
-  };
+  }, [to]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+          startCounting();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = containerRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [isVisible, startCounting]);
 
   return (
     <div ref={containerRef} className="text-5xl font-bold mb-2 relative">

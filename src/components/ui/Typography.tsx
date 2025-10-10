@@ -9,16 +9,30 @@ import { cn } from '@/lib/utils';
 interface TypographyProps {
   children: React.ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
+}
+
+interface HeadingProps extends TypographyProps {
+  color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white';
 }
 
 // Componentes de encabezados
-export function Heading1({ children, className, as = 'h1' }: TypographyProps) {
+export function Heading1({ children, className, as = 'h1', color = 'primary' }: HeadingProps) {
   const Tag = as;
+  const colorClasses = {
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    tertiary: 'text-tertiary',
+    accent: 'text-accent',
+    inverse: 'text-inverse',
+    muted: 'text-muted',
+    white: 'text-white'
+  };
   return (
     <Tag className={cn(
-      'hero-title font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none',
-      'text-primary mb-4',
+      'hero-title font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-none',
+      colorClasses[color],
+      'mb-4',
       className
     )}>
       {children}
@@ -26,12 +40,22 @@ export function Heading1({ children, className, as = 'h1' }: TypographyProps) {
   );
 }
 
-export function Heading2({ children, className, as = 'h2' }: TypographyProps) {
+export function Heading2({ children, className, as = 'h2', color = 'primary' }: HeadingProps) {
   const Tag = as;
+  const colorClasses = {
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    tertiary: 'text-tertiary',
+    accent: 'text-accent',
+    inverse: 'text-inverse',
+    muted: 'text-muted',
+    white: 'text-white'
+  };
   return (
     <Tag className={cn(
-      'section-title font-heading text-2xl md:text-3xl font-bold tracking-tight leading-tight',
-      'text-primary mb-3',
+      'section-title font-heading text-lg md:text-xl lg:text-2xl font-bold tracking-tight leading-tight',
+      colorClasses[color],
+      'mb-3',
       className
     )}>
       {children}
@@ -39,12 +63,22 @@ export function Heading2({ children, className, as = 'h2' }: TypographyProps) {
   );
 }
 
-export function Heading3({ children, className, as = 'h3' }: TypographyProps) {
+export function Heading3({ children, className, as = 'h3', color = 'primary' }: HeadingProps) {
   const Tag = as;
+  const colorClasses = {
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    tertiary: 'text-tertiary',
+    accent: 'text-accent',
+    inverse: 'text-inverse',
+    muted: 'text-muted',
+    white: 'text-white'
+  };
   return (
     <Tag className={cn(
-      'font-heading text-xl md:text-2xl font-semibold leading-tight',
-      'text-primary mb-2',
+      'font-heading text-base md:text-lg lg:text-xl font-semibold leading-tight',
+      colorClasses[color],
+      'mb-2',
       className
     )}>
       {children}
@@ -52,12 +86,22 @@ export function Heading3({ children, className, as = 'h3' }: TypographyProps) {
   );
 }
 
-export function Heading4({ children, className, as = 'h4' }: TypographyProps) {
+export function Heading4({ children, className, as = 'h4', color = 'primary' }: HeadingProps) {
   const Tag = as;
+  const colorClasses = {
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    tertiary: 'text-tertiary',
+    accent: 'text-accent',
+    inverse: 'text-inverse',
+    muted: 'text-muted',
+    white: 'text-white'
+  };
   return (
     <Tag className={cn(
-      'font-heading text-lg md:text-xl font-semibold leading-tight',
-      'text-primary mb-2',
+      'font-heading text-sm md:text-base lg:text-lg font-semibold leading-tight',
+      colorClasses[color],
+      'mb-2',
       className
     )}>
       {children}
@@ -65,12 +109,22 @@ export function Heading4({ children, className, as = 'h4' }: TypographyProps) {
   );
 }
 
-export function Heading5({ children, className, as = 'h5' }: TypographyProps) {
+export function Heading5({ children, className, as = 'h5', color = 'primary' }: HeadingProps) {
   const Tag = as;
+  const colorClasses = {
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    tertiary: 'text-tertiary',
+    accent: 'text-accent',
+    inverse: 'text-inverse',
+    muted: 'text-muted',
+    white: 'text-white'
+  };
   return (
     <Tag className={cn(
-      'font-heading text-base md:text-lg font-semibold leading-tight',
-      'text-primary mb-1',
+      'font-heading text-xs md:text-sm lg:text-base font-semibold leading-tight',
+      colorClasses[color],
+      'mb-1',
       className
     )}>
       {children}
@@ -78,12 +132,22 @@ export function Heading5({ children, className, as = 'h5' }: TypographyProps) {
   );
 }
 
-export function Heading6({ children, className, as = 'h6' }: TypographyProps) {
+export function Heading6({ children, className, as = 'h6', color = 'primary' }: HeadingProps) {
   const Tag = as;
+  const colorClasses = {
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    tertiary: 'text-tertiary',
+    accent: 'text-accent',
+    inverse: 'text-inverse',
+    muted: 'text-muted',
+    white: 'text-white'
+  };
   return (
     <Tag className={cn(
-      'font-heading text-sm md:text-base font-semibold leading-tight',
-      'text-primary mb-1',
+      'font-heading text-xs md:text-xs lg:text-sm font-semibold leading-tight',
+      colorClasses[color],
+      'mb-1',
       className
     )}>
       {children}
@@ -95,9 +159,10 @@ export function Heading6({ children, className, as = 'h6' }: TypographyProps) {
 export interface TextProps extends TypographyProps {
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
   weight?: 'light' | 'normal' | 'semibold' | 'bold';
-  color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse';
+  color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white' | 'dark';
   justify?: boolean;
   maxWidth?: boolean;
+  style?: React.CSSProperties;
 }
 
 export function Text({
@@ -106,9 +171,10 @@ export function Text({
   as = 'p',
   size = 'base',
   weight = 'normal',
-  color = 'primary',
+  color = 'dark',
   justify = true,
-  maxWidth = true
+  maxWidth = true,
+  style
 }: TextProps) {
   const Tag = as;
 
@@ -132,11 +198,14 @@ export function Text({
     secondary: 'text-secondary',
     tertiary: 'text-tertiary',
     accent: 'text-accent',
-    inverse: 'text-inverse'
+    inverse: 'text-inverse',
+    muted: 'text-muted',
+    white: 'text-white',
+    dark: 'text-dark-200'
   };
 
   return (
-    <Tag className={cn(
+    <Tag style={style} className={cn(
       'font-body leading-relaxed',
       sizeClasses[size],
       weightClasses[weight],
@@ -151,35 +220,35 @@ export function Text({
 }
 
 // Componentes específicos para la aplicación
-export function HeroTitle({ children, className }: { children: React.ReactNode; className?: string }) {
+export function HeroTitle({ children, className, as = 'h1', color }: { children: React.ReactNode; className?: string; as?: React.ElementType; color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white'; }) {
   return (
-    <Heading1 className={cn('text-center', className)}>
+    <Heading1 as={as} color={color} className={cn('text-center', className)}>
       {children}
     </Heading1>
   );
 }
 
-export function SectionTitle({ children, className }: { children: React.ReactNode; className?: string }) {
+export function SectionTitle({ children, className, color }: { children: React.ReactNode; className?: string; color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white'; }) {
   return (
-    <Heading2 className={cn('text-center', className)}>
+    <Heading2 color={color} className={cn('text-center', className)}>
       {children}
     </Heading2>
   );
 }
 
-export function CardTitle({ children, className }: { children: React.ReactNode; className?: string }) {
+export function CardTitle({ children, className, color }: { children: React.ReactNode; className?: string; color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white'; }) {
   return (
-    <Heading3 className={cn('text-left', className)}>
+    <Heading3 color={color} className={cn('text-left', className)}>
       {children}
     </Heading3>
   );
 }
 
-export function CardDescription({ children, className }: { children: React.ReactNode; className?: string }) {
+export function CardDescription({ children, className, color = 'dark' }: { children: React.ReactNode; className?: string; color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white' | 'dark'; }) {
   return (
     <Text
       size="sm"
-      color="secondary"
+      color={color}
       className={cn('text-left', className)}
     >
       {children}
@@ -187,9 +256,9 @@ export function CardDescription({ children, className }: { children: React.React
   );
 }
 
-export function ServiceTitle({ children, className }: { children: React.ReactNode; className?: string }) {
+export function ServiceTitle({ children, className, color }: { children: React.ReactNode; className?: string; color?: 'primary' | 'secondary' | 'tertiary' | 'accent' | 'inverse' | 'muted' | 'white'; }) {
   return (
-    <Heading4 className={cn('text-left', className)}>
+    <Heading4 color={color} className={cn('text-left', className)}>
       {children}
     </Heading4>
   );
@@ -322,7 +391,7 @@ export function NavLink({
   return (
     <a
       className={cn(
-        'nav-link font-heading text-base font-normal transition-colors duration-200',
+        'nav-link font-heading text-base font-normal transition-colors duration-200 force-accent-color',
         'hover:text-accent focus:text-accent',
         active && 'nav-link-active font-semibold text-accent',
         className
@@ -335,9 +404,9 @@ export function NavLink({
 }
 
 // Componentes de utilidad
-export function HighlightText({ children, className }: { children: React.ReactNode; className?: string }) {
+export function HighlightText({ children, className, style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
-    <span className={cn(
+    <span style={style} className={cn(
       'text-accent font-semibold',
       className
     )}>
@@ -359,6 +428,23 @@ export function LargeText({ children, className }: { children: React.ReactNode; 
     <Text size="lg" className={cn('font-normal', className)}>
       {children}
     </Text>
+  );
+}
+
+export function Badge({ children, className, variant = 'primary' }: { children: React.ReactNode; className?: string; variant?: 'primary' | 'secondary' }) {
+  const variantClasses = {
+    primary: 'bg-accent/10 text-accent',
+    secondary: 'bg-secondary/10 text-secondary',
+  };
+
+  return (
+    <span className={cn(
+      'inline-block px-3 py-1 font-heading font-semibold rounded-full text-sm',
+      variantClasses[variant],
+      className
+    )}>
+      {children}
+    </span>
   );
 }
 
@@ -386,7 +472,8 @@ export const Typography = {
   NavLink,
   HighlightText,
   SmallText,
-  LargeText
+  LargeText,
+  Badge
 };
 
 export default Typography;

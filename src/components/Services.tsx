@@ -5,7 +5,6 @@ import { fadeIn } from '@/variants';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Card, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/Card';
 import TiltCard from '@/components/TiltCard';
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import {

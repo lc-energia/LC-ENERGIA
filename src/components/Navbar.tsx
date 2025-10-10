@@ -80,7 +80,7 @@ export default function Navbar() {
                   <NavLink
                     key={item.name}
                     href={item.href}
-                    className="whitespace-nowrap px-4 py-6 hover:-translate-y-1 transition-all duration-300"
+                    className={cn("whitespace-nowrap px-4 py-6 hover:-translate-y-1 transition-all duration-300")}
                     active={pathname === item.href}
                   >
                     {item.name}
@@ -148,7 +148,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="flex items-center lg:hidden">
-            <button className="mr-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300" onClick={() => setIsOpen(!isOpen)}>
+            <button className="mr-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-all duration-300" onClick={() => setIsOpen(!isOpen)}>
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
                 <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -164,7 +164,7 @@ export default function Navbar() {
           <div className="lg:hidden border-t absolute w-full bg-white shadow-lg">
             <div className="space-y-1 p-4">
               {navigation.links.map((item) => (
-                <Link href={item.href} key={item.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
+                <Link href={item.href} key={item.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-accent transition-all duration-300">
                   {item.name}
                 </Link>
               ))}
@@ -172,13 +172,13 @@ export default function Navbar() {
                 <Disclosure as="div" key={dropdown.name} className="space-y-1">
                   {({ open: dOpen }) => (
                     <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
+                      <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-accent transition-all duration-300">
                         <span>{dropdown.name}</span>
                         <ChevronDownIcon className={cn(dOpen ? 'rotate-180' : '', 'h-5 w-5 transition-transform duration-200')} />
                       </Disclosure.Button>
                       <Disclosure.Panel className="pl-4 space-y-1">
                         {dropdown.items.map((item) => (
-                          <Link href={item.href} key={item.name} className="block rounded-md px-4 py-2 text-sm font-medium text-gray-600 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
+                          <Link href={item.href} key={item.name} className="block rounded-md px-4 py-2 text-sm font-medium text-gray-600 hover:bg-neutral-100 hover:text-accent transition-all duration-300">
                             {item.name}
                           </Link>
                         ))}
@@ -187,7 +187,7 @@ export default function Navbar() {
                   )}
                 </Disclosure>
               ))}
-              <Link href={navigation.rightLink.href} key={navigation.rightLink.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-primary transition-all duration-300">
+              <Link href={navigation.rightLink.href} key={navigation.rightLink.name} className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-accent transition-all duration-300">
                 {navigation.rightLink.name}
               </Link>
               <Button asChild variant="ghost" className="w-full justify-start">

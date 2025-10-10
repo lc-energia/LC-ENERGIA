@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTiltEffect } from '@/hooks/useTiltEffect';
+import { HeroTitle, Text, HighlightText, Badge } from '@/components/ui/Typography';
 
 const PremiumHero = () => {
   const {
@@ -31,28 +31,25 @@ const PremiumHero = () => {
             >
               {/* Badge */}
               <div className="mb-6">
-                <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm border border-primary/20">
-                  Eccellenza nella Riqualificazione Energetica
-                </span>
+                <Badge variant="primary">Eccellenza nella Riqualificazione Energetica</Badge>
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark-200 mb-8 leading-tight">
-                Perché scegliere{' '}
-                <span className="text-primary">LC Energia</span>?
-              </h1>
+              <HeroTitle className="mb-8" color="secondary" style={{ color: '#F49918' }}>
+                Perché scegliere <HighlightText>LC Energia</HighlightText>?
+              </HeroTitle>
 
               {/* Description */}
               <div className="space-y-4 text-lg text-gray-600 mb-8">
-                <p>
+                <Text>
                   LC ENERGIA è una società ingegneristica composta da tecnici qualificati con esperienza trentennale nel campo della consulenza, progettazione e realizzazione impiantistica civile e industriale.
-                </p>
-                <p>
+                </Text>
+                <Text>
                   Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all&apos;avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
-                </p>
-                <p>
+                </Text>
+                <Text>
                   Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L&apos;obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
-                </p>
+                </Text>
               </div>
 
               {/* Enhanced Value Cards */}
@@ -68,9 +65,9 @@ const PremiumHero = () => {
                   <div className="relative p-6 rounded-2xl shadow-xl min-h-[120px] flex items-center justify-center border backdrop-blur-sm" style={{ background: 'linear-gradient(to bottom right, #e67e00, #cc6f00)', borderColor: 'rgba(255, 172, 0, 0.3)' }}>
                     <div className="absolute inset-0 rounded-2xl" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.2), transparent)' }}></div>
                     <div className="absolute top-0 left-1/4 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
-                    <p className="text-center font-semibold text-lg relative z-10 leading-relaxed" style={{ color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
+                    <Text size="lg" weight="semibold" color="white" className="text-center relative z-10 leading-relaxed" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
                       Recependo e concretizzando al meglio le sue richieste
-                    </p>
+                    </Text>
                   </div>
                 </motion.div>
 
@@ -85,9 +82,9 @@ const PremiumHero = () => {
                   <div className="relative p-6 rounded-2xl shadow-xl min-h-[120px] flex items-center justify-center border backdrop-blur-sm" style={{ background: 'linear-gradient(to bottom right, #7db042, #6e9c3a)', borderColor: 'rgba(153, 195, 74, 0.3)' }}>
                     <div className="absolute inset-0 rounded-2xl" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.2), transparent)' }}></div>
                     <div className="absolute top-0 right-1/4 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
-                    <p className="text-center font-semibold text-lg relative z-10 leading-relaxed" style={{ color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
+                    <Text size="lg" weight="semibold" color="white" className="text-center relative z-10 leading-relaxed" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
                       Offrendo la nostra professionalità e disponibilità
-                    </p>
+                    </Text>
                   </div>
                 </motion.div>
               </div>

@@ -32,7 +32,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <SectionTitle className="text-left mb-8">
+                <SectionTitle color="accent" className="text-left mb-8">
                   Perché scegliere <HighlightText>LC Energia</HighlightText>?
                 </SectionTitle>
               </motion.div>
@@ -44,16 +44,16 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <div className="space-y-6">
-                  <Text size="lg" color="secondary">
+                  <Text size="lg">
                     LC ENERGIA è una società ingegneristica composta da tecnici qualificati con esperienza trentennale nel campo della consulenza, progettazione e realizzazione impiantistica civile e industriale.
                   </Text>
 
-                  <Text size="lg" color="secondary">
-                    Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all'avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
+                  <Text size="lg">
+                    Il plus aziendale è rappresentato dalla capacità di proporre soluzioni tecnologiche all&apos;avanguardia, mediante una progettazione integrata con la struttura architettonica e nel pieno rispetto delle normative di settore.
                   </Text>
 
-                  <Text size="lg" color="secondary">
-                    Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L'obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
+                  <Text size="lg">
+                    Per raggiungere questi risultati, LC Energia ha sempre considerato importante e prioritario il continuo e sistematico aggiornamento dei suoi tecnici con specifici programmi di formazione. L&apos;obiettivo principale della nostra società rimane da sempre la soddisfazione del cliente:
                   </Text>
                 </div>
               </motion.div>

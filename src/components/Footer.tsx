@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { Text, Heading5, NavLink } from '@/components/ui/Typography';
 
 const Footer = () => {
   return (
@@ -23,7 +24,7 @@ const Footer = () => {
                 className="hover:opacity-80 transition-opacity duration-300"
               />
             </Link>
-            <p className="text-sm mb-4 text-gray-400">P.iva 04115680136</p>
+            <Text size="sm" color="muted" className="mb-4">P.iva 04115680136</Text>
             <div className="flex space-x-2">
               <a
                 className="w-8 h-8 border border-gray-600 rounded-full flex items-center justify-center hover:bg-[#F49918] hover:border-[#F49918] transition-colors duration-300"
@@ -37,47 +38,47 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div className="text-left">
-            <h5 className="text-white font-semibold mb-4">Link Veloci</h5>
+            <Heading5>Link Veloci</Heading5>
             <nav className="flex flex-col space-y-2">
-              <Link className="hover:text-[#F49918] transition-colors duration-300" href="/azienda">Chi Siamo</Link>
-              <Link className="hover:text-[#F49918] transition-colors duration-300" href="/contact">Richiedi un Preventivo</Link>
-              <Link className="hover:text-[#F49918] transition-colors duration-300" href="/">I Nostri Servizi</Link>
-              <Link className="hover:text-[#F49918] transition-colors duration-300" href="/accrediti">Accrediti</Link>
+              <NavLink href="/azienda">Chi Siamo</NavLink>
+              <NavLink href="/contact">Richiedi un Preventivo</NavLink>
+              <NavLink href="/">I Nostri Servizi</NavLink>
+              <NavLink href="/accrediti">Accrediti</NavLink>
             </nav>
           </div>
 
           {/* Column 3: Address */}
           <div className="text-left">
-            <h5 className="text-white font-semibold mb-4">Contatti</h5>
+            <Heading5>Contatti</Heading5>
             <div className="space-y-2 text-sm">
               
-              <p className="flex items-center">
-                <FontAwesomeIcon icon={faPhoneAlt} className="mr-2 text-[#F49918]" />
-                <a href="tel:0362992142" className="hover:text-[#F49918] transition-colors duration-300">
+              <Text as="div" className="flex items-center">
+                <FontAwesomeIcon icon={faPhoneAlt} className="mr-2 text-primary" />
+                <NavLink href="tel:0362992142">
                   0362992142
-                </a>
-              </p>
-              <p className="flex items-center">
-                <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-[#F49918]" />
-                <a href="mailto:info@lc-energia.it" className="hover:text-[#F49918] transition-colors duration-300">
+                </NavLink>
+              </Text>
+              <Text as="div" className="flex items-center">
+                <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-primary" />
+                <NavLink href="mailto:info@lc-energia.it">
                   info@lc-energia.it
-                </a>
-              </p>
-              <p className="flex items-start">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 mt-1 text-[#F49918]" />
+                </NavLink>
+              </Text>
+              <Text as="div" className="flex items-start">
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 mt-1 text-primary" />
                 <span>
                   Via della Valle 39, 20841,<br />Carate Brianza (MB)
                 </span>
-              </p>
+              </Text>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-8 pt-6">
-          <div className="text-center text-sm text-gray-400">
+          <Text size="sm" color="muted" className="text-center">
             &copy; LC Energia, 2024. Tutti i diritti riservati.
-          </div>
+          </Text>
         </div>
       </div>
     </footer>

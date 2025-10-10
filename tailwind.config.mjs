@@ -13,28 +13,40 @@ const config = {
       colors: {
         // Brand Colors - Semantic naming
         primary: {
-          50: '#fff7e6',
-          100: '#ffe9bf',
-          200: '#ffd680',
-          300: '#ffc340',
-          400: '#ffac00',
-          500: '#FF8C00', // Main brand color (Naranja Vibrante)
-          600: '#e67e00',
-          700: '#cc6f00',
-          800: '#b36000',
-          900: '#995100',
+          50: '#f2f8e6',
+          100: '#e5f0cd',
+          200: '#d0e3a6',
+          300: '#bad67f',
+          400: '#a4c958',
+          500: '#9BBD2D', // Main brand color (Verde)
+          600: '#8ca928',
+          700: '#7c9523',
+          800: '#6d811e',
+          900: '#5e6d19',
         },
         secondary: {
-          50: '#f0f7e6',
-          100: '#e0efbf',
-          200: '#cce080',
-          300: '#b3d14a',
-          400: '#99c34a',
-          500: '#8BC34A', // Secondary/CTA color (Verde Lima)
-          600: '#7db042',
-          700: '#6e9c3a',
-          800: '#5f8932',
-          900: '#50752a',
+          50: '#fff9e6',
+          100: '#fff0cd',
+          200: '#ffe3a6',
+          300: '#ffd67f',
+          400: '#ffc958',
+          500: '#F49918', // Secondary/CTA color (Naranja)
+          600: '#db8a15',
+          700: '#c27a12',
+          800: '#a86b0f',
+          900: '#8f5c0c',
+        },
+        accent: {
+          50: '#fff9e6',
+          100: '#fff0cd',
+          200: '#ffe3a6',
+          300: '#ffd67f',
+          400: '#ffc958',
+          500: '#F49918', // Accent color (Naranja)
+          600: '#db8a15',
+          700: '#c27a12',
+          800: '#a86b0f',
+          900: '#8f5c0c',
         },
         neutral: {
           50: '#fcfcfc', // Neutro muy claro
@@ -48,6 +60,8 @@ const config = {
           800: '#5b5b5b',
           900: '#2d2d2d',
         },
+        muted: '#888888',
+        white: '#ffffff',
         dark: {
           50: '#5b5b5b',
           100: '#2d2d2d',

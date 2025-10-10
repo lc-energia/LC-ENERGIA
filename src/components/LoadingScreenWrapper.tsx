@@ -16,8 +16,8 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
 
   return (
     <>
-      <LoadingScreen onLoadingComplete={handleLoadingComplete} />
-      {children}
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      {!isLoading && children}
     </>
   );
 };

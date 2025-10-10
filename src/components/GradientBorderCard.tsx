@@ -20,18 +20,6 @@ const GradientBorderCard: React.FC<GradientBorderCardProps> = ({
   rounded = 'xl',
   borderWidth = 'normal'
 }) => {
-  const getGradientClass = () => {
-    switch (variant) {
-      case 'secondary':
-        return 'from-secondary to-primary';
-      case 'accent':
-        return 'from-primary via-secondary to-primary';
-      case 'rainbow':
-        return 'from-primary via-secondary to-primary';
-      default:
-        return 'from-primary to-secondary';
-    }
-  };
 
   const getRoundedClass = () => {
     switch (rounded) {
