@@ -310,7 +310,6 @@ p:not(.text-no-justify):not([class*="text-"]) {
   font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   margin-bottom: 1rem;
-  text-align: center;
 }
 
 @media (min-width: 768px) {
