@@ -33,7 +33,7 @@ const AziendaPage = () => {
             className="text-center max-w-4xl mx-auto mb-16"
           >
             <Heading2 className="text-center mb-4" color="primary">La Nostra Storia e Missione</Heading2>
-            <Text color="muted" size="lg" className="leading-relaxed" justify={true}>
+            <Text color="muted" size="lg" className="leading-relaxed mx-auto" justify={true}>
               LC Energia vanta di personale qualificato e con grande esperienza nel settore della progettazione e realizzazione di impianti civili e industriali. L’impegno dell’azienda è volto a contribuire in prima linea agli obiettivi Europei e Nazionali per la decarbonizzazione e l’efficientamento energetico. Per questo LC Energia, oltre a fornire consulenza e progettazione per gli impianti termici, si è specializzata nella realizzazione di impianti fotovoltaici sia nel settore civile che industriale.
             </Text>
           </motion.div>
@@ -88,7 +88,7 @@ const AziendaPage = () => {
             className="text-center max-w-4xl mx-auto mb-12"
           >
             <Heading2 className="text-center mb-4" color="primary">I Nostri Settori Operativi</Heading2>
-            <Text color="muted" className="leading-relaxed mb-8" justify={true}>
+            <Text color="muted" className="leading-relaxed mb-8 mx-auto" justify={true}>
               Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall'utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi.
             </Text>
           </motion.div>
@@ -140,7 +140,7 @@ const AziendaPage = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <Heading5 color="primary" className="mb-4">Partner Affidabile per la Sostenibilità</Heading5>
-            <Text color="muted" size="base" className="leading-relaxed" justify={true}>
+            <Text color="muted" size="base" className="leading-relaxed mx-auto" justify={true}>
               LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un'approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità.
             </Text>
           </motion.div>
