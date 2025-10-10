@@ -1,7 +1,55 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faCheck, faAward, faLeaf } from '@fortawesome/free-solid-svg-icons';
+
+// Componente de contador animado
+const AnimatedCounter: React.FC<{
+  from: number;
+  to: number;
+  duration: number;
+  delay: number;
+  suffix?: string;
+}> = ({ from, to, duration, delay, suffix = '' }) => {
+  const [displayValue, setDisplayValue] = useState(from);
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-100px' });
+
+  useEffect(() => {
+    if (inView && ref.current) {
+      const startTime = Date.now();
+      const endTime = startTime + duration * 1000;
+
+      const updateValue = () => {
+        const now = Date.now();
+        const progress = Math.min((now - startTime) / (duration * 1000), 1);
+
+        // Easing function para animación suave
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = Math.floor(from + (to - from) * easeOutQuart);
+
+        setDisplayValue(currentValue);
+
+        if (progress < 1) {
+          requestAnimationFrame(updateValue);
+        }
+      };
+
+      requestAnimationFrame(updateValue);
+    }
+  }, [inView, from, to, duration]);
+
+  const formatNumber = (num: number) => {
+    return num.toLocaleString('it-IT');
+  };
+
+  return (
+    <span ref={ref} className="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+      {formatNumber(displayValue)}{suffix}
+    </span>
+  );
+};
 
 // Componente personalizado para estadísticas con descripciones
 const StatCardWithDescription: React.FC<{
@@ -12,9 +60,6 @@ const StatCardWithDescription: React.FC<{
   suffix: string;
   delay: number;
 }> = ({ number, label, description, icon, suffix, delay }) => {
-  const formatNumber = (num: number) => {
-    return num.toLocaleString('it-IT');
-  };
 
   return (
     <motion.div
@@ -41,27 +86,25 @@ const StatCardWithDescription: React.FC<{
         </motion.div>
       </div>
 
-      {/* Número con animación mejorada */}
+      {/* Número con contador animado */}
       <motion.div
         className="text-5xl font-bold mb-2 relative"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.4 }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ delay: delay + 0.4, duration: 0.6 }}
+        viewport={{ once: true, margin: '-100px' }}
+        style={{
+          fontSize: '3rem',
+          fontWeight: '900'
+        }}
       >
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ delay: delay + 0.5, duration: 0.8 }}
-          className="flex items-center justify-center stats-number"
-          style={{ filter: 'none !important' }}
-        >
-          <span className="stats-number text-primary" style={{ fontSize: '3rem', fontWeight: '900' }}>
-            {formatNumber(number)}
-          </span>
-          <span className="stats-number text-secondary ml-1" style={{ fontSize: '3rem', fontWeight: '900' }}>
-            {suffix}
-          </span>
-        </motion.div>
+        <AnimatedCounter
+          from={0}
+          to={number}
+          duration={2.5}
+          delay={delay + 0.6}
+          suffix={suffix}
+        />
       </motion.div>
 
       {/* Título */}
