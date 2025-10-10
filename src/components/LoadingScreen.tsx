@@ -43,7 +43,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     animate: { opacity: 1 },
     exit: {
       opacity: 0,
-      transition: { duration: 0.5, ease: "easeInOut" }
+      transition: { duration: 0.5 }
     }
   };
 
@@ -54,14 +54,13 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
         delay: 0.2
       }
     },
     exit: {
       scale: 1.1,
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeIn" }
+      transition: { duration: 0.4 }
     }
   };
 
@@ -70,8 +69,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     animate: {
       width: `${progress}%`,
       transition: {
-        duration: 0.3,
-        ease: "easeOut"
+        duration: 0.3
       }
     }
   };
@@ -83,8 +81,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
       scale: [0, 1, 0],
       transition: {
         duration: 2,
-        repeat: Infinity,
-        ease: "easeOut"
+        repeat: Infinity
       }
     }
   };

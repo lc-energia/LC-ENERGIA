@@ -1,13 +1,10 @@
-'use client';
-
 import { Open_Sans, Roboto } from 'next/font/google';
 import { metadata } from './metadata';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SmoothScroll from '@/components/SmoothScroll';
-import LoadingScreen from '@/components/LoadingScreen';
-import { useState } from 'react';
+import LoadingScreenWrapper from '@/components/LoadingScreenWrapper';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -29,23 +26,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
-
   return (
     <html lang="it" className={`${openSans.variable} ${roboto.variable}`}>
       <head>
       </head>
       <body>
-        <LoadingScreen onLoadingComplete={handleLoadingComplete} />
-        <SmoothScroll>
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScroll>
+        <LoadingScreenWrapper>
+          <SmoothScroll>
+            <Navbar />
+            {children}
+            <Footer />
+          </SmoothScroll>
+        </LoadingScreenWrapper>
       </body>
     </html>
   );

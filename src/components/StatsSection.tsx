@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { StatCard } from './Counter';
+import Link from 'next/link';
 import {
   faSolarPanel,
   faLightbulb,
@@ -97,7 +98,7 @@ const StatsSection = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center font-semibold text-white bg-gradient-to-r from-primary to-secondary px-8 py-4 rounded-full hover:shadow-2xl transition-all duration-300"
             >
@@ -115,7 +116,7 @@ const StatsSection = () => {
                   d="M13 7l5 5m0 0l-5 5m5-5H6"
                 />
               </svg>
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

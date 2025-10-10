@@ -35,7 +35,7 @@ const Counter: React.FC<CounterProps> = ({
       animate(from, to, {
         duration: duration,
         delay: delay,
-        ease: ease,
+        ease: [0.25, 0.1, 0.25, 1], // easeOut cubic bezier
         onUpdate: (value) => {
           const formattedValue = decimal > 0 ? value.toFixed(decimal) : Math.round(value).toString();
           setDisplayValue(Number(formattedValue));

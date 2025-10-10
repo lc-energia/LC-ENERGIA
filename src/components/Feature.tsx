@@ -56,7 +56,6 @@ const Feature = () => {
               key={index}
               number={stat.number}
               label={stat.label}
-              description={stat.description}
               icon={stat.icon}
               suffix={stat.suffix}
               delay={stat.delay}
