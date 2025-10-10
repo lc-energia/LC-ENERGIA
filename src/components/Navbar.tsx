@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { cn } from '@/lib/utils';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '@/components/ui/Button';
-import MagneticButton from '@/components/MagneticButton';
 import { Fragment, useState, useEffect } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
@@ -112,19 +111,15 @@ export default function Navbar() {
               </div>
             </div>
 
-            <MagneticButton
-              intensity={0.4}
-              scale={1.05}
-              className="hidden lg:block"
-            >
+                      <div className="hidden lg:block">
               <Link
                 href="/contact"
-                className="flex items-center font-medium text-white bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300"
+                className="flex items-center font-semibold text-white bg-primary hover:bg-primary-600 px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Richiedi un preventivo
                 <FontAwesomeIcon icon={faArrowRight} className="ml-3" />
               </Link>
-            </MagneticButton>
+            </div>
           </div>
 
           {/* Mobile menu button */}
