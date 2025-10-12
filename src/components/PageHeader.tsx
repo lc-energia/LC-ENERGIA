@@ -19,7 +19,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <HeroTitle as="h1" color="white" className="text-white !text-white">
+          <HeroTitle as="h1" color="white" className="text-white !text-white text-3xl md:text-4xl lg:text-5xl">
             {title}
           </HeroTitle>
         </motion.div>

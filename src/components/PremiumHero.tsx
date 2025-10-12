@@ -23,11 +23,12 @@ const PremiumHero = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-center min-h-screen py-20">
 
           {/* Left Content */}
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="text-left"
             >
               {/* Badge */}
               <div className="mb-6">
@@ -35,8 +36,8 @@ const PremiumHero = () => {
               </div>
 
               {/* Title */}
-              <HeroTitle className="mb-8 text-left text-5xl md:text-5xl lg:text-7xl" color="secondary">
-                Perché scegliere <HighlightText>LC Energia</HighlightText>?
+              <HeroTitle className="mb-8 !text-left text-5xl md:text-6xl lg:text-8xl" color="secondary">
+                Perché scegliere <HighlightText><br></br>LC Energia?</HighlightText>
               </HeroTitle>
 
               {/* Description */}
