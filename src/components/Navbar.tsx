@@ -121,7 +121,7 @@ export default function Navbar() {
               </div>
             </div>
 
-                      <div className="hidden lg:block">
+                      <div className="hidden lg:block mr-4">
               <Link
                 href="/contact"
                 className="group relative inline-flex items-center justify-center px-4 py-2 text-sm font-bold text-white transition-all duration-300 rounded-full shadow-sm hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/30 overflow-hidden"
