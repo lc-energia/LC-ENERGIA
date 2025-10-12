@@ -87,34 +87,34 @@ const StatCardWithDescription: React.FC<{
 
   return (
     <motion.div
-      className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-white/20 shadow-lg relative overflow-hidden group"
+      className="text-center p-6 rounded-xl bg-gradient-to-br from-secondary/30 to-secondary/50 backdrop-blur-sm border border-secondary/40 shadow-xl relative overflow-hidden group"
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, delay: delay }}
       viewport={{ once: true, margin: '-100px' }}
       whileHover={{
-        scale: 1.02,
-        boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
+        scale: 1.05,
+        boxShadow: '0 25px 50px rgba(244, 153, 24, 0.2)'
       }}
       style={{ minHeight: '280px' }}
     >
-      {/* Efecto de brillo animado */}
+      {/* Efecto de brillo animado permanente */}
       <motion.div
-        className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+        className="absolute inset-0 opacity-20"
         style={{
-          background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent)',
+          background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent)',
           transform: 'translateX(-100%)'
         }}
-        whileHover={{
-          transform: 'translateX(100%)',
-          transition: { duration: 0.6, ease: 'easeInOut' }
+        animate={{
+          transform: ['translateX(-100%)', 'translateX(100%)', 'translateX(-100%)'],
+          transition: { duration: 4, ease: 'easeInOut', repeat: Infinity }
         }}
       />
       <motion.div
-        className="absolute -inset-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute -inset-1 opacity-60"
         style={{
-          background: 'linear-gradient(135deg, #7db042, #99c34a, #e67e00, #F49918, #7db042)',
-          filter: 'blur(20px)',
+          background: 'linear-gradient(135deg, #7db042, #99c34a, #e67e00, #F49918, #e67e00)',
+          filter: 'blur(25px)',
           zIndex: -1
         }}
       />

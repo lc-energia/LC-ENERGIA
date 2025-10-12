@@ -75,3 +75,21 @@ body {
 .force-text-left {
   text-align: left !important;
 }
+
+/* Fondo naranja forzado para sección de certificaciones */
+.certificazioni-section {
+  background: linear-gradient(135deg, #F49918 0%, #db8a15 100%) !important;
+}
+
+.certificazioni-section * {
+  /* No afectar elementos internos */
+}
+
+/* Fondo naranja forzado para sección de razones */
+.reasons-section {
+  background: linear-gradient(135deg, #F49918 0%, #db8a15 100%) !important;
+}
+
+.reasons-section * {
+  /* No afectar elementos internos */
+}

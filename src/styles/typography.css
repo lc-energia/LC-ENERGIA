@@ -287,6 +287,11 @@ p:not(.text-no-justify):not([class*="text-"]) {
   margin-bottom: 1rem;
 }
 
+/* Hero Title in header context - allow white color override */
+.page-header .hero-title {
+  color: white !important;
+}
+
 /* Section Title */
 .section-title {
   font-family: var(--font-heading);

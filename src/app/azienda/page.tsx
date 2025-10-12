@@ -149,7 +149,12 @@ const AziendaPage = () => {
 
      
       {/* Reasons Section */}
-      <section className="py-12 sm:py-16 bg-primary/10">
+      <section
+        className="reasons-section py-12 sm:py-16 relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%) !important'
+        }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn('up', 0.2)}
@@ -210,21 +215,124 @@ const AziendaPage = () => {
         </div>
       </section>
 
+      {/* Certificazioni Professionali Section */}
+      <section
+        className="certificazioni-section py-12 sm:py-16 relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%) !important'
+        }}
+      >
+        {/* Efecto de brillo animado */}
+        <motion.div
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent)',
+            transform: 'translateX(-100%)'
+          }}
+          animate={{
+            transform: ['translateX(-100%)', 'translateX(100%)', 'translateX(-100%)'],
+            transition: { duration: 6, ease: 'easeInOut', repeat: Infinity }
+          }}
+        />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            variants={fadeIn('up', 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="text-center max-w-5xl mx-auto mb-8"
+          >
+            <Heading2 className="text-center mb-6 text-white" color="white">Certificazioni Professionali & Accreditamenti</Heading2>
+          </motion.div>
+
+          <motion.div
+            variants={fadeIn('up', 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-white/85 backdrop-blur-sm rounded-2xl shadow-2xl border-l-4 border-secondary p-8 md:p-10 relative">
+              {/* Efecto de sombra naranja */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 to-secondary/40 rounded-2xl blur-xl -z-10"></div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Columna Izquierda */}
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
+                    <div>
+                      <Text color="dark" className="font-semibold text-base mb-1">Albi Professionali</Text>
+                      <Text color="muted" size="sm" className="leading-relaxed">
+                        Iscritti ai rispettivi Albi Professionali Provinciali
+                      </Text>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
+                    <div>
+                      <Text color="dark" className="font-semibold text-base mb-1">Certificazione Energetica</Text>
+                      <Text color="muted" size="sm" className="leading-relaxed">
+                        Certificatori Energetici di cui al D.G.R. 8/5018 – 20.07.2007
+                      </Text>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
+                    <div>
+                      <Text color="dark" className="font-semibold text-base mb-1">Energy Building Manager</Text>
+                      <Text color="muted" size="sm" className="leading-relaxed">
+                        Accreditati Energy Building Manager, Regione Lombardia ai sensi del D.G.R. VIII/8355 del 5 Novembre 2008
+                      </Text>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Columna Derecha */}
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
+                    <div>
+                      <Text color="dark" className="font-semibold text-base mb-1">Progettazione Antincendio</Text>
+                      <Text color="muted" size="sm" className="leading-relaxed">
+                        Iscritti nell'elenco dei progettisti antincendio del Ministero dell'Interno di cui al D.Lgs n.139/2006 (ex Legge 818/84)
+                      </Text>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
+                    <div>
+                      <Text color="dark" className="font-semibold text-base mb-1">Sicurezza Impianti</Text>
+                      <Text color="muted" size="sm" className="leading-relaxed">
+                        Verificatori in materia di sicurezza degli impianti ai sensi del DM 22/1/08 n. 37
+                      </Text>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
+                    <div>
+                      <Text color="dark" className="font-semibold text-base mb-1">Consulenza Tecnica</Text>
+                      <Text color="muted" size="sm" className="leading-relaxed">
+                        Consulenti tecnici del Tribunale di Monza
+                      </Text>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="testimonial-item text-center">
-              <div className="testimonial-text text-center rounded p-4">
-                  <Text as="div" color="muted" className="text-center">
-                    Iscritti ai rispettivi Albi Professionali Provinciali <br />
-                    Certificatori Energetici di cui al D.G.R. 8/5018 – 20.07.2007 <br />
-                    Accreditati Energy Building Manager, Regione Lombardia ai sensi del D.G.R. VIII/8355 del 5 Novembre 2008 <br />
-                    Iscritti nell’elenco dei progettisti antincendio del Ministero dell’Interno di cui al D.Lgs n.139/2006 (ex Legge 818/84) <br />
-                    Verificatori in materia di sicurezza degli impianti ai sensi del DM 22/1/08 n. 37 <br />
-                    Consulenti tecnici del Tribunale di Monza
-                  </Text>
-              </div>
-          </div>
           <motion.div
             variants={fadeIn('up', 0.2)}
             initial="hidden"
@@ -244,9 +352,9 @@ const AziendaPage = () => {
                 viewport={{ once: true, amount: 0.25 }}
                 className="w-full sm:w-1/2 md:w-1/3 p-4"
               >
-                <div className="bg-gradient-to-br from-primary-50 to-primary-200 rounded-lg shadow-xl p-6 text-center h-full transition-all duration-300 border border-gray-200 hover:shadow-2xl hover:border-primary hover:bg-primary-100 hover:text-white backdrop-blur-sm border-white/20">
-                  <Heading5 color="primary">{member.name}</Heading5>
-                  <Text color="primary" justify={false}>{member.role}</Text>
+                <div className="bg-gradient-to-br from-secondary/10 to-secondary/30 rounded-lg shadow-xl p-6 text-center h-full transition-all duration-300 border border-secondary/30 hover:shadow-2xl hover:border-secondary hover:bg-secondary/40 backdrop-blur-sm border-white/20">
+                  <Heading5 color="secondary">{member.name}</Heading5>
+                  <Text color="secondary" justify={false}>{member.role}</Text>
                 </div>
               </motion.div>
             ))}
