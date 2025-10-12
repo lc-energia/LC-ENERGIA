@@ -93,3 +93,12 @@ body {
 .reasons-section * {
   /* No afectar elementos internos */
 }
+
+/* Fondo naranja forzado para sección de progettazione */
+.progettazione-section {
+  background: linear-gradient(135deg, #F49918 0%, #db8a15 100%) !important;
+}
+
+.progettazione-section * {
+  /* No afectar elementos internos */
+}

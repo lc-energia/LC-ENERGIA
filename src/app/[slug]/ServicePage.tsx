@@ -1,6 +1,6 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faBolt, faCog, faDraftingCompass, faTools, faCertificate } from '@fortawesome/free-solid-svg-icons';
 import ServicePageLayout from '@/components/ServicePageLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -10,6 +10,9 @@ import FaqAccordion from '@/components/FaqAccordion';
 import SimpleTextCard from '@/components/SimpleTextCard';
 import InfoAccordion from '@/components/InfoAccordion';
 import ImageCarousel from '@/components/ImageCarousel';
+import { Heading2, Heading3, Heading4, Text, HighlightText } from '@/components/ui/Typography';
+import { Card, CardContent } from '@/components/ui/Card';
+import { fadeIn } from '@/variants';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
   const cardVariants = {
@@ -32,6 +35,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             <h6 className="text-primary font-bold text-lg uppercase">IL NOSTRO INTERVENTO</h6>
             <p className="lead">Progettiamo e installiamo impianti fotovoltaici &quot;chiavi in mano&quot; partendo da una valutazione preliminare che considera i seguenti elementi di base:</p>
           </>
+        ) : slug === 'progettazione-e-consulenza-tecnica' ? (
+          null // No mostrar introducción para progettazione-e-consulenza-tecnica, se maneja internamente
         ) : (
           <p className="lead" dangerouslySetInnerHTML={{ __html: service.introduction }}></p>
         )}
@@ -51,7 +56,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="lg:col-span-1">
                 <p className="text-xl text-dark-200 font-bold">
-                  Grazie alla comunità energetica è possibile ricevere un incentivo per l’energia immessa in rete e consumata all’interno della Comunità Energetica Rinnovabile.
+                  Grazie alla comunità energetica è possibile ricevere un incentivo per l'energia immessa in rete e consumata all'interno della Comunità Energetica Rinnovabile.
                 </p>
               </div>
               <div className="lg:col-span-1">
@@ -59,7 +64,6 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   '/img/volta1.JPEG',
                   '/img/volta5.JPEG',
                   '/img/volta7.JPEG'
-                  
                 ]} />
               </div>
             </div>
@@ -242,6 +246,247 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               </div>
             );
           })()
+        ) : slug === 'progettazione-e-consulenza-tecnica' ? (
+          <div className="w-full max-w-6xl mx-auto py-8">
+            {/* Introducción principal */}
+            <section className="mb-12 text-center">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={cardVariants}
+                custom={0}
+              >
+                <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                  Nella realizzazione di opere impiantistiche vi è la necessità di gestire le diverse fasi operative in modo da coordinare lo svolgimento dei lavori e garantire la funzionalità del prodotto finale.
+                </p>
+              </motion.div>
+            </section>
+
+            {/* Servicios principales - Diseño Vertical LC Energia */}
+            <section className="mb-16">
+              {/* Hero Section Creativo */}
+              <motion.div
+                custom={1}
+                initial="hidden"
+                animate="visible"
+                variants={cardVariants}
+                className="text-center mb-12"
+              >
+                <div className="inline-block mb-6">
+                  <div className="bg-gradient-to-r from-primary to-secondary p-1 rounded-full">
+                    <div className="bg-white p-6 rounded-full">
+                      <FontAwesomeIcon icon={faDraftingCompass} className="fa-3x text-primary" />
+                    </div>
+                  </div>
+                </div>
+                <Heading2 color="primary" className="mb-4">Servizi di Progettazione e Consulenza</Heading2>
+                <Text color="muted" size="lg" className="max-w-4xl mx-auto leading-relaxed">
+                  LC Energia offre soluzioni integrate per la progettazione impiantistica civile e industriale, combinando esperienza tecnica e innovazione tecnologica.
+                </Text>
+              </motion.div>
+
+              {/* Secciones Verticales una debajo de otra */}
+              <div className="max-w-4xl mx-auto space-y-8">
+                {/* 1. Impianti Elettrici - Fondo Naranja */}
+                <motion.div
+                  custom={2}
+                  initial="hidden"
+                  animate="visible"
+                  variants={cardVariants}
+                >
+                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl" style={{
+                    background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
+                  }}>
+                    <div className="flex items-center mb-6">
+                      <div className="bg-white text-primary p-4 rounded-xl mr-4">
+                        <FontAwesomeIcon icon={faBolt} className="fa-2xl" />
+                      </div>
+                      <Heading3 color="white" className="text-2xl">Impianti Elettrici</Heading3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {[
+                        "Impianti elettrici civili ed industriali",
+                        "Sistemi domotici",
+                        "Building Automation",
+                        "Impianti di illuminazione"
+                      ].map((item, j) => (
+                        <div key={j} className="flex items-start space-x-3">
+                          <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <FontAwesomeIcon icon={faCheckCircle} className="text-white text-sm" />
+                          </div>
+                          <Text color="white" className="leading-relaxed">{item}</Text>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* 2. Progettazione Impiantistica - Fondo Naranja */}
+                <motion.div
+                  custom={3}
+                  initial="hidden"
+                  animate="visible"
+                  variants={cardVariants}
+                >
+                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl" style={{
+                    background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
+                  }}>
+                    <div className="flex items-center mb-6">
+                      <div className="bg-white text-secondary p-4 rounded-xl mr-4">
+                        <FontAwesomeIcon icon={faDraftingCompass} className="fa-2xl" />
+                      </div>
+                      <Heading3 color="white" className="text-2xl">Progettazione Impiantistica</Heading3>
+                    </div>
+                    <Text color="white" size="lg" className="leading-relaxed mb-6">
+                      Per ogni tipologia edilizia, l'impianto rappresenta una struttura vitale per la gestione e la fruibilità dell'intero edificio. La qualità della progettazione influisce su sicurezza, comfort, risparmio e manutenzione.
+                    </Text>
+                    <div className="bg-white/90 rounded-xl p-6">
+                      <Text color="primary" className="font-semibold text-lg mb-4">Qualità della progettazione:</Text>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        {["Sicurezza", "Comfort", "Risparmio", "Manutenzione"].map((benefit, j) => (
+                          <div key={j} className="text-center">
+                            <div className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                              {benefit}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* 3. Impianti Meccanici - Fondo Naranja */}
+                <motion.div
+                  custom={4}
+                  initial="hidden"
+                  animate="visible"
+                  variants={cardVariants}
+                >
+                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl" style={{
+                    background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
+                  }}>
+                    <div className="flex items-center mb-6">
+                      <div className="bg-white text-primary p-4 rounded-xl mr-4">
+                        <FontAwesomeIcon icon={faCog} className="fa-2xl" />
+                      </div>
+                      <Heading3 color="white" className="text-2xl">Impianti Meccanici</Heading3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {[
+                        "Impianti di riscaldamento, climatizzazione, ventilazione meccanica",
+                        "Impianti alimentati da fonti rinnovabili (geotermia, solare termico termodinamico/fotovoltaico)",
+                        "Impianti di cogenerazione",
+                        "Impianti a biomassa"
+                      ].map((item, j) => (
+                        <div key={j} className="flex items-start space-x-3">
+                          <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <FontAwesomeIcon icon={faCheckCircle} className="text-white text-sm" />
+                          </div>
+                          <Text color="white" className="leading-relaxed">{item}</Text>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* 4. Progettazione e Consulenza Tecnica - Fondo Naranja especial */}
+                <motion.div
+                  custom={5}
+                  initial="hidden"
+                  animate="visible"
+                  variants={cardVariants}
+                >
+                  <div className="rounded-2xl p-8 border-l-4 border-white hover:shadow-xl transition-all duration-300 relative overflow-hidden" style={{
+                    background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
+                  }}>
+                    {/* Efecto decorativo */}
+                    <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full"></div>
+                    <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full"></div>
+
+                    <div className="relative z-10">
+                      <div className="flex items-center mb-6">
+                        <div className="bg-white text-secondary p-4 rounded-xl mr-4">
+                          <FontAwesomeIcon icon={faTools} className="fa-2xl" />
+                        </div>
+                        <Heading3 color="white" className="text-2xl">Progettazione e Consulenza Tecnica</Heading3>
+                      </div>
+                      <Text color="white" size="lg" className="font-semibold mb-4">
+                        LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:
+                      </Text>
+                      <div className="space-y-4">
+                        {[
+                          "Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.",
+                          "Definizione della tipologia di impianto in relazione alla struttura, con sistemi di controllo e monitoraggio on-site e remoto.",
+                          "Assistenza ai lavori per perseguire e conseguire il risultato previsto nelle fasi di progettazione ed esecuzione.",
+                          "Assistenza al collaudo delle opere e la loro certificazione."
+                        ].map((item, j) => (
+                          <div key={j} className="flex items-start space-x-4">
+                            <div className="w-3 h-3 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                            <Text color="white" className="leading-relaxed">{item}</Text>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </section>
+
+            {/* Impianti Speciali */}
+            <section className="mb-12">
+              <motion.div
+                custom={5}
+                initial="hidden"
+                animate="visible"
+                variants={cardVariants}
+              >
+                <div className="text-center mb-8">
+                  <FontAwesomeIcon icon={faTools} className="fa-3x text-secondary mb-4" />
+                  <h3 className="text-2xl font-bold text-dark-200">Impianti Speciali</h3>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
+                  {[
+                    "Impianti di rivelazione incendio",
+                    "Impianti TVCC",
+                    "Impianti antintrusione",
+                    "Impianti scariche atmosferiche",
+                    "Impianti telefonici e trasmissione dati",
+                    "Impianti EVAC",
+                    "Quadri elettrici",
+                    "Illuminazione di sicurezza",
+                    "Impianti tecnologici",
+                    "Diffusione sonora",
+                    "Impianti di videoproiezione",
+                    "Impianti di conversazione",
+                    "TV digitale terrestre e satellitare",
+                    "Rifasamento elettrico"
+                  ].map((item, j) => (
+                    <div key={j} className="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-secondary hover:shadow-sm transition-all duration-300">
+                      <p className="text-xs text-gray-700 leading-tight">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </section>
+
+            {/* Collaudi e Certificazioni */}
+            <section>
+              <motion.div
+                custom={6}
+                initial="hidden"
+                animate="visible"
+                variants={cardVariants}
+              >
+                <div className="text-center">
+                  <FontAwesomeIcon icon={faCertificate} className="fa-3x text-gray-400 mb-4" />
+                  <h3 className="text-2xl font-bold text-dark-200 mb-4">Collaudi e certificazioni</h3>
+                  <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Collaudi e start-up degli impianti meccanici ed elettrici civili ed industriali. Redazione di Dichiarazioni di rispondenza per impianti antecedenti il D.M. 37/08.
+                  </p>
+                </div>
+              </motion.div>
+            </section>
+          </div>
         ) : slug === 'impianti-fotovoltaici' ? (
           <InfoAccordion items={service.sections} />
         ) : (
@@ -269,7 +514,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             if (section.title === 'FAQ') {
               return <FaqAccordion key={i} faqs={section.questions || []} />;
             }
-            
+
             return (
               <motion.div
                 key={i}
