@@ -301,19 +301,26 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       </div>
                       <Heading3 color="white" className="text-2xl">Impianti Elettrici</Heading3>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
                       {[
                         "Impianti elettrici civili ed industriali",
                         "Sistemi domotici",
                         "Building Automation",
                         "Impianti di illuminazione"
                       ].map((item, j) => (
-                        <div key={j} className="flex items-start space-x-3">
-                          <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <FontAwesomeIcon icon={faCheckCircle} className="text-white text-sm" />
-                          </div>
-                          <Text color="white" className="leading-relaxed">{item}</Text>
-                        </div>
+                        <motion.div
+                          key={j}
+                          className="group relative pl-8 py-2 bg-white/10 rounded-lg border-l-2 border-white/30 hover:border-white hover:bg-white/20 transition-all duration-500"
+                          whileHover={{ x: 8 }}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: 0.1 + j * 0.1 }}
+                        >
+                          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
+                          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+
+                          <Text color="white" className="font-medium leading-tight">{item}</Text>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -369,19 +376,26 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       </div>
                       <Heading3 color="white" className="text-2xl">Impianti Meccanici</Heading3>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
                       {[
                         "Impianti di riscaldamento, climatizzazione, ventilazione meccanica",
                         "Impianti alimentati da fonti rinnovabili (geotermia, solare termico termodinamico/fotovoltaico)",
                         "Impianti di cogenerazione",
                         "Impianti a biomassa"
                       ].map((item, j) => (
-                        <div key={j} className="flex items-start space-x-3">
-                          <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <FontAwesomeIcon icon={faCheckCircle} className="text-white text-sm" />
-                          </div>
-                          <Text color="white" className="leading-relaxed">{item}</Text>
-                        </div>
+                        <motion.div
+                          key={j}
+                          className="group relative pl-8 py-2 bg-white/10 rounded-lg border-l-2 border-white/30 hover:border-white hover:bg-white/20 transition-all duration-500"
+                          whileHover={{ x: 8 }}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: 0.1 + j * 0.1 }}
+                        >
+                          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
+                          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+
+                          <Text color="white" className="font-medium leading-tight">{item}</Text>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -411,17 +425,26 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       <Text color="white" size="lg" className="font-semibold mb-4">
                         LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:
                       </Text>
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         {[
                           "Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.",
                           "Definizione della tipologia di impianto in relazione alla struttura, con sistemi di controllo e monitoraggio on-site e remoto.",
                           "Assistenza ai lavori per perseguire e conseguire il risultato previsto nelle fasi di progettazione ed esecuzione.",
                           "Assistenza al collaudo delle opere e la loro certificazione."
                         ].map((item, j) => (
-                          <div key={j} className="flex items-start space-x-4">
-                            <div className="w-3 h-3 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                            <Text color="white" className="leading-relaxed">{item}</Text>
-                          </div>
+                          <motion.div
+                            key={j}
+                            className="group relative pl-8 py-2 bg-white/10 rounded-lg border-l-2 border-white/30 hover:border-white hover:bg-white/20 transition-all duration-500"
+                            whileHover={{ x: 8 }}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 + j * 0.1 }}
+                          >
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+
+                            <Text color="white" className="font-medium leading-tight">{item}</Text>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
