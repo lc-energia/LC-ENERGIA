@@ -10,9 +10,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import SimpleTextCard from '@/components/SimpleTextCard';
 import InfoAccordion from '@/components/InfoAccordion';
 import ImageCarousel from '@/components/ImageCarousel';
-import { Heading2, Heading3, Heading4, Text, HighlightText } from '@/components/ui/Typography';
-import { Card, CardContent } from '@/components/ui/Card';
-import { fadeIn } from '@/variants';
+import { Heading2, Heading3, Text } from '@/components/ui/Typography';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
   const cardVariants = {
@@ -56,7 +54,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="lg:col-span-1">
                 <p className="text-xl text-dark-200 font-bold">
-                  Grazie alla comunità energetica è possibile ricevere un incentivo per l'energia immessa in rete e consumata all'interno della Comunità Energetica Rinnovabile.
+                  Grazie alla comunità energetica è possibile ricevere un incentivo per l&apos;energia immessa in rete e consumata all&apos;interno della Comunità Energetica Rinnovabile.
                 </p>
               </div>
               <div className="lg:col-span-1">
@@ -338,7 +336,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       <Heading3 color="white" className="text-2xl">Progettazione Impiantistica</Heading3>
                     </div>
                     <Text color="white" size="lg" className="leading-relaxed mb-6">
-                      Per ogni tipologia edilizia, l'impianto rappresenta una struttura vitale per la gestione e la fruibilità dell'intero edificio. La qualità della progettazione influisce su sicurezza, comfort, risparmio e manutenzione.
+                      Per ogni tipologia edilizia, l&apos;impianto rappresenta una struttura vitale per la gestione e la fruibilità dell&apos;intero edificio. La qualità della progettazione influisce su sicurezza, comfort, risparmio e manutenzione.
                     </Text>
                     <div className="bg-white/90 rounded-xl p-6">
                       <Text color="primary" className="font-semibold text-lg mb-4">Qualità della progettazione:</Text>

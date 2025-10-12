@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { Heading1, Heading2, Heading5, Heading6, Text } from '@/components/ui/Typography';
 import TiltCard from '@/components/TiltCard';
-import { valuePropositions, reasons, teamMembers } from '@/data/azienda-data';
+import { reasons, teamMembers } from '@/data/azienda-data';
 
 const iconMap: { [key: string]: IconDefinition } = {
   'fa-solar-panel': faSolarPanel,
@@ -89,7 +89,7 @@ const AziendaPage = () => {
           >
             <Heading2 className="text-center mb-4" color="primary">I Nostri Settori Operativi</Heading2>
             <Text color="muted" className="leading-relaxed mb-8 mx-auto" justify={true}>
-              Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall'utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi.
+              Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall&apos;utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi.
             </Text>
           </motion.div>
 
@@ -141,7 +141,7 @@ const AziendaPage = () => {
           >
             <Heading5 color="primary" className="mb-4">Partner Affidabile per la Sostenibilità</Heading5>
             <Text color="muted" size="base" className="leading-relaxed mx-auto" justify={true}>
-              LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un'approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità.
+              LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un&apos;approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità.
             </Text>
           </motion.div>
         </div>
@@ -298,7 +298,7 @@ const AziendaPage = () => {
                     <div>
                       <Text color="dark" className="font-semibold text-base mb-1">Progettazione Antincendio</Text>
                       <Text color="muted" size="sm" className="leading-relaxed">
-                        Iscritti nell'elenco dei progettisti antincendio del Ministero dell'Interno di cui al D.Lgs n.139/2006 (ex Legge 818/84)
+                        Iscritti nell&apos;elenco dei progettisti antincendio del Ministero dell&apos;Interno di cui al D.Lgs n.139/2006 (ex Legge 818/84)
                       </Text>
                     </div>
                   </div>
