@@ -54,21 +54,40 @@ const PremiumHero = () => {
 
               {/* Minimalist Value List */}
               <motion.div
-                className="mt-8 space-y-4 text-left"
+                className="mt-2 grid gap-1"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <div className="p-4 border border-gray-100 rounded-xl shadow-md bg-white/70 backdrop-blur-sm">
-                  <Text size="lg" className="font-semibold text-gray-800">
-                    Recepiamo e concretizziamo al meglio le sue richieste.
+                <motion.div
+                  className="group relative pl-8 py-0.5 bg-secondary/40 rounded-lg border-l-2 border-secondary/60 hover:border-secondary hover:bg-secondary/50 transition-all duration-500"
+                  whileHover={{ x: 8 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-secondary group-hover:bg-secondary/90 group-hover:scale-125 transition-all duration-500 shadow-secondary" />
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-secondary/80 via-secondary/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+
+                  <Text className="text-gray-700 font-medium leading-tight">
+                    Recepiamo e concretizziamo al meglio le sue richieste
                   </Text>
-                </div>
-                <div className="p-4 border border-gray-100 rounded-xl shadow-md bg-white/70 backdrop-blur-sm">
-                  <Text size="lg" className="font-semibold text-gray-800">
-                    Offriamo la nostra professionalità e disponibilità.
+                </motion.div>
+
+                <motion.div
+                  className="group relative pl-8 py-0.5 bg-secondary/40 rounded-lg border-l-2 border-secondary/60 hover:border-secondary hover:bg-secondary/50 transition-all duration-500"
+                  whileHover={{ x: 8 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                >
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-secondary group-hover:bg-secondary/90 group-hover:scale-125 transition-all duration-500 shadow-secondary" />
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-secondary/80 via-secondary/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+
+                  <Text className="text-gray-700 font-medium leading-tight">
+                    Offriamo la nostra professionalità e disponibilità
                   </Text>
-                </div>
+                </motion.div>
               </motion.div>
 
               </motion.div>
