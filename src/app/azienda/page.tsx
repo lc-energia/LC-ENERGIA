@@ -4,7 +4,7 @@ import { IconDefinition, faSolarPanel, faWind, faLightbulb, faHeadset } from '@f
 import PageHeader from '@/components/PageHeader';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/variants';
+import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 import { Heading1, Heading2, Heading5, Heading6, Text } from '@/components/ui/Typography';
 import TiltCard from '@/components/TiltCard';
 import { reasons, teamMembers } from '@/data/azienda-data';
@@ -22,14 +22,14 @@ const AziendaPage = () => {
       <PageHeader title="Azienda" />
 
       {/* Nuova Sezione: Storia, Missione e Settori Operativi */}
-      <section className="py-12 sm:py-16 bg-neutral-100">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-neutral-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Blocco 1: Introduzione e Missione */}
           <motion.div
-            variants={fadeIn('up', 0.2)}
+            variants={fadeInUp}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            whileInView="visible"
+            viewport={viewportSettings}
             className="text-center max-w-4xl mx-auto mb-16"
           >
             <Heading2 className="text-center mb-4 font-bold" color="primary">Il valore dell’esperienza per l’efficienza ed il risparmio energetico</Heading2>
@@ -40,19 +40,16 @@ const AziendaPage = () => {
 
           {/* Blocco 2: Compromiso y Beneficios (Destacado) */}
           <motion.div
-            variants={fadeIn('up', 0.4)}
+            variants={staggerContainer}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            whileInView="visible"
+            viewport={viewportSettings}
             className="max-w-6xl mx-auto mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
           >
             {/* Columna de Imagen */}
             <motion.div
-              variants={fadeIn('right', 0.5)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
-              className="relative h-64 lg:h-full rounded-xl overflow-hidden shadow-2xl"
+              variants={cardEntrance}
+              className="relative h-64 lg:h-full rounded-xl overflow-hidden shadow-combined hover-lift"
             >
               <Image
                 src="/img/volta3.JPEG"
@@ -65,12 +62,9 @@ const AziendaPage = () => {
             
             {/* Columna de Texto (TiltCard) */}
             <motion.div
-              variants={fadeIn('left', 0.5)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              variants={cardEntrance}
             >
-              <TiltCard className="bg-primary/10 p-8 rounded-xl shadow-2xl border-l-4 border-primary h-full">
+              <TiltCard className="bg-gradient-to-br from-primary-50 to-white p-8 rounded-xl shadow-primary hover-lift border-l-4 border-primary-500 h-full">
                 <Heading5 color="primary" className="mb-4 font-bold">Impegno per la Qualità e il Risparmio Energetico</Heading5>
                 <Text color="muted" size="base" className="leading-relaxed">
                   Sfruttando le nostre competenze operiamo sempre nel rispetto degli obblighi legislativi e normativi per fornire al cliente un servizio a regola d’arte. Attraverso interventi di riqualificazione architettonica e impiantistica su diversi edifici nel campo industriale, civile, pubblico e nei processi produttivi, LC Energia permette ai suoi clienti di ottenere significativi risparmi energetici oltre a una miglior qualità di vita.
@@ -81,10 +75,10 @@ const AziendaPage = () => {
 
           {/* Blocco 3: Settori Operativi (Modulare) */}
           <motion.div
-            variants={fadeIn('up', 0.6)}
+            variants={fadeInUp}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            whileInView="visible"
+            viewport={viewportSettings}
             className="text-center max-w-4xl mx-auto mb-12"
           >
             <Heading2 className="text-center mb-4 font-bold" color="primary">I Nostri Settori Operativi</Heading2>
@@ -93,18 +87,28 @@ const AziendaPage = () => {
             </Text>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+          >
             {/* Settore 1: Consulenza */}
             <motion.div
-              variants={fadeIn('right', 0.7)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              variants={cardEntrance}
             >
-              <TiltCard className="bg-light p-6 rounded-xl shadow-lg h-full">
-                <div className="flex items-center mb-4">
-                  <FontAwesomeIcon icon={faHeadset} className="fa-2x text-primary mr-4" />
-                </div>
+              <TiltCard className="bg-white p-8 rounded-xl shadow-card hover-lift hover-shine h-full border border-primary-100">
+                <motion.div
+                  className="flex items-center mb-4"
+                  variants={iconPop}
+                  initial="hidden"
+                  whileInView="visible"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-primary flex items-center justify-center shadow-primary">
+                    <FontAwesomeIcon icon={faHeadset} className="text-xl text-white" />
+                  </div>
+                </motion.div>
                 <Text color="muted" className="leading-relaxed" justify={true}>
                   Consulenza tecnica e progettazione che include anche attività di prevenzione incendi, acustica e assistenza ai lavori.
                 </Text>
@@ -113,28 +117,32 @@ const AziendaPage = () => {
 
             {/* Settore 2: Realizzazione */}
             <motion.div
-              variants={fadeIn('left', 0.7)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              variants={cardEntrance}
             >
-              <TiltCard className="bg-white p-6 rounded-xl shadow-lg h-full">
-                <div className="flex items-center mb-4">
-                  <FontAwesomeIcon icon={faSolarPanel} className="fa-2x text-primary mr-4" />
-                </div>
+              <TiltCard className="bg-white p-8 rounded-xl shadow-card hover-lift hover-shine h-full border border-secondary-100">
+                <motion.div
+                  className="flex items-center mb-4"
+                  variants={iconPop}
+                  initial="hidden"
+                  whileInView="visible"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-secondary flex items-center justify-center shadow-secondary">
+                    <FontAwesomeIcon icon={faSolarPanel} className="text-xl text-white" />
+                  </div>
+                </motion.div>
                 <Text color="muted" className="leading-relaxed" justify={true}>
                   Realizzazione di impianti ad alto profilo tecnologico per la produzione di energia elettrica e termica per l&apos;abbattimento dei consumi energetici.
                 </Text>
               </TiltCard>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Blocco 3 Conclusión: Soluciones a Medida */}
           <motion.div
-            variants={fadeIn('up', 0.8)}
+            variants={fadeInUp}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            whileInView="visible"
+            viewport={viewportSettings}
             className="text-center max-w-4xl mx-auto"
           >
             <Heading5 color="primary" className="mb-4 font-bold">Partner Affidabile per la Sostenibilità</Heading5>
@@ -147,113 +155,138 @@ const AziendaPage = () => {
 
      
       {/* Reasons Section */}
-      <section
-        className="reasons-section py-12 sm:py-16 relative overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%) !important'
-        }}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={fadeIn('up', 0.2)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="text-center max-w-3xl mx-auto mb-12"
-          >
-            <Heading6 color="primary" className="font-bold text-lg">Produzione di energia pulita per salvare l’ambiente</Heading6>
-            <Heading1 className="text-center mt-2 mb-4" color="primary">I motivi per scegliere LC Energia</Heading1>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {reasons.map((reason, index) => {
-              const icon = iconMap[reason.icon];
-              return (
-                <motion.div
-                  key={index}
-                  variants={fadeIn('up', 0.3 + index * 0.1)}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.25 }}
-                >
-                  <TiltCard className="bg-white rounded-lg shadow-md p-6 text-center h-full transition-all duration-300 border border-gray-200 hover:shadow-xl hover:border-primary">
-                    <div className="inline-block p-4 bg-primary text-white rounded-full mb-4">
-                      {icon && <FontAwesomeIcon icon={icon} className="fa-2x" />}
-                    </div>
-                    <Heading5 className="mb-3" color="primary">{reason.title}</Heading5>
-                    <Text color="muted" justify={false}>{reason.description}</Text>
-                  </TiltCard>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Collaborazioni Section */}
-      <section className="py-12 sm:py-16 bg-neutral-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={fadeIn('up', 0.2)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="text-center max-w-3xl mx-auto mb-12"
-          >
-            <Heading2 className="text-center font-bold" color="primary">Collaborazioni</Heading2>
-          </motion.div>
-          <motion.div
-            variants={fadeIn('up', 0.3)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="flex justify-center"
-          >
-            <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Certificazioni Professionali Section */}
-      <section
-        className="certificazioni-section py-12 sm:py-16 relative overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%) !important'
-        }}
-      >
+      <section className="reasons-section bg-gradient-secondary py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         {/* Efecto de brillo animado */}
         <motion.div
           className="absolute inset-0 opacity-20"
           style={{
-            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent)',
+            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent)',
             transform: 'translateX(-100%)'
           }}
           animate={{
-            transform: ['translateX(-100%)', 'translateX(100%)', 'translateX(-100%)'],
-            transition: { duration: 6, ease: 'easeInOut', repeat: Infinity }
+            transform: ['translateX(-100%)', 'translateX(100%)'],
+          }}
+          transition={{
+            duration: 3,
+            ease: 'easeInOut',
+            repeat: Infinity,
+            repeatDelay: 1,
           }}
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            variants={fadeIn('up', 0.2)}
+            variants={fadeInUp}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="text-center max-w-5xl mx-auto mb-8"
+            whileInView="visible"
+            viewport={viewportSettings}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <Heading6 color="primary" className="font-bold text-lg">Produzione di energia pulita per salvare l’ambiente</Heading6>
+            <Heading1 className="text-center mt-2 mb-4" color="primary">I motivi per scegliere LC Energia</Heading1>
+          </motion.div>
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+          >
+            {reasons.map((reason, index) => {
+              const icon = iconMap[reason.icon];
+              return (
+                <motion.div
+                  key={index}
+                  variants={cardEntrance}
+                >
+                  <TiltCard className="bg-white/95 backdrop-blur-sm rounded-xl shadow-card p-8 text-center h-full hover-lift hover-shine border border-white/40">
+                    <motion.div
+                      className="inline-flex items-center justify-center mb-6"
+                      variants={iconPop}
+                      initial="hidden"
+                      whileInView="visible"
+                    >
+                      <div className="w-16 h-16 bg-gradient-combined rounded-full flex items-center justify-center shadow-combined">
+                        {icon && <FontAwesomeIcon icon={icon} className="text-2xl text-white" />}
+                      </div>
+                    </motion.div>
+                    <Heading5 className="mb-4 text-gradient-primary" color="primary">{reason.title}</Heading5>
+                    <Text color="muted" justify={false} size="sm">{reason.description}</Text>
+                  </TiltCard>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Collaborazioni Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-neutral-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <Heading2 className="text-center font-bold text-gradient-combined" color="primary">Collaborazioni</Heading2>
+          </motion.div>
+          <motion.div
+            variants={cardEntrance}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+            className="flex justify-center"
+          >
+            <div className="hover-lift transition-smooth">
+              <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Certificazioni Professionali Section */}
+      <section className="certificazioni-section bg-gradient-secondary py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+        {/* Efecto de brillo animado */}
+        <motion.div
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent)',
+            transform: 'translateX(-100%)'
+          }}
+          animate={{
+            transform: ['translateX(-100%)', 'translateX(100%)'],
+          }}
+          transition={{
+            duration: 4,
+            ease: 'easeInOut',
+            repeat: Infinity,
+            repeatDelay: 0.5,
+          }}
+        />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+            className="text-center max-w-5xl mx-auto mb-12"
           >
             <Heading2 className="text-center mb-6 text-white font-bold" color="white">Certificazioni Professionali & Accreditamenti</Heading2>
           </motion.div>
 
           <motion.div
-            variants={fadeIn('up', 0.3)}
+            variants={cardEntrance}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            whileInView="visible"
+            viewport={viewportSettings}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-white/85 backdrop-blur-sm rounded-2xl shadow-2xl border-l-4 border-secondary p-8 md:p-10 relative">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-secondary-hover border-l-4 border-white p-8 md:p-10 relative hover-lift">
               {/* Efecto de sombra naranja */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 to-secondary/40 rounded-2xl blur-xl -z-10"></div>
+              <div className="absolute -inset-1 bg-gradient-secondary rounded-2xl blur-xl opacity-30 -z-10"></div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Columna Izquierda */}
@@ -329,34 +362,37 @@ const AziendaPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-neutral-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            variants={fadeIn('up', 0.2)}
+            variants={fadeInUp}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            whileInView="visible"
+            viewport={viewportSettings}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <Heading2 className="text-center font-bold" color="primary">Membri del Team Esperti</Heading2>
+            <Heading2 className="text-center font-bold text-gradient-combined" color="primary">Membri del Team Esperti</Heading2>
           </motion.div>
-          <div className="flex flex-wrap justify-center -m-4">
+          <motion.div
+            className="flex flex-wrap justify-center -m-4"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+          >
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
-                variants={fadeIn('up', 0.3 + index * 0.1)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.25 }}
+                variants={cardEntrance}
                 className="w-full sm:w-1/2 md:w-1/3 p-4"
               >
-                <div className="bg-gradient-to-br from-secondary/10 to-secondary/30 rounded-lg shadow-xl p-6 text-center h-full transition-all duration-300 border border-secondary/30 hover:shadow-2xl hover:border-secondary hover:bg-secondary/40 backdrop-blur-sm border-white/20">
-                  <Heading5 color="secondary">{member.name}</Heading5>
-                  <Text color="secondary" justify={false}>{member.role}</Text>
+                <div className="bg-gradient-to-br from-secondary-50 to-white rounded-xl shadow-card p-8 text-center h-full hover-lift hover-shine border border-secondary-100 backdrop-blur-sm">
+                  <Heading5 className="text-gradient-secondary" color="secondary">{member.name}</Heading5>
+                  <Text color="muted" justify={false} size="sm">{member.role}</Text>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

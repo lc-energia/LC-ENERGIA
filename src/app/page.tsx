@@ -6,17 +6,17 @@ import DynamicNewTestimonial from '@/components/DynamicNewTestimonial';
 export default function Home() {
   return (
     <>
+      {/* Hero - Sin wrapper adicional, el componente ya tiene su diseño */}
       <PremiumHero />
 
-      <section className="py-6 sm:py-8 bg-white">
-        <Feature />
-      </section>
+      {/* Feature - Números estadísticos */}
+      <Feature />
 
-      <section className="py-6 sm:py-8 bg-neutral-50">
-        <Services />
-      </section>
+      {/* Services - Ya tiene su propio fondo */}
+      <Services />
 
-      <section className="py-6 sm:py-8 bg-white">
+      {/* Testimonials - Fondo blanco limpio */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <DynamicNewTestimonial />
       </section>
     </>

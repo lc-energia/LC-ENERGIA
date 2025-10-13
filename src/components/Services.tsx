@@ -1,22 +1,22 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { fadeIn } from '@/variants';
+import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import TiltCard from '@/components/TiltCard';
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import {
-  faGlobe, 
-  faTools, 
-  faFireExtinguisher, 
-  faSolarPanel, 
-  faHeadphones, 
-  faWallet, 
-  faThermometerHalf, 
-  faLightbulb, 
-  faArrowRight 
+  faGlobe,
+  faTools,
+  faFireExtinguisher,
+  faSolarPanel,
+  faHeadphones,
+  faWallet,
+  faThermometerHalf,
+  faLightbulb,
+  faArrowRight
 } from '@fortawesome/free-solid-svg-icons';
 
 interface Service {
@@ -106,97 +106,139 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-8 sm:py-12">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary-50/30 via-white to-secondary-50/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Título de la sección con animación */}
         <motion.div
-          variants={fadeIn('up', 0.1)}
+          variants={fadeInUp}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+          whileInView="visible"
+          viewport={viewportSettings}
           className="text-center mx-auto mb-16"
           style={{ maxWidth: '800px' }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark-200 mb-4">I Nostri Servizi</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <motion.h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gradient-combined animate-pulse-soft"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            I Nostri Servizi
+          </motion.h2>
+          <motion.p
+            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Soluzioni integrate e innovative per l&apos;efficienza energetica e la sostenibilità ambientale
-          </p>
+          </motion.p>
         </motion.div>
 
-        {/* Filter Buttons */}
+        {/* Filter Buttons - Mejorados con colores institucionales */}
         <motion.div
-          variants={fadeIn('up', 0.2)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className="flex justify-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportSettings}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex justify-center mb-12"
         >
-          <ul className="flex flex-wrap items-center gap-3">
-            {filterButtons.map(button => (
-              <li key={button.value}>
-                <button
+          <ul className="flex flex-wrap items-center gap-3 justify-center">
+            {filterButtons.map((button, index) => (
+              <motion.li
+                key={button.value}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+              >
+                <motion.button
                   onClick={() => setFilter(button.value)}
-                  className={`font-medium py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 ${
+                  className={`font-semibold py-3 px-8 rounded-full transition-all duration-300 ${
                     filter === button.value
-                      ? 'bg-[#7db042] text-white shadow-lg'
-                      : 'bg-[#f3f4f6] text-[#374151] hover:bg-[#7db042] hover:text-white hover:shadow-md'
+                      ? 'bg-gradient-primary text-white shadow-primary-hover'
+                      : 'bg-white text-gray-700 hover:bg-gradient-combined hover:text-white hover:shadow-combined border border-neutral-200'
                   }`}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {button.name}
-                </button>
-              </li>
+                </motion.button>
+              </motion.li>
             ))}
           </ul>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Mejorado con animaciones más dinámicas */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
-          variants={{ show: { transition: { staggerChildren: 0.15 } } }}
+          variants={staggerContainer}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+          whileInView="visible"
+          viewport={viewportSettings}
         >
-          <AnimatePresence>
-            {filteredServices.map((service) => (
+          <AnimatePresence mode="wait">
+            {filteredServices.map((service, index) => (
               <motion.div
                 key={service.title}
                 layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                variants={cardEntrance}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, scale: 0.8, y: -20 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="w-full group"
               >
-                <TiltCard intensity={12} scale={1.02}>
+                <TiltCard intensity={12} scale={1.03}>
                   <GlassmorphismCard
                     variant="default"
                     rounded="xl"
-                    className="h-full flex flex-col group cursor-pointer hover:shadow-2xl transition-all duration-300"
+                    className="h-full flex flex-col group cursor-pointer hover-lift hover-shine relative overflow-hidden bg-white/90 backdrop-blur-md border border-white/20"
                   >
-                    <div className="p-8 flex-grow relative">
-                      {/* Icon Background with glassmorphism effect */}
-                      <div className="absolute top-8 right-8 w-14 h-14 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center border border-[#7db042]/30 shadow-lg">
-                        <div className="w-11 h-11 bg-gradient-to-br from-[#7db042] via-[#99c34a] to-[#e67e00] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                          <FontAwesomeIcon icon={service.icon} className="text-white text-lg drop-shadow-lg" />
+                    {/* Efecto de gradiente animado en el borde */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-combined opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+
+                    <div className="p-8 flex-grow relative z-10">
+                      {/* Icon Background mejorado con colores institucionales */}
+                      <motion.div
+                        className="absolute top-8 right-8 w-16 h-16 rounded-full flex items-center justify-center"
+                        variants={iconPop}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-combined rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300 animate-pulse-soft" />
+                        <div className="relative w-14 h-14 bg-gradient-combined rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-combined">
+                          <FontAwesomeIcon icon={service.icon} className="text-white text-xl drop-shadow-lg" />
                         </div>
-                      </div>
+                      </motion.div>
 
                       <div className="mb-6">
-                        <h3 className="text-xl font-bold text-dark-200 mb-4 pr-16">{service.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                        <h3 className="text-xl font-bold text-dark-200 mb-4 pr-20 group-hover:text-primary-600 transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed text-sm">
+                          {service.description}
+                        </p>
                       </div>
                     </div>
 
-                    <div className="p-8 border-t border-white/20 bg-white/10 backdrop-blur-sm">
+                    {/* Footer mejorado */}
+                    <div className="p-8 border-t border-gradient-combined/10 bg-gradient-to-r from-primary-50/50 to-secondary-50/50 backdrop-blur-sm relative z-10">
                       <Link
                         href={service.link}
-                        className="inline-flex items-center font-semibold text-primary hover:text-primary-600 transition-colors duration-300 group/link"
+                        className="inline-flex items-center font-bold text-primary-600 hover:text-secondary-600 transition-all duration-300 group/link"
                       >
-                        Scopri di più
-                        <FontAwesomeIcon
-                          icon={faArrowRight}
-                          className="ml-2 transition-transform duration-300 group-hover/link:translate-x-2"
-                        />
+                        <span className="relative">
+                          Scopri di più
+                          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-combined group-hover/link:w-full transition-all duration-300" />
+                        </span>
+                        <motion.div
+                          className="ml-2"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          <FontAwesomeIcon icon={faArrowRight} />
+                        </motion.div>
                       </Link>
                     </div>
                   </GlassmorphismCard>

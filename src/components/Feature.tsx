@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faCheck, faAward, faLeaf } from '@fortawesome/free-solid-svg-icons';
+import { staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 
 // Contador animado simple y robusto
 const AnimatedCounter: React.FC<{
@@ -58,18 +59,22 @@ const AnimatedCounter: React.FC<{
   return (
     <div ref={containerRef} className="text-5xl font-bold mb-2 relative">
       <div className="flex items-center justify-center">
-        <span
-          className="font-black bg-gradient-to-r from-[#7db042] via-[#99c34a] to-[#6e9c3a] bg-clip-text text-transparent stats-number"
+        <motion.span
+          className="font-black text-gradient-primary stats-number"
           style={{ fontSize: '3rem' }}
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
         >
           {count.toLocaleString('it-IT')}
-        </span>
-        <span
-          className="font-black ml-1 bg-gradient-to-r from-[#e67e00] via-[#F49918] to-[#cc6f00] bg-clip-text text-transparent stats-number"
+        </motion.span>
+        <motion.span
+          className="font-black ml-1 text-gradient-secondary stats-number"
           style={{ fontSize: '3rem' }}
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 1, delay: 0.2 }}
         >
           {suffix}
-        </span>
+        </motion.span>
       </div>
     </div>
   );
@@ -87,60 +92,90 @@ const StatCardWithDescription: React.FC<{
 
   return (
     <motion.div
-      className="text-center p-6 rounded-xl bg-gradient-to-br from-secondary/30 to-secondary/50 backdrop-blur-sm border border-secondary/40 shadow-xl relative overflow-hidden group"
-      initial={{ y: 50, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, delay: delay }}
+      className="text-center p-8 rounded-2xl bg-white/90 backdrop-blur-md border border-white/40 relative overflow-hidden group hover-lift hover-shine"
+      variants={cardEntrance}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: '-100px' }}
       whileHover={{
         scale: 1.05,
-        boxShadow: '0 25px 50px rgba(244, 153, 24, 0.2)'
       }}
-      style={{ minHeight: '280px' }}
+      style={{ minHeight: '320px' }}
     >
-      {/* Efecto de brillo animado permanente */}
+      {/* Gradiente de fondo animado */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-combined opacity-10"
+        animate={{
+          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+        style={{
+          backgroundSize: '200% 200%',
+        }}
+      />
+
+      {/* Efecto de brillo animado */}
       <motion.div
         className="absolute inset-0 opacity-20"
         style={{
-          background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent)',
+          background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent)',
           transform: 'translateX(-100%)'
         }}
         animate={{
-          transform: ['translateX(-100%)', 'translateX(100%)', 'translateX(-100%)'],
-          transition: { duration: 4, ease: 'easeInOut', repeat: Infinity }
+          transform: ['translateX(-100%)', 'translateX(100%)'],
+        }}
+        transition={{
+          duration: 3,
+          ease: 'easeInOut',
+          repeat: Infinity,
+          repeatDelay: 1,
         }}
       />
+
+      {/* Resplandor externo con colores institucionales */}
       <motion.div
-        className="absolute -inset-1 opacity-60"
+        className="absolute -inset-1 opacity-0 group-hover:opacity-60 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(135deg, #7db042, #99c34a, #e67e00, #F49918, #e67e00)',
-          filter: 'blur(25px)',
+          background: 'linear-gradient(135deg, rgba(155, 189, 45, 0.4), rgba(244, 153, 24, 0.4))',
+          filter: 'blur(20px)',
           zIndex: -1
         }}
       />
-      {/* Icono */}
-      <div className="flex justify-center mb-4">
+
+      {/* Icono con animación mejorada */}
+      <div className="flex justify-center mb-6">
         <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ delay: delay + 0.2, type: 'spring' }}
-          className="text-4xl text-primary"
+          variants={iconPop}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative"
         >
-          {icon}
+          {/* Fondo del icono con gradiente */}
+          <div className="absolute inset-0 bg-gradient-combined rounded-full opacity-20 animate-pulse-soft" />
+          <div className="relative w-20 h-20 bg-gradient-combined rounded-full flex items-center justify-center shadow-combined">
+            <div className="text-4xl text-white drop-shadow-lg">
+              {icon}
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Número con contador animado simple */}
-      <div className="mb-2">
+      {/* Número con contador animado */}
+      <div className="mb-4">
         <AnimatedCounter
           to={number}
           suffix={suffix}
         />
       </div>
 
-      {/* Título */}
+      {/* Título con gradiente en hover */}
       <motion.h3
-        className="text-xl font-bold text-dark-200 mb-3"
+        className="text-xl font-bold text-dark-200 mb-4 group-hover:text-gradient-combined transition-all duration-300"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: delay + 0.6 }}
@@ -154,7 +189,7 @@ const StatCardWithDescription: React.FC<{
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: delay + 0.8 }}
-        style={{ minHeight: '48px' }}
+        style={{ minHeight: '60px' }}
       >
         {description}
       </motion.p>
@@ -199,14 +234,41 @@ const Feature = () => {
   ];
 
   return (
-    <section className="py-8 sm:py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-neutral-50 to-white relative overflow-hidden">
+      {/* Patrón de fondo sutil */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(155, 189, 45, 0.3) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 50%, rgba(244, 153, 24, 0.3) 0%, transparent 50%)`,
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Título de sección opcional */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={{ show: { transition: { staggerChildren: 0.15 } } }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient-combined mb-4">
+            I Nostri Numeri
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            L&apos;esperienza e i risultati che ci contraddistinguono nel settore dell&apos;energia sostenibile
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          variants={staggerContainer}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+          whileInView="visible"
+          viewport={viewportSettings}
         >
           {stats.map((stat, index) => (
             <StatCardWithDescription
