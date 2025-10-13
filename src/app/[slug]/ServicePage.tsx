@@ -345,18 +345,6 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     <Text color="white" size="lg" className="leading-relaxed mb-6">
                       Per ogni tipologia edilizia, l&apos;impianto rappresenta una struttura vitale per la gestione e la fruibilità dell&apos;intero edificio. La qualità della progettazione influisce su sicurezza, comfort, risparmio e manutenzione.
                     </Text>
-                    <div className="bg-white/90 rounded-xl p-6">
-                      <Text color="primary" className="font-semibold text-lg mb-4">Qualità della progettazione:</Text>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        {["Sicurezza", "Comfort", "Risparmio", "Manutenzione"].map((benefit, j) => (
-                          <div key={j} className="text-center">
-                            <div className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
-                              {benefit}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
 

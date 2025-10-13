@@ -32,7 +32,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-4xl mx-auto mb-16"
           >
-            <Heading2 className="text-center mb-4" color="primary">La Nostra Storia e Missione</Heading2>
+            <Heading2 className="text-center mb-4 font-bold" color="primary">Il valore dell’esperienza per l’efficienza ed il risparmio energetico</Heading2>
             <Text color="muted" size="lg" className="leading-relaxed mx-auto" justify={true}>
               LC Energia vanta di personale qualificato e con grande esperienza nel settore della progettazione e realizzazione di impianti civili e industriali. L’impegno dell’azienda è volto a contribuire in prima linea agli obiettivi Europei e Nazionali per la decarbonizzazione e l’efficientamento energetico. Per questo LC Energia, oltre a fornire consulenza e progettazione per gli impianti termici, si è specializzata nella realizzazione di impianti fotovoltaici sia nel settore civile che industriale.
             </Text>
@@ -71,7 +71,7 @@ const AziendaPage = () => {
               viewport={{ once: true, amount: 0.25 }}
             >
               <TiltCard className="bg-primary/10 p-8 rounded-xl shadow-2xl border-l-4 border-primary h-full">
-                <Heading5 color="primary" className="mb-4">Impegno per la Qualità e il Risparmio Energetico</Heading5>
+                <Heading5 color="primary" className="mb-4 font-bold">Impegno per la Qualità e il Risparmio Energetico</Heading5>
                 <Text color="muted" size="base" className="leading-relaxed">
                   Sfruttando le nostre competenze operiamo sempre nel rispetto degli obblighi legislativi e normativi per fornire al cliente un servizio a regola d’arte. Attraverso interventi di riqualificazione architettonica e impiantistica su diversi edifici nel campo industriale, civile, pubblico e nei processi produttivi, LC Energia permette ai suoi clienti di ottenere significativi risparmi energetici oltre a una miglior qualità di vita.
                 </Text>
@@ -87,9 +87,9 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-4xl mx-auto mb-12"
           >
-            <Heading2 className="text-center mb-4" color="primary">I Nostri Settori Operativi</Heading2>
+            <Heading2 className="text-center mb-4 font-bold" color="primary">I Nostri Settori Operativi</Heading2>
             <Text color="muted" className="leading-relaxed mb-8 mx-auto" justify={true}>
-              Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall&apos;utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi.
+              Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall&apos;utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi. La società opera attraverso due principali settori operativi:
             </Text>
           </motion.div>
 
@@ -104,10 +104,9 @@ const AziendaPage = () => {
               <TiltCard className="bg-light p-6 rounded-xl shadow-lg h-full">
                 <div className="flex items-center mb-4">
                   <FontAwesomeIcon icon={faHeadset} className="fa-2x text-primary mr-4" />
-                  <Heading5 color="primary">Consulenza Tecnica e Progettazione</Heading5>
                 </div>
                 <Text color="muted" className="leading-relaxed" justify={true}>
-                  Include anche attività di prevenzione incendi, acustica e assistenza ai lavori.
+                  Consulenza tecnica e progettazione che include anche attività di prevenzione incendi, acustica e assistenza ai lavori.
                 </Text>
               </TiltCard>
             </motion.div>
@@ -122,10 +121,9 @@ const AziendaPage = () => {
               <TiltCard className="bg-white p-6 rounded-xl shadow-lg h-full">
                 <div className="flex items-center mb-4">
                   <FontAwesomeIcon icon={faSolarPanel} className="fa-2x text-primary mr-4" />
-                  <Heading5 color="primary">Realizzazione di Impianti ad Alto Profilo Tecnologico</Heading5>
                 </div>
                 <Text color="muted" className="leading-relaxed" justify={true}>
-                  Per la produzione di energia elettrica e termica per l’abbattimento dei consumi energetici.
+                  Realizzazione di impianti ad alto profilo tecnologico per la produzione di energia elettrica e termica per l&apos;abbattimento dei consumi energetici.
                 </Text>
               </TiltCard>
             </motion.div>
@@ -139,7 +137,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <Heading5 color="primary" className="mb-4">Partner Affidabile per la Sostenibilità</Heading5>
+            <Heading5 color="primary" className="mb-4 font-bold">Partner Affidabile per la Sostenibilità</Heading5>
             <Text color="muted" size="base" className="leading-relaxed mx-auto" justify={true}>
               LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un&apos;approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità.
             </Text>
@@ -201,7 +199,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <Heading2 className="text-center" color="primary">Collaborazioni</Heading2>
+            <Heading2 className="text-center font-bold" color="primary">Collaborazioni</Heading2>
           </motion.div>
           <motion.div
             variants={fadeIn('up', 0.3)}
@@ -243,7 +241,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-5xl mx-auto mb-8"
           >
-            <Heading2 className="text-center mb-6 text-white" color="white">Certificazioni Professionali & Accreditamenti</Heading2>
+            <Heading2 className="text-center mb-6 text-white font-bold" color="white">Certificazioni Professionali & Accreditamenti</Heading2>
           </motion.div>
 
           <motion.div
@@ -263,7 +261,7 @@ const AziendaPage = () => {
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
                     <div>
-                      <Text color="dark" className="font-semibold text-base mb-1">Albi Professionali</Text>
+                      <Text color="dark" className="font-bold text-base mb-1">Albi Professionali</Text>
                       <Text color="muted" size="sm" className="leading-relaxed">
                         Iscritti ai rispettivi Albi Professionali Provinciali
                       </Text>
@@ -273,7 +271,7 @@ const AziendaPage = () => {
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
                     <div>
-                      <Text color="dark" className="font-semibold text-base mb-1">Certificazione Energetica</Text>
+                      <Text color="dark" className="font-bold text-base mb-1">Certificazione Energetica</Text>
                       <Text color="muted" size="sm" className="leading-relaxed">
                         Certificatori Energetici di cui al D.G.R. 8/5018 – 20.07.2007
                       </Text>
@@ -283,7 +281,7 @@ const AziendaPage = () => {
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
                     <div>
-                      <Text color="dark" className="font-semibold text-base mb-1">Energy Building Manager</Text>
+                      <Text color="dark" className="font-bold text-base mb-1">Energy Building Manager</Text>
                       <Text color="muted" size="sm" className="leading-relaxed">
                         Accreditati Energy Building Manager, Regione Lombardia ai sensi del D.G.R. VIII/8355 del 5 Novembre 2008
                       </Text>
@@ -296,7 +294,7 @@ const AziendaPage = () => {
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
                     <div>
-                      <Text color="dark" className="font-semibold text-base mb-1">Progettazione Antincendio</Text>
+                      <Text color="dark" className="font-bold text-base mb-1">Progettazione Antincendio</Text>
                       <Text color="muted" size="sm" className="leading-relaxed">
                         Iscritti nell&apos;elenco dei progettisti antincendio del Ministero dell&apos;Interno di cui al D.Lgs n.139/2006 (ex Legge 818/84)
                       </Text>
@@ -306,7 +304,7 @@ const AziendaPage = () => {
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
                     <div>
-                      <Text color="dark" className="font-semibold text-base mb-1">Sicurezza Impianti</Text>
+                      <Text color="dark" className="font-bold text-base mb-1">Sicurezza Impianti</Text>
                       <Text color="muted" size="sm" className="leading-relaxed">
                         Verificatori in materia di sicurezza degli impianti ai sensi del DM 22/1/08 n. 37
                       </Text>
@@ -316,7 +314,7 @@ const AziendaPage = () => {
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2"></div>
                     <div>
-                      <Text color="dark" className="font-semibold text-base mb-1">Consulenza Tecnica</Text>
+                      <Text color="dark" className="font-bold text-base mb-1">Consulenza Tecnica</Text>
                       <Text color="muted" size="sm" className="leading-relaxed">
                         Consulenti tecnici del Tribunale di Monza
                       </Text>
@@ -340,7 +338,7 @@ const AziendaPage = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <Heading6 color="primary" className="font-bold text-lg">Membri del Team Esperti</Heading6>
+            <Heading2 className="text-center font-bold" color="primary">Membri del Team Esperti</Heading2>
           </motion.div>
           <div className="flex flex-wrap justify-center -m-4">
             {teamMembers.map((member, index) => (
