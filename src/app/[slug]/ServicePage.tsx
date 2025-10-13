@@ -10,7 +10,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import SimpleTextCard from '@/components/SimpleTextCard';
 import InfoAccordion from '@/components/InfoAccordion';
 import ImageCarousel from '@/components/ImageCarousel';
-import { Heading2, Heading3, Text } from '@/components/ui/Typography';
+import { Heading1, Heading2, Heading3, Heading4, Heading5, Text } from '@/components/ui/Typography';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
   const cardVariants = {
@@ -277,14 +277,14 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     </div>
                   </div>
                 </div>
-                <Heading2 color="primary" className="mb-4">Servizi di Progettazione e Consulenza</Heading2>
+                <Heading1 color="primary" className="mb-4 font-bold text-center">Servizi di Progettazione e Consulenza</Heading1>
                 <Text color="muted" size="lg" className="max-w-4xl mx-auto leading-relaxed">
                   LC Energia offre soluzioni integrate per la progettazione impiantistica civile e industriale, combinando esperienza tecnica e innovazione tecnologica.
                 </Text>
               </motion.div>
 
-              {/* Secciones Verticales una debajo de otra */}
-              <div className="max-w-4xl mx-auto space-y-8">
+              {/* Secciones en grid 2x2 */}
+              <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* 1. Impianti Elettrici - Fondo Naranja */}
                 <motion.div
                   custom={2}
@@ -292,14 +292,11 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   animate="visible"
                   variants={cardVariants}
                 >
-                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl" style={{
+                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full" style={{
                     background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
                   }}>
-                    <div className="flex items-center mb-6">
-                      <div className="bg-white text-primary p-4 rounded-xl mr-4">
-                        <FontAwesomeIcon icon={faBolt} className="fa-2xl" />
-                      </div>
-                      <Heading3 color="white" className="text-2xl">Impianti Elettrici</Heading3>
+                    <div className="mb-6">
+                      <Heading1 color="white" className="font-bold !text-white">Impianti Elettrici</Heading1>
                     </div>
                     <div className="space-y-3">
                       {[
@@ -333,14 +330,11 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   animate="visible"
                   variants={cardVariants}
                 >
-                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl" style={{
+                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full" style={{
                     background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
                   }}>
-                    <div className="flex items-center mb-6">
-                      <div className="bg-white text-secondary p-4 rounded-xl mr-4">
-                        <FontAwesomeIcon icon={faDraftingCompass} className="fa-2xl" />
-                      </div>
-                      <Heading3 color="white" className="text-2xl">Progettazione Impiantistica</Heading3>
+                    <div className="mb-6">
+                      <Heading1 color="white" className="font-bold !text-white">Progettazione Impiantistica</Heading1>
                     </div>
                     <Text color="white" size="lg" className="leading-relaxed mb-6">
                       Per ogni tipologia edilizia, l&apos;impianto rappresenta una struttura vitale per la gestione e la fruibilità dell&apos;intero edificio. La qualità della progettazione influisce su sicurezza, comfort, risparmio e manutenzione.
@@ -355,14 +349,11 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   animate="visible"
                   variants={cardVariants}
                 >
-                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl" style={{
+                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full" style={{
                     background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
                   }}>
-                    <div className="flex items-center mb-6">
-                      <div className="bg-white text-primary p-4 rounded-xl mr-4">
-                        <FontAwesomeIcon icon={faCog} className="fa-2xl" />
-                      </div>
-                      <Heading3 color="white" className="text-2xl">Impianti Meccanici</Heading3>
+                    <div className="mb-6">
+                      <Heading1 color="white" className="font-bold !text-white">Impianti Meccanici</Heading1>
                     </div>
                     <div className="space-y-3">
                       {[
@@ -396,7 +387,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   animate="visible"
                   variants={cardVariants}
                 >
-                  <div className="rounded-2xl p-8 border-l-4 border-white hover:shadow-xl transition-all duration-300 relative overflow-hidden" style={{
+                  <div className="rounded-2xl p-8 border-l-4 border-white hover:shadow-xl transition-all duration-300 relative overflow-hidden h-full" style={{
                     background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
                   }}>
                     {/* Efecto decorativo */}
@@ -404,11 +395,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full"></div>
 
                     <div className="relative z-10">
-                      <div className="flex items-center mb-6">
-                        <div className="bg-white text-secondary p-4 rounded-xl mr-4">
-                          <FontAwesomeIcon icon={faTools} className="fa-2xl" />
-                        </div>
-                        <Heading3 color="white" className="text-2xl">Progettazione e Consulenza Tecnica</Heading3>
+                      <div className="mb-6">
+                        <Heading1 color="white" className="font-bold !text-white">Progettazione e Consulenza Tecnica</Heading1>
                       </div>
                       <Text color="white" size="lg" className="font-semibold mb-4">
                         LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:
@@ -451,7 +439,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               >
                 <div className="text-center mb-8">
                   <FontAwesomeIcon icon={faTools} className="fa-3x text-secondary mb-4" />
-                  <h3 className="text-2xl font-bold text-dark-200">Impianti Speciali</h3>
+                  <Heading1 color="primary" className="font-bold text-center">Impianti Speciali</Heading1>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
                   {[
@@ -470,9 +458,23 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     "TV digitale terrestre e satellitare",
                     "Rifasamento elettrico"
                   ].map((item, j) => (
-                    <div key={j} className="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-secondary hover:shadow-sm transition-all duration-300">
-                      <p className="text-xs text-gray-700 leading-tight">{item}</p>
-                    </div>
+                    <motion.div
+                      key={j}
+                      className="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-secondary hover:shadow-md transition-all duration-150 group cursor-pointer relative overflow-hidden"
+                      whileHover={{
+                        x: 8,
+                        background: 'linear-gradient(135deg, #F49918 0%, #db8a15 100%)'
+                      }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2, delay: j * 0.02 }}
+                      style={{
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)'
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-secondary/0 via-secondary/0 to-secondary/0 group-hover:from-secondary/10 group-hover:via-secondary/5 group-hover:to-secondary/10 transition-all duration-150"></div>
+                      <p className="text-xs text-gray-700 leading-tight relative z-10 group-hover:text-white transition-colors duration-150">{item}</p>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
@@ -488,7 +490,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               >
                 <div className="text-center">
                   <FontAwesomeIcon icon={faCertificate} className="fa-3x text-gray-400 mb-4" />
-                  <h3 className="text-2xl font-bold text-dark-200 mb-4">Collaudi e certificazioni</h3>
+                  <Heading1 color="primary" className="font-bold text-center mb-4">Collaudi e certificazioni</Heading1>
                   <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Collaudi e start-up degli impianti meccanici ed elettrici civili ed industriali. Redazione di Dichiarazioni di rispondenza per impianti antecedenti il D.M. 37/08.
                   </p>
