@@ -36,12 +36,29 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           null // No mostrar introducción para progettazione-acustica, se maneja internamente
         ) : slug === 'progettare-il-risparmio-energetico' ? (
           null // No mostrar introducción para progettare-il-risparmio-energetico, se maneja internamente
-        ) : slug === 'impianti-geotermici' ? (
+         ) : slug === 'impianti-geotermici' ? (
           null // No mostrar introducción para impianti-geotermici, se maneja internamente
+        ) : slug === 'contributo-pnrr' ? (
+          <motion.div
+            className="mb-8"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSettings}
+          >
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#9BBD2D]/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <div className="relative z-10">
+                <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+              </div>
+            </div>
+          </motion.div>
         ) : slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
           null // No mostrar introducción para contabilizzazione-calore, se maneja internamente
         ) : slug === 'riqualificazione-di-centrali-termiche-esistenti' ? (
           null // No mostrar introducción para riqualificazione-centrali, se maneja internamente
+        ) : slug === 'contributo-pnrr' ? (
+          null // No mostrar introducción para contributo-pnrr, se maneja internamente
         ) : slug === 'stazioni-di-ricarica' ? (
           <motion.div
             variants={fadeInUp}

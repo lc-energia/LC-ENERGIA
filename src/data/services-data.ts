@@ -339,7 +339,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'contributo-pnrr': {
     title: 'Contributo PNRR',
     breadcrumb: 'Bandi e Incentivi > Contributo PNRR',
-    introduction: 'Ottieni il 40% a fondo perduto per il tuo impianto fotovoltaico a Milano, Monza e Brianza con la CER Milano Monza Brianza. La CER Milano Monza Brianza supporta cittadini, aziende e amministrazioni nella transizione energetica, offrendo un servizio specializzato per la diffusione di energia pulita e sostenibile. Grazie alle CER e ai fondi del PNRR dedicati, si apre una nuova opportunità concreta per aziende, enti pubblici e privati nei comuni fino a 50.000 abitanti.',
+    introduction: `<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#9BBD2D]/20"><div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div><div class="relative z-10"><div class="text-gray-700 leading-relaxed">Ottieni il 40% a fondo perduto per il tuo impianto fotovoltaico a Milano, Monza e Brianza con la CER Milano Monza Brianza. La CER Milano Monza Brianza supporta cittadini, aziende e amministrazioni nella transizione energetica, offrendo un servicio especializado per la diffusione di energia pulita e sostenibile. Grazie alle CER e ai fondi del PNRR dedicati, si apre una nuova opportunità concreta per aziende, enti pubblici e privati nei comuni fino a 50.000 abitanti.</div></div></div>`,
     sections: [
       {
         title: 'Cos\'è il contributo PNRR?',
