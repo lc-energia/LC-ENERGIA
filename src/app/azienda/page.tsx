@@ -5,7 +5,7 @@ import PageHeader from '@/components/PageHeader';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
-import { Heading1, Heading2, Heading5, Heading6, Text } from '@/components/ui/Typography';
+import { Heading1, Heading2, Heading6, Text } from '@/components/ui/Typography';
 import TiltCard from '@/components/TiltCard';
 import { reasons, teamMembers } from '@/data/azienda-data';
 
@@ -32,7 +32,7 @@ const AziendaPage = () => {
             viewport={viewportSettings}
             className="text-center max-w-4xl mx-auto mb-16"
           >
-            <Heading2 className="text-center mb-4 font-bold text-black-force">Il valore dell'esperienza per l'efficienza ed il risparmio energetico</Heading2>
+            <Heading2 className="text-center mb-4 font-bold text-black-force">Il valore dell&apos;esperienza per l&apos;efficienza ed il risparmio energetico</Heading2>
             <Text color="muted" size="lg" className="leading-relaxed mx-auto" justify={true}>
               LC Energia vanta di personale qualificato e con grande esperienza nel settore della progettazione e realizzazione di impianti civili e industriali. L’impegno dell’azienda è volto a contribuire in prima linea agli obiettivi Europei e Nazionali per la decarbonizzazione e l’efficientamento energetico. Per questo LC Energia, oltre a fornire consulenza e progettazione per gli impianti termici, si è specializzata nella realizzazione di impianti fotovoltaici sia nel settore civile che industriale.
             </Text>

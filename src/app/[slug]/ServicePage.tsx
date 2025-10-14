@@ -1,6 +1,6 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faDraftingCompass, faTools, faCertificate, faBolt } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faTools, faCertificate, faBolt } from '@fortawesome/free-solid-svg-icons';
 import ServicePageLayout from '@/components/ServicePageLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -688,7 +688,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 >
                   <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
                     <div className="mb-6">
-                      <Heading1 color="white" justify={false} className="font-bold !text-white text-left">Impianti Elettrici</Heading1>
+                      <Heading1 color="white" className="font-bold !text-white text-left">Impianti Elettrici</Heading1>
                     </div>
                     <div className="space-y-3">
                       {[
@@ -708,7 +708,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
-                          <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
+                          <Text color="white" className="font-medium leading-tight text-left">{item}</Text>
                         </motion.div>
                       ))}
                     </div>
@@ -721,7 +721,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 >
                   <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
                     <div className="mb-6">
-                      <Heading1 color="white" justify={false} className="font-bold !text-white text-left">Progettazione Impiantistica</Heading1>
+                      <Heading1 color="white" className="font-bold !text-white text-left">Progettazione Impiantistica</Heading1>
                     </div>
                     <Text color="white" justify={false} size="lg" className="leading-relaxed mb-6 text-left">
                       Per ogni tipologia edilizia, l&apos;impianto rappresenta una struttura vitale per la gestione e la fruibilità dell&apos;intero edificio. La qualità della progettazione influisce su sicurezza, comfort, risparmio e manutenzione.
@@ -735,7 +735,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 >
                   <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
                     <div className="mb-6">
-                      <Heading1 color="white" justify={false} className="font-bold !text-white text-left">Impianti Meccanici</Heading1>
+                      <Heading1 color="white" className="font-bold !text-white text-left">Impianti Meccanici</Heading1>
                     </div>
                     <div className="space-y-3">
                       {[
@@ -755,7 +755,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
-                          <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
+                          <Text color="white" className="font-medium leading-tight text-left">{item}</Text>
                         </motion.div>
                       ))}
                     </div>
@@ -773,7 +773,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
 
                     <div className="relative z-10">
                       <div className="mb-6">
-                        <Heading1 color="white" justify={false} className="font-bold !text-white text-left">Progettazione e Consulenza Tecnica</Heading1>
+                        <Heading1 color="white" className="font-bold !text-white text-left">Progettazione e Consulenza Tecnica</Heading1>
                       </div>
                       <Text color="white" justify={false} size="lg" className="font-semibold mb-4 text-left">
                         LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:
@@ -796,7 +796,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                             <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
                             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
-                            <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
+                          <Text color="white" className="font-medium leading-tight text-left">{item}</Text>
                           </motion.div>
                         ))}
                       </div>
@@ -919,7 +919,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
 
             return (
-              <div className="w-full">
+              <div key={i} className="w-full">
                 {/* Cuadro con introduction - solo para servicios específicos */}
                 {slug !== 'stazioni-di-ricarica' && (
                   <motion.div
@@ -1062,8 +1062,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   whileInView="visible"
                   viewport={viewportSettings}
                 >
-                  <h2 className="text-3xl font-bold text-gradient-combined mb-6">{section.title}</h2>
-                  {section.content && <p className="text-lg text-gray-600 mt-2 leading-relaxed">{section.content}</p>}
+                  <h2 className="text-3xl font-bold text-gradient-combined mb-6">I Nostri Partner</h2>
+                  <p className="text-lg text-gray-600 mt-2 leading-relaxed">Collaboriamo con i migliori marchi del settore</p>
                 </motion.div>
             <motion.div
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center"

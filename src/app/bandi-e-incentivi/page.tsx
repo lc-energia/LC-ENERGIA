@@ -1,15 +1,9 @@
-import { Metadata } from 'next';
+'use client';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingUsd, faSolarPanel, faFire, faBolt, faLeaf, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import Image from 'next/image';
 import { fadeInUp, staggerContainer, cardEntrance, viewportSettings } from '@/lib/animation-variants';
-
-export const metadata: Metadata = {
-  title: 'Bandi e Incentivi | LC Energia',
-  description: 'Scopri tutte le opportunità di finanziamento e incentivi per impianti energetici. Contributo PNRR, Conto Termico e molto altro con LC Energia.',
-};
 
 export default function BandiIncentiviPage() {
   const incentives = [
@@ -45,7 +39,7 @@ export default function BandiIncentiviPage() {
     {
       icon: faChartLine,
       title: 'Aumento del Valore',
-      description: 'Migliora l\'efficienza energetica e il valore del tuo immobile con interventi incentivati'
+      description: 'Migliora l&apos;efficienza energetica e il valore del tuo immobile con interventi incentivati'
     },
     {
       icon: faBolt,
@@ -72,7 +66,7 @@ export default function BandiIncentiviPage() {
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">
               Scopri tutte le opportunità di finanziamento disponibili per i tuoi progetti energetici. 
-              LC Energia ti guida nell\'accesso agli incentivi nazionali e regionali.
+              LC Energia ti guida nell&apos;accesso agli incentivi nazionali e regionali.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
