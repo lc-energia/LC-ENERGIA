@@ -42,6 +42,13 @@ const navigation = {
       items: [
         { name: 'Diagnosi Energetica e Riqualificazione Centrali Termiche', href: '/riqualificazione-di-centrali-termiche-esistenti' },
       ]
+    },
+    {
+      name: 'Bandi e Incentivi',
+      items: [
+        { name: 'Contributo PNRR', href: '/bandi-e-incentivi/contributo-pnrr' },
+        { name: 'Conto Termico', href: '/bandi-e-incentivi/conto-termico' },
+      ]
     }
   ],
   rightLink: { name: 'Accrediti', href: '/accrediti' }
