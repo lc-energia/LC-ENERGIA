@@ -33,6 +33,7 @@ export interface ServiceData {
     src: string;
     alt: string;
   }[];
+  specialBox?: string;
 }
 
 export const servicesData: { [key: string]: ServiceData } = {
@@ -60,6 +61,7 @@ export const servicesData: { [key: string]: ServiceData } = {
     title: 'Impianti Fotovoltaici',
     breadcrumb: 'Impianti Fotovoltaici',
     introduction: '<br>Progettiamo e installiamo impianti fotovoltaici "chiavi in mano" <br>partendo da una valutazione preliminare che considera i seguenti elementi di base:',
+    specialBox: 'Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l\'energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
     mainFeatures: [
       { text: 'Consumo annuo\'utenza', icon: 'fa-bolt' },
       { text: 'Spazio disponibile', icon: 'fa-ruler-combined' },
@@ -279,9 +281,9 @@ export const servicesData: { [key: string]: ServiceData } = {
     breadcrumb: 'Stazioni di Ricarica',
     introduction: 'Caricare l\'auto direttamente a casa, invece che nelle stazioni di ricarica pubbliche, offre la possibilità di sfruttare l’energia prodotta dai pannelli solari della tua casa, rendendo così questa soluzione più ecologica ed economicamente conveniente.',
     sections: [
-      {
+{
         title: 'Vantaggi',
-        content: 'La potenza erogata da una stazione domestica consente di raggiungere una maggiore velocità di ricarica, rispetto all’utilizzo delle normali prese elettriche. Inoltre, attivando la funzione Dynamic Power Management (che rappresenta un\'opzione indispensabile nelle installazioni residenziali in cui la potenza disponibile è limitata), si consente al wall box di modulare la corrente destinata alla ricarica del veicolo elettrico basandosi sul consumo istantaneo di tutti gli elettrodomestici, tenendo anche in considerazione la corrente generata da pannelli fotovoltaici o altre fonti rinnovabili, (se presenti). Una volta attivata la funzione Dynamic Power Management, è possibile scegliere tra 3 diverse modalità di funzionamento: Full, EcoSmart e EcoPlus.',
+        content: "La potenza erogata da una stazione domestica consente di raggiungere una maggiore velocità di ricarica, rispetto all'utilizzo delle normali prese elettriche. Inoltre, attivando la funzione Dynamic Power Management (che rappresenta un'opzione indispensabile nelle installazioni residenziali in cui la potenza disponibile è limitata), si consente al wall box di modulare la corrente destinata alla ricarica del veicolo elettrico basandosi sul consumo istantaneo di tutti gli elettrodomestici, tenendo anche in considerazione la corrente generata da pannelli fotovoltaici o altre fonti rinnovabili, (se presenti). Una volta attivata la funzione Dynamic Power Management, è possibile scegliere tra 3 diverse modalità di funzionamento: <strong>Full, EcoSmart e EcoPlus</strong>.",
         fullWidth: true,
       },
       {
@@ -305,16 +307,7 @@ export const servicesData: { [key: string]: ServiceData } = {
           },
         ],
       },
-      {
-        title: 'FAQ',
-        content: '',
-        questions: [
-          {
-            question: 'Come ricaricare la tua auto con la nostra stazione di ricarica innovativa?',
-            answer: 'La nostra stazione di ricarica offre la possibilità di caricare la tua auto in modo intelligente. Quando è attiva la funzione Dynamic Power Management, è possibile scegliere tra 3 diverse modalità di funzionamento: Full, Ecosmart e Ecoplus.',
-          },
-        ],
-      },
+      
     ],
   },
   'riqualificazione-di-centrali-termiche-esistenti': {

@@ -187,6 +187,26 @@ html {
   color: var(--color-primary) !important;
 }
 
+.text-black-force {
+  color: black !important;
+}
+
+.text-white-force {
+  color: white !important;
+}
+
+.text-center-force {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.text-left-force {
+  text-align: left !important;
+}
+
 .text-secondary {
   color: var(--color-secondary) !important;
 }

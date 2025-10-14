@@ -32,7 +32,7 @@ const AziendaPage = () => {
             viewport={viewportSettings}
             className="text-center max-w-4xl mx-auto mb-16"
           >
-            <Heading2 className="text-center mb-4 font-bold" color="primary">Il valore dell’esperienza per l’efficienza ed il risparmio energetico</Heading2>
+            <Heading2 className="text-center mb-4 font-bold text-black-force">Il valore dell'esperienza per l'efficienza ed il risparmio energetico</Heading2>
             <Text color="muted" size="lg" className="leading-relaxed mx-auto" justify={true}>
               LC Energia vanta di personale qualificato e con grande esperienza nel settore della progettazione e realizzazione di impianti civili e industriali. L’impegno dell’azienda è volto a contribuire in prima linea agli obiettivi Europei e Nazionali per la decarbonizzazione e l’efficientamento energetico. Per questo LC Energia, oltre a fornire consulenza e progettazione per gli impianti termici, si è specializzata nella realizzazione di impianti fotovoltaici sia nel settore civile che industriale.
             </Text>
@@ -65,7 +65,7 @@ const AziendaPage = () => {
               variants={cardEntrance}
             >
               <TiltCard className="bg-gradient-to-br from-primary-50 to-white p-8 rounded-xl shadow-primary hover-lift border-l-4 border-primary-500 h-full">
-                <Heading5 color="primary" className="mb-4 font-bold">Impegno per la Qualità e il Risparmio Energetico</Heading5>
+                <Heading2 className="!text-black mb-4 font-bold">Impegno per la Qualità e il Risparmio Energetico</Heading2>
                 <Text color="muted" size="base" className="leading-relaxed">
                   Sfruttando le nostre competenze operiamo sempre nel rispetto degli obblighi legislativi e normativi per fornire al cliente un servizio a regola d’arte. Attraverso interventi di riqualificazione architettonica e impiantistica su diversi edifici nel campo industriale, civile, pubblico e nei processi produttivi, LC Energia permette ai suoi clienti di ottenere significativi risparmi energetici oltre a una miglior qualità di vita.
                 </Text>
@@ -81,7 +81,7 @@ const AziendaPage = () => {
             viewport={viewportSettings}
             className="text-center max-w-4xl mx-auto mb-12"
           >
-            <Heading2 className="text-center mb-4 font-bold" color="primary">I Nostri Settori Operativi</Heading2>
+            <Heading2 className="text-center mb-4 font-bold text-black-force">I Nostri Settori Operativi</Heading2>
             <Text color="muted" className="leading-relaxed mb-8 mx-auto" justify={true}>
               Il successo di LC Energia deriva dalla corretta applicazione delle conoscenze tecniche e dall&apos;utilizzo razionale delle nuove tecnologie per la produzione di energia e la riduzione dei consumi. La società opera attraverso due principali settori operativi:
             </Text>
@@ -145,7 +145,7 @@ const AziendaPage = () => {
             viewport={viewportSettings}
             className="text-center max-w-4xl mx-auto"
           >
-            <Heading5 color="primary" className="mb-4 font-bold">Partner Affidabile per la Sostenibilità</Heading5>
+            <Heading2 className="text-center mb-4 font-bold text-black-force">Partner Affidabile per la Sostenibilità</Heading2>
             <Text color="muted" size="base" className="leading-relaxed mx-auto" justify={true}>
               LC Energia si impegna a offrire soluzioni su misura per le esigenze specifiche dei clienti, garantendo risultati tangibili attraverso un percorso collaudato che include la diagnosi energetica, la valutazione degli interventi e la stima economica degli investimenti proposti. Grazie a un&apos;approfondita conoscenza del settore e alla competenza tecnica, LC Energia si posiziona come un partner affidabile per il raggiungimento degli obiettivi di efficienza energetica e sostenibilità.
             </Text>
@@ -182,8 +182,8 @@ const AziendaPage = () => {
             viewport={viewportSettings}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <Heading6 color="primary" className="font-bold text-lg">Produzione di energia pulita per salvare l’ambiente</Heading6>
-            <Heading1 className="text-center mt-2 mb-4" color="primary">I motivi per scegliere LC Energia</Heading1>
+            <Heading6 className="font-bold text-lg text-white-force">Produzione di energia pulita per salvare l’ambiente</Heading6>
+            <Heading1 className="text-center mt-2 mb-4 text-white-force">I motivi per scegliere LC Energia</Heading1>
           </motion.div>
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -210,7 +210,7 @@ const AziendaPage = () => {
                         {icon && <FontAwesomeIcon icon={icon} className="text-2xl text-white" />}
                       </div>
                     </motion.div>
-                    <Heading5 className="mb-4 text-gradient-primary" color="primary">{reason.title}</Heading5>
+                    <Heading2 className="mb-4 !text-black">{reason.title}</Heading2>
                     <Text color="muted" justify={false} size="sm">{reason.description}</Text>
                   </TiltCard>
                 </motion.div>
@@ -230,7 +230,7 @@ const AziendaPage = () => {
             viewport={viewportSettings}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <Heading2 className="text-center font-bold text-gradient-combined" color="primary">Collaborazioni</Heading2>
+            <Heading2 className="text-center font-bold !text-black">Collaborazioni</Heading2>
           </motion.div>
           <motion.div
             variants={cardEntrance}
@@ -371,7 +371,7 @@ const AziendaPage = () => {
             viewport={viewportSettings}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <Heading2 className="text-center font-bold text-gradient-combined" color="primary">Membri del Team Esperti</Heading2>
+            <Heading2 className="text-center font-bold !text-black">Membri del Team Esperti</Heading2>
           </motion.div>
           <motion.div
             className="flex flex-wrap justify-center -m-4"
@@ -387,7 +387,7 @@ const AziendaPage = () => {
                 className="w-full sm:w-1/2 md:w-1/3 p-4"
               >
                 <div className="bg-gradient-to-br from-secondary-50 to-white rounded-xl shadow-card p-8 text-center h-full hover-lift hover-shine border border-secondary-100 backdrop-blur-sm">
-                  <Heading5 className="text-gradient-secondary" color="secondary">{member.name}</Heading5>
+                  <Heading2 className="text-gradient-secondary" color="secondary">{member.name}</Heading2>
                   <Text color="muted" justify={false} size="sm">{member.role}</Text>
                 </div>
               </motion.div>
