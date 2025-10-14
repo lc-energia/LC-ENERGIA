@@ -53,9 +53,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth scroll */
+/* Scroll nativo - sin smooth behavior */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Fix for blurry numbers in stats section */

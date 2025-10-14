@@ -1,11 +1,39 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Lenis from '@studio-freight/lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    // Inicializar Lenis para smooth scroll profesional
+    const lenis = new Lenis({
+      duration: 0.3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      wheelMultiplier: 2.5,
+      touchMultiplier: 1.2,
+      infinite: false,
+      smooth: false,
+    });
+
+    // Conectar Lenis con GSAP ScrollTrigger para compatibilidad
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
+    // Actualizar barra de progreso de scroll
     const updateScrollProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -14,9 +42,14 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
     };
 
     window.addEventListener('scroll', updateScrollProgress);
+
+    // Actualizar progreso inicial
     updateScrollProgress();
 
-    return () => window.removeEventListener('scroll', updateScrollProgress);
+    return () => {
+      lenis.destroy();
+      window.removeEventListener('scroll', updateScrollProgress);
+    };
   }, []);
 
   return (

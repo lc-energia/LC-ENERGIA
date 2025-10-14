@@ -36,8 +36,8 @@ const PremiumHero = () => {
               </div>
 
               {/* Title */}
-              <HeroTitle className="mb-8 !text-left text-5xl md:text-6xl lg:text-8xl" color="secondary">
-                Perché scegliere <HighlightText><br></br>LC Energia?</HighlightText>
+              <HeroTitle className="mb-8 !text-left text-5xl md:text-6xl lg:text-8xl">
+                <span className="text-black">Perché scegliere</span> <HighlightText><br></br>LC Energia?</HighlightText>
               </HeroTitle>
 
               {/* Description */}
@@ -61,33 +61,33 @@ const PremiumHero = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <motion.div
-                  className="group relative pl-8 py-0.5 bg-secondary/40 rounded-lg border-l-2 border-secondary/60 hover:border-secondary hover:bg-secondary/50 transition-all duration-500"
-                  whileHover={{ x: 8 }}
+                  className="group relative pl-8 py-3 bg-gradient-to-r from-[#F49918] to-[#c27a12] rounded-lg border-l-4 border-[#ffe3a6] hover:border-[#F49918] hover:from-[#c27a12] hover:to-[#F49918] hover:shadow-lg hover:shadow-[#F49918]/25 hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+                  whileHover={{ x: 8, scale: 1.02 }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-secondary group-hover:bg-secondary/90 group-hover:scale-125 transition-all duration-500 shadow-secondary" />
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-secondary/80 via-secondary/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
-
-                  <Text className="text-gray-700 font-medium leading-tight">
-                    Recepiamo e concretizziamo al meglio le sue richieste
-                  </Text>
+                  {/* Efecto de brillo */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-lg group-hover:scale-150 group-hover:rotate-180 transition-all duration-500"></div>
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-8 bg-gradient-to-b from-white/60 via-white/30 to-transparent opacity-80 group-hover:opacity-100 transition-all duration-500"></div>
+                  <p className="font-body leading-relaxed text-base font-semibold text-white text-left max-w-65ch drop-shadow-sm flex items-center">Recepiamo e concretizziamo al meglio le sue richieste</p>
                 </motion.div>
 
                 <motion.div
-                  className="group relative pl-8 py-0.5 bg-secondary/40 rounded-lg border-l-2 border-secondary/60 hover:border-secondary hover:bg-secondary/50 transition-all duration-500"
-                  whileHover={{ x: 8 }}
+                  className="group relative pl-8 py-3 bg-gradient-to-r from-[#F49918] to-[#c27a12] rounded-lg border-l-4 border-[#ffe3a6] hover:border-[#F49918] hover:from-[#c27a12] hover:to-[#F49918] hover:shadow-lg hover:shadow-[#F49918]/25 hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+                  whileHover={{ x: 8, scale: 1.02 }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
                 >
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-secondary group-hover:bg-secondary/90 group-hover:scale-125 transition-all duration-500 shadow-secondary" />
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-secondary/80 via-secondary/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
-
-                  <Text className="text-gray-700 font-medium leading-tight">
-                    Offriamo la nostra professionalità e disponibilità
-                  </Text>
+                  {/* Efecto de brillo */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-lg group-hover:scale-150 group-hover:rotate-180 transition-all duration-500"></div>
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-8 bg-gradient-to-b from-white/60 via-white/30 to-transparent opacity-80 group-hover:opacity-100 transition-all duration-500"></div>
+                  <p className="font-body leading-relaxed text-base font-semibold text-white text-left max-w-65ch drop-shadow-sm flex items-center">Offriamo la nostra professionalità e disponibilità</p>
                 </motion.div>
               </motion.div>
 

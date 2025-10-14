@@ -256,7 +256,7 @@ const Feature = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gradient-combined mb-4">
-            I Nostri Numeri
+            In Cifre 
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             L&apos;esperienza e i risultati che ci contraddistinguono nel settore dell&apos;energia sostenibile
