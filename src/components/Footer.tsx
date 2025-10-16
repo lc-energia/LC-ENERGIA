@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt, faPhoneAlt, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { Text, Heading5, NavLink } from '@/components/ui/Typography';
 
@@ -53,10 +53,14 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 text-[#F49918] w-4" />
                 <span className="hover:text-secondary transition-colors cursor-pointer">info@lc-energia.it</span>
               </div>
-              <div className="flex items-start text-sm">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-3 mt-0.5 text-[#F49918] w-4" />
-                <span>Via della Valle 39, 20841, Carate Brianza (MB)</span>
-              </div>
+               <div className="flex items-start text-sm">
+                 <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-3 mt-0.5 text-[#F49918] w-4" />
+                 <span>Via della Valle 39, 20841, Carate Brianza (MB)</span>
+               </div>
+               <div className="flex items-center text-sm">
+                 <FontAwesomeIcon icon={faClock} className="mr-3 text-[#F49918] w-4" />
+                 <span>Lun - Ven 8:30-12:30 | 14:00-18:00</span>
+               </div>
             </div>
           </div>
 

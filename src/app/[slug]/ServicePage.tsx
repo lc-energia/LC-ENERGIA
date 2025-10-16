@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faTools, faCertificate, faBolt, faInfoCircle, faChartLine, faEuroSign, faHandsHelping, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
@@ -15,6 +16,14 @@ import { Heading1, Text } from '@/components/ui/Typography';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
+  const iconMap: { [key: string]: any } = {
+    'fa-info-circle': faInfoCircle,
+    'fa-chart-line': faChartLine,
+    'fa-euro-sign': faEuroSign,
+    'fa-hands-helping': faHandsHelping,
+    'fa-check-circle': faCheckCircle,
+  };
+
   const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({
     "Cos'è il contributo PNRR?": true,
     "Perché investire oggi? Come accedere e requisiti": false,
@@ -372,17 +381,54 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
                         <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
                         <p className="text-gray-600 leading-relaxed">{section.content}</p>
-                        {section.list && (
-                          <ul className="space-y-2 mt-4">
-                            {section.list.map((item, j) => (
-                              <li key={j} className="flex items-start">
-                                <FontAwesomeIcon icon={faCheckCircle} className="text-primary mt-1 mr-2 flex-shrink-0" />
-                                <span className="text-sm text-gray-600">{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
+                         {section.list && (
+                           <ul className="space-y-2 mt-4">
+                             {section.list.map((item, j) => (
+                               <li key={j} className="flex items-start">
+                                 <FontAwesomeIcon icon={faCheckCircle} className="text-primary mt-1 mr-2 flex-shrink-0" />
+                                 <span className="text-sm text-gray-600">{item}</span>
+                               </li>
+                             ))}
+                           </ul>
+                         )}
+                         {section.incentives && (
+                           <motion.div
+                             className="grid grid-cols-1 gap-4 mt-6"
+                             variants={staggerContainer}
+                             initial="hidden"
+                             whileInView="visible"
+                             viewport={viewportSettings}
+                           >
+                             {section.incentives.map((incentive, j) => (
+                               <motion.div
+                                 key={j}
+                                 variants={cardEntrance}
+                                 className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-md group"
+                               >
+                                 <h6 className="text-lg font-bold text-primary mb-2 group-hover:text-primary-700 transition-colors">
+                                   {incentive.title}
+                                 </h6>
+                                 <p className="text-gray-600 leading-relaxed mb-3 text-sm">
+                                   {incentive.description}
+                                 </p>
+                                 <Link
+                                   href={incentive.link}
+                                   className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors text-sm group/link"
+                                 >
+                                   Scopri di più
+                                   <motion.div
+                                     className="ml-2"
+                                     animate={{ x: [0, 3, 0] }}
+                                     transition={{ duration: 1.5, repeat: Infinity }}
+                                   >
+                                     →
+                                   </motion.div>
+                                 </Link>
+                               </motion.div>
+                             ))}
+                           </motion.div>
+                         )}
+                       </div>
                     </motion.div>
                   ))}
                 </div>
@@ -1333,13 +1379,50 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       ))}
                     </ul>
                   ) : null}
-                  {section.accordionItems && (
-                    <div className="mt-4">
-                      <InfoAccordion items={section.accordionItems} />
-                    </div>
-                  )}
-                </div>
-              </motion.div>
+                   {section.accordionItems && (
+                     <div className="mt-4">
+                       <InfoAccordion items={section.accordionItems} />
+                     </div>
+                   )}
+                   {section.incentives && (
+                     <motion.div
+                       className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"
+                       variants={staggerContainer}
+                       initial="hidden"
+                       whileInView="visible"
+                       viewport={viewportSettings}
+                     >
+                       {section.incentives.map((incentive, j) => (
+                         <motion.div
+                           key={j}
+                           variants={cardEntrance}
+                           className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-6 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-lg group"
+                         >
+                           <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary-700 transition-colors">
+                             {incentive.title}
+                           </h3>
+                           <p className="text-gray-600 leading-relaxed mb-4">
+                             {incentive.description}
+                           </p>
+                           <Link
+                             href={incentive.link}
+                             className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors group/link"
+                           >
+                             Scopri di più
+                             <motion.div
+                               className="ml-2"
+                               animate={{ x: [0, 5, 0] }}
+                               transition={{ duration: 1.5, repeat: Infinity }}
+                             >
+                               →
+                             </motion.div>
+                           </Link>
+                         </motion.div>
+                       ))}
+                     </motion.div>
+                   )}
+                 </div>
+               </motion.div>
             );
            })
            )}
@@ -1347,16 +1430,16 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
       {service.partners && (
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary-50/30 via-white to-secondary-50/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-<motion.div
-                  className="text-center mb-12"
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <h2 className="text-3xl font-bold text-gradient-combined mb-6">I Nostri Partner</h2>
-                  <p className="text-lg text-gray-600 mt-2 leading-relaxed text-center max-w-3xl mx-auto">Collaboriamo con i migliori marchi del settore</p>
-                </motion.div>
+               <motion.div
+                 className="text-center mb-8"
+                 variants={fadeInUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={viewportSettings}
+               >
+                 <h2 className="text-3xl font-bold text-gradient-combined mb-4">{section.title}</h2>
+                 {section.content && <p className="text-lg text-gray-600 mt-2 leading-relaxed">{section.content}</p>}
+               </motion.div>
             <motion.div
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center"
               variants={staggerContainer}

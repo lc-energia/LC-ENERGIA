@@ -101,15 +101,14 @@ const Services = () => {
       icon: faHandHoldingUsd,
       title: "Contributo PNRR",
       description: "Ottieni il 40% a fondo perduto per impianti fotovoltaici nelle Comunità Energetiche Rinnovabili.",
-      link: "/bandi-e-incentivi/contributo-pnrr",
-      specialBox: "Ottieni il 40% a fondo perduto per il tuo impianto fotovoltaico a Milano, Monza e Brianza con la CER Milano Monza Brianza. La CER Milano Monza Brianza supporta cittadini, aziende e amministrazioni nella transizione energetica, offrendo un servizio specializzato per la diffusione di energia pulita e sostenibile. Grazie alle CER e ai fondi del PNRR dedicati, si apre una nuova opportunità concreta per aziende, enti pubblici e privati nei comuni fino a 50.000 abitanti."
+      link: "/contributo-pnrr"
     },
     {
       filter: "fourth",
       icon: faHandHoldingUsd,
       title: "Conto Termico 3.0",
       description: "Incentivi fino al 65% per la produzione di energia termica da fonti rinnovabili. Fino al 100% in alcuni casi per edifici pubblici e scuole.",
-      link: "/bandi-e-incentivi/conto-termico"
+      link: "/conto-termico"
     }
   ];
 
@@ -239,27 +238,22 @@ const Services = () => {
                          </p>
                        </div>
 
-                       {/* Special Box para información destacada */}
-                       {service.specialBox && (
-                         <motion.div
-                           initial={{ opacity: 0, y: 10 }}
-                           whileInView={{ opacity: 1, y: 0 }}
-                           transition={{ duration: 0.5, delay: 0.2 }}
-                           viewport={{ once: true }}
-                           className="mt-4"
-                         >
-                           <div className="bg-gradient-to-r from-[#F49918] to-[#c27a12] rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
-                             {/* Efecto de brillo */}
-                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                             
-                             <div className="relative z-10">
-                               <div className="text-white/95 leading-relaxed text-sm">
-                                 {service.specialBox}
-                               </div>
-                             </div>
-                           </div>
-                         </motion.div>
-                       )}
+                        {/* Special Box para información destacada */}
+                        {service.specialBox && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="mt-4"
+                          >
+                            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-3 border border-primary/20 backdrop-blur-sm">
+                              <div className="text-primary-700 leading-relaxed text-sm font-medium">
+                                {service.specialBox}
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
                      </div>
 
                     {/* Footer mejorado */}
