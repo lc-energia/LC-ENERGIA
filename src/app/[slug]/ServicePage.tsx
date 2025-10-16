@@ -1,7 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faTools, faCertificate, faBolt, faInfoCircle, faChartLine, faEuroSign, faHandsHelping, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faTools, faCertificate, faInfoCircle, faChartLine, faEuroSign, faHandsHelping, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { type IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { useState } from 'react';
 import ServicePageLayout from '@/components/ServicePageLayout';
 import { motion } from 'framer-motion';
@@ -16,7 +17,7 @@ import { Heading1, Text } from '@/components/ui/Typography';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
-  const iconMap: { [key: string]: any } = {
+  const iconMap: { [key: string]: IconDefinition } = {
     'fa-info-circle': faInfoCircle,
     'fa-chart-line': faChartLine,
     'fa-euro-sign': faEuroSign,
@@ -126,9 +127,9 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     <div className="w-10 h-10 bg-gradient-to-br from-[#F49918] to-[#c27a12] rounded-lg flex items-center justify-center shadow-lg mr-4">
                       <FontAwesomeIcon icon={faInfoCircle} className="text-white text-sm" />
                     </div>
-                    <h5 className="font-bold text-lg mb-0 text-gradient-primary">Come si recupera l'incentivo?</h5>
+                    <h5 className="font-bold text-lg mb-0 text-gradient-primary">Come si recupera l&apos;incentivo?</h5>
                   </div>
-                  <div className="text-sm text-gray-600 space-y-2 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.sections.find(s => s.title === 'Come si recupera l\'incentivo?')?.content }}></div>
+                  <div className="text-sm text-gray-600 space-y-2 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.sections.find(s => s.title === 'Come si recupera l\'incentivo?') ?.content || '' }}></div>
                 </div>
               </motion.div>
             )}
@@ -1437,8 +1438,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                  whileInView="visible"
                  viewport={viewportSettings}
                >
-                 <h2 className="text-3xl font-bold text-gradient-combined mb-4">{section.title}</h2>
-                 {section.content && <p className="text-lg text-gray-600 mt-2 leading-relaxed">{section.content}</p>}
+                 <h2 className="text-3xl font-bold text-gradient-combined mb-4">{service.partnersTitle}</h2>
+                 {service.partnersIntroduction && <p className="text-lg text-gray-600 mt-2 leading-relaxed">{service.partnersIntroduction}</p>}
                </motion.div>
             <motion.div
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center"
