@@ -339,17 +339,15 @@ export const servicesData: { [key: string]: ServiceData } = {
   'contributo-pnrr': {
     title: 'Contributo PNRR',
     breadcrumb: 'Bandi e Incentivi > Contributo PNRR',
-    introduction: `<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#9BBD2D]/20"><div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div><div class="relative z-10"><div class="text-gray-700 leading-relaxed">Ottieni il 40% a fondo perduto per il tuo impianto fotovoltaico a Milano, Monza e Brianza con la CER Milano Monza Brianza. La CER Milano Monza Brianza supporta cittadini, aziende e amministrazioni nella transizione energetica, offrendo un servicio especializado per la diffusione di energia pulita e sostenibile. Grazie alle CER e ai fondi del PNRR dedicati, si apre una nuova opportunità concreta per aziende, enti pubblici e privati nei comuni fino a 50.000 abitanti.</div></div></div>`,
+    introduction: 'Ottieni il 40% a fondo perduto per il tuo impianto fotovoltaico a Milano, Monza e Brianza con la CER Milano Monza Brianza. La CER Milano Monza Brianza supporta cittadini, aziende e amministrazioni nella transizione energetica, offrendo un servizio specializzato per la diffusione di energia pulita e sostenibile. Grazie alle CER e ai fondi del PNRR dedicati, si apre una nuova opportunità concreta per aziende, enti pubblici e privati nei comuni fino a 50.000 abitanti.',
     sections: [
       {
         title: 'Cos\'è il contributo PNRR?',
-        content: 'Il Decreto CACER del MASE, pubblicato il 24 gennaio 2024, ha avviato la procedura per la richiesta di accesso ai contributi del PNRR destinati ai progetti di Comunità Energetiche Rinnovabili (CER) nei piccoli comuni italiani. L\'investimento 1.2 della missione M2C2.1 del PNRR ha infatti previsto uno stanziamento di 2,2 miliardi di euro per favorire la realizzazione di progetti di comunità energetiche rinnovabili nei Comuni con meno di 50.000 abitanti. Tale risorse finanziano fino al 40% dei costi ammissibili, sostenendo in particolare la creazione e lo sviluppo di impianti alimentati da fonti rinnovabili.',
-        accordionItems: [
-          {
-            title: 'Perché investire oggi?',
-            content: 'Per poter accedere al contributo è necessario far parte di una Comunità Energetica Rinnovabile e disporre di un progetto relativo a un impianto di produzione da fonte rinnovabile. L\'impianto deve essere situato in un Comune con popolazione inferiore ai 50.000 abitanti, ed i membri della CER devono essere localizzati all\'interno del perimetro della medesima Cabina Primaria (AT/MT). La richiesta deve essere inviata tramite il portale del GSE.'
-          }
-        ]
+        content: 'Il Decreto CACER del MASE, pubblicato il 24 gennaio 2024, ha avviato la procedura per la richiesta di accesso ai contributi del PNRR destinati ai progetti di Comunità Energetiche Rinnovabili (CER) nei piccoli comuni italiani. L\'investimento 1.2 della missione M2C2.1 del PNRR ha infatti previsto uno stanziamento di 2,2 miliardi di euro per favorire la realizzazione di progetti di comunità energetiche rinnovabili nei Comuni con meno di 50.000 abitanti. Tali risorse finanziano fino al 40% dei costi ammissibili, sostenendo in particolare la creazione e lo sviluppo di impianti alimentati da fonti rinnovabili.'
+      },
+      {
+        title: 'Perché investire oggi? Come accedere e requisiti',
+        content: 'Per poter accedere al contributo è necessario far parte di una Comunità Energetica Rinnovabile e disporre di un progetto relativo a un impianto di produzione da fonte rinnovabile. L\'impianto deve essere situato in un Comune con popolazione inferiore ai 50.000 abitanti, ed i membri della CER devono essere localizzati all\'interno del perimetro della medesima Cabina Primaria (AT/MT). La richiesta deve essere inviata tramite il portale del GSE.'
       },
       {
         title: 'Cosa copre il PNRR?',
@@ -360,29 +358,17 @@ export const servicesData: { [key: string]: ServiceData } = {
           'Le opere edili necessarie all\'intervento',
           'Il collegamento alla rete elettrica nazionale',
           'L\'acquisto e l\'installazione di eventuali macchinari, impianti e attrezzature hardware e software'
-        ],
-        accordionItems: [
-          {
-            title: 'Massimali di finanziamento',
-            content: 'Le spese ammissibili sono riconosciute fino al 40% con massimali definiti: 1.500 €/kW per impianti fino a 20 kW, 1.200 €/kW per impianti da 21 a 200 kW, 1.100 €/kW per impianti da 201 a 600 kW, 1.050 €/kW per impianti fino a 1.000 kW.'
-          }
         ]
       },
       {
-        title: 'Il nostro supporto',
-        content: 'LC Energia mette a disposizione un team specializzato per seguire ogni fase:',
+        title: 'Il nostro supporto:',
+        content: 'LC Energia mette a disposizione un team specializzato per seguire ogni fase:<br><br>Grazie alle nostre competenze ed alle partnership sviluppate negli anni, offriamo un accompagnamento completo per rendere semplice ed efficace il percorso verso l\'energia rinnovabile.',
         list: [
-          'Chiarimenti sul funzionamento delle CER e sugli incentivi disponibili',
-          'Dettagli sui ruoli all\'interno della comunità, modalità di adesione, e benefici',
-          'Richiesta di accesso al contributo PNRR',
-          'Progettazione e realizzazione dell\'impianto fotovoltaico',
+          'Chiarimenti sul funzionamento delle CER e sugli incentivi disponibili.',
+          'Dettagli sui ruoli all\'interno della comunità, modalità di adesione, e benefici.',
+          'Richiesta di accesso al contributo PNRR.',
+          'Progettazione e realizzazione dell\'impianto fotovoltaico.',
           'Gestione e abilitazione della comunità energetica'
-        ],
-        accordionItems: [
-          {
-            title: 'Perché scegliere LC Energia',
-            content: 'Grazie alle nostre competenze ed alle partnership sviluppate negli anni, offriamo un accompagnamento completo per rendere semplice ed efficace il percorso verso l\'energia rinnovabile.'
-          }
         ]
       }
     ]
@@ -390,50 +376,27 @@ export const servicesData: { [key: string]: ServiceData } = {
   'conto-termico': {
     title: 'Conto Termico 2.0',
     breadcrumb: 'Bandi e Incentivi > Conto Termico',
-    introduction: 'Il Conto Termico promuove gli interventi volti alla produzione di energia termica da fonti rinnovabili mediante impianti di piccole dimensioni. Grazie a questo meccanismo di incentivazione è possibile riqualificare gli edifici e migliorare le prestazioni energetiche, riducendo così i costi dei consumi. Sono previsti incentivi per gli interventi di efficientamento energetico che comportano la sostituzione di vecchi impianti con apparecchi di nuova generazione, caratterizzati da elevati rendimenti e basse emissioni di CO₂.',
+    introduction: 'Il Conto Termico promuove gli interventi volti alla produzione di energia termica da fonti rinnovabili mediante impianti di piccole dimensioni. Grazie a questo meccanismo di incentivazione è possibile riqualificare gli edifici e migliorare le prestazioni energetiche, riducendo così i costi dei consumi. Sono previsti incentivi per gli interventi di efficientamento energetico che comportano la sostituzione di vecchi impianti con apparecchi di nuova generazione, caratterizzati da elevati rendimenti e basse emissioni di CO₂',
     sections: [
       {
         title: 'Come si recupera l\'incentivo?',
-        content: 'Dopo la conclusione dell\'intervento potrai procedere all\'invio della tua pratica al GSE che entro qualche mese ti accrediterà il contributo sul tuo conto corrente. Il limite massimo per l\'erogazione degli incentivi in un\'unica rata è di 5.000 euro.',
+        content: 'Dopo la conclusione dell\'intervento potrai procedere all\'invio della tua pratica al GSE che entro qualche mese ti accrediterà il contributo sul tuo conto corrente. Il limite massimo per l\'erogazione degli incentivi in un\'unica rata è di 5.000 euro. Conto Termico 2.0',
       },
       {
-        title: 'Conto Termico 3.0: cos\'è, come funziona e come accedere agli incentivi',
-        content: 'Il 5 agosto 2025 la Conferenza Unificata ha approvato il Conto Termico 3.0, che aggiorna e sostituisce il precedente Conto Termico 2.0. L\'obiettivo principale è quello di ampliare l\'accesso agli incentivi e adeguare massimali, tipologie di intervento e regole operative ai costi e alle tecnologie attuali. Il Conto Termico 3.0 costituisce una nuova opportunità di finanziamento per migliorare l\'efficienza energetica degli edifici e promuovere la produzione di energia termica da fonti rinnovabili.',
-        accordionItems: [
-          {
-            title: 'Nuove opportunità',
-            content: 'Per imprese, enti pubblici e cittadini, questa misura offre la possibilità di realizzare interventi concreti volti alla riduzione dei consumi energetici e dei relativi costi.'
-          }
-        ]
+        title: 'Cos\'è, come funziona e come accedere agli incentivi',
+        content: 'Il 5 agosto 2025 la Conferenza Unificata ha approvato il Conto Termico 3.0, che aggiorna e sostituisce il precedente Conto Termico 2.0. L\'obiettivo principale è quello di ampliare l\'accesso agli incentivi e adeguare massimali, tipologie di intervento e regole operative ai costi e alle tecnologie attuali. Il Conto Termico 3.0 costituisce una nuova opportunità di finanziamento per migliorare l\'efficienza energetica degli edifici e promuovere la produzione di energia termica da fonti rinnovabili. Per imprese, enti pubblici e cittadini, questa misura offre la possibilità di realizzare interventi concreti volti alla riduzione dei consumi energetici e dei relativi costi.',
       },
       {
         title: 'Chi può beneficiarne',
-        content: 'Il Conto Termico 3.0 amplia significativamente la categoria dei beneficiari, includendo anche soggetti che in passato non avevano accesso a questo tipo di incentivo.',
-        list: [
-          'Pubbliche Amministrazioni',
-          'Privati (anche per edifici non residenziali: uffici, hotel, negozi)',
-          'Enti del Terzo Settore che non svolgono attività economiche',
-          'Comunità energetiche rinnovabili (CER)',
-          'Configurazioni di autoconsumo collettivo'
-        ]
+        content: 'Il Conto Termico 3.0 amplia significativamente la categoria dei beneficiari, includendo anche soggetti che in passato non avevano accesso a questo tipo di incentivo. Ne possono beneficiare Pubbliche Amministrazioni, Privati (anche per edifici non residenziali: uffici, hotel, negozi), Enti del Terzo Settore che non svolgono attività economiche, Comunità energetiche rinnovabili (CER), Configurazioni di autoconsumo collettivo.',
       },
       {
         title: 'Tipologie di interventi',
-        content: 'Il meccanismo incentiva due principali categorie di lavori:',
-        list: [
-          'Interventi per l\'efficienza energetica negli edifici, finalizzati a ridurre i consumi e migliorare le prestazioni complessive',
-          'Interventi per la produzione di energia termica da fonti rinnovabili, attraverso impianti e soluzioni che riducono l\'uso di combustibili fossili e favoriscono tecnologie pulite'
-        ]
+        content: 'Il meccanismo incentiva due principali categorie di lavori: Interventi per l\'efficienza energetica negli edifici, finalizzati a ridurre i consumi e migliorare le prestazioni complessive. Interventi per la produzione di energia termica da fonti rinnovabili, attraverso impianti e soluzioni che riducono l\'uso di combustibili fossili e favoriscono tecnologie pulite.',
       },
       {
         title: 'Contributo e modalità di erogazione',
-        content: 'Il Conto Termico 3.0 prevede un incentivo a fondo perduto, erogato direttamente sul conto corrente del beneficiario come rimborso delle spese sostenute per gli interventi ammessi.',
-        accordionItems: [
-          {
-            title: 'Percentuali di copertura',
-            content: 'Con il nuovo Conto Termico 3.0 gli incentivi coprono fino al 65% della spesa sostenuta, con possibilità di arrivare al 100% nei seguenti casi: Edifici situati in Comuni con meno di 15.000 abitanti utilizzati direttamente dalle amministrazioni, Edifici pubblici adibiti a uso scolastico, Strutture ospedaliere del Servizio Sanitario Nazionale.'
-          }
-        ]
+        content: 'Il Conto Termico 3.0 prevede un incentivo a fondo perduto, erogato direttamente sul conto corrente del beneficiario come rimborso delle spese sostenute per gli interventi ammessi. Con il nuovo Conto Termico 3.0 gli incentivi coprono fino al 65% della spesa sostenuta, con possibilità di arrivare al 100% nei seguenti casi: Edifici situati in Comuni con meno di 15.000 abitanti utilizzati direttamente dalle amministrazioni Edifici pubblici adibiti a uso scolastico Strutture ospedaliere del Servizio Sanitario Nazionale',
       },
       {
         title: 'Requisiti per accedere al Conto Termico 3.0',

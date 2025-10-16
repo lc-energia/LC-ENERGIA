@@ -57,11 +57,11 @@ const AnimatedCounter: React.FC<{
   }, [isVisible, startCounting]);
 
   return (
-    <div ref={containerRef} className="text-5xl font-bold mb-2 relative">
+    <div ref={containerRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 relative">
       <div className="flex items-center justify-center">
         <motion.span
           className="font-black text-gradient-primary stats-number"
-          style={{ fontSize: '3rem' }}
+          style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
         >
@@ -69,7 +69,7 @@ const AnimatedCounter: React.FC<{
         </motion.span>
         <motion.span
           className="font-black ml-1 text-gradient-secondary stats-number"
-          style={{ fontSize: '3rem' }}
+          style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 2, repeat: Infinity, repeatDelay: 1, delay: 0.2 }}
         >
@@ -264,11 +264,11 @@ const Feature = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
           variants={staggerContainer}
-          initial="hidden"
+          initial="visible"
           whileInView="visible"
-          viewport={viewportSettings}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {stats.map((stat, index) => (
             <StatCardWithDescription

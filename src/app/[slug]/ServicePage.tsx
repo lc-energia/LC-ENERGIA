@@ -1,19 +1,34 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faTools, faCertificate, faBolt } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faTools, faCertificate, faBolt, faInfoCircle, faChartLine, faEuroSign, faHandsHelping, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import ServicePageLayout from '@/components/ServicePageLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ServiceData } from '@/data/services-data';
 import FeatureCard from '@/components/FeatureCard';
 import FaqAccordion from '@/components/FaqAccordion';
-import SimpleTextCard from '@/components/SimpleTextCard';
+import AnimatedTextCycle from '@/components/AnimatedTextCycle';
 import InfoAccordion from '@/components/InfoAccordion';
 import ImageCarousel from '@/components/ImageCarousel';
 import { Heading1, Text } from '@/components/ui/Typography';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
+  const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({
+    "Cos'è il contributo PNRR?": true,
+    "Perché investire oggi? Come accedere e requisiti": false,
+    "Cosa copre il PNRR?": false,
+    "Il nostro supporto:": false
+  });
+
+  const toggleSection = (sectionTitle: string) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionTitle]: !prev[sectionTitle]
+    }));
+  };
+
   return (
     <ServicePageLayout title={service.title}>
       <motion.div
@@ -39,20 +54,87 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
          ) : slug === 'impianti-geotermici' ? (
           null // No mostrar introducción para impianti-geotermici, se maneja internamente
         ) : slug === 'contributo-pnrr' ? (
-          <motion.div
-            className="mb-8"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportSettings}
-          >
-            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#9BBD2D]/20">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              <div className="relative z-10">
-                <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
+            <motion.div
+              className="lg:col-span-1"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+            >
+              <Image src="/img/contributto.jpg" alt="Contributo PNRR" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+            </motion.div>
+            <motion.div
+              className="lg:col-span-1"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+            >
+              <div className="text-gray-700 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+            </motion.div>
+          </div>
+        ) : slug === 'conto-termico' ? (
+          <div className="w-full">
+            {/* Título Conto Termico 2.0 */}
+            <motion.div
+              className="mb-8"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+            >
+              <h2 className="text-3xl font-bold text-gradient-combined mb-4">Conto Termico 2.0</h2>
+            </motion.div>
+
+            {/* Contenido Conto Termico 2.0 */}
+            <motion.div
+              className="mb-12"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+            >
+              <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#F49918]/20">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F49918]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <div className="relative z-10">
+                  <div className="text-gray-700 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Subsección Come si recupera l'incentivo? (Conto Termico 2.0) */}
+            {service.sections.find(s => s.title === 'Come si recupera l\'incentivo?') && (
+              <motion.div
+                className="w-full mb-12"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportSettings}
+              >
+                <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-6 h-full border border-[#F49918]/20 transition-smooth">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#F49918] to-[#c27a12] rounded-lg flex items-center justify-center shadow-lg mr-4">
+                      <FontAwesomeIcon icon={faInfoCircle} className="text-white text-sm" />
+                    </div>
+                    <h5 className="font-bold text-lg mb-0 text-gradient-primary">Come si recupera l'incentivo?</h5>
+                  </div>
+                  <div className="text-sm text-gray-600 space-y-2 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.sections.find(s => s.title === 'Come si recupera l\'incentivo?')?.content }}></div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Título Conto Termico 3.0 */}
+            <motion.div
+              className="mb-8"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+            >
+              <h2 className="text-3xl font-bold text-gradient-combined mb-4">Conto Termico 3.0</h2>
+            </motion.div>
+          </div>
         ) : slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
           null // No mostrar introducción para contabilizzazione-calore, se maneja internamente
         ) : slug === 'riqualificazione-di-centrali-termiche-esistenti' ? (
@@ -70,10 +152,9 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               {/* Efecto de brillo */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-4">Stazioni di Ricarica</h3>
-                <div className="text-white/95 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
-              </div>
+               <div className="relative z-10">
+                 <div className="text-white/95 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+               </div>
             </div>
           </motion.div>
         ) : (
@@ -82,55 +163,45 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
       </motion.div>
 
       {service.mainFeatures && (
-        <motion.div
-          className="max-w-6xl mx-auto"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {service.mainFeatures.map((feature, i) => (
-            <SimpleTextCard key={i} feature={feature} i={i} />
-          ))}
-          </div>
+        <motion.div className="max-w-4xl mx-auto text-center" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportSettings}>
+          <AnimatedTextCycle texts={service.mainFeatures.map(f => f.text)} />
         </motion.div>
       )}
 
-      {slug === 'impianti-fotovoltaici' && (
-        <div className="py-12 sm:py-16 bg-gradient-to-br from-primary-50/30 via-white to-secondary-50/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                className="lg:col-span-1"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <p className="text-xl text-gradient-combined font-bold leading-relaxed">
-                  Grazie alla comunità energetica è possibile ricevere un incentivo per l&apos;energia immessa in rete e consumata all&apos;interno della Comunità Energetica Rinnovabile.
-                </p>
-              </motion.div>
-              <motion.div
-                className="lg:col-span-1"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <ImageCarousel images={[
-                  '/img/volta1.JPEG',
-                  '/img/volta5.JPEG',
-                  '/img/volta7.JPEG'
-                ]} />
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      )}
+       {slug === 'impianti-fotovoltaici' && (
+         <div className="py-12 sm:py-16 bg-gradient-to-br from-primary-50/30 via-white to-secondary-50/30">
+           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+               <motion.div
+                 className="lg:col-span-1"
+                 variants={fadeInUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={viewportSettings}
+               >
+                 <p className="text-xl text-gradient-combined font-bold leading-relaxed">
+                   Grazie alla comunità energetica è possibile ricevere un incentivo per l&apos;energia immessa in rete e consumata all&apos;interno della Comunità Energetica Rinnovabile.
+                 </p>
+               </motion.div>
+               <motion.div
+                 className="lg:col-span-1"
+                 variants={fadeInUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={viewportSettings}
+               >
+                 <ImageCarousel images={[
+                   '/img/volta1.JPEG',
+                   '/img/volta5.JPEG',
+                   '/img/volta7.JPEG'
+                 ]} />
+               </motion.div>
+             </div>
+           </div>
+         </div>
+       )}
 
-      {slug === 'stazioni-di-ricarica' && (
+       {slug === 'stazioni-di-ricarica' && (
         <motion.div
           className="text-center my-5"
           variants={fadeInUp}
@@ -645,19 +716,26 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           })()
         ) : slug === 'progettazione-e-consulenza-tecnica' ? (
           <div className="w-full max-w-6xl mx-auto py-4">
-            {/* Introducción principal */}
-            <section className="mb-6 text-center">
-              <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  Nella realizzazione di opere impiantistiche vi è la necessità di gestire le diverse fasi operative in modo da coordinare lo svolgimento dei lavori e garantire la funzionalità del prodotto finale. <br></br><br></br> LC Energia offre soluzioni integrate per la progettazione impiantistica civile e industriale, combinando esperienza tecnica e innovazione tecnologica.
-                </p>
-              </motion.div>
-            </section>
+             {/* Introducción principal */}
+             <section className="mb-6 text-center">
+               <motion.div
+                 variants={fadeInUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={viewportSettings}
+               >
+                 <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#F49918]/20 max-w-4xl mx-auto">
+                   {/* Efecto de brillo */}
+                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F49918]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+
+                   <div className="relative z-10">
+                     <p className="text-lg text-gray-600 leading-relaxed text-justify">
+                       Nella realizzazione di opere impiantistiche vi è la necessità di gestire le diverse fasi operative in modo da coordinare lo svolgimento dei lavori e garantire la funzionalità del prodotto finale. <br></br><br></br> LC Energia offre soluzioni integrate per la progettazione impiantistica civile e industriale, combinando esperienza tecnica e innovazione tecnologica.
+                     </p>
+                   </div>
+                 </div>
+               </motion.div>
+             </section>
 
             {/* Servicios principales - Diseño Vertical LC Energia */}
             <section className="mb-8">
@@ -708,7 +786,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
-                          <Text color="white" className="font-medium leading-tight text-left">{item}</Text>
+                           <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
                         </motion.div>
                       ))}
                     </div>
@@ -755,7 +833,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
                           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
-                          <Text color="white" className="font-medium leading-tight text-left">{item}</Text>
+                           <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
                         </motion.div>
                       ))}
                     </div>
@@ -796,7 +874,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                             <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
                             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
-                          <Text color="white" className="font-medium leading-tight text-left">{item}</Text>
+                           <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
                           </motion.div>
                         ))}
                       </div>
@@ -806,24 +884,24 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               </motion.div>
             </section>
 
-            {/* Impianti Speciali */}
-            <section className="mb-12">
-              <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <div className="text-center mb-8">
-                  <motion.div
-                    variants={iconPop}
-                    initial="hidden"
-                    whileInView="visible"
-                  >
-                    <FontAwesomeIcon icon={faTools} className="fa-3x text-secondary mb-4" />
-                  </motion.div>
-                  <Heading1 color="primary" className="font-bold text-center">Impianti Speciali</Heading1>
-                </div>
+             {/* Impianti Speciali */}
+             <section className="mb-12">
+               <motion.div
+                 variants={fadeInUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={viewportSettings}
+               >
+                 <div className="text-center mb-8">
+                   <motion.div
+                     variants={iconPop}
+                     initial="hidden"
+                     whileInView="visible"
+                   >
+                     <FontAwesomeIcon icon={faTools} className="fa-3x text-secondary mb-4" />
+                   </motion.div>
+                   <Heading1 color="primary" className="font-bold text-center">Impianti Speciali</Heading1>
+                 </div>
                 <motion.div
                   className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto"
                   variants={staggerContainer}
@@ -861,54 +939,33 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               </motion.div>
             </section>
 
-            {/* Collaudi e Certificazioni */}
-            <section>
-              <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <div className="text-center">
-                  <motion.div
-                    variants={iconPop}
-                    initial="hidden"
-                    whileInView="visible"
-                  >
-                    <FontAwesomeIcon icon={faCertificate} className="fa-3x text-secondary mb-4" />
-                  </motion.div>
-                  <Heading1 color="primary" className="font-bold text-center mb-4">Collaudi e certificazioni</Heading1>
-                  <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Collaudi e start-up degli impianti meccanici ed elettrici civili ed industriali. Redazione di Dichiarazioni di rispondenza per impianti antecedenti il D.M. 37/08.
-                  </p>
-                </div>
-              </motion.div>
-            </section>
+             {/* Collaudi e Certificazioni */}
+             <section>
+               <motion.div
+                 variants={fadeInUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={viewportSettings}
+               >
+                 <div className="text-center">
+                   <motion.div
+                     variants={iconPop}
+                     initial="hidden"
+                     whileInView="visible"
+                   >
+                     <FontAwesomeIcon icon={faCertificate} className="fa-3x text-secondary mb-4" />
+                   </motion.div>
+                   <Heading1 color="primary" className="font-bold text-center mb-4">Collaudi e certificazioni</Heading1>
+                   <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed text-justify">
+                     Collaudi e start-up degli impianti meccanici ed elettrici civili ed industriali. Redazione di Dichiarazioni di rispondenza per impianti antecedenti il D.M. 37/08.
+                   </p>
+                 </div>
+               </motion.div>
+             </section>
           </div>
-        ) : slug === 'impianti-fotovoltaici' ? (
-          <>
-            {service.specialBox && (
-              <motion.div
-                className="mb-8"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <div className="bg-gradient-to-r from-[#F49918] to-[#c27a12] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
-                  {/* Efecto de brillo */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-bold text-white mb-4">Stazioni di Ricarica</h3>
-                    <div className="text-white/95 leading-relaxed">{service.specialBox}</div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-            <InfoAccordion items={service.sections} image="/img/fotovoltaico.png" />
-          </>
-        ) : (
+         ) : slug === 'impianti-fotovoltaici' ? (
+           <InfoAccordion items={service.sections} image="/img/fotovoltaico.png" />
+         ) : (
           service.sections.map((section, i) => {
             if (section.modes || section.features) {
               const items = section.modes || section.features;
@@ -985,16 +1042,11 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#F49918]/10 to-transparent rounded-full blur-3xl"></div>
                     <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-2xl"></div>
                     
-                    <div className="relative z-10 p-8 lg:p-12">
-                      {/* Header con icono */}
-                      <div className="flex items-center mb-8">
-                        <div className="w-20 h-20 bg-gradient-to-br from-[#F49918] to-[#c27a12] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 mr-6">
-                          <FontAwesomeIcon icon={faBolt} className="text-white text-3xl" />
-                        </div>
-                        <div>
-                          <h2 className="text-3xl font-bold text-gray-800">{section.title}</h2>
-                        </div>
-                      </div>
+                     <div className="relative z-10 p-6 lg:p-8">
+                       {/* Header sin icono */}
+                       <div className="mb-6">
+                         <h2 className="text-2xl font-bold text-gray-800 text-center">{section.title}</h2>
+                       </div>
                       
                       {/* Contenido con mejor formato */}
                       <div className="prose prose-lg max-w-none">
@@ -1004,6 +1056,246 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       </div>
                       
                       
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            }
+
+            // Diseño especial para las secciones de Conto Termico - Con imagen en primera sección
+            if (slug === 'conto-termico' && section.title === 'Cos\'è, come funziona e come accedere agli incentivi') {
+              return (
+                <motion.div
+                  key={i}
+                  className="w-full mb-8"
+                  variants={cardEntrance}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportSettings}
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <motion.div
+                      className="lg:col-span-1"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={viewportSettings}
+                    >
+                      <Image src="/img/conto termicp.png" alt="Conto Termico 3.0" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                    </motion.div>
+                    <motion.div
+                      className="lg:col-span-1"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={viewportSettings}
+                    >
+                      <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
+                        <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
+                        <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            }
+
+            // Skip Come si recupera l'incentivo? as it's rendered manually above
+            if (slug === 'conto-termico' && section.title === 'Come si recupera l\'incentivo?') {
+              return null;
+            }
+
+            // Diseño especial para Conto Termico - Sección con imagen
+            if (slug === 'conto-termico' && section.title === 'Cos\'è, come funziona e come accedere agli incentivi') {
+              return (
+                <motion.div
+                  key={i}
+                  className="w-full mb-8"
+                  variants={cardEntrance}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportSettings}
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <motion.div
+                      className="lg:col-span-1"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={viewportSettings}
+                    >
+                      <Image src="/img/conto termicp.png" alt="Conto Termico 3.0" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                    </motion.div>
+                    <motion.div
+                      className="lg:col-span-1"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={viewportSettings}
+                    >
+                      <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
+                        <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
+                        <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            }
+
+            // Grid 2x2 para las secciones de Conto Termico 3.0 - se renderiza cuando se llega a la última sección
+            if (slug === 'conto-termico' && section.title === 'Requisiti per accedere al Conto Termico 3.0') {
+              const contoTermico3Sections = service.sections.filter(s =>
+                s.title !== 'Come si recupera l\'incentivo?' &&
+                s.title !== 'Cos\'è, come funziona e come accedere agli incentivi'
+              );
+
+              return (
+                <motion.div
+                  key={i}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full"
+                  variants={staggerContainer}
+                  initial="visible"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
+                >
+                  {contoTermico3Sections.map((sectionItem, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardEntrance}
+                      className="bg-white rounded-xl shadow-card hover-lift hover-shine p-6 h-full border border-[#9BBD2D]/20 transition-smooth"
+                    >
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-gradient-to-br from-[#9BBD2D] to-[#7a9a1f] rounded-lg flex items-center justify-center shadow-lg mr-4">
+                          <FontAwesomeIcon icon={faCheckCircle} className="text-white text-sm" />
+                        </div>
+                        <h5 className="font-bold text-lg mb-0 text-gradient-primary">{sectionItem.title}</h5>
+                      </div>
+                      <div className="text-sm text-gray-600 space-y-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: sectionItem.content }}></div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              );
+            }
+
+            // Skip other Conto Termico 3.0 sections as they're rendered in the grid above
+            if (slug === 'conto-termico' && section.title !== 'Cos\'è, come funziona e come accedere agli incentivi' && section.title !== 'Requisiti per accedere al Conto Termico 3.0') {
+              return null;
+            }
+
+
+
+            // Diseño especial para las secciones de Contributo PNRR - Accordion
+             if (slug === 'contributo-pnrr') {
+              const sectionIcons = {
+                "Cos'è il contributo PNRR?": 'fa-info-circle',
+                "Perché investire oggi? Come accedere e requisiti": 'fa-chart-line',
+                "Cosa copre il PNRR?": 'fa-euro-sign',
+                "Il nostro supporto:": 'fa-hands-helping'
+              };
+
+              const currentIcon = sectionIcons[section.title as keyof typeof sectionIcons] || 'fa-info-circle';
+              const isExpanded = expandedSections[section.title] || false;
+
+              return (
+                <motion.div
+                  key={i}
+                  className="w-full mb-4"
+                  variants={cardEntrance}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportSettings}
+                >
+                  <div className="bg-gradient-to-br from-white via-gray-50 to-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 relative group">
+                    {/* Efectos decorativos */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#F49918]/10 to-transparent rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-2xl"></div>
+
+                    <div className="relative z-10">
+                      {/* Header clickeable */}
+                      <div
+                        className="p-3 lg:p-4 cursor-pointer hover:bg-gray-50/50 transition-colors"
+                        onClick={() => toggleSection(section.title)}
+                      >
+                        <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-gradient-to-br from-[#F49918] to-[#c27a12] rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 mr-2">
+                            <FontAwesomeIcon icon={iconMap[currentIcon] || faCheckCircle} className="text-white text-sm" />
+                          </div>
+                           <h2 className="text-base font-bold text-gray-800">{section.title}</h2>
+                        </div>
+                          <div className={`text-[#F49918] transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                            <FontAwesomeIcon icon={faChevronDown} className="text-lg" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Contenido expandible */}
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: isExpanded ? 'auto' : 0,
+                          opacity: isExpanded ? 1 : 0
+                        }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-4 lg:px-6 pb-4 lg:pb-6">
+                          <div className="prose prose-lg max-w-none">
+                            {/* Mostrar contenido para todas las secciones */}
+                             <div className="text-sm text-gray-700 leading-relaxed space-y-3 mb-4" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+
+                            {/* Lista especial para secciones con listas */}
+                            {section.list && (
+                              <div className="bg-white rounded-lg p-4 border border-gray-200">
+                                {section.title === 'Cosa copre il PNRR?' && (
+                                   <p className="font-semibold text-sm mb-3 text-black">Rientrano nell&apos;incentivo in particolare:</p>
+                                )}
+                                {section.title === 'Il nostro supporto:' && (
+                                   <p className="text-sm text-black leading-relaxed mb-3 font-semibold" dangerouslySetInnerHTML={{ __html: section.content.split('<br><br>')[0] }}></p>
+                                )}
+                                <ul className="space-y-2">
+                                  {section.list.map((item, j) => (
+                                    <li key={j} className="flex items-start group/item">
+                                      <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-br from-[#F49918] to-[#c27a12] rounded-full flex items-center justify-center mr-2 mt-0.5 group-hover/item:scale-110 transition-transform">
+                                        <FontAwesomeIcon icon={faCheckCircle} className="text-white text-xs" />
+                                      </div>
+                                      <span className="text-xs text-gray-700 leading-relaxed">{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                                {section.title === 'Cosa copre il PNRR?' && (
+                                  <div className="mt-4 pt-3 border-t border-gray-200">
+                                     <div className="text-sm text-black leading-relaxed mb-3 font-semibold">
+                                       Le spese ammissibili sono riconosciute fino al 40% con massimali definiti:
+                                     </div>
+                                    <ul className="space-y-2">
+                                      {[
+                                        '1.500 €/kW per impianti fino a 20 kW',
+                                        '1.200 €/kW per impianti da 21 a 200 kW',
+                                        '1.100 €/kW per impianti da 201 a 600 kW',
+                                        '1.050 €/kW per impianti fino a 1.000 kW'
+                                      ].map((item, j) => (
+                                        <li key={j} className="flex items-start group/item">
+                                          <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-br from-[#F49918] to-[#c27a12] rounded-full flex items-center justify-center mr-2 mt-0.5 group-hover/item:scale-110 transition-transform">
+                                            <FontAwesomeIcon icon={faCheckCircle} className="text-white text-xs" />
+                                          </div>
+                                          <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                                {section.title === 'Il nostro supporto:' && (
+                                  <div className="mt-4 pt-3 border-t border-gray-200">
+                                     <p className="text-sm text-black leading-relaxed font-semibold" dangerouslySetInnerHTML={{ __html: section.content.split('<br><br>')[1] }}></p>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>
@@ -1031,7 +1323,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     </div>
                   </div>
                   <div className="text-sm text-gray-600 space-y-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
-                  {section.list && (
+                  {section.list ? (
                     <ul className="space-y-2 mt-4">
                       {section.list.map((item, j) => (
                         <li key={j} className="flex items-start">
@@ -1040,7 +1332,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                         </li>
                       ))}
                     </ul>
-                  )}
+                  ) : null}
                   {section.accordionItems && (
                     <div className="mt-4">
                       <InfoAccordion items={section.accordionItems} />
@@ -1063,7 +1355,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   viewport={viewportSettings}
                 >
                   <h2 className="text-3xl font-bold text-gradient-combined mb-6">I Nostri Partner</h2>
-                  <p className="text-lg text-gray-600 mt-2 leading-relaxed">Collaboriamo con i migliori marchi del settore</p>
+                  <p className="text-lg text-gray-600 mt-2 leading-relaxed text-center max-w-3xl mx-auto">Collaboriamo con i migliori marchi del settore</p>
                 </motion.div>
             <motion.div
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center"
