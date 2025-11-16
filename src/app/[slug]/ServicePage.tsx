@@ -15,6 +15,13 @@ import InfoAccordion from '@/components/InfoAccordion';
 import ImageCarousel from '@/components/ImageCarousel';
 import { Heading1, Text } from '@/components/ui/Typography';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
+import ServiceSchema from '@/components/seo/ServiceSchema';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+// Helper para limpiar HTML
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
 
 const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) => {
   const iconMap: { [key: string]: IconDefinition } = {
@@ -39,8 +46,24 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
     }));
   };
 
+  // Preparar datos para schemas SEO
+  const cleanDescription = stripHtml(service.introduction).substring(0, 160);
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://www.lcenergia.it' },
+    { name: service.breadcrumb, url: `https://www.lcenergia.it/${slug}` }
+  ];
+
   return (
-    <ServicePageLayout title={service.title}>
+    <>
+      {/* SEO: Structured Data (JSON-LD) */}
+      <ServiceSchema
+        name={service.title}
+        description={cleanDescription}
+        slug={slug}
+      />
+      <BreadcrumbSchema items={breadcrumbItems} />
+
+      <ServicePageLayout title={service.title}>
       <motion.div
         className="text-center mx-auto mb-5"
         variants={fadeInUp}
@@ -1464,6 +1487,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
         </div>
       )}
     </ServicePageLayout>
+    </>
   );
 };
 

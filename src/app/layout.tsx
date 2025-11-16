@@ -6,6 +6,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SmoothScroll from '@/components/SmoothScroll';
 import LoadingScreenWrapper from '@/components/LoadingScreenWrapper';
+import OrganizationSchema from '@/components/seo/OrganizationSchema';
+import SkipToContent from '@/components/accessibility/SkipToContent';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -31,12 +33,16 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${poppins.variable} ${openSans.variable} font-body`}>
       <head>
+        <OrganizationSchema />
       </head>
       <body>
+        <SkipToContent />
         <LoadingScreenWrapper>
           <SmoothScroll>
             <Navbar />
-            {children}
+            <main id="main-content">
+              {children}
+            </main>
             <Footer />
           </SmoothScroll>
         </LoadingScreenWrapper>
