@@ -15,7 +15,7 @@ interface ServiceErrorFallbackProps {
   resetError?: () => void;
 }
 
-export default function ServiceErrorFallback({ error, resetError }: ServiceErrorFallbackProps) {
+export default function ServiceErrorFallback({ error: _error, resetError }: ServiceErrorFallbackProps) {
   return (
     <div className="min-h-[60vh] flex items-center justify-center px-4">
       <motion.div

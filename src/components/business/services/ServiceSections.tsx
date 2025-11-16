@@ -7,7 +7,6 @@
 import { motion } from 'framer-motion';
 import { Section } from '@/data/services-data';
 import FeatureCard from '@/components/business/FeatureCard';
-import InfoAccordion from '@/components/business/InfoAccordion';
 import FaqAccordion from '@/components/business/FaqAccordion';
 import { staggerContainer, cardEntrance, fadeInUp, viewportSettings } from '@/lib/animation-variants';
 import Link from 'next/link';

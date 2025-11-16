@@ -7,7 +7,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ServiceData } from '@/data/services-data';
-import { fadeInUp, staggerContainer, cardEntrance, viewportSettings } from '@/lib/animation-variants';
+import { fadeInUp, cardEntrance, viewportSettings } from '@/lib/animation-variants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
