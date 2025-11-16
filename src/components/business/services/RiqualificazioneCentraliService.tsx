@@ -8,7 +8,7 @@
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { ServiceData } from '@/data/services';
+import { ServiceData, Section } from '@/data/services';
 import { fadeInUp, cardEntrance, viewportSettings } from '@/lib/animation-variants';
 
 interface RiqualificazioneCentraliServiceProps {
@@ -37,7 +37,7 @@ export default function RiqualificazioneCentraliService({ service }: Riqualifica
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {service.sections.map((section, i) => (
+        {service.sections.map((section: Section, i: number) => (
           <motion.div
             key={i}
             className="lg:col-span-1"
@@ -61,7 +61,7 @@ export default function RiqualificazioneCentraliService({ service }: Riqualifica
                 <p className="text-white/95 leading-relaxed mb-4">{section.content}</p>
                 {section.list && (
                   <ul className="space-y-3 mt-4">
-                    {section.list.map((item, j) => (
+                    {section.list.map((item: string, j: number) => (
                       <li key={j} className="flex items-start group/item">
                         <div className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5 group-hover/item:bg-white/30 transition-colors">
                           <FontAwesomeIcon icon={faCheckCircle} className="text-white text-sm" />

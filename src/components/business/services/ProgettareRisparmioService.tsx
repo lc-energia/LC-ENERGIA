@@ -10,7 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { ServiceData } from '@/data/services';
+import { ServiceData, Section } from '@/data/services';
 import { fadeInUp, staggerContainer, cardEntrance, viewportSettings } from '@/lib/animation-variants';
 
 interface ProgettareRisparmioServiceProps {
@@ -47,7 +47,7 @@ export default function ProgettareRisparmioService({ service }: ProgettareRispar
           viewport={viewportSettings}
         >
           <div className="grid grid-cols-1 gap-8">
-            {service.sections.map((section, i) => (
+            {service.sections.map((section: Section, i: number) => (
               <motion.div
                 key={i}
                 variants={cardEntrance}
@@ -57,7 +57,7 @@ export default function ProgettareRisparmioService({ service }: ProgettareRispar
                   <p className="text-gray-600 leading-relaxed">{section.content}</p>
                   {section.list && (
                     <ul className="space-y-2 mt-4">
-                      {section.list.map((item, j) => (
+                      {section.list.map((item: string, j: number) => (
                         <li key={j} className="flex items-start">
                           <FontAwesomeIcon icon={faCheckCircle} className="text-primary mt-1 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-600">{item}</span>
@@ -73,7 +73,7 @@ export default function ProgettareRisparmioService({ service }: ProgettareRispar
                       whileInView="visible"
                       viewport={viewportSettings}
                     >
-                      {section.incentives.map((incentive, j) => (
+                      {section.incentives.map((incentive: { title: string; description: string; link: string }, j: number) => (
                         <motion.div
                           key={j}
                           variants={cardEntrance}

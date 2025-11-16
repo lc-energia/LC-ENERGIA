@@ -72,7 +72,7 @@ export default function ProgettazioneService({ service, slug }: ProgettazioneSer
           viewport={viewportSettings}
         >
           <div className="grid grid-cols-1 gap-8">
-            {items?.map((item, j) => (
+            {items?.map((item: { title: string; description: string; icon: string } | { title: string; description: string; image: string }, j: number) => (
               <FeatureCard key={j} feature={item} i={j} />
             ))}
           </div>

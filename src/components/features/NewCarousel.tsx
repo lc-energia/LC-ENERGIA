@@ -6,8 +6,8 @@ import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { carouselData } from '@/data/carousel-data';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import SwiperPagination from './SwiperPagination';
-import MorphingShapes from './MorphingShapes';
+import SwiperPagination from '../SwiperPagination';
+import MorphingShapes from '../shared/MorphingShapes';
 
 // Import Swiper styles
 import 'swiper/css';
