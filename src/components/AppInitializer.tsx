@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Spinner from '@/components/Spinner';
+import Spinner from '@/components/shared/Spinner';
 import Topbar from '@/components/Topbar';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import BackToTop from '@/components/BackToTop';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import BackToTop from '@/components/shared/BackToTop';
 
 export default function AppInitializer({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);

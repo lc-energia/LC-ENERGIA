@@ -1,7 +1,7 @@
-import PremiumHero from '@/components/PremiumHero';
-import Feature from '@/components/Feature';
-import Services from '@/components/Services';
-import DynamicNewTestimonial from '@/components/DynamicNewTestimonial';
+import PremiumHero from '@/components/features/PremiumHero';
+import Feature from '@/components/features/Feature';
+import Services from '@/components/features/Services';
+import DynamicNewTestimonial from '@/components/features/DynamicNewTestimonial';
 
 export default function Home() {
   return (

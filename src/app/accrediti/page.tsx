@@ -1,6 +1,6 @@
 'use client';
-import PageHeader from '@/components/PageHeader';
-import AccreditationCard from '@/components/AccreditationCard';
+import PageHeader from '@/components/layout/PageHeader';
+import AccreditationCard from '@/components/business/AccreditationCard';
 import { accreditations } from '@/data/azienda-data';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, cardEntrance, viewportSettings } from '@/lib/animation-variants';

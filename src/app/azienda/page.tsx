@@ -1,12 +1,12 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition, faSolarPanel, faWind, faLightbulb, faHeadset } from '@fortawesome/free-solid-svg-icons';
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 import { Heading1, Heading2, Heading6, Text } from '@/components/ui/Typography';
-import TiltCard from '@/components/TiltCard';
+import TiltCard from '@/components/business/TiltCard';
 import { reasons, teamMembers } from '@/data/azienda-data';
 
 const iconMap: { [key: string]: IconDefinition } = {
@@ -240,7 +240,7 @@ const AziendaPage = () => {
             className="flex justify-center"
           >
             <div className="hover-lift transition-smooth">
-              <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" />
+              <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" loading="lazy" />
             </div>
           </motion.div>
         </div>
