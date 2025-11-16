@@ -1,7 +1,19 @@
+import dynamic from 'next/dynamic';
 import PremiumHero from '@/components/features/PremiumHero';
-import Feature from '@/components/features/Feature';
-import Services from '@/components/features/Services';
-import DynamicNewTestimonial from '@/components/features/DynamicNewTestimonial';
+
+// Lazy load componentes below the fold para mejor performance
+// Best Practice 2025: Code splitting automático
+const Feature = dynamic(() => import('@/components/features/Feature'), {
+  loading: () => <div className="min-h-[400px] bg-gradient-to-br from-white via-neutral-50 to-white" />,
+});
+
+const Services = dynamic(() => import('@/components/features/Services'), {
+  loading: () => <div className="min-h-[600px] bg-gradient-to-br from-primary-50/30 via-white to-secondary-50/30" />,
+});
+
+const DynamicNewTestimonial = dynamic(() => import('@/components/features/DynamicNewTestimonial'), {
+  loading: () => <div className="min-h-[400px] bg-white" />,
+});
 
 export default function Home() {
   return (

@@ -170,15 +170,26 @@ const Services = () => {
               >
                 <motion.button
                   onClick={() => setFilter(button.value)}
-                  className={`font-semibold py-3 px-8 rounded-full transition-all duration-300 ${
+                  className={`relative overflow-hidden font-semibold py-3 px-8 rounded-full transition-all duration-300 ${
                     filter === button.value
                       ? 'bg-gradient-primary text-white shadow-primary-hover'
                       : 'bg-white text-gray-700 hover:bg-gradient-combined hover:text-white hover:shadow-combined border border-neutral-200'
                   }`}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  {button.name}
+                  {/* Ripple effect on tap */}
+                  <motion.span
+                    className="absolute inset-0 bg-white/30 rounded-full"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileTap={{
+                      scale: 2,
+                      opacity: [0, 0.5, 0],
+                      transition: { duration: 0.4 },
+                    }}
+                  />
+                  <span className="relative z-10">{button.name}</span>
                 </motion.button>
               </motion.li>
             ))}
@@ -213,6 +224,17 @@ const Services = () => {
                   >
                     {/* Efecto de gradiente animado en el borde */}
                     <div className="absolute inset-0 rounded-xl bg-gradient-combined opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+
+                    {/* Shimmer effect - Best practice 2025 */}
+                    <motion.div
+                      className="absolute inset-0 -translate-x-full pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                      }}
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.6, ease: 'easeInOut' }}
+                    />
 
                      <div className="p-8 flex-grow relative z-10">
                        {/* Icon Background mejorado con colores institucionales */}

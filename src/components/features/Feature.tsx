@@ -1,9 +1,10 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faCheck, faAward, faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { staggerContainer, cardEntrance, iconPop } from '@/lib/animation-variants';
+import { ScrollReveal } from '@/components/motion/ScrollReveal';
 
 // Contador animado simple y robusto
 const AnimatedCounter: React.FC<{

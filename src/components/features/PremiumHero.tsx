@@ -19,6 +19,38 @@ const PremiumHero = () => {
       {/* Simple background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
 
+      {/* Scroll Indicator - Best Practice 2025 */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+      >
+        <motion.div
+          className="w-6 h-10 border-2 border-primary/40 rounded-full flex items-start justify-center p-2"
+          whileHover={{ scale: 1.1 }}
+        >
+          <motion.div
+            className="w-1.5 h-1.5 bg-gradient-combined rounded-full"
+            animate={{
+              y: [0, 16, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+        </motion.div>
+        <motion.p
+          className="text-xs text-gray-500 font-medium uppercase tracking-wider"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          Scroll
+        </motion.p>
+      </motion.div>
+
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 items-center min-h-screen py-20">
 
@@ -98,6 +130,8 @@ const PremiumHero = () => {
                   className="w-full h-auto"
                   priority
                   quality={90}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                 />
 
   
