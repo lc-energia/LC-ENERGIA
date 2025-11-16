@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { servicesData } from '@/data/services-data';
+import { servicesData } from '@/data/services';
 
 /**
  * Sitemap dinámico para SEO

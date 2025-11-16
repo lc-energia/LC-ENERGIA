@@ -1,4 +1,4 @@
-import { servicesData } from '@/data/services-data';
+import { servicesData } from '@/data/services';
 import ServicePage from './ServicePage';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';

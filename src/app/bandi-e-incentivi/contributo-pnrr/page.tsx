@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import ServicePage from '@/app/[slug]/ServicePage';
-import { servicesData } from '@/data/services-data';
+import { servicesData } from '@/data/services';
 
 export const metadata: Metadata = {
   title: 'Contributo PNRR | LC Energia',
