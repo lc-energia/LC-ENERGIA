@@ -17,6 +17,9 @@ import { Heading1, Text } from '@/components/ui/Typography';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 import ServiceSchema from '@/components/seo/ServiceSchema';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+import ServiceIntro from '@/components/business/services/ServiceIntro';
+import ServicePartners from '@/components/business/services/ServicePartners';
+import ContoTermicoService from '@/components/business/services/ContoTermicoService';
 
 // Helper para limpiar HTML
 function stripHtml(html: string): string {
@@ -64,136 +67,29 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
       <BreadcrumbSchema items={breadcrumbItems} />
 
       <ServicePageLayout title={service.title}>
-      <motion.div
-        className="text-center mx-auto mb-5"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportSettings}
-      >
-        {slug === 'impianti-fotovoltaici' ? (
-          <>
-            <h6 className="text-gradient-primary font-bold text-lg uppercase text-center">IL NOSTRO INTERVENTO</h6>
-            <p className="lead text-xl text-gray-600 leading-relaxed text-center" style={{maxWidth: '800px', margin: '0 auto'}}>Progettiamo e installiamo impianti fotovoltaici &quot;chiavi in mano&quot; partendo da una valutazione preliminare che considera i seguenti elementi di base:</p>
-          </>
-        ) : slug === 'progettazione-e-consulenza-tecnica' ? (
-          null // No mostrar introducción para progettazione-e-consulenza-tecnica, se maneja internamente
-        ) : slug === 'progettazione-antincendio' ? (
-          null // No mostrar introducción para progettazione-antincendio, se maneja internamente
-        ) : slug === 'progettazione-acustica' ? (
-          null // No mostrar introducción para progettazione-acustica, se maneja internamente
-        ) : slug === 'progettare-il-risparmio-energetico' ? (
-          null // No mostrar introducción para progettare-il-risparmio-energetico, se maneja internamente
-         ) : slug === 'impianti-geotermici' ? (
-          null // No mostrar introducción para impianti-geotermici, se maneja internamente
-        ) : slug === 'contributo-pnrr' ? (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
-            <motion.div
-              className="lg:col-span-1"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
-            >
-              <Image src="/img/contributto.jpg" alt="Contributo PNRR" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
-            </motion.div>
-            <motion.div
-              className="lg:col-span-1"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
-            >
-              <div className="text-gray-700 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
-            </motion.div>
-          </div>
-        ) : slug === 'conto-termico' ? (
-          <div className="w-full">
-            {/* Título Conto Termico 2.0 */}
-            <motion.div
-              className="mb-8"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
-            >
-              <h2 className="text-3xl font-bold text-gradient-combined mb-4">Conto Termico 2.0</h2>
-            </motion.div>
+      {/* Intro Section - Modularized */}
+      <ServiceIntro slug={slug} introduction={service.introduction} />
 
-            {/* Contenido Conto Termico 2.0 */}
-            <motion.div
-              className="mb-12"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
-            >
-              <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#F49918]/20">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F49918]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                <div className="relative z-10">
-                  <div className="text-gray-700 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
-                </div>
-              </div>
-            </motion.div>
+      {/* Special intro for conto-termico */}
+      {slug === 'conto-termico' && <ContoTermicoService service={service} />}
 
-            {/* Subsección Come si recupera l'incentivo? (Conto Termico 2.0) */}
-            {service.sections.find(s => s.title === 'Come si recupera l\'incentivo?') && (
-              <motion.div
-                className="w-full mb-12"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-6 h-full border border-[#F49918]/20 transition-smooth">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#F49918] to-[#c27a12] rounded-lg flex items-center justify-center shadow-lg mr-4">
-                      <FontAwesomeIcon icon={faInfoCircle} className="text-white text-sm" />
-                    </div>
-                    <h5 className="font-bold text-lg mb-0 text-gradient-primary">Come si recupera l&apos;incentivo?</h5>
-                  </div>
-                  <div className="text-sm text-gray-600 space-y-2 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: service.sections.find(s => s.title === 'Come si recupera l\'incentivo?') ?.content || '' }}></div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Título Conto Termico 3.0 */}
-            <motion.div
-              className="mb-8"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
-            >
-              <h2 className="text-3xl font-bold text-gradient-combined mb-4">Conto Termico 3.0</h2>
-            </motion.div>
-          </div>
-        ) : slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
-          null // No mostrar introducción para contabilizzazione-calore, se maneja internamente
-        ) : slug === 'riqualificazione-di-centrali-termiche-esistenti' ? (
-          null // No mostrar introducción para riqualificazione-centrali, se maneja internamente
-        ) : slug === 'contributo-pnrr' ? (
-          null // No mostrar introducción para contributo-pnrr, se maneja internamente
-        ) : slug === 'stazioni-di-ricarica' ? (
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportSettings}
-          >
-            <div className="bg-gradient-to-r from-[#F49918] to-[#c27a12] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
-              {/* Efecto de brillo */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              
-               <div className="relative z-10">
-                 <div className="text-white/95 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
-               </div>
+      {/* Special intro for stazioni-di-ricarica */}
+      {slug === 'stazioni-di-ricarica' && (
+        <motion.div
+          className="text-center mx-auto mb-5"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportSettings}
+        >
+          <div className="bg-gradient-to-r from-[#F49918] to-[#c27a12] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            <div className="relative z-10">
+              <div className="text-white/95 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
             </div>
-          </motion.div>
-        ) : (
-          <h2 className="lead text-xl text-[#F49918] leading-relaxed text-left-force font-bold" dangerouslySetInnerHTML={{ __html: service.introduction }}></h2>
-        )}
-      </motion.div>
+          </div>
+        </motion.div>
+      )}
 
       {service.mainFeatures && (
         <motion.div className="max-w-4xl mx-auto text-center" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewportSettings}>
@@ -246,7 +142,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
         </motion.div>
       )}
 
-      {slug === 'progettazione-antincendio' ? (
+      {/* Section Rendering - Skip for conto-termico as it's handled by ContoTermicoService */}
+      {slug !== 'conto-termico' && (slug === 'progettazione-antincendio' ? (
         (() => {
           const section = service.sections[0];
           const items = section.features;
@@ -1449,43 +1346,14 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                </motion.div>
             );
            })
-           )}
+           ))}
 
-      {service.partners && (
-        <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary-50/30 via-white to-secondary-50/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-               <motion.div
-                 className="text-center mb-8"
-                 variants={fadeInUp}
-                 initial="hidden"
-                 whileInView="visible"
-                 viewport={viewportSettings}
-               >
-                 <h2 className="text-3xl font-bold text-gradient-combined mb-4">{service.partnersTitle}</h2>
-                 {service.partnersIntroduction && <p className="text-lg text-gray-600 mt-2 leading-relaxed">{service.partnersIntroduction}</p>}
-               </motion.div>
-            <motion.div
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
-            >
-              {service.partners.map((partner, i) => (
-                <motion.div
-                  key={i}
-                  variants={cardEntrance}
-                  className="w-full"
-                >
-                  <div className="flex justify-center items-center h-full p-4 bg-white rounded-lg shadow-card hover-lift hover-shine transition-smooth">
-                    <Image src={partner.src} alt={partner.alt} width={150} height={150} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} loading="lazy" />
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      )}
+      {/* Partners Section - Modularized */}
+      <ServicePartners
+        title={service.partnersTitle}
+        introduction={service.partnersIntroduction}
+        partners={service.partners}
+      />
     </ServicePageLayout>
     </>
   );

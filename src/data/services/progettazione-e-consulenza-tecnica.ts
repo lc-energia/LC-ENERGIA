@@ -64,5 +64,4 @@ export const ProgettazioneEConsulenzaTecnicaService: ServiceData = {
         content: 'Collaudi e start-up degli impianti meccanici ed elettrici civili ed industriali. Redazione di Dichiarazioni di rispondenza per impianti antecedenti il D.M. 37/08.',
       },
     ],
-  }
 };

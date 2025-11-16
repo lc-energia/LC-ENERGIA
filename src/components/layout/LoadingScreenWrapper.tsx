@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import LoadingScreen from './LoadingScreen';
+import LoadingScreen from '../LoadingScreen';
 
 interface LoadingScreenWrapperProps {
   children: React.ReactNode;

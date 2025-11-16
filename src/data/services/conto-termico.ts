@@ -30,5 +30,4 @@ export const ContoTermicoService: ServiceData = {
         content: 'La gestione delle richieste è affidata al GSE – Gestore dei Servizi Energetici. Le domande possono essere presentate direttamente dai beneficiari o tramite soggetti abilitati. (Gli interventi avviati prima dell\'entrata in vigore del nuovo decreto non sono ammissibili).',
       }
     ]
-  }
 };

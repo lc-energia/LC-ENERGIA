@@ -18,5 +18,4 @@ export const ContabilizzazioneCaloreImpiantiTermiciCentralizzatiService: Service
         content: 'Questi sistemi di contabilizzazione del calore, abbinati a sistemi di termoregolazione individuali, permettono al singolo condomino di gestire autonomamente il riscaldamento nella sua abitazione e di pagare in base all’effettivo consumo e prelievo di energia.',
       },
     ],
-  }
 };
