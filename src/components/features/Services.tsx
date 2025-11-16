@@ -5,8 +5,8 @@ import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } f
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import TiltCard from '@/components/TiltCard';
-import GlassmorphismCard from '@/components/GlassmorphismCard';
+import TiltCard from '@/components/business/TiltCard';
+import GlassmorphismCard from '@/components/business/GlassmorphismCard';
 import {
   faGlobe,
   faTools,

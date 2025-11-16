@@ -2,10 +2,10 @@ import { Poppins, Open_Sans } from 'next/font/google';
 import { metadata } from './metadata';
 import './globals.css';
 import '../styles/typography.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import SmoothScroll from '@/components/SmoothScroll';
-import LoadingScreenWrapper from '@/components/LoadingScreenWrapper';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import SmoothScroll from '@/components/layout/SmoothScroll';
+import LoadingScreenWrapper from '@/components/layout/LoadingScreenWrapper';
 import OrganizationSchema from '@/components/seo/OrganizationSchema';
 import SkipToContent from '@/components/accessibility/SkipToContent';
 
