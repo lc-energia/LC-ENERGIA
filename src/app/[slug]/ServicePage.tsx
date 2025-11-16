@@ -7,7 +7,7 @@ import { useState } from 'react';
 import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ServiceData } from '@/data/services';
+import { ServiceData } from '@/data/services-data';
 import FeatureCard from '@/components/business/FeatureCard';
 import FaqAccordion from '@/components/business/FaqAccordion';
 import AnimatedTextCycle from '@/components/shared/AnimatedTextCycle';
