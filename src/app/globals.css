@@ -379,3 +379,167 @@ html {
 .hover-shine:hover::before {
   transform: translateX(100%) translateY(100%);
 }
+
+/* ============================================
+   OPTIMIZACIONES MÓVILES
+   Best Practices 2025: Mobile-First
+   ============================================ */
+
+/* Viewport height fix para móviles */
+.mobile-vh {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Optimizaciones táctiles */
+.is-touch button,
+.is-touch a {
+  -webkit-tap-highlight-color: rgba(155, 189, 45, 0.1);
+}
+
+/* Prevenir zoom en iOS */
+.is-mobile input,
+.is-mobile select,
+.is-mobile textarea {
+  font-size: 16px !important;
+}
+
+/* Smooth scrolling optimizado */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.is-mobile) {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Optimizaciones de performance para móvil */
+.is-mobile * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reducir animaciones en conexiones lentas */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mejorar tap targets en móvil (mínimo 48x48px) */
+.is-mobile button,
+.is-mobile a:not(.nav-link),
+.is-mobile input[type="button"],
+.is-mobile input[type="submit"] {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px 16px;
+}
+
+/* Optimizar imágenes para móvil */
+.is-mobile img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Prevenir layout shift */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Loading skeleton optimization */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.skeleton {
+  animation: shimmer 1.2s ease-in-out infinite;
+  background: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-size: 800px 104px;
+}
+
+/* Optimización de fuentes para móvil */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+}
+
+/* Mejorar contraste en pantallas móviles */
+@media (max-width: 768px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Safe area insets para notch de iOS */
+@supports (padding: max(0px)) {
+  .safe-area-inset-top {
+    padding-top: max(env(safe-area-inset-top), 1rem);
+  }
+
+  .safe-area-inset-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+
+  .safe-area-inset-left {
+    padding-left: max(env(safe-area-inset-left), 1rem);
+  }
+
+  .safe-area-inset-right {
+    padding-right: max(env(safe-area-inset-right), 1rem);
+  }
+}
+
+/* Optimizar rendimiento de animaciones */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Prevenir scroll horizontal en móvil */
+.is-mobile {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Mejorar legibilidad en móvil */
+@media (max-width: 768px) {
+  p {
+    hyphens: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}

@@ -8,6 +8,8 @@ import SmoothScroll from '@/components/layout/SmoothScroll';
 import LoadingScreenWrapper from '@/components/layout/LoadingScreenWrapper';
 import OrganizationSchema from '@/components/seo/OrganizationSchema';
 import SkipToContent from '@/components/accessibility/SkipToContent';
+import { PageTransitionLoader } from '@/components/loading/PageTransitionLoader';
+import { MobileOptimizer } from '@/components/mobile/MobileOptimizer';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -39,6 +41,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
       <body>
+        <MobileOptimizer />
+        <PageTransitionLoader />
         <SkipToContent />
         <LoadingScreenWrapper>
           <SmoothScroll>
