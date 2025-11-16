@@ -16,7 +16,7 @@ interface Partner {
 interface ServicePartnersProps {
   title?: string;
   introduction?: string;
-  partners: Partner[];
+  partners?: Partner[];
 }
 
 export default function ServicePartners({ title, introduction, partners }: ServicePartnersProps) {
