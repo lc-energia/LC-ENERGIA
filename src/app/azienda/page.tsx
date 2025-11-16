@@ -240,7 +240,7 @@ const AziendaPage = () => {
             className="flex justify-center"
           >
             <div className="hover-lift transition-smooth">
-              <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" />
+              <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" loading="lazy" />
             </div>
           </motion.div>
         </div>

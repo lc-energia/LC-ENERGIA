@@ -72,7 +72,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               whileInView="visible"
               viewport={viewportSettings}
             >
-              <Image src="/img/contributto.jpg" alt="Contributo PNRR" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+              <Image src="/img/contributto.jpg" alt="Contributo PNRR" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
             </motion.div>
             <motion.div
               className="lg:col-span-1"
@@ -219,7 +219,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           whileInView="visible"
           viewport={viewportSettings}
         >
-          <Image src="/img/scame.png" alt="Stazioni di Ricarica" width={500} height={500} className="mx-auto hover-lift transition-smooth" />
+          <Image src="/img/scame.png" alt="Stazioni di Ricarica" width={500} height={500} className="mx-auto hover-lift transition-smooth" loading="lazy" />
         </motion.div>
       )}
 
@@ -278,7 +278,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   whileInView="visible"
                   viewport={viewportSettings}
                 >
-                  <Image src="/img/anticendio.jpg" alt="Progettazione Antincendio" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                  <Image src="/img/anticendio.jpg" alt="Progettazione Antincendio" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
                 </motion.div>
               </div>
             </div>
@@ -339,7 +339,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   whileInView="visible"
                   viewport={viewportSettings}
                 >
-                  <Image src="/img/acustica.jpg" alt="Progettazione Acustica" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                  <Image src="/img/acustica.jpg" alt="Progettazione Acustica" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
                 </motion.div>
               </div>
             </div>
@@ -441,7 +441,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 whileInView="visible"
                 viewport={viewportSettings}
               >
-                <Image src="/img/lc2.jpg" alt="Progettare il Risparmio Energetico" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                <Image src="/img/lc2.jpg" alt="Progettare il Risparmio Energetico" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
               </motion.div>
             </div>
           </div>
@@ -473,7 +473,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 whileInView="visible"
                 viewport={viewportSettings}
               >
-                <Image src="/img/cont1.jpg" alt="Contabilizzazione Calore" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                <Image src="/img/cont1.jpg" alt="Contabilizzazione Calore" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
               </motion.div>
               <motion.div
                 className="lg:col-span-1"
@@ -614,7 +614,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     whileInView="visible"
                     viewport={viewportSettings}
                   >
-                    <Image src="/img/anticendio.jpg" alt="Progettazione Antincendio" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                    <Image src="/img/anticendio.jpg" alt="Progettazione Antincendio" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
                   </motion.div>
                 </div>
               </div>
@@ -675,7 +675,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     whileInView="visible"
                     viewport={viewportSettings}
                   >
-                    <Image src="/img/acustica.jpg" alt="Progettazione Acustica" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                    <Image src="/img/acustica.jpg" alt="Progettazione Acustica" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
                   </motion.div>
                 </div>
               </div>
@@ -734,7 +734,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     whileInView="visible"
                     viewport={viewportSettings}
                   >
-                    <Image src="/img/geotermico-ok.jpg" alt="Impianti Geotermici" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                    <Image src="/img/geotermico-ok.jpg" alt="Impianti Geotermici" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
                   </motion.div>
                 </div>
                 <motion.div
@@ -1011,7 +1011,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
              </section>
           </div>
          ) : slug === 'impianti-fotovoltaici' ? (
-           <InfoAccordion items={service.sections} image="/img/fotovoltaico.png" />
+           <InfoAccordion items={service.sections} image="/img/fotovoltaico.jpg" />
          ) : (
           service.sections.map((section, i) => {
             if (section.modes || section.features) {
@@ -1128,7 +1128,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       whileInView="visible"
                       viewport={viewportSettings}
                     >
-                      <Image src="/img/conto termicp.png" alt="Conto Termico 3.0" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                      <Image src="/img/conto termicp.jpg" alt="Conto Termico 3.0" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
                     </motion.div>
                     <motion.div
                       className="lg:col-span-1"
@@ -1171,7 +1171,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       whileInView="visible"
                       viewport={viewportSettings}
                     >
-                      <Image src="/img/conto termicp.png" alt="Conto Termico 3.0" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" />
+                      <Image src="/img/conto termicp.jpg" alt="Conto Termico 3.0" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
                     </motion.div>
                     <motion.div
                       className="lg:col-span-1"
@@ -1455,7 +1455,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   className="w-full"
                 >
                   <div className="flex justify-center items-center h-full p-4 bg-white rounded-lg shadow-card hover-lift hover-shine transition-smooth">
-                    <Image src={partner.src} alt={partner.alt} width={150} height={150} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
+                    <Image src={partner.src} alt={partner.alt} width={150} height={150} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} loading="lazy" />
                   </div>
                 </motion.div>
               ))}

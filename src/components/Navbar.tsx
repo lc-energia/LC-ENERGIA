@@ -1,11 +1,10 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { cn } from '@/lib/utils';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faBars, faXmark, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '@/components/ui/Button';
 import { Fragment, useState, useEffect } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSticky } from '@/hooks/useSticky';
@@ -98,7 +97,7 @@ export default function Navbar() {
                   <Menu as="div" className="relative" key={dropdown.name}>
                     <Menu.Button className="nav-link flex items-center whitespace-nowrap px-4 py-6 hover:-translate-y-1 transition-all duration-300">
                       {dropdown.name}
-                      <ChevronDownIcon className="ml-1 h-4 w-4" />
+                      <FontAwesomeIcon icon={faChevronDown} className="ml-1 h-4 w-4" />
                     </Menu.Button>
                     <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
                       <Menu.Items className="absolute z-10 mt-0 w-max rounded-md bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
@@ -158,9 +157,9 @@ export default function Navbar() {
             <button className="mr-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-all duration-300" onClick={() => setIsOpen(!isOpen)}>
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
-                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                <FontAwesomeIcon icon={faXmark} className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                <FontAwesomeIcon icon={faBars} className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -181,7 +180,7 @@ export default function Navbar() {
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-neutral-100 hover:text-accent transition-all duration-300">
                         <span>{dropdown.name}</span>
-                        <ChevronDownIcon className={cn(dOpen ? 'rotate-180' : '', 'h-5 w-5 transition-transform duration-200')} />
+                        <FontAwesomeIcon icon={faChevronDown} className={cn(dOpen ? 'rotate-180' : '', 'h-5 w-5 transition-transform duration-200')} />
                       </Disclosure.Button>
                       <Disclosure.Panel className="pl-4 space-y-1">
                         {dropdown.items.map((item) => (

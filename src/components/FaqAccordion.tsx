@@ -1,6 +1,7 @@
 'use client';
 import { Disclosure, Transition } from '@headlessui/react';
-import { ChevronUpIcon } from '@heroicons/react/20/solid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 interface Faq {
   question: string;
@@ -21,7 +22,8 @@ const FaqAccordion: React.FC<FaqAccordionProps> = ({ faqs }) => {
               <>
                 <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-100 px-4 py-3 text-left text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-opacity-75">
                   <span>{faq.question}</span>
-                  <ChevronUpIcon
+                  <FontAwesomeIcon
+                    icon={faChevronUp}
                     className={`${open ? 'rotate-180 transform' : ''} h-5 w-5 text-gray-500 transition-transform`}
                   />
                 </Disclosure.Button>

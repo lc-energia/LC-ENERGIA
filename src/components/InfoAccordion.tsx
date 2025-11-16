@@ -1,6 +1,7 @@
 'use client';
 import { Disclosure, Transition } from '@headlessui/react';
-import { ChevronUpIcon } from '@heroicons/react/20/solid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 
 interface AccordionItem {
@@ -43,7 +44,8 @@ const InfoAccordion: React.FC<InfoAccordionProps> = ({ items, image }) => {
                           <div className={`w-2 h-2 rounded-full mr-3 transition-colors duration-200 ${open ? 'bg-blue-500' : 'bg-gray-400'}`}></div>
                           {item.title}
                         </span>
-                        <ChevronUpIcon
+                        <FontAwesomeIcon
+                          icon={faChevronUp}
                           className={`${open ? 'rotate-180 transform text-blue-500' : 'text-gray-400'} h-5 w-5 transition-all duration-200`}
                         />
                       </Disclosure.Button>

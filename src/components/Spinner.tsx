@@ -14,7 +14,7 @@ const Spinner = ({ isLoading }: { isLoading: boolean }) => {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center">
-            <Image src="/img/favicon.png" alt="Logo" width={150} height={150} />
+            <Image src="/img/favicon.png" alt="Logo" width={150} height={150} priority />
           </div>
         </motion.div>
       )}
