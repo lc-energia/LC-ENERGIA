@@ -20,6 +20,11 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import ServiceIntro from '@/components/business/services/ServiceIntro';
 import ServicePartners from '@/components/business/services/ServicePartners';
 import ContoTermicoService from '@/components/business/services/ContoTermicoService';
+import ProgettazioneService from '@/components/business/services/ProgettazioneService';
+import ProgettareRisparmioService from '@/components/business/services/ProgettareRisparmioService';
+import ImpiantiGeotermiciService from '@/components/business/services/ImpiantiGeotermiciService';
+import ContabilizzazioneCaloreService from '@/components/business/services/ContabilizzazioneCaloreService';
+import RiqualificazioneCentraliService from '@/components/business/services/RiqualificazioneCentraliService';
 
 // Helper para limpiar HTML
 function stripHtml(html: string): string {
@@ -142,130 +147,13 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
         </motion.div>
       )}
 
-      {/* Section Rendering - Skip for conto-termico as it's handled by ContoTermicoService */}
-      {slug !== 'conto-termico' && (slug === 'progettazione-antincendio' ? (
-        (() => {
-          const section = service.sections[0];
-          const items = section.features;
-          return (
-            <div className="w-full">
-              {/* Cuadro con introduction */}
-              <motion.div
-                className="mb-8"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#F49918]/20">
-                  {/* Efecto de brillo */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F49918]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                className="text-center mb-8 w-full"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <h2 className="text-3xl font-bold text-gradient-combined mb-4" style={{textAlign: 'center'}}>{section.title}</h2>
-                {section.content && <p className="text-lg text-gray-600 mt-2 leading-relaxed" style={{textAlign: 'center', maxWidth: '800px', margin: '0 auto'}}>{section.content}</p>}
-              </motion.div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <motion.div
-                  className="lg:col-span-1"
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <div className="grid grid-cols-1 gap-8">
-                    {items?.map((item, j) => (
-                      <FeatureCard key={j} feature={item} i={j} />
-                    ))}
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="lg:col-span-1"
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <Image src="/img/anticendio.jpg" alt="Progettazione Antincendio" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
-                </motion.div>
-              </div>
-            </div>
-          );
-        })()
-      ) : slug === 'progettazione-acustica' ? (
-        (() => {
-          const section = service.sections[0];
-          const items = section.features;
-          return (
-            <div className="w-full">
-              {/* Cuadro con introduction */}
-              <motion.div
-                className="mb-8"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#9BBD2D]/20">
-                  {/* Efecto de brillo */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                className="text-center mb-8 w-full"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <h2 className="text-3xl font-bold text-gradient-combined mb-4" style={{textAlign: 'center'}}>{section.title}</h2>
-                {section.content && <p className="text-lg text-gray-600 mt-2 leading-relaxed" style={{textAlign: 'center', maxWidth: '800px', margin: '0 auto'}}>{section.content}</p>}
-              </motion.div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <motion.div
-                  className="lg:col-span-1"
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <div className="grid grid-cols-1 gap-8">
-                    {items?.map((item, j) => (
-                      <FeatureCard key={j} feature={item} i={j} />
-                    ))}
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="lg:col-span-1"
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <Image src="/img/acustica.jpg" alt="Progettazione Acustica" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
-                </motion.div>
-              </div>
-            </div>
-          );
-        })()
+      {/* Section Rendering - Skip for services with dedicated components */}
+      {slug !== 'conto-termico' && (
+        (slug === 'progettazione-antincendio' || slug === 'progettazione-acustica') ? (
+        <ProgettazioneService service={service} slug={slug} />
       ) : slug === 'progettare-il-risparmio-energetico' ? (
+        <ProgettareRisparmioService service={service} />
+      ) : slug === 'progettare-il-risparmio-energetico-OLD' ? (
           <div className="w-full">
             {/* Cuadro con introduction */}
             <motion.div
@@ -366,59 +254,10 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             </div>
           </div>
          ) : slug === 'contabilizzazione-calore-impianti-termici-centralizzati' ? (
-          <div className="w-full">
-            {/* Cuadro con introduction */}
-            <motion.div
-              className="mb-8"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
-            >
-              <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#F49918]/20">
-                {/* Efecto de brillo */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F49918]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                
-                <div className="relative z-10">
-                  <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.sections[0].content }}></div>
-                </div>
-              </div>
-            </motion.div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-              <motion.div
-                className="lg:col-span-1"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <Image src="/img/cont1.jpg" alt="Contabilizzazione Calore" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
-              </motion.div>
-              <motion.div
-                className="lg:col-span-1"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportSettings}
-              >
-                <div className="grid grid-cols-1 gap-8">
-                  {service.sections.slice(1).map((section, i) => (
-                    <motion.div
-                      key={i}
-                      variants={cardEntrance}
-                    >
-                      <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-secondary-100 transition-smooth">
-                        <h5 className="text-xl font-bold mb-3 text-gradient-secondary">{section.title}</h5>
-                        <p className="text-gray-600 leading-relaxed">{section.content}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-           </div>
+          <ContabilizzazioneCaloreService service={service} />
          ) : slug === 'riqualificazione-di-centrali-termiche-esistenti' ? (
+          <RiqualificazioneCentraliService service={service} />
+         ) : slug === 'riqualificazione-di-centrali-termiche-esistenti-OLD' ? (
           <div className="w-full">
             {/* Cuadro con introduction */}
             <motion.div
@@ -602,85 +441,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             );
           })()
          ) : slug === 'impianti-geotermici' ? (
-          (() => {
-            const firstTwoSections = service.sections.slice(0, 2);
-            const lastSection = service.sections[2];
-            return (
-              <div className="w-full">
-                {/* Cuadro con introduction */}
-                <motion.div
-                  className="mb-8"
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group border border-[#9BBD2D]/20">
-                    {/* Efecto de brillo */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                    
-                    <div className="relative z-10">
-                      <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
-                    </div>
-                  </div>
-                </motion.div>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <motion.div
-                    className="lg:col-span-1"
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportSettings}
-                  >
-                    <div className="grid grid-cols-1 gap-8">
-                      {firstTwoSections.map((section, i) => (
-                        <motion.div
-                          key={i}
-                          variants={cardEntrance}
-                        >
-                          <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
-                            <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
-                            <p className="text-gray-600 leading-relaxed">{section.content}</p>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                  <motion.div
-                    className="lg:col-span-1"
-                    variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportSettings}
-                  >
-                    <Image src="/img/geotermico-ok.jpg" alt="Impianti Geotermici" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
-                  </motion.div>
-                </div>
-                <motion.div
-                  className="mt-8"
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-secondary-100 transition-smooth">
-                    <div className="flex items-center mb-4">
-                      <div className="flex-grow">
-                        <h5 className="font-bold text-lg mb-0 text-gradient-combined">{lastSection.title}</h5>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: lastSection.content }}></div>
-                    {lastSection.accordionItems && (
-                      <div className="mt-4">
-                        <InfoAccordion items={lastSection.accordionItems} />
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              </div>
-            );
-          })()
+          <ImpiantiGeotermiciService service={service} />
         ) : slug === 'progettazione-e-consulenza-tecnica' ? (
           <div className="w-full max-w-6xl mx-auto py-4">
              {/* Introducción principal */}
