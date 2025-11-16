@@ -31,6 +31,7 @@ export const lazyLoadImage = (imageElement: HTMLImageElement) => {
 /**
  * Debounce function para optimizar scroll handlers
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const debounce = <T extends (...args: any[]) => any>(
   func: T,
   wait: number
@@ -46,6 +47,7 @@ export const debounce = <T extends (...args: any[]) => any>(
 /**
  * Throttle function para limitar llamadas frecuentes
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const throttle = <T extends (...args: any[]) => any>(
   func: T,
   limit: number
@@ -117,6 +119,7 @@ export const preloadResource = (href: string, as: string, type?: string) => {
 /**
  * Web Vitals tracking helper
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const reportWebVitals = (metric: any) => {
   // Enviar a analytics (Google Analytics, Vercel Analytics, etc.)
   if (process.env.NODE_ENV === 'production') {
@@ -177,6 +180,7 @@ export const calculateCWVScore = (metrics: {
 export const isSlowConnection = (): boolean => {
   if (typeof navigator === 'undefined') return false;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
 
   if (!connection) return false;

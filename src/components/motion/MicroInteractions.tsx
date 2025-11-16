@@ -200,13 +200,11 @@ export const ScrollIndicator = () => {
  */
 interface ParallaxContainerProps {
   children: ReactNode;
-  offset?: number;
   className?: string;
 }
 
 export const ParallaxContainer = ({
   children,
-  offset = 50,
   className = '',
 }: ParallaxContainerProps) => {
   const ref = useRef<HTMLDivElement>(null);

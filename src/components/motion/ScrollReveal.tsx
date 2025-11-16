@@ -47,7 +47,7 @@ export const ScrollReveal = ({
       transition: {
         duration,
         delay,
-        ease: [0.4, 0, 0.2, 1],
+        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
       },
     },
   };
@@ -102,7 +102,7 @@ export const ScrollRevealStagger = ({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.4, 0, 0.2, 1],
+        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
       },
     },
   };
@@ -197,58 +197,12 @@ export const ScrollRevealImage = ({
           className="absolute inset-0 bg-gradient-combined z-10"
         />
       )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} className="w-full h-full object-cover" />
     </motion.div>
   );
 };
 
-/**
- * Componente de contador que anima números al hacer scroll
- */
-interface ScrollRevealCounterProps {
-  end: number;
-  suffix?: string;
-  prefix?: string;
-  duration?: number;
-  className?: string;
-}
-
-export const ScrollRevealCounter = ({
-  end,
-  suffix = '',
-  prefix = '',
-  duration = 2,
-  className = '',
-}: ScrollRevealCounterProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.8 });
-
-  return (
-    <motion.div ref={ref} className={className}>
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      >
-        {prefix}
-        <motion.span
-          initial={{ textContent: '0' }}
-          animate={
-            isInView
-              ? {
-                  textContent: end.toString(),
-                }
-              : { textContent: '0' }
-          }
-          transition={{
-            duration,
-            ease: 'easeOut',
-          }}
-        />
-        {suffix}
-      </motion.span>
-    </motion.div>
-  );
-};
 
 /**
  * Línea divisoria animada que crece al hacer scroll

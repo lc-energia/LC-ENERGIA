@@ -85,19 +85,7 @@ const PremiumHero = () => {
                 </Text>
               </div>
 
-              {/* Minimalist Value List */}
-              <motion.div
-                className="mt-2 grid gap-1"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-
-
-
-              </motion.div>
-
-              </motion.div>
+            </motion.div>
           </div>
 
           {/* Right Image */}
