@@ -3,6 +3,8 @@
  * Mejora UX cuando una página no existe
  */
 
+'use client';
+
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
