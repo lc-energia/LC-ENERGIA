@@ -7,7 +7,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ServiceData } from '@/data/services';
+import { ServiceData, Section } from '@/data/services';
 import { fadeInUp, staggerContainer, cardEntrance, viewportSettings } from '@/lib/animation-variants';
 
 interface ContabilizzazioneCaloreServiceProps {
@@ -60,7 +60,7 @@ export default function ContabilizzazioneCaloreService({ service }: Contabilizza
           viewport={viewportSettings}
         >
           <div className="grid grid-cols-1 gap-8">
-            {service.sections.slice(1).map((section, i) => (
+            {service.sections.slice(1).map((section: Section, i: number) => (
               <motion.div
                 key={i}
                 variants={cardEntrance}

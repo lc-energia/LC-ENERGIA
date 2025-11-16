@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { StatCard } from './Counter';
+import { StatCard } from './shared/Counter';
 import Link from 'next/link';
 import {
   faSolarPanel,

@@ -58,10 +58,8 @@ export default function ServiceSections({ sections, slug }: ServiceSectionsProps
                 {items?.map((item, i) => (
                   <FeatureCard
                     key={i}
-                    title={item.title}
-                    description={item.description}
-                    icon={item.icon}
-                    image={item.image}
+                    feature={item}
+                    i={i}
                   />
                 ))}
               </motion.div>
