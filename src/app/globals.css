@@ -543,3 +543,41 @@ iframe {
     overflow-wrap: break-word;
   }
 }
+
+/* ============================================
+   PREVENIR PANTALLA BLANCA DURANTE CARGA
+   Best Practice 2025: Evitar flash blanco
+   ============================================ */
+
+/* Background del html y body para evitar flash blanco */
+html {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(155, 189, 45, 0.03) 50%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+body {
+  background: transparent;
+  min-height: 100vh;
+}
+
+/* Asegurar que el contenido principal tenga fondo */
+main {
+  background: transparent;
+  min-height: 100vh;
+}
+
+/* Smooth appearance para evitar pop-in */
+@media (prefers-reduced-motion: no-preference) {
+  main {
+    animation: fadeIn 0.3s ease-in;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

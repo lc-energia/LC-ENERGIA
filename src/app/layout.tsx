@@ -5,10 +5,9 @@ import '../styles/typography.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SmoothScroll from '@/components/layout/SmoothScroll';
-import LoadingScreenWrapper from '@/components/layout/LoadingScreenWrapper';
 import OrganizationSchema from '@/components/seo/OrganizationSchema';
 import SkipToContent from '@/components/accessibility/SkipToContent';
-import { PageTransitionLoader } from '@/components/loading/PageTransitionLoader';
+import { RealPageLoader } from '@/components/loading/RealPageLoader';
 import { MobileOptimizer } from '@/components/mobile/MobileOptimizer';
 
 const poppins = Poppins({
@@ -42,17 +41,15 @@ export default function RootLayout({
       </head>
       <body>
         <MobileOptimizer />
-        <PageTransitionLoader />
+        <RealPageLoader />
         <SkipToContent />
-        <LoadingScreenWrapper>
-          <SmoothScroll>
-            <Navbar />
-            <main id="main-content">
-              {children}
-            </main>
-            <Footer />
-          </SmoothScroll>
-        </LoadingScreenWrapper>
+        <SmoothScroll>
+          <Navbar />
+          <main id="main-content">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

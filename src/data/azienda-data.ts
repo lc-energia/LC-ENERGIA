@@ -27,7 +27,8 @@ export const reasons = [
 export const teamMembers = [
   { name: 'Colzani Roberto', role: 'Perito Industriale' },
   { name: 'Colzani Luca', role: 'Ingegnere Energetico' },
-  { name: 'Ricchetti Lorenzo', role: 'Ingegnere Energetico' },
+  { name: 'Federica Beretta', role: 'Ingegnere Energetico' },
+  { name: 'Simone Lia', role: 'Tecnico' },
   { name: 'Mauri Silvia', role: 'Ingegnere Edile' },
   { name: 'Galtarossa Barbara', role: 'Amministrazione' },
   { name: 'Colzani Eliana', role: 'Creativo Multidisciplinare' }

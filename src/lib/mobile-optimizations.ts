@@ -218,24 +218,12 @@ export const addTouchFeedback = (element: HTMLElement) => {
 /**
  * Optimizar tamaño de tap targets (mínimo 48x48px)
  * Best Practice 2025: Accesibilidad móvil
+ * Nota: Ahora usa CSS en globals.css para evitar hydration mismatch
  */
 export const ensureMinimumTapSize = () => {
-  if (typeof document === 'undefined') return;
-
-  const elements = document.querySelectorAll('button, a, input, [role="button"]');
-
-  elements.forEach((el) => {
-    const htmlEl = el as HTMLElement;
-    const rect = htmlEl.getBoundingClientRect();
-
-    if (rect.width < 48 || rect.height < 48) {
-      htmlEl.style.minWidth = '48px';
-      htmlEl.style.minHeight = '48px';
-      htmlEl.style.display = 'inline-flex';
-      htmlEl.style.alignItems = 'center';
-      htmlEl.style.justifyContent = 'center';
-    }
-  });
+  // Esta función ahora está implementada en globals.css
+  // usando la clase .is-mobile para evitar problemas de hidratación
+  // Ver globals.css líneas 432-439
 };
 
 /**
