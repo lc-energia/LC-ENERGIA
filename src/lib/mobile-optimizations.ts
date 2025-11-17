@@ -23,7 +23,7 @@ export const isTouchDevice = (): boolean => {
   return (
     'ontouchstart' in window ||
     navigator.maxTouchPoints > 0 ||
-    // @ts-ignore
+    // @ts-expect-error - msMaxTouchPoints is legacy IE property
     navigator.msMaxTouchPoints > 0
   );
 };
@@ -188,7 +188,9 @@ export const preventInputZoom = () => {
   const disableIosTextFieldZoom = addMaximumScaleToMetaViewport;
 
   const checkIsIOS = () =>
-    /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    // @ts-expect-error - MSStream is legacy IE property
+    !window.MSStream;
 
   if (checkIsIOS()) {
     disableIosTextFieldZoom();
@@ -260,7 +262,7 @@ export const shouldReduceMotion = (): boolean => {
     '(prefers-reduced-motion: reduce)'
   ).matches;
 
-  // @ts-ignore
+  // @ts-expect-error - connection API is experimental
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
   const isSlowConnection =

@@ -16,13 +16,11 @@ export const SmartPageLoader = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [isPageReady, setIsPageReady] = useState(false);
 
   useEffect(() => {
     // Marcar como loading al cambiar de ruta
     setIsLoading(true);
     setLoadingProgress(0);
-    setIsPageReady(false);
 
     // Seleccionar frase aleatoria
     setCurrentPhraseIndex(Math.floor(Math.random() * testimonialData.length));
@@ -48,8 +46,6 @@ export const SmartPageLoader = () => {
     // Detectar cuando la página está realmente lista
     const checkPageReady = () => {
       if (document.readyState === 'complete') {
-        setIsPageReady(true);
-
         // Completar progreso rápidamente
         const finalProgress = setInterval(() => {
           setLoadingProgress((prev) => {
