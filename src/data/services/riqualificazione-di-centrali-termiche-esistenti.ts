@@ -3,7 +3,7 @@ import { ServiceData } from '../services-data';
 export const RiqualificazioneDiCentraliTermicheEsistentiService: ServiceData = {
   title: 'Riqualificazione di centrali termiche esistenti',
     breadcrumb: 'Riqualificazione di centrali termiche esistenti',
-    introduction: 'Riqualificazione di centrali termiche esistenti<br>LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica. Tramite i nostri tecnici qualificati ed accreditati offriamo la necessaria consulenza per la redazione della documentazione richiesta, la quale risulta di fondamentale importanza per poter valutare e definire gli eventuali interventi di efficientamento dell\'edificio.',
+    introduction: '<strong>Riqualificazione di impianti esistenti</strong><br>LC Energia offre consulenza e progettazione per la riqualificazione di impianti esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica ed una maggiore funzionalità. Tramite i nostri tecnici qualificati ed accreditati offriamo la necessaria consulenza per lo studio di soluzioni tecniche innovative e per la redazione della documentazione tecnica necessaria nel rispetto delle normative di settore.',
     sections: [
       {
         title: 'Sotto il profilo normativo',

@@ -200,32 +200,32 @@ const StatCardWithDescription: React.FC<{
 const Feature = () => {
   const stats = [
     {
-      number: 250,
-      label: "Oltre 200 Progetti",
+      number: 5000,
+      label: "Oltre 5000 Progetti",
       description: "Progetti realizzati con successo, garantendo alta qualità e affidabilità.",
       icon: <FontAwesomeIcon icon={faUsers} />,
       suffix: "+",
       delay: 0
     },
     {
-      number: 2000,
-      label: "Oltre 2000 kW Installati",
+      number: 4000,
+      label: "Oltre 4 MW Installati",
       description: "Capacità energetica installata per diverse soluzioni sostenibili.",
       icon: <FontAwesomeIcon icon={faCheck} />,
       suffix: "kW",
       delay: 0.2
     },
     {
-      number: 2500,
-      label: "Oltre 2500 kWh Prodotti",
+      number: 4400,
+      label: "Oltre 4,4 GWh Prodotti",
       description: "Energia prodotta per alimentare abitazioni e imprese.",
       icon: <FontAwesomeIcon icon={faAward} />,
-      suffix: "kWh",
+      suffix: "MWh",
       delay: 0.4
     },
     {
-      number: 1750,
-      label: "1750 Tonnellate di Co2 evitate",
+      number: 3500,
+      label: "3.500 Tonnellate di Co2 evitate",
       description: "Diminuisci la tua impronta di carbonio contribuendo alla protezione del pianeta.",
       icon: <FontAwesomeIcon icon={faLeaf} />,
       suffix: "T",

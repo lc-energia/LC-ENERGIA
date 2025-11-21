@@ -159,15 +159,7 @@ export const RealPageLoader = () => {
 
             {/* Barra de progreso animada infinitamente */}
             <div className="w-full max-w-md space-y-3">
-              <div className="flex items-center justify-center text-sm text-gray-600">
-                <motion.span
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="font-medium"
-                >
-                  Preparando tu experiencia energética...
-                </motion.span>
-              </div>
+
 
               {/* Barra de progreso con animación continua */}
               <div className="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">

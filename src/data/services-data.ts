@@ -330,7 +330,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'riqualificazione-di-centrali-termiche-esistenti': {
     title: 'Riqualificazione di centrali termiche esistenti',
     breadcrumb: 'Riqualificazione di centrali termiche esistenti',
-    introduction: 'Riqualificazione di centrali termiche esistenti<br>LC Energia offre consulenza e progettazione per la riqualificazione delle centrali termiche esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica. Tramite i nostri tecnici qualificati ed accreditati offriamo la necessaria consulenza per la redazione della documentazione richiesta, la quale risulta di fondamentale importanza per poter valutare e definire gli eventuali interventi di efficientamento dell\'edificio.',
+    introduction: '<strong>Riqualificazione di impianti esistenti</strong><br>LC Energia offre consulenza e progettazione per la riqualificazione di impianti esistenti civili e industriali, al fine di conseguire il miglioramento dell\'efficienza energetica ed una maggiore funzionalità. Tramite i nostri tecnici qualificati ed accreditati offriamo la necessaria consulenza per lo studio di soluzioni tecniche innovative e per la redazione della documentazione tecnica necessaria nel rispetto delle normative di settore.',
     sections: [
       {
         title: 'Sotto il profilo normativo',
@@ -356,7 +356,7 @@ export const servicesData: { [key: string]: ServiceData } = {
   'contributo-pnrr': {
     title: 'Contributo PNRR',
     breadcrumb: 'Bandi e Incentivi > Contributo PNRR',
-    introduction: 'Ottieni il 40% a fondo perduto per il tuo impianto fotovoltaico a Milano, Monza e Brianza con la CER Milano Monza Brianza. La CER Milano Monza Brianza supporta cittadini, aziende e amministrazioni nella transizione energetica, offrendo un servizio specializzato per la diffusione di energia pulita e sostenibile. Grazie alle CER e ai fondi del PNRR dedicati, si apre una nuova opportunità concreta per aziende, enti pubblici e privati nei comuni fino a 50.000 abitanti.',
+    introduction: 'Ottieni il 40% a fondo perduto per il tuo impianto fotovoltaico con la CER. La CER supporta cittadini, aziende e amministrazioni nella transizione energetica, offrendo un servizio specializzato per la diffusione di energia pulita e sostenibile. Grazie alle CER e ai fondi del PNRR dedicati, si apre una nuova opportunità concreta per aziende, enti pubblici e privati nei comuni fino a 50.000 abitanti.',
     sections: [
       {
         title: 'Cos\'è il contributo PNRR?',

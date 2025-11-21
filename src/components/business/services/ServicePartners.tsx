@@ -61,12 +61,12 @@ export default function ServicePartners({ title, introduction, partners }: Servi
             variants={cardEntrance}
             className="w-full"
           >
-            <div className="flex justify-center items-center h-full p-4 bg-white rounded-lg shadow-card hover-lift hover-shine transition-smooth">
+            <div className="flex justify-center items-center w-[180px] h-[180px] bg-white rounded-lg shadow-card hover-lift hover-shine transition-smooth">
               <Image
                 src={partner.src}
                 alt={partner.alt}
-                width={150}
-                height={150}
+                width={180}
+                height={180}
                 style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                 loading="lazy"
               />

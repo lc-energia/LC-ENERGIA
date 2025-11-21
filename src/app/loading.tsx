@@ -118,9 +118,7 @@ export default function Loading() {
 
         {/* Barra de progreso animada infinitamente */}
         <div className="w-full max-w-md space-y-3">
-          <div className="flex items-center justify-center text-sm text-gray-600">
-            <span className="font-medium">Preparando tu experiencia energética...</span>
-          </div>
+
 
           {/* Barra de progreso con animación continua */}
           <div className="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">

@@ -30,7 +30,7 @@ interface Service {
 }
 
 const Services = () => {
-  const [filter, setFilter] = useState('*');
+  const [filter, setFilter] = useState('third');
 
   const services: Service[] = [
     {
@@ -115,7 +115,6 @@ const Services = () => {
   const filteredServices = filter === '*' ? services : services.filter(service => service.filter === filter);
 
   const filterButtons = [
-    { name: 'Tutto', value: '*' },
     { name: 'Progettazione', value: 'third' },
     { name: 'Impianti', value: 'second' },
     { name: 'Studio', value: 'first' },
