@@ -40,5 +40,7 @@ export const ImpiantiFotovoltaiciService: ServiceData = {
       { src: '/img/image5.jpg', alt: 'Partner 6' },
       { src: '/img/image6.jpg', alt: 'Partner 7' },
       { src: '/img/image7.png', alt: 'Partner 8' },
+      { src: '/img/Huawei.png', alt: 'Huawei' },
+      { src: '/img/Scame1.png', alt: 'Scame' },
     ],
 };

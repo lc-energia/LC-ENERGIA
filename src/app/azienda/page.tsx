@@ -52,7 +52,7 @@ const AziendaPage = () => {
               className="relative h-64 lg:h-full rounded-xl overflow-hidden shadow-combined hover-lift"
             >
               <Image
-                src="/img/volta3.JPEG"
+                src="/img/pannelli7.jpg"
                 alt="Impegno per la Qualità"
                 layout="fill"
                 objectFit="cover"
@@ -233,15 +233,39 @@ const AziendaPage = () => {
             <Heading2 className="text-center font-bold !text-black">Collaborazioni</Heading2>
           </motion.div>
           <motion.div
-            variants={cardEntrance}
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
+            variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportSettings}
-            className="flex justify-center"
           >
-            <div className="hover-lift transition-smooth">
-              <Image src="/img/image3.png" alt="Collaborazioni" width={512} height={512} className="w-64 h-auto" loading="lazy" />
-            </div>
+            {[
+              '/img/AIRZONE.jpg',
+              '/img/daikin.png',
+              '/img/elco.jpeg',
+              '/img/elfor.jpg',
+              '/img/fraccaro.png',
+              '/img/Huawei.png',
+              '/img/immergas.png',
+              '/img/Panasonic.png',
+              '/img/samsung.png',
+              '/img/Scame1.png',
+              '/img/image6.jpg',
+              '/img/image3.png'
+            ].map((imageSrc, index) => (
+              <motion.div key={index} variants={cardEntrance} className="w-full">
+                <div className="flex justify-center items-center w-[120px] h-[120px] bg-white rounded-lg shadow-card hover-lift hover-shine transition-smooth mx-auto">
+                  <Image
+                    src={imageSrc}
+                    alt={`Collaborazione ${index + 1}`}
+                    width={120}
+                    height={120}
+                    style={{ width: "100%", height: "auto", objectFit: "contain" }}
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

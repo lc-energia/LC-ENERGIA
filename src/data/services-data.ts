@@ -66,7 +66,7 @@ export const servicesData: { [key: string]: ServiceData } = {
             link: '/contributo-pnrr'
           },
           {
-            title: 'Conto Termico 2.0',
+            title: 'Conto Termico',
             description: 'Incentivi fino al 65% per la produzione di energia termica da fonti rinnovabili.',
             link: '/conto-termico'
           }
@@ -114,11 +114,13 @@ export const servicesData: { [key: string]: ServiceData } = {
       { src: '/img/image5.jpg', alt: 'Partner 6' },
       { src: '/img/image6.jpg', alt: 'Partner 7' },
       { src: '/img/image7.png', alt: 'Partner 8' },
+      { src: '/img/Huawei.png', alt: 'Huawei' },
+      { src: '/img/Scame1.png', alt: 'Scame' },
     ],
   },
   'progettazione-e-consulenza-tecnica': {
-    title: 'Progettazione e consulenza tecnica',
-    breadcrumb: 'Progettazione e consulenza tecnica',
+    title: 'Progettazione Impiantistica',
+    breadcrumb: 'Progettazione Impiantistica',
     introduction: 'Nella realizzazione di opere impiantistiche vi è la necessità di gestire le diverse fasi operative in modo da coordinare lo svolgimento dei lavori e garantire la funzionalità del prodotto finale.',
     sections: [
       {
@@ -146,7 +148,7 @@ export const servicesData: { [key: string]: ServiceData } = {
         ],
       },
       {
-        title: 'Progettazione e consulenza tecnica',
+        title: 'Progettazione Impiantistica',
         content: 'LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:',
         list: [
           'Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.',
@@ -401,7 +403,7 @@ export const servicesData: { [key: string]: ServiceData } = {
       },
       {
         title: 'Cos\'è, come funziona e come accedere agli incentivi',
-        content: 'Il 5 agosto 2025 la Conferenza Unificata ha approvato il Conto Termico 3.0, che aggiorna e sostituisce il precedente Conto Termico 2.0. L\'obiettivo principale è quello di ampliare l\'accesso agli incentivi e adeguare massimali, tipologie di intervento e regole operative ai costi e alle tecnologie attuali. Il Conto Termico 3.0 costituisce una nuova opportunità di finanziamento per migliorare l\'efficienza energetica degli edifici e promuovere la produzione di energia termica da fonti rinnovabili. Per imprese, enti pubblici e cittadini, questa misura offre la possibilità di realizzare interventi concreti volti alla riduzione dei consumi energetici e dei relativi costi.',
+        content: 'Il 5 agosto 2025 è stato approvato il Conto Termico 3.0, che aggiorna e sostituisce il precedente Conto Termico 2.0. L\'obiettivo principale è quello di ampliare l\'accesso agli incentivi e adeguare massimali, tipologie di intervento e regole operative ai costi e alle tecnologie attuali. Il Conto Termico 3.0 costituisce una nuova opportunità di finanziamento per migliorare l\'efficienza energetica degli edifici e promuovere la produzione di energia termica da fonti rinnovabili. Per imprese, enti pubblici e cittadini, questa misura offre la possibilità di realizzare interventi concreti volti alla riduzione dei consumi energetici e dei relativi costi.',
       },
       {
         title: 'Chi può beneficiarne',

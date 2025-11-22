@@ -3,10 +3,15 @@
  * Reutilizable para mostrar logos de partners
  */
 
-'use client';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { staggerContainer, cardEntrance, fadeInUp, viewportSettings } from '@/lib/animation-variants';
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  staggerContainer,
+  cardEntrance,
+  fadeInUp,
+  viewportSettings,
+} from "@/lib/animation-variants";
 
 interface Partner {
   src: string;
@@ -19,7 +24,11 @@ interface ServicePartnersProps {
   partners?: Partner[];
 }
 
-export default function ServicePartners({ title, introduction, partners }: ServicePartnersProps) {
+export default function ServicePartners({
+  title,
+  introduction,
+  partners,
+}: ServicePartnersProps) {
   if (!partners || partners.length === 0) return null;
 
   return (
@@ -49,25 +58,21 @@ export default function ServicePartners({ title, introduction, partners }: Servi
       )}
 
       <motion.div
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={viewportSettings}
       >
         {partners.map((partner, index) => (
-          <motion.div
-            key={index}
-            variants={cardEntrance}
-            className="w-full"
-          >
+          <motion.div key={index} variants={cardEntrance} className="w-full">
             <div className="flex justify-center items-center w-[180px] h-[180px] bg-white rounded-lg shadow-card hover-lift hover-shine transition-smooth">
               <Image
                 src={partner.src}
                 alt={partner.alt}
                 width={180}
                 height={180}
-                style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                style={{ width: "100%", height: "auto", objectFit: "contain" }}
                 loading="lazy"
               />
             </div>

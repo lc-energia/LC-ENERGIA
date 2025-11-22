@@ -125,9 +125,12 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                  viewport={viewportSettings}
                >
                  <ImageCarousel images={[
-                   '/img/volta1.JPEG',
-                   '/img/volta5.JPEG',
-                   '/img/volta7.JPEG'
+                   '/img/pannelli1.jpg',
+                   '/img/pannelli2.jpg',
+                   '/img/pannelli3.jpg',
+                   '/img/pannelli4.jpg',
+                   '/img/pannelli5.jpg',
+                   '/img/pannelli6.jpg'
                  ]} />
                </motion.div>
              </div>
@@ -143,7 +146,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           whileInView="visible"
           viewport={viewportSettings}
         >
-          <Image src="/img/scame.png" alt="Stazioni di Ricarica" width={500} height={500} className="mx-auto hover-lift transition-smooth" loading="lazy" />
+          <Image src="/img/coche.png" alt="Stazioni di Ricarica" width={500} height={500} className="mx-auto hover-lift transition-smooth" loading="lazy" />
         </motion.div>
       )}
 
@@ -833,44 +836,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
               return null;
             }
 
-            // Diseño especial para Conto Termico - Sección con imagen
-            if (slug === 'conto-termico' && section.title === 'Cos\'è, come funziona e come accedere agli incentivi') {
-              return (
-                <motion.div
-                  key={i}
-                  className="w-full mb-8"
-                  variants={cardEntrance}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportSettings}
-                >
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <motion.div
-                      className="lg:col-span-1"
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={viewportSettings}
-                    >
-                      <Image src="/img/conto termicp.jpg" alt="Conto Termico 3.0" width={500} height={500} className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth" loading="lazy" />
-                    </motion.div>
-                    <motion.div
-                      className="lg:col-span-1"
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={viewportSettings}
-                    >
-                      <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
-                        <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
-                        <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              );
-            }
-
+  
+  
             // Grid 2x2 para las secciones de Conto Termico 3.0 - se renderiza cuando se llega a la última sección
             if (slug === 'conto-termico' && section.title === 'Requisiti per accedere al Conto Termico 3.0') {
               const contoTermico3Sections = service.sections.filter(s =>
