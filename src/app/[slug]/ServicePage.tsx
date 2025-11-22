@@ -125,12 +125,12 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                  viewport={viewportSettings}
                >
                  <ImageCarousel images={[
-                   '/img/pannelli1.jpg',
-                   '/img/pannelli2.jpg',
-                   '/img/pannelli3.jpg',
-                   '/img/pannelli4.jpg',
-                   '/img/pannelli5.jpg',
-                   '/img/pannelli6.jpg'
+                   '/img/pennelli1.JPG',
+                   '/img/pannelli2.JPG',
+                   '/img/pannelli3.JPG',
+                   '/img/pannelli4.JPG',
+                   '/img/pannelli5.JPG',
+                   '/img/pannelli6.JPG'
                  ]} />
                </motion.div>
              </div>
