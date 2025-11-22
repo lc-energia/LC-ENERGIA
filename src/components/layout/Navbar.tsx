@@ -21,7 +21,7 @@ const navigation = {
     {
       name: 'Progettazione',
       items: [
-        { name: 'Progettazione e consulenza tecnica', href: '/progettazione-e-consulenza-tecnica' },
+        { name: 'Progettazione Impiantistica', href: '/progettazione-e-consulenza-tecnica' },
         { name: 'Contabilizzazione e ripartizione del calore', href: '/contabilizzazione-calore-impianti-termici-centralizzati' },
         { name: 'Progettazione Antincendio', href: '/progettazione-antincendio' },
         { name: 'Progettazione Acustica', href: '/progettazione-acustica' },

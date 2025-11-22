@@ -31,7 +31,7 @@ export default function ContoTermicoService({ service }: ContoTermicoServiceProp
 
       {/* Secciones personalizadas */}
       {service.sections.map((section, index) => {
-        // Sección "Come si recupera l'incentivo?" con imagen
+        // Sección "Come si recupera l'incentivo?" sin imagen
         if (section.title === 'Come si recupera l\'incentivo?') {
           return (
             <motion.div
@@ -42,23 +42,9 @@ export default function ContoTermicoService({ service }: ContoTermicoServiceProp
               whileInView="visible"
               viewport={viewportSettings}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <motion.div className="lg:col-span-1" variants={fadeInUp}>
-                  <Image
-                    src="/img/conto termicp.jpg"
-                    alt="Conto Termico 3.0"
-                    width={500}
-                    height={500}
-                    className="w-full h-auto rounded-xl shadow-combined hover-lift transition-smooth"
-                    loading="lazy"
-                  />
-                </motion.div>
-                <motion.div className="lg:col-span-1" variants={fadeInUp}>
-                  <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
-                    <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
-                    <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
-                  </div>
-                </motion.div>
+              <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
+                <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
+                <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
               </div>
             </motion.div>
           );

@@ -24,7 +24,7 @@ export const ProgettareIlRisparmioEnergeticoService: ServiceData = {
             link: '/contributo-pnrr'
           },
           {
-            title: 'Conto Termico 2.0',
+            title: 'Conto Termico',
             description: 'Incentivi fino al 65% per la produzione di energia termica da fonti rinnovabili.',
             link: '/conto-termico'
           }

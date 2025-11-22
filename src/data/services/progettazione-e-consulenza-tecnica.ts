@@ -1,8 +1,8 @@
 import { ServiceData } from '../services-data';
 
 export const ProgettazioneEConsulenzaTecnicaService: ServiceData = {
-  title: 'Progettazione e consulenza tecnica',
-    breadcrumb: 'Progettazione e consulenza tecnica',
+  title: 'Progettazione Impiantistica',
+    breadcrumb: 'Progettazione Impiantistica',
     introduction: 'Nella realizzazione di opere impiantistiche vi è la necessità di gestire le diverse fasi operative in modo da coordinare lo svolgimento dei lavori e garantire la funzionalità del prodotto finale.',
     sections: [
       {
@@ -30,7 +30,7 @@ export const ProgettazioneEConsulenzaTecnicaService: ServiceData = {
         ],
       },
       {
-        title: 'Progettazione e consulenza tecnica',
+        title: 'Progettazione Impiantistica',
         content: 'LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:',
         list: [
           'Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.',

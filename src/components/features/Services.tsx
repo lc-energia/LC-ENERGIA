@@ -35,15 +35,15 @@ const Services = () => {
   const services: Service[] = [
     {
       filter: "third",
-      icon: faGlobe,
-      title: "Impianto Geotermico",
-      description: "LC Energia da diversi anni realizza impianti che utilizzano fonti alternative, in particolare impianti geotermici puri o integrati con altri sistemi di produzione dell’energia, nell’ambito di una politica di ricerca della massima soddisfazione del cliente.",
-      link: "/impianti-geotermici"
+      icon: faWallet,
+      title: "Progettare il risparmio energetico",
+      description: "LC Energia propone costantemente soluzioni tecniche innovative per ottenere il massimo risparmio energetico dai sistemi progettati.",
+      link: "/progettare-il-risparmio-energetico"
     },
     {
       filter: "third",
       icon: faTools,
-      title: "Progettazione e consulenza tecnica",
+      title: "Progettazione Impiantistica",
       description: "Da oltre 25 anni offriamo un servizio di consulenza, progettazione e supporto nelle realizzazioni impiantistiche civili ed industriali. Ogni soluzione è valutata e condivisa nel rispetto delle esigenze del committente.",
       link: "/progettazione-e-consulenza-tecnica"
     },
@@ -55,13 +55,6 @@ const Services = () => {
       link: "/progettazione-antincendio"
     },
     {
-      filter: "second",
-      icon: faSolarPanel,
-      title: "Impianto Fotovoltaico e Accumulo Elettrico",
-      description: "Progettiamo e installiamo impianti fotovoltaici chiavi in mano per ridurre i consumi energetici grazie all’autoproduzione di energia elettrica.",
-      link: "/impianti-fotovoltaici"
-    },
-    {
       filter: "third",
       icon: faHeadphones,
       title: "Progettazione Acustica",
@@ -70,10 +63,10 @@ const Services = () => {
     },
     {
       filter: "third",
-      icon: faWallet,
-      title: "Progettare il risparmio energetico",
-      description: "LC Energia propone costantemente soluzioni tecniche innovative per ottenere il massimo risparmio energetico dai sistemi progettati.",
-      link: "/progettare-il-risparmio-energetico"
+      icon: faGlobe,
+      title: "Impianto Geotermico",
+      description: "LC Energia da diversi anni realizza impianti che utilizzano fonti alternative, in particolare impianti geotermici puri o integrati con altri sistemi di produzione dell’energia, nell’ambito di una politica di ricerca della massima soddisfazione del cliente.",
+      link: "/impianti-geotermici"
     },
     {
       filter: "third",
@@ -81,6 +74,13 @@ const Services = () => {
       title: "Contabilizzazione e ripartizione del calore",
       description: "Progettiamo sistemi di contabilizzazione e ripartizione del calore per edifici costituiti da più unità immobiliari.",
       link: "/contabilizzazione-calore-impianti-termici-centralizzati"
+    },
+    {
+      filter: "second",
+      icon: faSolarPanel,
+      title: "Impianto Fotovoltaico e Accumulo Elettrico",
+      description: "Progettiamo e installiamo impianti fotovoltaici chiavi in mano per ridurre i consumi energetici grazie all’autoproduzione di energia elettrica.",
+      link: "/impianti-fotovoltaici"
     },
     {
       filter: "first",
