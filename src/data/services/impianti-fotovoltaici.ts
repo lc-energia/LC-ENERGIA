@@ -17,8 +17,8 @@ export const ImpiantiFotovoltaiciService: ServiceData = {
         content: 'Detrazione fiscale al 50% per edifici residenziali. Ad oggi esiste la possibilità di recuperare il 50% delle spese sostenute per l’acquisto e la realizzazione di un sistema fotovoltaico grazie agli incentivi governativi.',
       },
       {
-        title: 'Scambio sul posto',
-        content: 'Il meccanismo dello scambio sul posto è una modalità di gestione dell’energia elettrica che permette al soggetto responsabile di un impianto fotovoltaico di immettere in rete l’energia elettrica prodotta ma non immediatamente autoconsumata, per poi prelevarla in un momento differente.',
+        title: 'Ritiro Dedicato',
+        content: 'Il ritiro dedicato è un sistema per vendere l\'energia elettrica prodotta in eccesso dal tuo impianto fotovoltaico, acquistata direttamente dal Gestore dei Servizi Energetici (GSE). Ricevi un compenso basato sul prezzo orario zonale o su prezzi minimi garantiti, anziché uno sconto in bolletta. Questo meccanismo ha sostituito lo scambio sul posto e funziona vendendo tutta l\'energia in eccesso, mentre l\'energia prelevata dalla rete viene pagata normalmente.',
       },
       {
         title: 'Autoconsumo',
