@@ -21,12 +21,12 @@ const navigation = {
     {
       name: 'Progettazione',
       items: [
-        { name: 'Progettare il risparmio energetico', href: '/progettare-il-risparmio-energetico' },
         { name: 'Progettazione Impiantistica', href: '/progettazione-e-consulenza-tecnica' },
+        { name: 'Contabilizzazione e ripartizione del calore', href: '/contabilizzazione-calore-impianti-termici-centralizzati' },
         { name: 'Progettazione Antincendio', href: '/progettazione-antincendio' },
         { name: 'Progettazione Acustica', href: '/progettazione-acustica' },
+        { name: 'Progettare il risparmio energetico', href: '/progettare-il-risparmio-energetico' },
         { name: 'Impianti Geotermici', href: '/impianti-geotermici' },
-        { name: 'Contabilizzazione e ripartizione del calore', href: '/contabilizzazione-calore-impianti-termici-centralizzati' },
       ]
     },
     {
@@ -136,7 +136,7 @@ export default function Navbar() {
                 }}
               >
                 <span className="relative z-10 flex items-center" style={{ color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.4)' }}>
-                  Preventivo
+                  Contattaci
                   <FontAwesomeIcon
                     icon={faArrowRight}
                     className="ml-1 w-3 h-3 transition-transform duration-300 group-hover:translate-x-1"
@@ -198,7 +198,7 @@ export default function Navbar() {
               </Link>
               <Button asChild variant="ghost" className="w-full justify-start">
                 <Link href="/contact" key="contact">
-                  Richiedi un preventivo
+                  Contattaci
                 </Link>
               </Button>
             </div>
