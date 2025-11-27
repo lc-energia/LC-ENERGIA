@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ServiceData, Section } from '@/data/services';
 import { fadeInUp, staggerContainer, cardEntrance, viewportSettings } from '@/lib/animation-variants';
+import SafeHTML from '@/components/shared/SafeHTML';
 
 interface ContabilizzazioneCaloreServiceProps {
   service: ServiceData;
@@ -30,7 +31,7 @@ export default function ContabilizzazioneCaloreService({ service }: Contabilizza
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F49918]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
           <div className="relative z-10">
-            <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.sections[0].content }}></div>
+            <SafeHTML html={service.sections[0].content} className="text-gray-700 leading-relaxed" />
           </div>
         </div>
       </motion.div>

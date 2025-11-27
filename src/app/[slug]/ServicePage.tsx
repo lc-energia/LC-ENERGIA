@@ -13,7 +13,7 @@ import FaqAccordion from '@/components/business/FaqAccordion';
 import AnimatedTextCycle from '@/components/shared/AnimatedTextCycle';
 import InfoAccordion from '@/components/business/InfoAccordion';
 import ImageCarousel from '@/components/business/ImageCarousel';
-import { Heading1, Text } from '@/components/ui/Typography';
+import { Heading2, Text } from '@/components/ui/Typography';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 import ServiceSchema from '@/components/seo/ServiceSchema';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
@@ -25,6 +25,7 @@ import ProgettareRisparmioService from '@/components/business/services/Progettar
 import ImpiantiGeotermiciService from '@/components/business/services/ImpiantiGeotermiciService';
 import ContabilizzazioneCaloreService from '@/components/business/services/ContabilizzazioneCaloreService';
 import RiqualificazioneCentraliService from '@/components/business/services/RiqualificazioneCentraliService';
+import SafeHTML from '@/components/shared/SafeHTML';
 
 // Helper para limpiar HTML
 function stripHtml(html: string): string {
@@ -90,7 +91,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
           <div className="bg-gradient-to-r from-[#F49918] to-[#c27a12] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             <div className="relative z-10">
-              <div className="text-white/95 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+              <SafeHTML html={service.introduction} className="text-white/95 leading-relaxed" />
             </div>
           </div>
         </motion.div>
@@ -171,7 +172,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                 
                 <div className="relative z-10">
-                  <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+                  <SafeHTML html={service.introduction} className="text-gray-700 leading-relaxed" />
                 </div>
               </div>
             </motion.div>
@@ -275,7 +276,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                 
                 <div className="relative z-10">
-                  <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+                  <SafeHTML html={service.introduction} className="text-gray-700 leading-relaxed" />
                 </div>
               </div>
             </motion.div>
@@ -340,7 +341,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F49918]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                     
                     <div className="relative z-10">
-                      <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+                      <SafeHTML html={service.introduction} className="text-gray-700 leading-relaxed" />
                     </div>
                   </div>
                 </motion.div>
@@ -401,7 +402,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                     
                     <div className="relative z-10">
-                      <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+                      <SafeHTML html={service.introduction} className="text-gray-700 leading-relaxed" />
                     </div>
                   </div>
                 </motion.div>
@@ -497,7 +498,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 >
                   <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
                     <div className="mb-6">
-                      <Heading1 color="white" className="font-bold !text-white text-left">Impianti Elettrici</Heading1>
+                      <Heading2 color="white" className="font-bold !text-white text-left">Impianti Elettrici</Heading2>
                     </div>
                     <div className="space-y-3">
                       {[
@@ -530,7 +531,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 >
                   <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
                     <div className="mb-6">
-                      <Heading1 color="white" className="font-bold !text-white text-left">Progettazione Impiantistica</Heading1>
+                      <Heading2 color="white" className="font-bold !text-white text-left">Progettazione Impiantistica</Heading2>
                     </div>
                     <Text color="white" justify={false} size="lg" className="leading-relaxed mb-6 text-left">
                       Per ogni tipologia edilizia, l&apos;impianto rappresenta una struttura vitale per la gestione e la fruibilità dell&apos;intero edificio. La qualità della progettazione influisce su sicurezza, comfort, risparmio e manutenzione.
@@ -544,7 +545,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 >
                   <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
                     <div className="mb-6">
-                      <Heading1 color="white" className="font-bold !text-white text-left">Impianti Meccanici</Heading1>
+                      <Heading2 color="white" className="font-bold !text-white text-left">Impianti Meccanici</Heading2>
                     </div>
                     <div className="space-y-3">
                       {[
@@ -582,7 +583,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
 
                     <div className="relative z-10">
                       <div className="mb-6">
-                        <Heading1 color="white" className="font-bold !text-white text-left">Progettazione e Consulenza Tecnica</Heading1>
+                        <Heading2 color="white" className="font-bold !text-white text-left">Progettazione e Consulenza Tecnica</Heading2>
                       </div>
                       <Text color="white" justify={false} size="lg" className="font-semibold mb-4 text-left">
                         LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:
@@ -631,7 +632,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                    >
                      <FontAwesomeIcon icon={faTools} className="fa-3x text-secondary mb-4" />
                    </motion.div>
-                   <Heading1 color="primary" className="font-bold text-center">Impianti Speciali</Heading1>
+                   <Heading2 color="primary" className="font-bold text-center">Impianti Speciali</Heading2>
                  </div>
                 <motion.div
                   className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto"
@@ -686,7 +687,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                    >
                      <FontAwesomeIcon icon={faCertificate} className="fa-3x text-secondary mb-4" />
                    </motion.div>
-                   <Heading1 color="primary" className="font-bold text-center mb-4">Collaudi e certificazioni</Heading1>
+                   <Heading2 color="primary" className="font-bold text-center mb-4">Collaudi e certificazioni</Heading2>
                    <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed text-justify">
                      Collaudi e start-up degli impianti meccanici ed elettrici civili ed industriali. Redazione di Dichiarazioni di rispondenza per impianti antecedenti il D.M. 37/08.
                    </p>
@@ -723,7 +724,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       
                       <div className="relative z-10">
                         <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                        <div className="text-white/95 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+                        <SafeHTML html={service.introduction} className="text-white/95 leading-relaxed" />
                       </div>
                     </div>
                   </motion.div>
@@ -782,7 +783,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       {/* Contenido con mejor formato */}
                       <div className="prose prose-lg max-w-none">
                         <div className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-6 border border-gray-200">
-                          <div className="text-gray-700 leading-relaxed space-y-4" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                          <SafeHTML html={section.content} className="text-gray-700 leading-relaxed space-y-4" />
                         </div>
                       </div>
                       
@@ -823,7 +824,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                     >
                       <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
                         <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
-                        <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                        <SafeHTML html={section.content} className="text-sm text-gray-600 leading-relaxed" />
                       </div>
                     </motion.div>
                   </div>
@@ -866,7 +867,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                         </div>
                         <h5 className="font-bold text-lg mb-0 text-gradient-primary">{sectionItem.title}</h5>
                       </div>
-                      <div className="text-sm text-gray-600 space-y-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: sectionItem.content }}></div>
+                      <SafeHTML html={sectionItem.content} className="text-sm text-gray-600 space-y-2 leading-relaxed" />
                     </motion.div>
                   ))}
                 </motion.div>
@@ -938,7 +939,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                         <div className="px-4 lg:px-6 pb-4 lg:pb-6">
                           <div className="prose prose-lg max-w-none">
                             {/* Mostrar contenido para todas las secciones */}
-                             <div className="text-sm text-gray-700 leading-relaxed space-y-3 mb-4" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                             <SafeHTML html={section.content} className="text-sm text-gray-700 leading-relaxed space-y-3 mb-4" />
 
                             {/* Lista especial para secciones con listas */}
                             {section.list && (
@@ -947,7 +948,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                                    <p className="font-semibold text-sm mb-3 text-black">Rientrano nell&apos;incentivo in particolare:</p>
                                 )}
                                 {section.title === 'Il nostro supporto:' && (
-                                   <p className="text-sm text-black leading-relaxed mb-3 font-semibold" dangerouslySetInnerHTML={{ __html: section.content.split('<br><br>')[0] }}></p>
+                                   <SafeHTML html={section.content.split('<br><br>')[0]} as="p" className="text-sm text-black leading-relaxed mb-3 font-semibold" />
                                 )}
                                 <ul className="space-y-2">
                                   {section.list.map((item, j) => (
@@ -983,7 +984,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                                 )}
                                 {section.title === 'Il nostro supporto:' && (
                                   <div className="mt-4 pt-3 border-t border-gray-200">
-                                     <p className="text-sm text-black leading-relaxed font-semibold" dangerouslySetInnerHTML={{ __html: section.content.split('<br><br>')[1] }}></p>
+                                     <SafeHTML html={section.content.split('<br><br>')[1]} as="p" className="text-sm text-black leading-relaxed font-semibold" />
                                   </div>
                                 )}
                               </div>
@@ -1017,7 +1018,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       <h5 className="font-bold text-lg mb-0 text-gradient-primary">{section.title}</h5>
                     </div>
                   </div>
-                  <div className="text-sm text-gray-600 space-y-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                  <SafeHTML html={section.content} className="text-sm text-gray-600 space-y-2 leading-relaxed" />
                   {section.list ? (
                     <ul className="space-y-2 mt-4">
                       {section.list.map((item, j) => (

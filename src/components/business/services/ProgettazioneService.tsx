@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { ServiceData } from '@/data/services';
 import FeatureCard from '@/components/business/FeatureCard';
 import { fadeInUp, staggerContainer, viewportSettings } from '@/lib/animation-variants';
+import SafeHTML from '@/components/shared/SafeHTML';
 
 interface ProgettazioneServiceProps {
   service: ServiceData;
@@ -41,7 +42,7 @@ export default function ProgettazioneService({ service, slug }: ProgettazioneSer
           <div className={`absolute inset-0 bg-gradient-to-r from-transparent ${gradientVia} to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700`}></div>
 
           <div className="relative z-10">
-            <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+            <SafeHTML html={service.introduction} className="text-gray-700 leading-relaxed" />
           </div>
         </div>
       </motion.div>

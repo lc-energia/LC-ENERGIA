@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { sanitizeHTML } from '@/lib/sanitizer';
 
 interface AnimatedTextProps {
   text: string;
@@ -156,7 +157,7 @@ export const AnimatedHTMLText: React.FC<{
         <motion.span
           key={index}
           className={item.isColored ? (item.className || 'text-primary') : 'inline-block mr-1'}
-          dangerouslySetInnerHTML={{ __html: item.text }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHTML(item.text) }}
           variants={{
             hidden: { y: 50, opacity: 0 },
             visible: { y: 0, opacity: 1 },

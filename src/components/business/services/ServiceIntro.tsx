@@ -7,6 +7,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { fadeInUp, viewportSettings } from '@/lib/animation-variants';
+import SafeHTML from '@/components/shared/SafeHTML';
 
 interface ServiceIntroProps {
   slug: string;
@@ -74,7 +75,7 @@ export default function ServiceIntro({ slug, introduction }: ServiceIntroProps) 
           whileInView="visible"
           viewport={viewportSettings}
         >
-          <div className="text-gray-700 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: introduction }}></div>
+          <SafeHTML html={introduction} className="text-gray-700 leading-relaxed text-left" />
         </motion.div>
       </div>
     );

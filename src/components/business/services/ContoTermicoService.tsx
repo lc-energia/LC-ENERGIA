@@ -10,6 +10,7 @@ import { ServiceData } from '@/data/services-data';
 import { fadeInUp, cardEntrance, viewportSettings } from '@/lib/animation-variants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import SafeHTML from '@/components/shared/SafeHTML';
 
 interface ContoTermicoServiceProps {
   service: ServiceData;
@@ -44,7 +45,7 @@ export default function ContoTermicoService({ service }: ContoTermicoServiceProp
             >
               <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
                 <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
-                <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                <SafeHTML html={section.content} className="text-sm text-gray-600 leading-relaxed" />
               </div>
             </motion.div>
           );
@@ -75,7 +76,7 @@ export default function ContoTermicoService({ service }: ContoTermicoServiceProp
                 <motion.div className="lg:col-span-1" variants={fadeInUp}>
                   <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
                     <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
-                    <div className="text-sm text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+                    <SafeHTML html={section.content} className="text-sm text-gray-600 leading-relaxed" />
                   </div>
                 </motion.div>
               </div>
@@ -95,7 +96,7 @@ export default function ContoTermicoService({ service }: ContoTermicoServiceProp
           >
             <div className="bg-white rounded-xl shadow-card p-6">
               <h3 className="text-xl font-bold text-gradient-combined mb-4">{section.title}</h3>
-              <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+              <SafeHTML html={section.content} className="text-gray-600 leading-relaxed" />
 
               {section.list && (
                 <ul className="mt-4 space-y-2">

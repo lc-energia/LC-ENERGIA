@@ -12,6 +12,7 @@ import { staggerContainer, cardEntrance, fadeInUp, viewportSettings } from '@/li
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import SafeHTML from '@/components/shared/SafeHTML';
 
 interface ServiceSectionsProps {
   sections: Section[];
@@ -143,7 +144,7 @@ export default function ServiceSections({ sections, slug }: ServiceSectionsProps
             <h3 className="text-2xl font-bold text-gradient-combined mb-4">
               {section.title}
             </h3>
-            <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: section.content }}></div>
+            <SafeHTML html={section.content} className="text-gray-600 leading-relaxed" />
             {section.list && (
               <ul className="list-disc list-inside text-gray-600 mt-4 space-y-2">
                 {section.list.map((item, i) => (

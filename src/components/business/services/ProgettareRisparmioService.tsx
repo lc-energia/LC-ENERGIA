@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { ServiceData, Section } from '@/data/services';
 import { fadeInUp, staggerContainer, cardEntrance, viewportSettings } from '@/lib/animation-variants';
+import SafeHTML from '@/components/shared/SafeHTML';
 
 interface ProgettareRisparmioServiceProps {
   service: ServiceData;
@@ -33,7 +34,7 @@ export default function ProgettareRisparmioService({ service }: ProgettareRispar
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9BBD2D]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
           <div className="relative z-10">
-            <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.introduction }}></div>
+            <SafeHTML html={service.introduction} className="text-gray-700 leading-relaxed" />
           </div>
         </div>
       </motion.div>
