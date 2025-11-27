@@ -388,6 +388,38 @@ export const viewportSettingsLazy = {
 };
 
 // ============================================
+// FUNCIONES DE ANIMACIÓN DINÁMICAS
+// ============================================
+
+/**
+ * Creates a directional fade-in animation variant
+ * Compatible with the old fadeIn function API
+ */
+export const fadeInDirectional = (
+  direction: 'up' | 'down' | 'left' | 'right',
+  delay: number
+): Variants => {
+  return {
+    hidden: {
+      y: direction === 'up' ? 40 : direction === 'down' ? -40 : 0,
+      x: direction === 'left' ? 40 : direction === 'right' ? -40 : 0,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'tween',
+        duration: 0.5,
+        delay: delay,
+        ease: [0.25, 0.25, 0.25, 0.75],
+      },
+    },
+  };
+};
+
+// ============================================
 // EXPORTAR TODO COMO DEFAULT
 // ============================================
 
@@ -395,6 +427,7 @@ const animationVariants = {
   fadeIn,
   fadeInUp,
   fadeInDown,
+  fadeInDirectional,
   slideInLeft,
   slideInRight,
   scaleIn,

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/variants';
+import { fadeInDirectional } from '@/lib/animation-variants';
 
 type FadeInDirection = 'up' | 'down' | 'left' | 'right';
 
@@ -22,7 +22,7 @@ const FadeIn: React.FC<FadeInProps> = ({
 }) => {
   return (
     <motion.div
-      variants={fadeIn(direction, delay)}
+      variants={fadeInDirectional(direction, delay)}
       initial="hidden"
       whileInView="show"
       viewport={viewport}
