@@ -14,7 +14,7 @@ import { StazioniDiRicaricaService } from './stazioni-di-ricarica';
 import { RiqualificazioneDiCentraliTermicheEsistentiService } from './riqualificazione-di-centrali-termiche-esistenti';
 import { ContributoPnrrService } from './contributo-pnrr';
 import { ContoTermicoService } from './conto-termico';
-import { ServiceData, Section } from '../services-data';
+import { ServiceData, Section } from '@/types/service-types';
 
 // Re-export types for convenience
 export type { ServiceData, Section };

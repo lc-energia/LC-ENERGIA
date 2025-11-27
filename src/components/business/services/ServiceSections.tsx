@@ -5,7 +5,7 @@
 
 'use client';
 import { motion } from 'framer-motion';
-import { Section } from '@/data/services-data';
+import { Section } from '@/types/service-types';
 import FeatureCard from '@/components/business/FeatureCard';
 import FaqAccordion from '@/components/business/FaqAccordion';
 import { staggerContainer, cardEntrance, fadeInUp, viewportSettings } from '@/lib/animation-variants';

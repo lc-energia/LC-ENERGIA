@@ -1,4 +1,4 @@
-import { ServiceData } from '../services-data';
+import { ServiceData } from '@/types/service-types';
 
 export const ProgettazioneAntincendioService: ServiceData = {
   title: 'Progettazione Prevenzioni Incendi',
