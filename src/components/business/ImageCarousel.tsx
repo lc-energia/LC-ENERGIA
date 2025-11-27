@@ -13,7 +13,10 @@ interface ImageCarouselProps {
 
 const ImageCarousel = ({ images }: ImageCarouselProps) => {
   return (
-    <div className="relative h-64 md:h-80 lg:h-96 w-full overflow-hidden rounded-lg shadow-lg">
+    <div
+      className="relative w-full overflow-hidden rounded-lg shadow-lg aspect-[4/3] md:aspect-[16/10]"
+      style={{ minHeight: '16rem' }}
+    >
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect="fade"
@@ -25,12 +28,15 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
         className="h-full w-full"
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="relative h-full">
             <Image
               src={image}
               alt={`Carousel Image ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              quality={85}
+              priority={index === 0}
+              style={{ objectFit: 'cover' }}
             />
           </SwiperSlide>
         ))}

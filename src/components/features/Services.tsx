@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, staggerContainer, cardEntrance, iconPop, viewportSettings } from '@/lib/animation-variants';
 import Link from 'next/link';
@@ -29,10 +29,8 @@ interface Service {
   specialBox?: string;
 }
 
-const Services = () => {
-  const [filter, setFilter] = useState('third');
-
-  const services: Service[] = [
+// Static services data - moved outside component to prevent re-creation on each render
+const SERVICES: Service[] = [
     {
       filter: "third",
       icon: faWallet,
@@ -110,16 +108,24 @@ const Services = () => {
       description: "Incentivi fino al 65% per la produzione di energia termica da fonti rinnovabili. Fino al 100% in alcuni casi per edifici pubblici e scuole.",
       link: "/conto-termico"
     }
-  ];
+];
 
-  const filteredServices = filter === '*' ? services : services.filter(service => service.filter === filter);
+// Filter buttons configuration - moved outside component
+const FILTER_BUTTONS = [
+  { name: 'Progettazione', value: 'third' },
+  { name: 'Impianti', value: 'second' },
+  { name: 'Studio', value: 'first' },
+  { name: 'Bandi e Incentivi', value: 'fourth' },
+];
 
-  const filterButtons = [
-    { name: 'Progettazione', value: 'third' },
-    { name: 'Impianti', value: 'second' },
-    { name: 'Studio', value: 'first' },
-    { name: 'Bandi e Incentivi', value: 'fourth' },
-  ];
+const Services = () => {
+  const [filter, setFilter] = useState('third');
+
+  // Memoize filtered services to prevent recalculation on every render
+  const filteredServices = useMemo(() => {
+    return filter === '*' ? SERVICES : SERVICES.filter(service => service.filter === filter);
+  }, [filter]);
+
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary-50/30 via-white to-secondary-50/30">
@@ -160,7 +166,7 @@ const Services = () => {
           className="flex justify-center mb-12"
         >
           <ul className="flex flex-wrap items-center gap-3 justify-center">
-            {filterButtons.map((button, index) => (
+            {FILTER_BUTTONS.map((button, index) => (
               <motion.li
                 key={button.value}
                 initial={{ opacity: 0, scale: 0.8 }}

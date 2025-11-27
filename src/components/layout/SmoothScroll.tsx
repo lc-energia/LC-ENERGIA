@@ -1,23 +1,34 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 
 const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const rafRef = useRef<number>(0);
+
+  const updateScrollProgress = useCallback(() => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    setScrollProgress(Math.min(100, Math.max(0, scrollPercent)));
+  }, []);
 
   useEffect(() => {
-    const updateScrollProgress = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setScrollProgress(Math.min(100, Math.max(0, scrollPercent)));
+    const handleScroll = () => {
+      // Cancel any pending animation frame to prevent stacking
+      cancelAnimationFrame(rafRef.current);
+      // Schedule update on next animation frame for smooth 60fps
+      rafRef.current = requestAnimationFrame(updateScrollProgress);
     };
 
-    window.addEventListener('scroll', updateScrollProgress);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     updateScrollProgress();
 
-    return () => window.removeEventListener('scroll', updateScrollProgress);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, [updateScrollProgress]);
 
   return (
     <>
