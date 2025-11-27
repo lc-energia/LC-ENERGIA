@@ -36,6 +36,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let innerTimer: NodeJS.Timeout;
+
     // Simulate loading progress
     const progressInterval = setInterval(() => {
       setProgress(prev => {
@@ -50,7 +52,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     // Complete loading after 2.5 seconds minimum
     const timer = setTimeout(() => {
       setProgress(100);
-      setTimeout(() => {
+      innerTimer = setTimeout(() => {
         setIsLoading(false);
         onLoadingComplete();
       }, 300);
@@ -59,6 +61,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     return () => {
       clearInterval(progressInterval);
       clearTimeout(timer);
+      clearTimeout(innerTimer);
     };
   }, [onLoadingComplete]);
 

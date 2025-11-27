@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/Card';
 import { CardTitle, CardDescription } from '@/components/ui/Typography';
@@ -33,8 +33,7 @@ interface FeatureCardProps {
   i: number;
 }
 
-const FeatureCard: FC<FeatureCardProps> = ({ feature, i }) => {
-
+const FeatureCard: FC<FeatureCardProps> = memo(function FeatureCard({ feature, i }) {
   return (
     <motion.div
       custom={i}
@@ -71,6 +70,6 @@ const FeatureCard: FC<FeatureCardProps> = ({ feature, i }) => {
       </Card>
     </motion.div>
   );
-};
+});
 
 export default FeatureCard;
