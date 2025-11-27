@@ -115,6 +115,7 @@ const PremiumHero = () => {
                   alt="LC Energia - Soluzioni energetiche innovative"
                   width={2792}
                   height={2835}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                   className="w-full h-auto"
                   priority
                   quality={90}

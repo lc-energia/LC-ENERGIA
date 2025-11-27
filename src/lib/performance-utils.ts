@@ -123,9 +123,7 @@ export const preloadResource = (href: string, as: string, type?: string) => {
 export const reportWebVitals = (metric: any) => {
   // Enviar a analytics (Google Analytics, Vercel Analytics, etc.)
   if (process.env.NODE_ENV === 'development') {
-    // Only log in development
-    // eslint-disable-next-line no-console
-    console.log('[Web Vitals]', metric.name, metric.value);
+    console.log('[Web Vitals]', metric.name, metric.value); // Dev-only logging
   }
   // TODO: Implement real tracking for production
   // if (process.env.NODE_ENV === 'production') {
