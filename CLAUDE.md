@@ -4,95 +4,104 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is LC Energia's modern corporate website built with Next.js 15, React 19, and TypeScript. The company specializes in renewable energy solutions, including solar photovoltaic systems, geothermal plants, fire safety design, and energy consulting.
-
-## Architecture & Structure
-
-### Core Framework
-- **Next.js 15** with App Router (src/app/*)
-- **TypeScript** throughout the codebase
-- **React 19** with client components where needed
-- **Tailwind CSS v4** for styling
-- **Bootstrap CSS** (imported manually in layout)
-
-### Key Dependencies
-- **Framer Motion** for animations (custom variants in src/variants.ts)
-- **Swiper** for carousels and sliders
-- **FontAwesome icons** for UI icons
-- **Headless UI** for accessible dropdown components
-
-### Component Organization
-- **Layout Components**: Navbar, Footer (rendered in root layout)
-- **Page Sections**: NewCarousel, About, Feature, Services, DynamicNewTestimonial
-- **Utility Components**: Counter, Spinner, PageHeader, FadeIn (motion wrapper)
-- **Business Components**: FlippableCard, AccreditationCard, ServicePageLayout
-
-### Data Management
-- **Static data**: carousel-data.tsx contains hero slides and testimonials
-- **Navigation structure**: Defined inline in Navbar.tsx component
-- **No external state management**: Uses React useState for local component state
-
-### Styling System
-- **Tailwind**: Primary styling system with custom font variables
-- **Custom CSS**: Additional styles in src/styles/style.css
-- **Bootstrap**: For certain UI components and utilities
-- **Fonts**: Open Sans and Roboto loaded via next/font/google
+LC Energia's corporate website built with Next.js 15, React 19, and TypeScript. The company specializes in renewable energy solutions: solar photovoltaic systems, geothermal plants, fire safety design, and energy consulting. Primary language is Italian.
 
 ## Development Commands
 
 ```bash
-# Development with Turbopack
-npm run dev
-
-# Production build with Turbopack
-npm run build
-
-# Start production server
-npm start
-
-# Lint code
-npm run lint
+npm run dev      # Development server (Turbopack)
+npm run build    # Production build (Turbopack)
+npm start        # Start production server
+npm run lint     # Run ESLint
 ```
 
-## Key Technical Details
+## Architecture
 
-### Navigation System
-The Navbar uses a complex structure with dropdown menus defined in a navigation object. The navigation includes:
-- Simple links (Home, Azienda)
-- Dropdown menus (Progettazione, Impianti, Studio)
-- Right-side link (Accrediti)
+### Core Stack
+- **Next.js 15** with App Router
+- **React 19** with client components where needed
+- **TypeScript** throughout
+- **Tailwind CSS v4** (primary) + Bootstrap CSS utilities
+- **Framer Motion** for animations
+- **Swiper** for carousels
+- **Headless UI** for accessible dropdowns
 
-### Image Optimization
-- Next.js Image component used throughout
-- Custom formats configured: AVIF, WebP
-- Images stored in /public/img/
+### Key Directories
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── [slug]/            # Dynamic service pages (SSG)
+│   ├── bandi-e-incentivi/ # Nested incentive pages
+│   └── layout.tsx         # Root layout with Navbar/Footer
+├── components/
+│   ├── layout/            # Navbar, Footer, ServicePageLayout
+│   ├── features/          # Homepage sections (PremiumHero, Services)
+│   ├── business/          # Domain components (FlippableCard, AccreditationCard)
+│   │   └── services/      # Service-specific components
+│   ├── shared/            # Reusable utilities (Counter, AnimatedText)
+│   ├── ui/                # Base primitives (Button, Card, Typography)
+│   ├── motion/            # Animation wrappers (FadeIn, ScrollReveal)
+│   └── seo/               # Schema.org components
+├── data/
+│   ├── services/          # Modular service data files
+│   │   └── index.ts       # Barrel export with servicesData map
+│   └── services-data.ts   # TypeScript interfaces (ServiceData, Section)
+├── hooks/                 # Custom hooks (useSticky, useParallax, useTiltEffect)
+└── lib/
+    ├── animation-variants.ts  # Framer Motion variants
+    └── utils.ts              # cn() utility (clsx + tailwind-merge)
+```
+
+### Dynamic Service Pages
+
+Service pages use dynamic routing via `src/app/[slug]/page.tsx`:
+- Data lives in `src/data/services/` as individual TypeScript files
+- `generateStaticParams()` generates all routes at build time (SSG)
+- `servicesData` object maps slugs to `ServiceData` objects
+
+**To add a new service:**
+1. Create `src/data/services/new-service.ts` implementing `ServiceData` interface
+2. Export from `src/data/services/index.ts` and add to `servicesData` map
+3. Add navigation link in `src/components/layout/Navbar.tsx` (navigation object)
+
+### Navigation Structure
+
+Defined in `Navbar.tsx` as a `navigation` object with:
+- `links`: Simple nav items (Home, Azienda)
+- `dropdowns`: Mega-menu categories (Progettazione, Impianti, Studio, Bandi e Incentivi)
+- `rightLink`: Accrediti link
 
 ### Animation System
-- Custom fadeIn variants in src/variants.ts
-- Framer Motion used for scroll animations and transitions
-- Motion components wrap sections for entrance effects
 
-### Responsive Design
-- Mobile-first approach with Tailwind breakpoints
-- Custom Swiper pagination component
-- Responsive typography and spacing
+Standardized Framer Motion variants in `src/lib/animation-variants.ts`:
+- Fade variants: `fadeIn`, `fadeInUp`, `fadeInDown`
+- Slide variants: `slideInLeft`, `slideInRight`
+- Scale variants: `scaleIn`, `scaleInSpring`
+- Container variants: `staggerContainer`, `staggerContainerFast`
+- Hover variants: `hoverScale`, `hoverLift`, `hoverGlow`
+- Viewport presets: `viewportSettings`, `viewportSettingsLazy`
 
-## Content Management
+Use `FadeIn` wrapper component for scroll-triggered animations.
 
-The site uses static data structures for content:
-- Hero carousel slides with titles, descriptions, and navigation links
-- Service offerings with icons and descriptions
-- Testimonials with rotating text content
+### Styling
 
-## Language & SEO
+- **Fonts**: Poppins (headings via `--font-heading`), Open Sans (body via `--font-body`)
+- **Colors**: Brand gradient uses green (#9bbd2d, #7db042) and orange (#f49918, #e67e00)
+- **Tailwind**: Utility-first with custom CSS variables
+- **Custom CSS**: `src/styles/style.css`, `src/styles/typography.css`
 
-- **Primary language**: Italian (lang="it" in HTML)
-- **SEO metadata**: Managed in src/app/metadata.ts
-- **Accessible navigation**: Headless UI components for keyboard navigation
+### Image Handling
 
-## Development Notes
+- Next.js Image component with AVIF/WebP optimization
+- Images in `/public/img/`
+- Configured device sizes in `next.config.ts`
 
-- All interactive components use 'use client' directive
-- Custom hook useSticky for navbar scroll behavior
-- No external API calls - all data is static
-- Image assets are served from /public/ directory
+## Key Patterns
+
+- All interactive components require `'use client'` directive
+- `useSticky` hook for navbar scroll behavior
+- No external API calls - all content is static
+- SEO metadata in `src/app/metadata.ts`, per-page metadata via `generateMetadata()`
+- Error boundaries at multiple levels (`error.tsx`, `global-error.tsx`)
+- Accessibility: Skip-to-content link, semantic HTML, keyboard navigation

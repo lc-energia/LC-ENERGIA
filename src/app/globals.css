@@ -179,6 +179,68 @@ html {
 }
 
 /* ============================================
+   FOCUS-VISIBLE STYLES (Accessibility)
+   Consistent keyboard navigation indicators
+   ============================================ */
+
+/* Remove default outline and add custom focus-visible */
+*:focus {
+  outline: none;
+}
+
+/* Custom focus-visible for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible:not([tabindex="-1"]) {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Primary color focus for primary buttons/elements */
+.btn-primary:focus-visible,
+.bg-gradient-primary:focus-visible {
+  outline-color: var(--color-primary);
+}
+
+/* White focus ring for elements on dark backgrounds */
+.bg-gradient-secondary a:focus-visible,
+.bg-gradient-secondary button:focus-visible,
+.bg-gradient-combined a:focus-visible,
+.bg-gradient-combined button:focus-visible,
+.reasons-section a:focus-visible,
+.reasons-section button:focus-visible,
+.certificazioni-section a:focus-visible,
+.certificazioni-section button:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Focus ring with shadow for better visibility */
+.focus-ring-shadow:focus-visible {
+  box-shadow: 0 0 0 3px rgba(244, 153, 24, 0.4);
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-secondary);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
    CLASES DE UTILIDAD INSTITUCIONALES
    ============================================ */
 
