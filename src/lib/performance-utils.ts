@@ -122,15 +122,19 @@ export const preloadResource = (href: string, as: string, type?: string) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const reportWebVitals = (metric: any) => {
   // Enviar a analytics (Google Analytics, Vercel Analytics, etc.)
-  if (process.env.NODE_ENV === 'production') {
-    console.log(metric);
-    // TODO: Implementar tracking real
-    // window.gtag?.('event', metric.name, {
-    //   value: Math.round(metric.value),
-    //   event_label: metric.id,
-    //   non_interaction: true,
-    // });
+  if (process.env.NODE_ENV === 'development') {
+    // Only log in development
+    // eslint-disable-next-line no-console
+    console.log('[Web Vitals]', metric.name, metric.value);
   }
+  // TODO: Implement real tracking for production
+  // if (process.env.NODE_ENV === 'production') {
+  //   window.gtag?.('event', metric.name, {
+  //     value: Math.round(metric.value),
+  //     event_label: metric.id,
+  //     non_interaction: true,
+  //   });
+  // }
 };
 
 /**

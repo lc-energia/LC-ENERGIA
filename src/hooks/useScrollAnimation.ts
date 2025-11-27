@@ -143,14 +143,16 @@ export const useCountUp = (end: number, duration: number = 2000) => {
 
 /**
  * Hook para detectar dirección del scroll
+ * Fixed: Use useRef instead of useState for lastScrollY to prevent infinite loop
  */
 export const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
 
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
@@ -158,12 +160,12 @@ export const useScrollDirection = () => {
         setScrollDirection('up');
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return scrollDirection;
 };
