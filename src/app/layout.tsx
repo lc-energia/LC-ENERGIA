@@ -6,6 +6,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import OrganizationSchema from '@/components/seo/OrganizationSchema';
+import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import SkipToContent from '@/components/accessibility/SkipToContent';
 import { RealPageLoader } from '@/components/loading/RealPageLoader';
 import { MobileOptimizer } from '@/components/mobile/MobileOptimizer';
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="it" className={`${poppins.variable} ${openSans.variable} font-body`}>
       <head>
         <OrganizationSchema />
+        <LocalBusinessSchema />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />

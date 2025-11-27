@@ -1,5 +1,39 @@
+import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import PremiumHero from '@/components/features/PremiumHero';
+
+const siteUrl = 'https://www.lcenergia.it';
+
+export const metadata: Metadata = {
+  title: 'LC ENERGIA | Soluzioni Energetiche Innovative per il Futuro',
+  description: 'LC Energia offre servizi di progettazione impiantistica, riqualificazione energetica, impianti fotovoltaici e geotermici. Specialisti in efficienza energetica per edifici civili e industriali a Monza e Brianza.',
+  keywords: 'impianti fotovoltaici, riqualificazione energetica, progettazione impiantistica, efficienza energetica, Monza Brianza, pannelli solari, geotermico, certificazione energetica, stazioni ricarica elettrica',
+  openGraph: {
+    title: 'LC ENERGIA | Soluzioni Energetiche Innovative',
+    description: 'Progettazione impiantistica, impianti fotovoltaici e riqualificazione energetica. Il tuo partner per l\'efficienza energetica.',
+    url: siteUrl,
+    siteName: 'LC ENERGIA',
+    images: [
+      {
+        url: `${siteUrl}/img/home page.webp`,
+        width: 1200,
+        height: 630,
+        alt: 'LC Energia - Soluzioni Energetiche Innovative',
+      },
+    ],
+    locale: 'it_IT',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LC ENERGIA | Soluzioni Energetiche Innovative',
+    description: 'Il tuo partner per l\'efficienza energetica a Monza e Brianza.',
+    images: [`${siteUrl}/img/home page.webp`],
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+};
 
 // Lazy load componentes below the fold para mejor performance
 // Best Practice 2025: Code splitting automático
