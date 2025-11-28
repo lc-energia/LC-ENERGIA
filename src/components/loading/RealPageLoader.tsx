@@ -24,10 +24,8 @@ export const RealPageLoader = () => {
 
     // Detectar cuando la página está completamente cargada
     const handlePageLoad = () => {
-      // Esperar mínimo 1.5s para que se pueda leer la frase
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1500);
+      // Ocultar loader inmediatamente cuando la página esté lista
+      setIsLoading(false);
     };
 
     // Si la página ya está cargada

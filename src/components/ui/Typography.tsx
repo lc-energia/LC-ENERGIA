@@ -301,40 +301,81 @@ export function StatsNumber({ children, className }: { children: React.ReactNode
 }
 
 // Componentes para formularios
-export function FormLabel({ children, className }: { children: React.ReactNode; className?: string }) {
+interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+  children: React.ReactNode;
+  className?: string;
+  required?: boolean;
+}
+
+export function FormLabel({ children, className, htmlFor, required, ...props }: FormLabelProps) {
   return (
-    <label className={cn(
-      'form-label font-heading text-sm font-semibold text-primary block mb-2',
-      className
-    )}>
+    <label
+      htmlFor={htmlFor}
+      className={cn(
+        'form-label font-heading text-sm font-semibold text-primary block mb-2',
+        className
+      )}
+      {...props}
+    >
       {children}
+      {required && <span className="text-red-500 ml-1" aria-hidden="true">*</span>}
     </label>
   );
 }
 
-export function FormInput({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
+interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  error?: string;
+}
+
+export function FormInput({ className, id, error, 'aria-describedby': ariaDescribedby, ...props }: FormInputProps) {
   return (
-    <input
-      className={cn(
-        'form-input font-body text-base text-primary w-full px-4 py-2 border border-gray-300 rounded-md',
-        'focus:ring-2 focus:ring-accent focus:border-transparent',
-        className
+    <>
+      <input
+        id={id}
+        aria-invalid={error ? 'true' : undefined}
+        aria-describedby={error ? `${id}-error` : ariaDescribedby}
+        className={cn(
+          'form-input font-body text-base text-primary w-full px-4 py-2 border rounded-md',
+          'focus:ring-2 focus:ring-accent focus:border-transparent',
+          error ? 'border-red-500' : 'border-gray-300',
+          className
+        )}
+        {...props}
+      />
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-sm text-red-500" role="alert">
+          {error}
+        </p>
       )}
-      {...props}
-    />
+    </>
   );
 }
 
-export function FormTextarea({ className, ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+interface FormTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  error?: string;
+}
+
+export function FormTextarea({ className, id, error, 'aria-describedby': ariaDescribedby, ...props }: FormTextareaProps) {
   return (
-    <textarea
-      className={cn(
-        'form-textarea font-body text-base text-primary w-full px-4 py-2 border border-gray-300 rounded-md',
-        'focus:ring-2 focus:ring-accent focus:border-transparent resize-none',
-        className
+    <>
+      <textarea
+        id={id}
+        aria-invalid={error ? 'true' : undefined}
+        aria-describedby={error ? `${id}-error` : ariaDescribedby}
+        className={cn(
+          'form-textarea font-body text-base text-primary w-full px-4 py-2 border rounded-md',
+          'focus:ring-2 focus:ring-accent focus:border-transparent resize-none',
+          error ? 'border-red-500' : 'border-gray-300',
+          className
+        )}
+        {...props}
+      />
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-sm text-red-500" role="alert">
+          {error}
+        </p>
       )}
-      {...props}
-    />
+    </>
   );
 }
 
