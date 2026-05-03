@@ -19,7 +19,7 @@ export default function ServiceSchema({ name, description, slug }: ServiceSchema
     "provider": {
       "@type": "Organization",
       "name": "LC Energia",
-      "url": "https://lc-energia.it"
+      "url": "https://www.lc-energia.it"
     },
     "areaServed": {
       "@type": "GeoCircle",
@@ -32,7 +32,7 @@ export default function ServiceSchema({ name, description, slug }: ServiceSchema
     },
     "availableChannel": {
       "@type": "ServiceChannel",
-      "serviceUrl": `https://lc-energia.it/${slug}`,
+      "serviceUrl": `https://www.lc-energia.it/${slug}`,
       "serviceLocation": {
         "@type": "Place",
         "address": {

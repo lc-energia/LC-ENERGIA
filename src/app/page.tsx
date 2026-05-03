@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import PremiumHero from '@/components/features/PremiumHero';
 
-const siteUrl = 'https://lc-energia.it';
+const siteUrl = 'https://www.lc-energia.it';
 
 export const metadata: Metadata = {
   title: 'LC ENERGIA | Soluzioni Energetiche Innovative per il Futuro',

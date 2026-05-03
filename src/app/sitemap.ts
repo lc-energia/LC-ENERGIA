@@ -6,7 +6,7 @@ import { servicesData } from '@/data/services';
  * Genera automáticamente todas las URLs del sitio
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://lc-energia.it';
+  const baseUrl = 'https://www.lc-energia.it';
 
   // Páginas estáticas
   const staticPages = [

@@ -8,8 +8,8 @@ export default function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "LC Energia",
-    "url": "https://lc-energia.it",
-    "logo": "https://lc-energia.it/img/logo.png",
+    "url": "https://www.lc-energia.it",
+    "logo": "https://www.lc-energia.it/img/logo.png",
     "description": "LC Energia offre servizi di alta qualità per la riqualificazione energetica e la progettazione tecnologica, contribuendo attivamente alla decarbonizzazione e all'efficienza energetica.",
     "address": {
       "@type": "PostalAddress",

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import AccreditiContent from './AccreditiContent';
 
-const siteUrl = 'https://lc-energia.it';
+const siteUrl = 'https://www.lc-energia.it';
 
 export const metadata: Metadata = {
   title: 'Accrediti',

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import AziendaContent from './AziendaContent';
 
-const siteUrl = 'https://lc-energia.it';
+const siteUrl = 'https://www.lc-energia.it';
 
 export const metadata: Metadata = {
   title: 'Azienda',
