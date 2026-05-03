@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   const description = stripHtml(service.introduction).substring(0, 160);
-  const siteUrl = 'https://www.lcenergia.it';
+  const siteUrl = 'https://lc-energia.it';
 
   return {
     title: service.title,

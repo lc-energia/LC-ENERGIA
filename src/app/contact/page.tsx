@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ContactContent from './ContactContent';
 
-const siteUrl = 'https://www.lcenergia.it';
+const siteUrl = 'https://lc-energia.it';
 
 export const metadata: Metadata = {
   title: 'Contatti',

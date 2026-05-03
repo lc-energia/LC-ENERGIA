@@ -5,7 +5,7 @@ import { MetadataRoute } from 'next';
  * Configura cómo los motores de búsqueda rastrean el sitio
  */
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.lcenergia.it';
+  const baseUrl = 'https://lc-energia.it';
 
   return {
     rules: [

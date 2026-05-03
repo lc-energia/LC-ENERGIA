@@ -58,8 +58,8 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
   // Preparar datos para schemas SEO
   const cleanDescription = stripHtml(service.introduction).substring(0, 160);
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://www.lcenergia.it' },
-    { name: service.breadcrumb, url: `https://www.lcenergia.it/${slug}` }
+    { name: 'Home', url: 'https://lc-energia.it' },
+    { name: service.breadcrumb, url: `https://lc-energia.it/${slug}` }
   ];
 
   return (

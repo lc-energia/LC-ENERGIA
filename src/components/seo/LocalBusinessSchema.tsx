@@ -3,7 +3,7 @@
  * Provides structured data for local business search results
  */
 
-const siteUrl = 'https://www.lcenergia.it';
+const siteUrl = 'https://lc-energia.it';
 
 const localBusinessData = {
   '@context': 'https://schema.org',

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const siteUrl = 'https://www.lcenergia.it'; // TODO: Replace with your actual domain
+const siteUrl = 'https://lc-energia.it';
 
 export const metadata: Metadata = {
   title: {

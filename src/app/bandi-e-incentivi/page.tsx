@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import BandiIncentiviContent from './BandiIncentiviContent';
 
-const siteUrl = 'https://www.lcenergia.it';
+const siteUrl = 'https://lc-energia.it';
 
 export const metadata: Metadata = {
   title: 'Bandi e Incentivi | LC ENERGIA - Finanziamenti per Energia Rinnovabile',
