@@ -19,17 +19,6 @@ interface ContoTermicoServiceProps {
 export default function ContoTermicoService({ service }: ContoTermicoServiceProps) {
   return (
     <div className="w-full">
-      {/* Título Conto Termico 2.0 */}
-      <motion.div
-        className="mb-8"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportSettings}
-      >
-        <h2 className="text-3xl font-bold text-gradient-combined mb-4">Conto Termico 2.0</h2>
-      </motion.div>
-
       {/* Secciones personalizadas */}
       {service.sections.map((section, index) => {
         // Sección "Come si recupera l'incentivo?" sin imagen
@@ -74,10 +63,8 @@ export default function ContoTermicoService({ service }: ContoTermicoServiceProp
                   />
                 </motion.div>
                 <motion.div className="lg:col-span-1" variants={fadeInUp}>
-                  <div className="bg-white rounded-xl shadow-card hover-lift hover-shine p-8 h-full border border-primary-100 transition-smooth">
                     <h5 className="text-xl font-bold mb-3 text-gradient-primary">{section.title}</h5>
                     <SafeHTML html={section.content} className="text-sm text-gray-600 leading-relaxed" />
-                  </div>
                 </motion.div>
               </div>
             </motion.div>
