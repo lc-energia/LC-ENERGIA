@@ -10,8 +10,8 @@ export const ContoTermicoService: ServiceData = {
         content: 'Dopo la conclusione dell\'intervento potrai procedere all\'invio della tua pratica al GSE che entro qualche mese ti accrediterà il contributo sul tuo conto corrente. Il limite massimo per l\'erogazione degli incentivi in un\'unica rata è di 5.000 euro.',
       },
       {
-        title: 'Cos\'è, come funziona e come accedere agli incentivi',
-        content: 'Il 5 agosto 2025 è stato approvato il Conto Termico 3.0, che aggiorna e sostituisce il precedente Conto Termico 2.0. L\'obiettivo principale è quello di ampliare l\'accesso agli incentivi e adeguare massimali, tipologie di intervento e regole operative ai costi e alle tecnologie attuali. Il Conto Termico 3.0 costituisce una nuova opportunità di finanziamento per migliorare l\'efficienza energetica degli edifici e promuovere la produzione di energia termica da fonti rinnovabili. Per imprese, enti pubblici e cittadini, questa misura offre la possibilità di realizzare interventi concreti volti alla riduzione dei consumi energetici e dei relativi costi.',
+        title: 'Come funziona l\'incentivo e come richiederlo',
+        content: 'Il 5 agosto 2025 è stato approvato il Conto Termico 3.0, che aggiorna e sostituisce il precedente Conto Termico 2.0. L\'obiettivo principale è quello di ampliare l\'accesso agli incentivi e adeguare massimali, tipologie di intervento e regole operative ai costi e alle tecnologie attuali.<br><br>Il Conto Termico 3.0 costituisce una nuova opportunità di finanziamento per migliorare l\'efficienza energetica degli edifici e promuovere la produzione di energia termica da fonti rinnovabili. Per imprese, enti pubblici e cittadini, questa misura offre la possibilità di realizzare interventi concreti volti alla riduzione dei consumi energetici e dei relativi costi.',
       },
       {
         title: 'Chi può beneficiarne',

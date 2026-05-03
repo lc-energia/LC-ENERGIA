@@ -41,7 +41,7 @@ export default function ContoTermicoService({ service }: ContoTermicoServiceProp
         }
 
         // Sección "Cos'è, come funziona..." con imagen
-        if (section.title === "Cos'è, come funziona e come accedere agli incentivi") {
+        if (section.title === "Come funziona l'incentivo e come richiederlo") {
           return (
             <motion.div
               key={index}

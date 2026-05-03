@@ -795,7 +795,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             }
 
             // Diseño especial para las secciones de Conto Termico - Con imagen en primera sección
-            if (slug === 'conto-termico' && section.title === 'Cos\'è, come funziona e come accedere agli incentivi') {
+            if (slug === 'conto-termico' && section.title === 'Come funziona l\'incentivo e come richiederlo') {
               return (
                 <motion.div
                   key={i}
@@ -843,7 +843,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             if (slug === 'conto-termico' && section.title === 'Requisiti per accedere al Conto Termico 3.0') {
               const contoTermico3Sections = service.sections.filter(s =>
                 s.title !== 'Come si recupera l\'incentivo?' &&
-                s.title !== 'Cos\'è, come funziona e come accedere agli incentivi'
+                s.title !== 'Come funziona l\'incentivo e come richiederlo'
               );
 
               return (
@@ -875,7 +875,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
             }
 
             // Skip other Conto Termico 3.0 sections as they're rendered in the grid above
-            if (slug === 'conto-termico' && section.title !== 'Cos\'è, come funziona e come accedere agli incentivi' && section.title !== 'Requisiti per accedere al Conto Termico 3.0') {
+            if (slug === 'conto-termico' && section.title !== 'Come funziona l\'incentivo e come richiederlo' && section.title !== 'Requisiti per accedere al Conto Termico 3.0') {
               return null;
             }
 
