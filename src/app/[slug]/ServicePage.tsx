@@ -492,35 +492,44 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                 whileInView="visible"
                 viewport={viewportSettings}
               >
-                {/* 1. Impianti Elettrici - Fondo Naranja */}
+                {/* 1. Progettazione e Consulenza Tecnica - Fondo Naranja especial */}
                 <motion.div
                   variants={cardEntrance}
                 >
-                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
-                    <div className="mb-6">
-                      <Heading2 color="white" className="font-bold !text-white text-left">Impianti Elettrici</Heading2>
-                    </div>
-                    <div className="space-y-3">
-                      {[
-                        "Impianti elettrici civili ed industriali",
-                        "Sistemi domotici",
-                        "Building Automation",
-                        "Impianti di illuminazione"
-                      ].map((item, j) => (
-                        <motion.div
-                          key={j}
-                          className="group relative pl-8 py-2 bg-white/10 rounded-lg border-l-2 border-white/30 hover:border-white hover:bg-white/20 transition-all duration-500"
-                          whileHover={{ x: 8 }}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: 0.1 + j * 0.1 }}
-                        >
-                          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
-                          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+                  <div className="rounded-2xl p-8 border-l-4 border-white hover:shadow-xl transition-all duration-300 relative overflow-hidden h-full bg-gradient-secondary">
+                    {/* Efecto decorativo */}
+                    <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full"></div>
+                    <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full"></div>
+
+                    <div className="relative z-10">
+                      <div className="mb-6">
+                        <Heading2 color="white" className="font-bold !text-white text-left">Progettazione e Consulenza Tecnica</Heading2>
+                      </div>
+                      <Text color="white" justify={false} size="lg" className="font-semibold mb-4 text-left">
+                        LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:
+                      </Text>
+                      <div className="space-y-3">
+                        {[
+                          "Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.",
+                          "Definizione della tipologia di impianto in relazione alla struttura, con sistemi di controllo e monitoraggio on-site e remoto.",
+                          "Assistenza ai lavori per perseguire e conseguire il risultato previsto nelle fasi di progettazione ed esecuzione.",
+                          "Assistenza al collaudo delle opere e la loro certificazione."
+                        ].map((item, j) => (
+                          <motion.div
+                            key={j}
+                            className="group relative pl-8 py-2 bg-white/10 rounded-lg border-l-2 border-white/30 hover:border-white hover:bg-white/20 transition-all duration-500"
+                            whileHover={{ x: 8 }}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 + j * 0.1 }}
+                          >
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
                            <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
-                        </motion.div>
-                      ))}
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -572,44 +581,35 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                   </div>
                 </motion.div>
 
-                {/* 4. Progettazione e Consulenza Tecnica - Fondo Naranja especial */}
+                {/* 4. Impianti Elettrici - Fondo Naranja */}
                 <motion.div
                   variants={cardEntrance}
                 >
-                  <div className="rounded-2xl p-8 border-l-4 border-white hover:shadow-xl transition-all duration-300 relative overflow-hidden h-full bg-gradient-secondary">
-                    {/* Efecto decorativo */}
-                    <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full"></div>
-                    <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full"></div>
-
-                    <div className="relative z-10">
-                      <div className="mb-6">
-                        <Heading2 color="white" className="font-bold !text-white text-left">Progettazione e Consulenza Tecnica</Heading2>
-                      </div>
-                      <Text color="white" justify={false} size="lg" className="font-semibold mb-4 text-left">
-                        LC Energia gestisce direttamente, con personale qualificato, attraverso le diverse fasi di progettazione:
-                      </Text>
-                      <div className="space-y-3">
-                        {[
-                          "Progettazione integrata degli impianti con collaborazione costante con le altre figure professionali coinvolte.",
-                          "Definizione della tipologia di impianto in relazione alla struttura, con sistemi di controllo e monitoraggio on-site e remoto.",
-                          "Assistenza ai lavori per perseguire e conseguire il risultato previsto nelle fasi di progettazione ed esecuzione.",
-                          "Assistenza al collaudo delle opere e la loro certificazione."
-                        ].map((item, j) => (
-                          <motion.div
-                            key={j}
-                            className="group relative pl-8 py-2 bg-white/10 rounded-lg border-l-2 border-white/30 hover:border-white hover:bg-white/20 transition-all duration-500"
-                            whileHover={{ x: 8 }}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 + j * 0.1 }}
-                          >
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+                  <div className="rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-xl h-full bg-gradient-secondary">
+                    <div className="mb-6">
+                      <Heading2 color="white" className="font-bold !text-white text-left">Impianti Elettrici</Heading2>
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        "Impianti elettrici civili ed industriali",
+                        "Sistemi domotici",
+                        "Building Automation",
+                        "Impianti di illuminazione"
+                      ].map((item, j) => (
+                        <motion.div
+                          key={j}
+                          className="group relative pl-8 py-2 bg-white/10 rounded-lg border-l-2 border-white/30 hover:border-white hover:bg-white/20 transition-all duration-500"
+                          whileHover={{ x: 8 }}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: 0.1 + j * 0.1 }}
+                        >
+                          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white group-hover:bg-white/90 group-hover:scale-125 transition-all duration-500 shadow-white/20" />
+                          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-gradient-to-b from-white/80 via-white/50 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
 
                            <Text color="white" justify={false} className="font-medium leading-tight text-left">{item}</Text>
-                          </motion.div>
-                        ))}
-                      </div>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </motion.div>
