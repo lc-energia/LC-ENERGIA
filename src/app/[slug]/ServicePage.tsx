@@ -664,7 +664,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                       whileHover={{ x: 8, scale: 1.02 }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-secondary/0 via-secondary/0 to-secondary/0 group-hover:from-secondary/10 group-hover:via-secondary/5 group-hover:to-secondary/10 transition-smooth"></div>
-                      <p className="text-xs text-gray-700 leading-tight relative z-10 group-hover:text-primary transition-colors duration-150">{item}</p>
+                      <p className="text-xs text-gray-700 font-bold leading-tight relative z-10 group-hover:text-primary transition-colors duration-150">{item}</p>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -943,7 +943,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
 
                             {/* Lista especial para secciones con listas */}
                             {section.list && (
-                              <div className="bg-white rounded-lg p-4 border border-gray-200">
+                              <>
                                 {section.title === 'Cosa copre il PNRR?' && (
                                    <p className="font-semibold text-sm mb-3 text-black">Rientrano nell&apos;incentivo in particolare:</p>
                                 )}
@@ -982,7 +982,7 @@ const ServicePage = ({ service, slug }: { service: ServiceData, slug: string }) 
                                     </ul>
                                   </div>
                                 )}
-                              </div>
+                              </>
                             )}
                           </div>
                         </div>
